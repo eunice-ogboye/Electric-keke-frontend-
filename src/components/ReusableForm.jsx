@@ -42,6 +42,10 @@ const ReusableForm = ({ type = "register" }) => {
     otp: "OTP!",
     otp2: "Complete Your Profile!",
     congrats: "Continue to Log in",
+    login: "Log in to your Account",
+    forget: "Forgot Password",
+    new: "Enter New Password",
+    passUpdate: "Enter Code"
   };
 
   return (
@@ -84,7 +88,11 @@ const ReusableForm = ({ type = "register" }) => {
             title={formTitle[type]}
             className="text-center mt-10"
             description={
-              type === "otp2" && "please enter the one time password sent (OTP)"
+              type === "otp2"
+                ? "please enter the one time password sent (OTP)"
+                : type === "forget"
+                ? "Enter registered phone number or email to receive a reset code"
+                : null
             }
           />
 
@@ -108,7 +116,7 @@ const ReusableForm = ({ type = "register" }) => {
                 );
               })}
             </div>
-          ) : type === "otp2" ? (
+          ) : type === "otp2" || type === 'passUpdate' ? (
             <div className="mt-40 w-[396px] mx-auto">
               <div className="flex-center border">
                 <InputOTP
@@ -151,43 +159,106 @@ const ReusableForm = ({ type = "register" }) => {
                 <p className="">00:30</p>
               </div>
             </div>
+          ) : type === "login" ? (
+            <div className="my-5 flex flex-col space-y-5">
+              <FormRow
+                type="text"
+                label="Email or Phone number"
+                name="name"
+                value={formData.name}
+                handleChange={handleChange}
+              />
+              <FormRow
+                type="password"
+                label="Password"
+                value={formData.password}
+                handleChange={handleChange}
+              />
+              <FormRow
+                type="password"
+                label="Confirm Password"
+                name="checkPass"
+                value={formData.checkPass}
+                handleChange={handleChange}
+              />
+            </div>
+          ) : type === "forget" ? (
+            <div className="my-5">
+              <FormRow
+                type="text"
+                label="Email or phone number"
+                name="name"
+                value={formData.name}
+                handleChange={handleChange}
+              />
+            </div>
+          ) : type === "new" ? (
+            <div className="my-5 flex flex-col space-y-5">
+              <FormRow
+                type="password"
+                label="New Password"
+                name="password"
+                value={formData.password}
+                handleChange={handleChange}
+              />
+              <FormRow
+                type="password"
+                label="Confirm Password"
+                name="checkPass"
+                value={formData.checkPass}
+                handleChange={handleChange}
+              />
+            </div>
           ) : (
-            <>
-              <div className="my-5 flex flex-col space-y-5">
+            <div className="my-5 flex flex-col space-y-5">
+              <FormRow
+                type="text"
+                label="Full Name"
+                name="name"
+                value={formData.name}
+                handleChange={handleChange}
+              />
+              <FormRow
+                type={type === "register" ? "email" : "text"}
+                label={type === "register" ? "Email" : "State of residence"}
+                name={type === "register" ? "email" : "state"}
+                value={type === "register" ? formData.email : formData.state}
+                handleChange={handleChange}
+              />
+              <FormRow
+                type={type === "register" ? "password" : "text"}
+                label={type === "register" ? "Create Password" : "Address"}
+                name={type === "register" ? "password" : "address"}
+                value={
+                  type === "register" ? formData.password : formData.address
+                }
+                handleChange={handleChange}
+              />
+              {type === "register" && (
                 <FormRow
-                  type="text"
-                  label="Full Name"
-                  name="name"
-                  value={formData.name}
+                  type="password"
+                  label="Confirm Password"
+                  name="checkPass"
+                  value={formData.checkPass}
                   handleChange={handleChange}
                 />
-                <FormRow
-                  type={type === "register" ? "email" : "text"}
-                  label={type === "register" ? "Email" : "State of residence"}
-                  name={type === "register" ? "email" : "state"}
-                  value={type === "register" ? formData.email : formData.state}
-                  handleChange={handleChange}
-                />
-                <FormRow
-                  type={type === "register" ? "password" : "text"}
-                  label={type === "register" ? "Create Password" : "Address"}
-                  name={type === "register" ? "password" : "address"}
-                  value={
-                    type === "register" ? formData.password : formData.address
-                  }
-                  handleChange={handleChange}
-                />
-                {type === "register" && (
-                  <FormRow
-                    type="password"
-                    label="Confirm Password"
-                    name="checkPass"
-                    value={formData.checkPass}
-                    handleChange={handleChange}
-                  />
-                )}
+              )}
+            </div>
+          )}
+
+          {type === "login" && (
+            <div className="flex items-center justify-between w-[80%] mx-auto">
+              <div className="flex gap-2">
+                <input type="checkbox" name="remember" id="remember" />
+                <label htmlFor="remember">Remember me</label>
               </div>
-            </>
+              <Link
+                to="/account/forgot-password"
+                onClick={() => switchOnboardingType("forget")}
+              >
+                <p className="font-semibold">Forgot Password?</p>
+              </Link>
+            </div>
           )}
 
           {type === "otp" ? null : (
@@ -207,12 +278,36 @@ const ReusableForm = ({ type = "register" }) => {
                     switchOnboardingType("congrats");
                     return navigate("/onboarding/congrats");
                   }
+                  if (type === "forget") {
+                    switchOnboardingType("new");
+                    return navigate("/update/pass");
+                  }
+                  if (type === 'new') {
+                    switchOnboardingType('passUpdate');
+                    return navigate('/update/passcode')
+                  }
                 }}
               >
-                Continue
+                {type === "login"
+                  ? "Login"
+                  : type === "forget"
+                  ? "Send Code"
+                  : "Continue"}
               </Button>
 
-              {type === "register" ? (
+              {type === "login" && (
+                <p className="text-center">
+                  Dont have an account?{" "}
+                  <Link
+                    to="/onboarding/register"
+                    onClick={() => switchOnboardingType("register")}
+                  >
+                    Sign Up!
+                  </Link>
+                </p>
+              )}
+
+              {type === "register" || type === "login" ? (
                 <div className="text-center">
                   <p className="font-semibold text-center">or</p>
                   <Button
@@ -222,10 +317,10 @@ const ReusableForm = ({ type = "register" }) => {
                     <span>
                       <img src="/google.svg" alt="google" />
                     </span>
-                    Continue
+                    Continue with Google
                   </Button>
                 </div>
-              ) : (
+              ) : type === "forget" || type === "new" ? null : (
                 <div className="text-sm flex-center gap-1">
                   <img src="/small-lock.svg" alt="lock" />
                   Your info is safely secure

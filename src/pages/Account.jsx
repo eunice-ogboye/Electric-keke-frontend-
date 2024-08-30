@@ -18,7 +18,19 @@ const Account = () => {
   return (
     <div className="py-5 px-20 w-1/2">
       <p className="border text-right">
-        Already have an account? <Link className="text-green-500">Log in</Link>
+        Already have an account?{" "}
+        <Link
+          to="/login/in"
+          className="text-green-500"
+          onClick={() =>
+            dispatch({
+              type: "changeBg",
+              payload: { onboardingType: "login" },
+            })
+          }
+        >
+          Log in
+        </Link>
       </p>
 
       <div className="mt-20">
