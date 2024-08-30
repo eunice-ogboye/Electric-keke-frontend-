@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useTitle } from "../lib/hooks";
 import { useGlobalContext } from "../context";
 import { useEffect } from "react";
+import { cn } from "../lib/utils";
 
 const Account = () => {
   useTitle("Account");
@@ -16,8 +17,8 @@ const Account = () => {
   }, []);
 
   return (
-    <div className="py-5 px-20 w-1/2">
-      <p className="border text-right">
+    <div className="board-pad w-1/2">
+      <p className="text-right font-josefin text-base">
         Already have an account?{" "}
         <Link
           to="/login/in"
@@ -33,7 +34,7 @@ const Account = () => {
         </Link>
       </p>
 
-      <div className="mt-20">
+      <div className="mt-[10.5rem]">
         <Heading
           title="Join Us!"
           description="To begin, select your kind of account"
@@ -52,10 +53,13 @@ const Account = () => {
               }
             >
               <div
-                className={`flex items-center justify-between h-28 rounded-md px-7 py-6 cursor-pointer ${
-                  item.title === type &&
-                  "bg-green-200/30 border border-green-300"
-                }`}
+                className={cn(
+                  `flex items-center justify-between max-w-[26.625rem] h-28 rounded-md px-7 py-6 cursor-pointer`,
+                  {
+                    "bg-pgreen-fade border border-pgreen-thick":
+                      item.title === type,
+                  }
+                )}
                 onClick={() => setType(item.title)}
               >
                 <div className="flex items-center gap-5">

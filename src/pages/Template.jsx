@@ -18,7 +18,7 @@ const Template = () => {
   }, []);
 
   return (
-    <div className="py-5 px-20 w-1/2">
+    <div className="board-pad w-1/2">
       <ReusableForm type={onboardingType} />
     </div>
   );

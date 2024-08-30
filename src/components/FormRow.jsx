@@ -3,7 +3,7 @@ import React from "react";
 const FormRow = ({ label, name, type, handleChange, value }) => {
   return (
     <div className="flex flex-col">
-      <label htmlFor={name} className="text-base">
+      <label htmlFor={name} className="text-eiteen text-neutral font-normal">
         {label}
       </label>
       <input

@@ -64,7 +64,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-josefin;
   }
 }
 
@@ -73,3 +73,24 @@
     @apply flex items-center justify-center;
   }
 }
+
+.board {
+  @apply w-1/2 min-h-screen shadow-2xl relative;
+}
+
+.board-pad {
+  @apply py-[2.1875rem] px-[7.5rem];
+}
+
+.cancel-btn {
+  @apply rounded-full size-11 bg-white flex-center absolute top-9 left-9 z-20;
+}
+
+.overlay {
+  @apply bg-black/70 size-full absolute top-0 left-0 flex-center;
+}
+
+.briefing {
+  @apply text-white font-bold text-[2rem];
+}
+

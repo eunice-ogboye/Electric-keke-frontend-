@@ -13,6 +13,7 @@ import {
   InputOTPSeparator,
   InputOTPSlot,
 } from "../components/ui/input-otp";
+import { cn } from "../lib/utils";
 
 const ReusableForm = ({ type = "register" }) => {
   const { dispatch } = useGlobalContext();
@@ -45,16 +46,16 @@ const ReusableForm = ({ type = "register" }) => {
     login: "Log in to your Account",
     forget: "Forgot Password",
     new: "Enter New Password",
-    passUpdate: "Enter Code"
+    passUpdate: "Enter Code",
   };
 
   return (
     <>
       {type === "congrats" ? (
-        <>
+        <div className="mt-32">
           <Logo
             logoClassName="size-16"
-            titleClassName="text-green-400 font-bold text-2xl"
+            titleClassName="text-pgreen-thick text-[1.5rem]"
           />
           <Heading
             title={formTitle[type]}
@@ -64,25 +65,34 @@ const ReusableForm = ({ type = "register" }) => {
             }
           />
 
-          <div className="w-[25.5rem] h-[16rem] border shadow-md rounded-md mx-auto my-10 flex-center">
-            <div className="rounded-full bg-green-800 size-20 flex-center">
+          <div className="w-[25.5rem] h-[16rem] border shadow-md rounded-md mx-auto mt-24 flex-center">
+            <div className="rounded-full bg-pgreen-3 size-20 flex-center">
               <img src="/tick.svg" alt="tick" />
             </div>
           </div>
 
-          <div className="mt-10">
-            <Button className="block mx-auto mb-5 rounded-full">Proceed</Button>
+          <div className="mt-14 max-w-[343px] mx-auto">
+            <Button className="bg-pgreen-thick mb-5 rounded-full w-full">
+              Proceed
+            </Button>
             <div className="text-sm flex-center gap-1">
               <img src="/small-lock.svg" alt="lock" />
               Your info is safely secure
             </div>
           </div>
-        </>
+        </div>
       ) : (
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className={cn({
+            "mt-20": type === "otp",
+            "mt-24": type === "complete",
+            "mt-32": type === "otp2" || type === 'forget' || type === 'new' || type === 'passUpdate',
+          })}
+        >
           <Logo
             logoClassName="size-16"
-            titleClassName="text-green-400 font-bold text-2xl"
+            titleClassName="text-pgreen-thick text-[1.5rem]"
           />
           <Heading
             title={formTitle[type]}
@@ -97,7 +107,7 @@ const ReusableForm = ({ type = "register" }) => {
           />
 
           {type === "otp" ? (
-            <div className="flex flex-col gap-5 mt-10">
+            <div className="flex flex-col gap-5 mt-[3rem] mb-20">
               <p>Where should we send your OTP?</p>
               {otp_choice.map((item) => {
                 return (
@@ -116,8 +126,8 @@ const ReusableForm = ({ type = "register" }) => {
                 );
               })}
             </div>
-          ) : type === "otp2" || type === 'passUpdate' ? (
-            <div className="mt-40 w-[396px] mx-auto">
+          ) : type === "otp2" || type === "passUpdate" ? (
+            <div className="mt-[3rem] mb-20 w-[396px] mx-auto">
               <div className="flex-center border">
                 <InputOTP
                   maxLength={5}
@@ -160,7 +170,7 @@ const ReusableForm = ({ type = "register" }) => {
               </div>
             </div>
           ) : type === "login" ? (
-            <div className="my-5 flex flex-col space-y-5">
+            <div className="mt-[3rem] mb-20 flex flex-col space-y-5">
               <FormRow
                 type="text"
                 label="Email or Phone number"
@@ -183,7 +193,7 @@ const ReusableForm = ({ type = "register" }) => {
               />
             </div>
           ) : type === "forget" ? (
-            <div className="my-5">
+            <div className="mt-[3rem] mb-20">
               <FormRow
                 type="text"
                 label="Email or phone number"
@@ -193,7 +203,7 @@ const ReusableForm = ({ type = "register" }) => {
               />
             </div>
           ) : type === "new" ? (
-            <div className="my-5 flex flex-col space-y-5">
+            <div className="mt-[3rem] mb-20 flex flex-col space-y-5">
               <FormRow
                 type="password"
                 label="New Password"
@@ -210,7 +220,7 @@ const ReusableForm = ({ type = "register" }) => {
               />
             </div>
           ) : (
-            <div className="my-5 flex flex-col space-y-5">
+            <div className="mt-[3rem] mb-20 flex flex-col space-y-5">
               <FormRow
                 type="text"
                 label="Full Name"
@@ -247,7 +257,7 @@ const ReusableForm = ({ type = "register" }) => {
           )}
 
           {type === "login" && (
-            <div className="flex items-center justify-between w-[80%] mx-auto">
+            <div className="flex items-center justify-between w-[80%] mx-auto mb-10">
               <div className="flex gap-2">
                 <input type="checkbox" name="remember" id="remember" />
                 <label htmlFor="remember">Remember me</label>
@@ -262,9 +272,9 @@ const ReusableForm = ({ type = "register" }) => {
           )}
 
           {type === "otp" ? null : (
-            <div className="mt-5">
+            <div className="max-w-[343px] mx-auto">
               <Button
-                className="rounded-full mx-auto block"
+                className="rounded-full block w-full bg-pgreen-thick"
                 onClick={() => {
                   if (type === "register") {
                     switchOnboardingType("complete");
@@ -282,9 +292,9 @@ const ReusableForm = ({ type = "register" }) => {
                     switchOnboardingType("new");
                     return navigate("/update/pass");
                   }
-                  if (type === 'new') {
-                    switchOnboardingType('passUpdate');
-                    return navigate('/update/passcode')
+                  if (type === "new") {
+                    switchOnboardingType("passUpdate");
+                    return navigate("/update/passcode");
                   }
                 }}
               >
@@ -296,7 +306,7 @@ const ReusableForm = ({ type = "register" }) => {
               </Button>
 
               {type === "login" && (
-                <p className="text-center">
+                <p className="text-center mt-10 text-eiteen">
                   Dont have an account?{" "}
                   <Link
                     to="/onboarding/register"
@@ -308,20 +318,26 @@ const ReusableForm = ({ type = "register" }) => {
               )}
 
               {type === "register" || type === "login" ? (
-                <div className="text-center">
-                  <p className="font-semibold text-center">or</p>
+                <div className="text-center mt-10">
+                  {type === "register" && (
+                    <p className="font-bold text-center text-base mb-1">or</p>
+                  )}
                   <Button
-                    className="rounded-full mx-auto flex items-center gap-2 shadow-lg"
+                    className="rounded-full w-full flex items-center gap-10 shadow-lg font-bold"
                     variant="ghost"
                   >
                     <span>
                       <img src="/google.svg" alt="google" />
                     </span>
-                    Continue with Google
+                    {type === "register" ? "Register" : "Continue"} with Google
                   </Button>
                 </div>
               ) : type === "forget" || type === "new" ? null : (
-                <div className="text-sm flex-center gap-1">
+                <div
+                  className={cn("text-sm flex-center gap-1 mt-20", {
+                    "mt-5": type === "otp2",
+                  })}
+                >
                   <img src="/small-lock.svg" alt="lock" />
                   Your info is safely secure
                 </div>

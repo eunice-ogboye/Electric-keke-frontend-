@@ -4,7 +4,7 @@ const Heading = ({ title, description, className }) => {
   return (
     <div className={className}>
       <h1 className="font-bold text-[2rem]">{title}</h1>
-      {description && <p className="font-normal">{description}</p>}
+      {description && <p className="font-normal text-eiteen text-tblack">{description}</p>}
     </div>
   );
 };

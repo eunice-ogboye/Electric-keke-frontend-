@@ -2,10 +2,10 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{js,jsx}',
-    './components/**/*.{js,jsx}',
-    './app/**/*.{js,jsx}',
-    './src/**/*.{js,jsx}',
+    "./pages/**/*.{js,jsx}",
+    "./components/**/*.{js,jsx}",
+    "./app/**/*.{js,jsx}",
+    "./src/**/*.{js,jsx}",
   ],
   prefix: "",
   theme: {
@@ -17,6 +17,18 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        mobile: "480px",
+        tablet: "834px",
+        laptop: "1440px",
+      },
+      fontFamily: {
+        josefin: ["Josefin Sans", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+      },
+      fontSize: {
+        eiteen: "1.125rem",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -38,6 +50,7 @@ module.exports = {
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
+          1: "#696F79",
         },
         accent: {
           DEFAULT: "hsl(var(--accent))",
@@ -51,6 +64,16 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        tblack: {
+          DEFAULT: "#494949",
+        },
+        pgreen: {
+          fade: "#E8F4E8",
+          thick: "#77BB77",
+          3: "#0B7B69",
+        },
+        neutral: "#898483",
+        "base-white": "#FAFAFA",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -74,4 +97,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
