@@ -1,10 +1,10 @@
 import React from "react";
 
-const Heading = ({ title, description }) => {
+const Heading = ({ title, description, className }) => {
   return (
-    <div>
+    <div className={className}>
       <h1 className="font-bold text-[2rem]">{title}</h1>
-      <p className="font-normal">{description}</p>
+      {description && <p className="font-normal">{description}</p>}
     </div>
   );
 };
