@@ -56,8 +56,7 @@ const Account = () => {
                 className={cn(
                   `flex items-center justify-between max-w-[26.625rem] h-28 rounded-md px-7 py-6 cursor-pointer`,
                   {
-                    "bg-pgreen-fade border border-pgreen-thick":
-                      item.title === type,
+                    "bg-pgreenfade border border-pgreen": item.title === type,
                   }
                 )}
                 onClick={() => setType(item.title)}

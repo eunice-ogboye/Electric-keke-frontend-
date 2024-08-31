@@ -55,7 +55,7 @@ const ReusableForm = ({ type = "register" }) => {
         <div className="mt-32">
           <Logo
             logoClassName="size-16"
-            titleClassName="text-pgreen-thick text-[1.5rem]"
+            titleClassName="text-pgreen text-[1.5rem]"
           />
           <Heading
             title={formTitle[type]}
@@ -66,13 +66,13 @@ const ReusableForm = ({ type = "register" }) => {
           />
 
           <div className="w-[25.5rem] h-[16rem] border shadow-md rounded-md mx-auto mt-24 flex-center">
-            <div className="rounded-full bg-pgreen-3 size-20 flex-center">
+            <div className="rounded-full bg-pgreen3 size-20 flex-center">
               <img src="/tick.svg" alt="tick" />
             </div>
           </div>
 
           <div className="mt-14 max-w-[343px] mx-auto">
-            <Button className="bg-pgreen-thick mb-5 rounded-full w-full">
+            <Button className="bg-pgreen mb-5 rounded-full w-full">
               Proceed
             </Button>
             <div className="text-sm flex-center gap-1">
@@ -87,12 +87,16 @@ const ReusableForm = ({ type = "register" }) => {
           className={cn({
             "mt-20": type === "otp",
             "mt-24": type === "complete",
-            "mt-32": type === "otp2" || type === 'forget' || type === 'new' || type === 'passUpdate',
+            "mt-32":
+              type === "otp2" ||
+              type === "forget" ||
+              type === "new" ||
+              type === "passUpdate",
           })}
         >
           <Logo
             logoClassName="size-16"
-            titleClassName="text-pgreen-thick text-[1.5rem]"
+            titleClassName="text-pgreen text-[1.5rem]"
           />
           <Heading
             title={formTitle[type]}
@@ -274,7 +278,7 @@ const ReusableForm = ({ type = "register" }) => {
           {type === "otp" ? null : (
             <div className="max-w-[343px] mx-auto">
               <Button
-                className="rounded-full block w-full bg-pgreen-thick"
+                className="rounded-full block w-full bg-pgreen"
                 onClick={() => {
                   if (type === "register") {
                     switchOnboardingType("complete");

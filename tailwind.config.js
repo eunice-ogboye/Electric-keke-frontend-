@@ -68,8 +68,10 @@ module.exports = {
           DEFAULT: "#494949",
         },
         pgreen: {
+          DEFAULT: "#77BB77",
+          0: "#234623",
+          1: "#D2E8D2",
           fade: "#E8F4E8",
-          thick: "#77BB77",
           3: "#0B7B69",
         },
         neutral: "#898483",

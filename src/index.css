@@ -94,3 +94,62 @@
   @apply text-white font-bold text-[2rem];
 }
 
+.home-pad {
+  @apply px-[7.5rem];
+}
+
+.primary-btn {
+  @apply bg-pgreen;
+}
+
+.secondary-btn {
+  @apply bg-pgreen/10 border border-pgreen text-pgreen;
+}
+
+/******** HOME HERO ******/
+.hero {
+  @apply h-[696px] relative;
+}
+
+.hero-board {
+  @apply bg-black/60 size-full home-pad pt-52;
+}
+
+.hero-title {
+  @apply text-base-white text-[4rem] font-bold text-center leading-[76.8px] tracking-tighter;
+}
+
+.hero-description {
+  @apply text-base-white text-center font-semibold text-[1.5rem];
+}
+
+.hero-img {
+  @apply size-full absolute top-0 left-0 -z-10;
+}
+
+.intro-title {
+  @apply text-pgreen relative w-fit;
+}
+
+.intro-title::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  left: 102%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: solid 2px #77bb77;
+  border-radius: 3px;
+}
+
+.service-board {
+  @apply mt-10 grid grid-cols-4 gap-5;
+}
+
+.service {
+  @apply border border-neutral rounded-[2rem] h-[327px] flex-center p-[14px];
+}
+
+.service-title {
+  @apply text-[2rem] text-pgreen-0 leading-[38px] font-bold;
+}

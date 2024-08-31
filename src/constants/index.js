@@ -30,4 +30,49 @@ const otp_choice = [
   { title: "Email", icon: "/email.svg" },
 ];
 
-export { account_types, onboardingImages, briefs, otp_choice };
+const hero_description =
+  "Join the Green Movement with Our Electric Keke: Real-time tracking, affordable pricing—making your life easier and the planet healthier.";
+
+const about_titles = {
+  one: "Who We Are",
+  two: "Discover The Full Range Of Eco-Ride Services",
+};
+
+const about_descriptions = {
+  one: "By choosing eco-rides, you're opting for vehicles that prioritize the environment, like our electric Kekes, which produce zero emissions and significantly reduce your carbon footprint.",
+  two: "Eco-Ride isn’t just about getting from point A to point B—it's about redefining how we move and deliver in a way that’s both sustainable and efficient",
+};
+
+const services = [
+  {
+    title: "Book a Ride",
+    desc: "With Eco-Ride, booking a ride is as easy as a few taps.",
+    icon: "/ride.svg",
+  },
+  {
+    title: "Request a Delivery",
+    desc: "Eco-Ride’s delivery service is swift and dependable, ensuring your items reach their destination on time.",
+    icon: "/delivery.svg",
+  },
+  {
+    title: "Schedule a Ride or Delivery",
+    desc: "With Eco-Ride, you can schedule your rides and deliveries in advance.",
+    icon: "/schedule.svg",
+  },
+  {
+    title: "Cost Effective Solutions",
+    desc: "Enjoy competitive pricing on all our services, making eco-friendly travel and deliveries accessible to everyone.",
+    icon: "/cost.svg",
+  },
+];
+
+export {
+  account_types,
+  onboardingImages,
+  briefs,
+  otp_choice,
+  hero_description,
+  about_titles,
+  about_descriptions,
+  services,
+};
