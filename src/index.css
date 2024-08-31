@@ -128,7 +128,7 @@
 }
 
 .intro-title {
-  @apply text-pgreen relative w-fit;
+  @apply  relative w-fit;
 }
 
 .intro-title::after {
@@ -142,6 +142,10 @@
   border-radius: 3px;
 }
 
+.intro-title.mission::after {
+  border-color: #FAFAFA;
+}
+
 .service-board {
   @apply mt-10 grid grid-cols-4 gap-5;
 }
@@ -152,4 +156,12 @@
 
 .service-title {
   @apply text-[2rem] text-pgreen-0 leading-[38px] font-bold;
+}
+
+.direction {
+  @apply mt-6 flex items-center gap-2
+}
+
+.direction-btn {
+  @apply bg-transparent flex-center border border-neutral rounded-full size-10 p-0
 }

@@ -69,15 +69,17 @@ module.exports = {
         },
         pgreen: {
           DEFAULT: "#77BB77",
+          background: "#8EC68E",
           0: "#234623",
           1: "#D2E8D2",
           fade: "#E8F4E8",
           3: "#0B7B69",
         },
-        neutral: "#898483",
+        neutral: { DEFAULT: "#898483", 0: "#151413" },
         "base-white": "#FAFAFA",
       },
       borderRadius: {
+        normal: "36px",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",

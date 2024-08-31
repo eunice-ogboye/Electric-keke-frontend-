@@ -1,14 +1,24 @@
-import About from "../components/About";
-import Hero from "../components/Hero";
-import { Button } from "../components/ui/button";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useTitle } from "../lib/hooks";
+import {
+  About,
+  Connected,
+  Footer,
+  Hero,
+  Mission,
+  Testimonial,
+} from "../components";
 
 const Home = () => {
+  useTitle("Home");
   return (
     <>
       <Hero />
-<About />
+      <About />
+      <Mission />
+      <Testimonial />
+      <Connected />
+      <Footer />
     </>
   );
 };

@@ -66,6 +66,47 @@ const services = [
   },
 ];
 
+const mission = {
+  title: "Our Vision for a Sustainable Future",
+  desc: "At Eco-Ride, our mission is clear: to revolutionize urban transportation and logistics with eco-friendly solutions that benefit both people and the planet. We aim to make sustainable transport accessible and affordable for everyone, reducing our carbon footprint while enhancing the quality of life in our communities.",
+};
+
+const testimonial_title = "What They Say About Us";
+
+const testimonies = [
+  {
+    name: "Tolu A",
+    photo: "/persons/tolu.png",
+    testimony:
+      "Eco-Ride has completely changed the way I get around the city. Not only are the rides comfortable and affordable, but knowing that I'm helping reduce emissions makes it even better. I’m proud to be part of this eco-friendly movement!",
+    location: "Lagos, Nigeria",
+  },
+];
+
+const connected = {
+  title: "Stay Connected with EcoRide",
+  desc: "Don’t miss out on the latest updates, exclusive offers, and insights into how we’re driving the future of eco-friendly transportation and logistics",
+};
+
+const socials = [
+  {
+    title: "facebook",
+    icon: "/socials/facebook.svg",
+  },
+  {
+    title: "x",
+    icon: "/socials/x.svg",
+  },
+  {
+    title: "whatsapp",
+    icon: "/socials/whatsapp.svg",
+  },
+  {
+    title: "instagram",
+    icon: "/socials/instagram.svg",
+  },
+];
+
 export {
   account_types,
   onboardingImages,
@@ -75,4 +116,9 @@ export {
   about_titles,
   about_descriptions,
   services,
+  mission,
+  testimonial_title,
+  testimonies,
+  connected,
+  socials,
 };

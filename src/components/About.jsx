@@ -1,19 +1,23 @@
 import React from "react";
 import Heading from "./Heading";
 import { about_descriptions, about_titles, services } from "../constants";
+import { Button } from "./ui/button";
 
 const About = () => {
   return (
     <section className="home-pad bg-base-white">
       <div className="min-h-[696px] flex items-center">
-        <Heading
-          introTitle="About Us"
-          title={about_titles.one}
-          description={about_descriptions.one}
-          className="w-full tablet:w-6/12"
-          dclass="mt-5 mb-10"
-          type="about"
-        />
+        <div className="w-full tablet:w-6/12">
+          <Heading
+            introTitle="About Us"
+            introClass="text-pgreen"
+            title={about_titles.one}
+            description={about_descriptions.one}
+            dclass="mt-5 mb-10 text-tblack text-eiteen"
+            type="about"
+          />
+          <Button className="primary-btn rounded-full">Learn More</Button>
+        </div>
 
         <div className="w-[33rem] h-[454px]">
           <img
@@ -23,14 +27,15 @@ const About = () => {
           />
         </div>
       </div>
+
       <div className="py-20">
         <Heading
           introTitle="Service"
           title={about_titles.two}
           tclass="max-w-[623px] mx-auto text-center border"
           description={about_descriptions.two}
-          dclass="mt-7 text-center"
-          introClass="mx-auto"
+          dclass="mt-7 text-center text-tblack text-eiteen"
+          introClass="mx-auto text-pgreen"
           type="about"
         />
 
