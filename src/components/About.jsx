@@ -8,9 +8,12 @@ import {
 } from "../constants";
 import { Button } from "./ui/button";
 import { Flexibility } from ".";
+import { useGlobalContext } from "../context";
 
 const About = () => {
-  const [homePage, setHomePage] = useState("earn");
+  const {
+    globalState: { homePage },
+  } = useGlobalContext();
 
   return (
     <section className="home-pad bg-base-white">

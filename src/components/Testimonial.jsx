@@ -1,10 +1,13 @@
-import React, { useState } from "react";
 import Heading from "./Heading";
 import { testimonial_title, testimonies } from "../constants";
 import Direction from "./Direction";
+import { useGlobalContext } from "../context";
 
 const Testimonial = () => {
-  const [homePage, setHomePage] = useState("earn");
+  const {
+    globalState: { homePage },
+  } = useGlobalContext();
+  
   return (
     <section className="home-pad py-[7.5rem] bg-base-white">
       <div>

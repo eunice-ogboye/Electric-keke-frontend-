@@ -1,9 +1,12 @@
-import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { hero_description } from "../constants";
+import { useGlobalContext } from "../context";
 
 const HeroCta = () => {
-  const [homePage, setHomePage] = useState("earn");
+  const {
+    globalState: { homePage },
+  } = useGlobalContext();
+
   return (
     <div className="flex-center gap-2 mt-6">
       <Button className="primary-btn rounded-full">
@@ -19,7 +22,9 @@ const HeroCta = () => {
 };
 
 const Hero = () => {
-  const [homePage, setHomePage] = useState("earn");
+  const {
+    globalState: { homePage },
+  } = useGlobalContext();
 
   return (
     <div className="hero">

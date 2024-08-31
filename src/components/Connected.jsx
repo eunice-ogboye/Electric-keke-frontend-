@@ -1,10 +1,13 @@
-import React, { useState } from "react";
 import Heading from "./Heading";
 import { connected } from "../constants";
 import { Button } from "./ui/button";
+import { useGlobalContext } from "../context";
 
 const Connected = () => {
-  const [homePage, setHomePage] = useState("earn");
+  const {
+    globalState: { homePage },
+  } = useGlobalContext();
+  
   return (
     <section>
       <div className="min-h-[704px] flex-center bg-black/60 relative">
