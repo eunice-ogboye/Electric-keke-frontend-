@@ -30,8 +30,10 @@ const otp_choice = [
   { title: "Email", icon: "/email.svg" },
 ];
 
-const hero_description =
-  "Join the Green Movement with Our Electric Keke: Real-time tracking, affordable pricing—making your life easier and the planet healthier.";
+const hero_description = {
+  main: '"Join the Green Movement with Our Electric Keke: Real-time tracking, affordable pricing—making your life easier and the planet healthier."',
+  earn: " By joining us as a driver, you will enjoy flexible working hours, competitive earnings, and the opportunity to contribute to a greener enviroment. Drive with us and be part of eco-friendly revolution.",
+};
 
 const about_titles = {
   one: "Who We Are",
@@ -71,17 +73,31 @@ const mission = {
   desc: "At Eco-Ride, our mission is clear: to revolutionize urban transportation and logistics with eco-friendly solutions that benefit both people and the planet. We aim to make sustainable transport accessible and affordable for everyone, reducing our carbon footprint while enhancing the quality of life in our communities.",
 };
 
-const testimonial_title = "What They Say About Us";
+const testimonial_title = {
+  main: "What They Say About Us",
+  earn: "What our Riders Say",
+};
 
-const testimonies = [
-  {
-    name: "Tolu A",
-    photo: "/persons/tolu.png",
-    testimony:
-      "Eco-Ride has completely changed the way I get around the city. Not only are the rides comfortable and affordable, but knowing that I'm helping reduce emissions makes it even better. I’m proud to be part of this eco-friendly movement!",
-    location: "Lagos, Nigeria",
-  },
-];
+const testimonies = {
+  main: [
+    {
+      name: "Tolu A",
+      photo: "/persons/tolu.png",
+      testimony:
+        "Eco-Ride has completely changed the way I get around the city. Not only are the rides comfortable and affordable, but knowing that I'm helping reduce emissions makes it even better. I’m proud to be part of this eco-friendly movement!",
+      location: "Lagos, Nigeria",
+    },
+  ],
+  earn: [
+    {
+      name: "Adewale O",
+      photo: "/persons/adewale.png",
+      testimony:
+        "Driving with Eco-Ride has been a game-changer for me. The app is easy to use, and I love that I’m contributing to a greener environment. Plus, the flexible schedule allows me to balance work with my personal life. I’m proud to be part of this eco-friendly movement!",
+      location: "Lagos, Nigeria",
+    },
+  ],
+};
 
 const connected = {
   title: "Stay Connected with EcoRide",
@@ -107,6 +123,22 @@ const socials = [
   },
 ];
 
+const earn_requirements = [
+  "Minimum age at least 22 years old",
+  "Valid drivers license.",
+  "Background check, successful completion of a background check.",
+  "Smartphone capable of running the ecoride app.",
+  "Driving experience minimum of one year .",
+  "Clean driving record with no major violation.",
+  "Training completion of ecoride program.",
+];
+
+
+const contribution = {
+  title: "How our drivers contribute to the greener environment.",
+  desc: "By driving with ecoride, our drivers play a vital role in promoting a greener environment. Through eco-friendly transportation practices, like using electric or hybrid vehicles, carpooling and reducing carbon emission, ecoride drivers actively contribute to sustainable mobility and help reduce ecological footprint on our planet. Joining ecoride not only offers drivers a chance to earn but allows them to be eco-warrior making a positive impact on the environment with everyday ride.",
+};
+
 export {
   account_types,
   onboardingImages,
@@ -121,4 +153,6 @@ export {
   testimonies,
   connected,
   socials,
+  earn_requirements,
+  contribution,
 };

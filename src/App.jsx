@@ -1,14 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Account from "./pages/Account";
-import Boarding from "./shared-layout/Boarding";
-import Template from "./pages/Template";
+import { Home, Account, Template, Earn } from "./pages";
+import { Boarding } from "./shared-layout";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/earn-with-us" element={<Earn />} />
         <Route path="/:id" element={<Boarding />}>
           <Route index element={<Account />} />
           <Route path=":id" element={<Template />} />

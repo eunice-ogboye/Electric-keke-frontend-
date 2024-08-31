@@ -1,25 +1,14 @@
 import React from "react";
 import { useTitle } from "../lib/hooks";
-import {
-  About,
-  Connected,
-  Footer,
-  Hero,
-  Mission,
-  Testimonial,
-} from "../components";
+import { Mission, Testimonial } from "../components";
+import { HomePage } from "../shared-layout";
 
 const Home = () => {
   useTitle("Home");
   return (
-    <>
-      <Hero />
-      <About />
+    <HomePage>
       <Mission />
-      <Testimonial />
-      <Connected />
-      <Footer />
-    </>
+    </HomePage>
   );
 };
 

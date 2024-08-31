@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Heading from "./Heading";
 import { connected } from "../constants";
 import { Button } from "./ui/button";
 
 const Connected = () => {
+  const [homePage, setHomePage] = useState("earn");
   return (
     <section>
-      <div className="min-h-[704px] flex-center bg-black/60">
+      <div className="min-h-[704px] flex-center bg-black/60 relative">
+        {homePage === "earn" && (
+          <div className="size-full min-h-[704px] absolute top-0 left-0 -z-10">
+            <img
+              src="/earn_connected_bg.png"
+              alt="earn_connected"
+              className="size-full object-center object-cover"
+            />
+          </div>
+        )}
         <div className="max-w-[894px]">
           <Heading
             className="text-center text-base-white"

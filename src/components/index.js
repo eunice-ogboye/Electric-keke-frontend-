@@ -5,5 +5,17 @@ import Mission from "./Mission";
 import Testimonial from "./Testimonial";
 import Connected from "./Connected";
 import Footer from "./Footer";
+import Flexibility from "./Flexibility";
+import Contribution from "./Contribution";
 
-export { About, Testimonial, Heading, Hero, Mission, Connected, Footer };
+export {
+  About,
+  Testimonial,
+  Heading,
+  Hero,
+  Mission,
+  Connected,
+  Footer,
+  Flexibility,
+  Contribution,
+};
