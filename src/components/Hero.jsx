@@ -1,6 +1,7 @@
 import { Button } from "./ui/button";
 import { hero_description } from "../constants";
 import { useGlobalContext } from "../context";
+import Btn from "./Btn";
 
 const HeroCta = () => {
   const {
@@ -9,14 +10,8 @@ const HeroCta = () => {
 
   return (
     <div className="flex-center gap-2 mt-6">
-      <Button className="primary-btn rounded-full">
-        {homePage === "main" ? "Book a Ride" : "Register"}
-      </Button>
-      {homePage === "main" && (
-        <Button className="secondary-btn rounded-full">
-          Request A Delivery
-        </Button>
-      )}
+      <Btn text={homePage === "main" ? "Book a Ride" : "Register"} />
+      {homePage === "main" && <Btn text="Request For Delivery" type="secondary" />}
     </div>
   );
 };

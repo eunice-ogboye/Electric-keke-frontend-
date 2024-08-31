@@ -128,7 +128,7 @@
 }
 
 .intro-title {
-  @apply  relative w-fit;
+  @apply relative w-fit;
 }
 
 .intro-title::after {
@@ -143,7 +143,7 @@
 }
 
 .intro-title.mission::after {
-  border-color: #FAFAFA;
+  border-color: #fafafa;
 }
 
 .service-board {
@@ -159,9 +159,17 @@
 }
 
 .direction {
-  @apply mt-6 flex items-center gap-2
+  @apply mt-6 flex items-center gap-2;
 }
 
 .direction-btn {
-  @apply bg-transparent flex-center border border-neutral rounded-full size-10 p-0
+  @apply bg-transparent flex-center border border-neutral rounded-full size-10 p-0;
+}
+
+.header {
+  @apply absolute z-20  w-full top-[60px] px-[7.5rem]
+}
+
+.header-container {
+  @apply flex items-center justify-between border border-pgreen h-[4.75rem] rounded-[40px] p-2 bg-neutral/20 backdrop-blur-lg;
 }

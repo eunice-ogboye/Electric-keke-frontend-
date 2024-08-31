@@ -1,8 +1,16 @@
 import React from "react";
-import { About, Connected, Footer, Hero, Testimonial } from "../components";
+import {
+  About,
+  Connected,
+  Footer,
+  Header,
+  Hero,
+  Testimonial,
+} from "../components";
 const HomePage = ({ children }) => {
   return (
     <>
+      <Header />
       <Hero />
       <About />
       {children}

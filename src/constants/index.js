@@ -133,11 +133,17 @@ const earn_requirements = [
   "Training completion of ecoride program.",
 ];
 
-
 const contribution = {
   title: "How our drivers contribute to the greener environment.",
   desc: "By driving with ecoride, our drivers play a vital role in promoting a greener environment. Through eco-friendly transportation practices, like using electric or hybrid vehicles, carpooling and reducing carbon emission, ecoride drivers actively contribute to sustainable mobility and help reduce ecological footprint on our planet. Joining ecoride not only offers drivers a chance to earn but allows them to be eco-warrior making a positive impact on the environment with everyday ride.",
 };
+
+const nav_links = [
+  { title: "Home", href: "/" },
+  { title: "About", href: "#about" },
+  { title: "Earn With Us", href: "/earn-with-us" },
+  { title: "Support", href: "/*" },
+];
 
 export {
   account_types,
@@ -155,4 +161,5 @@ export {
   socials,
   earn_requirements,
   contribution,
+  nav_links,
 };

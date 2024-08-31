@@ -7,6 +7,7 @@ import Connected from "./Connected";
 import Footer from "./Footer";
 import Flexibility from "./Flexibility";
 import Contribution from "./Contribution";
+import Header from "./Header";
 
 export {
   About,
@@ -18,4 +19,5 @@ export {
   Footer,
   Flexibility,
   Contribution,
+  Header
 };

@@ -6,9 +6,9 @@ import {
   earn_requirements,
   services,
 } from "../constants";
-import { Button } from "./ui/button";
 import { Flexibility } from ".";
 import { useGlobalContext } from "../context";
+import Btn from "./Btn";
 
 const About = () => {
   const {
@@ -31,7 +31,7 @@ const About = () => {
                   dclass="mt-5 mb-10 text-tblack text-eiteen"
                   type="about"
                 />
-                <Button className="primary-btn rounded-full">Learn More</Button>
+                <Btn text="Learn More" />
               </>
             ) : (
               <>
@@ -49,7 +49,7 @@ const About = () => {
 
           <div className="w-[33rem] h-[454px]">
             <img
-              src={homePage === 'main' ? "/about.png" : '/earn_about_bg.png'}
+              src={homePage === "main" ? "/about.png" : "/earn_about_bg.png"}
               alt="about keke"
               className="size-full object-cover object-center"
             />

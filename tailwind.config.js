@@ -77,7 +77,8 @@ module.exports = {
         },
         neutral: { DEFAULT: "#898483", 0: "#151413" },
         "base-white": "#FAFAFA",
-        peach: "#EDA14580"
+        peach: "#EDA14580",
+        head: "#5CAE5C",
       },
       borderRadius: {
         normal: "36px",
