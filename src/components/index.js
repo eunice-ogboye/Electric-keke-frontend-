@@ -8,6 +8,7 @@ import Footer from "./Footer";
 import Flexibility from "./Flexibility";
 import Contribution from "./Contribution";
 import Header from "./Header";
+import Modal from "./Modal";
 
 export {
   About,
@@ -19,5 +20,6 @@ export {
   Footer,
   Flexibility,
   Contribution,
-  Header
+  Header,
+  Modal
 };

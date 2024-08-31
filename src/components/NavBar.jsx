@@ -5,7 +5,7 @@ import { cn } from "../lib/utils";
 
 const NavBar = () => {
   const { pathname } = useLocation();
-  console.log(pathname);
+
   return (
     <nav className="flex items-center gap-8 list-none">
       {nav_links.map((item) => {

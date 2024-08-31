@@ -1,4 +1,3 @@
-import { Button } from "./ui/button";
 import { hero_description } from "../constants";
 import { useGlobalContext } from "../context";
 import Btn from "./Btn";
@@ -6,12 +5,20 @@ import Btn from "./Btn";
 const HeroCta = () => {
   const {
     globalState: { homePage },
+    dispatch,
   } = useGlobalContext();
 
   return (
     <div className="flex-center gap-2 mt-6">
-      <Btn text={homePage === "main" ? "Book a Ride" : "Register"} />
-      {homePage === "main" && <Btn text="Request For Delivery" type="secondary" />}
+      <Btn
+        text={homePage === "main" ? "Book a Ride" : "Register"}
+        handleClick={() => {
+          dispatch({ type: "modal", payload: { modal: true } });
+        }}
+      />
+      {homePage === "main" && (
+        <Btn text="Request For Delivery" type="secondary" />
+      )}
     </div>
   );
 };

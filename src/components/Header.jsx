@@ -10,7 +10,7 @@ const Header = () => {
       <div className="header-container">
         <Logo main />
         <NavBar />
-        <Btn text="Sign Up" />
+        <Btn text="Sign Up" to="/onboarding" />
       </div>
     </header>
   );
