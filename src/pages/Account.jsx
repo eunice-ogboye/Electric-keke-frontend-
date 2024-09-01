@@ -13,11 +13,11 @@ const Account = () => {
   const [type, setType] = useState("Passenger");
 
   useEffect(() => {
-    dispatch({ type: "changeBg", payload: { onboardingType: "main" } });
+    dispatch({ type: "changeAuthBg", payload: { authType: "main" } });
   }, []);
 
   return (
-    <div className="board-pad w-1/2">
+    <div className="board-pad w-full my-dell:w-1/2">
       <p className="text-right font-josefin text-base">
         Already have an account?{" "}
         <Link
@@ -25,8 +25,8 @@ const Account = () => {
           className="text-green-500"
           onClick={() =>
             dispatch({
-              type: "changeBg",
-              payload: { onboardingType: "login" },
+              type: "changeAuthBg",
+              payload: { authType: "login" },
             })
           }
         >
@@ -47,8 +47,8 @@ const Account = () => {
               key={item.title}
               onClick={() =>
                 dispatch({
-                  type: "changeBg",
-                  payload: { onboardingType: "register" },
+                  type: "changeAuthBg",
+                  payload: { authType: "register" },
                 })
               }
             >

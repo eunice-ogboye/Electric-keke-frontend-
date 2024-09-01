@@ -1,19 +1,19 @@
 export const initialState = {
-  onboardingType: "main",
+  authType: "main",
   homePage: "main",
   modal: false,
   modalContent: "ride",
-  rider: null
+  rider: null,
 };
 
 export const reducer = (state, action) => {
   const { type, payload } = action;
-  const { onboardingType, homePage, modal, modalContent, rider } = payload;
+  const { authType, homePage, modal, modalContent, rider } = payload;
 
   switch (type) {
-    case "changeBg":
-      localStorage.setItem("onboardingType", JSON.stringify(onboardingType));
-      return { ...state, onboardingType };
+    case "changeAuthBg":
+      localStorage.setItem("authType", JSON.stringify(authType));
+      return { ...state, authType };
     case "homePage":
       return { ...state, homePage };
     case "modal":

@@ -79,11 +79,11 @@ h2 {
 }
 
 .board {
-  @apply w-1/2 min-h-screen shadow-2xl relative;
+  @apply hidden my-dell:block w-1/2 min-h-screen shadow-2xl relative;
 }
 
 .board-pad {
-  @apply py-[2.1875rem] px-[7.5rem];
+  @apply my-dell:py-[2.1875rem] px-4 py-2 my-dell:px-[7.5rem];
 }
 
 .cancel-btn {

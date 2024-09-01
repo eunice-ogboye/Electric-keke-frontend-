@@ -6,7 +6,7 @@ import { useGlobalContext } from "../context";
 
 const Boarding = () => {
   const {
-    globalState: { onboardingType },
+    globalState: { authType },
   } = useGlobalContext();
 
   return (
@@ -16,20 +16,18 @@ const Boarding = () => {
           <img src="/cancel.svg" alt="cancel" />
         </div>
 
-        {onboardingType === "main" ? (
+        {authType === "main" ? (
           <>
             <Overlay className="overlay" />
             <img
-              src={onboardingImages[onboardingType]}
-              alt={`onboarding ${onboardingType}`}
+              src={onboardingImages[authType]}
+              alt={`onboarding ${authType}`}
               className="size-full object-cover object-center rounded-xl"
             />
           </>
         ) : (
           <div className="size-full bg-green-500 flex-center px-24">
-            <h1 className="briefing">
-              {briefs[onboardingType]}
-            </h1>
+            <h1 className="briefing">{briefs[authType]}</h1>
           </div>
         )}
       </div>

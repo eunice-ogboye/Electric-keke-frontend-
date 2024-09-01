@@ -11,6 +11,6 @@ export const useFormType = (type) => {
   const { dispatch } = useGlobalContext();
 
   useEffect(() => {
-    dispatch({ type: "changeBg", payload: { imageType: type } });
+    dispatch({ type: "changeAuthBg", payload: { imageType: type } });
   }, [type]);
 };

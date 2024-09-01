@@ -145,6 +145,18 @@ const nav_links = [
   { title: "Support", href: "/*" },
 ];
 
+const formTitle = {
+  register: "Register Your Account!",
+  complete: "Complete Your Profile!",
+  otp: "OTP!",
+  otp2: "Complete Your Profile!",
+  congrats: "Continue to Log in",
+  login: "Log in to your Account",
+  forget: "Forgot Password",
+  new: "Enter New Password",
+  passUpdate: "Enter Code",
+};
+
 export {
   account_types,
   onboardingImages,
@@ -162,4 +174,5 @@ export {
   earn_requirements,
   contribution,
   nav_links,
+  formTitle
 };

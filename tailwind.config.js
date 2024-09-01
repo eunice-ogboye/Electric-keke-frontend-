@@ -20,6 +20,7 @@ module.exports = {
       screens: {
         mobile: "480px",
         tablet: "834px",
+        "my-dell": "1358px",
         laptop: "1440px",
       },
       fontFamily: {
@@ -78,9 +79,9 @@ module.exports = {
         neutral: { DEFAULT: "#898483", 0: "#151413" },
         "base-white": "#FAFAFA",
         head: "#5CAE5C",
-        warning: '#EDA145',
+        warning: "#EDA145",
         peach: "#EDA14580",
-        info: '#0A0B0A1A'
+        info: "#0A0B0A1A",
       },
       borderRadius: {
         normal: "36px",

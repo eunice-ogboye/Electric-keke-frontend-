@@ -5,21 +5,21 @@ import { useEffect } from "react";
 
 const Template = () => {
   const {
-    globalState: { onboardingType },
+    globalState: { authType },
     dispatch,
   } = useGlobalContext();
 
   useEffect(() => {
-    const onboardingType = localStorage.getItem("onboardingType");
+    const authType = localStorage.getItem("authType");
     dispatch({
-      type: "changeBg",
-      payload: { onboardingType: JSON.parse(onboardingType) },
+      type: "changeAuthBg",
+      payload: { authType: JSON.parse(authType) },
     });
   }, []);
 
   return (
-    <div className="board-pad w-1/2">
-      <ReusableForm type={onboardingType} />
+    <div className="board-pad w-full my-dell:w-1/2">
+      <ReusableForm type={authType} />
     </div>
   );
 };

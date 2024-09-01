@@ -20,7 +20,7 @@ const Logo = ({ logoClassName, titleClassName, main, dark }) => {
         <h1
           className={`${
             titleClassName || "text-white"
-          } font-bold font-montserrat text-6xl  mt-10`}
+          } font-bold font-montserrat text-6xl mt-[14px] my-dell:mt-10`}
         >
           EcoRide
         </h1>
