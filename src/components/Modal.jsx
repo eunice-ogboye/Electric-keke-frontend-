@@ -1,56 +1,162 @@
-import React from "react";
+import React, { useState } from "react";
 import { Heading } from ".";
 import Btn from "./Btn";
 import { useGlobalContext } from "../context";
+import ModalForm from "./ModalForm";
+import Rate from "./Rate";
 
 const Modal = () => {
-  const { dispatch } = useGlobalContext();
-  return (
-    <section className="w-full h-screen fixed top-0 left-0 z-50 flex-center bg-black/50">
-      <div className="w-[478px] h-[348px] bg-white rounded-xl p-5 relative">
-        <div
-          className="rounded-full absolute top-2 right-2 p-1 bg-neutral/40"
-          onClick={() => dispatch({ type: "modal", payload: { modal: false } })}
-        >
-          <img src="/cancel.svg" alt="cancel" />
-        </div>
+  const {
+    dispatch,
+    globalState: { modalContent },
+  } = useGlobalContext();
+  const [content, setContent] = useState(0);
+  const [rate, setRate] = useState(0);
+  const [comment, setComment] = useState(false);
 
-        <div className="h-20">
-          <div className="h-14 w-[7.5rem] relative mx-auto border mt-[1.5rem]">
-            {[
-              "/avatars/avatar1.svg",
-              "/avatars/avatar2.svg",
-              "/avatars/avatar1.svg",
-            ].map((item, index) => {
-              return (
-                <div
-                  key={index}
-                  className={`absolute ${index === 2 && "right-0 bottom-0"} ${
-                    index === 0 && ""
-                  } ${index === 1 && "left-1/2 bottom-0 -translate-x-1/2"}`}
-                >
-                  <img
-                    src={item}
-                    alt="avatars"
-                    className="size-full object-cover object-center"
+  const handleClick = (item) => {
+    if (modalContent === "rate") {
+      setRate(item);
+      setComment(true);
+      return;
+    }
+    setContent(1);
+  };
+
+  return (
+    <section className="w-full min-h-screen fixed top-0 left-0 z-50 flex-center bg-black/50">
+      <div
+        className={`${
+          content === 0 && modalContent !== "rate"
+            ? "w-[478px] min-h-[348px] py-4"
+            : modalContent === "rate"
+            ? "flex-center w-[607px] h-[577px]"
+            : "w-[715px] min-h-[665px] py-10 px-7"
+        }  bg-white rounded-xl relative`}
+      >
+        {/* cancel btn */}
+        <Btn
+          type="cancel"
+          handleClick={() =>
+            dispatch({ type: "modal", payload: { modal: false } })
+          }
+        />
+        {modalContent === "rate" ? (
+          <div className="min-h-[259px] w-[404px] border-2 flex flex-col items-center justify-between">
+            {!comment && (
+              <div className="size-[103px] rounded-full border"></div>
+            )}
+            <Rate rate={rate} big handleClick={handleClick} statik={comment} />
+            <Heading
+              className="text-center"
+              title={comment ? "Great!" : "Rate Your Experience"}
+              tclass="text-[40px]"
+              description={comment && "Tell us a bit more about your ride"}
+            />
+
+            {comment && (
+              <form className="w-full">
+                <label className="w-full">
+                  <span className="block text-base font-semibold">Comment</span>
+                  <textarea
+                    name="comment"
+                    id="comment"
+                    cols="30"
+                    rows="3"
+                    className="px-3 py-2 w-full resize-none"
+                  ></textarea>
+                </label>
+                <Btn text="Send" size="md-full" />
+              </form>
+            )}
+          </div>
+        ) : (
+          <>
+            {content === 0 && (
+              <>
+                <div className="h-20">
+                  <div className="h-14 w-[7.5rem] relative mx-auto border-4 mt-[1.5rem]">
+                    {[
+                      "/avatars/avatar1.svg",
+                      "/avatars/avatar2.svg",
+                      "/avatars/avatar1.svg",
+                    ].map((item, index) => {
+                      return (
+                        <div
+                          key={index}
+                          className={`absolute ${
+                            index === 2 && "right-0 bottom-0"
+                          } ${index === 0 && ""} ${
+                            index === 1 && "left-1/2 bottom-0 -translate-x-1/2"
+                          }`}
+                        >
+                          <img
+                            src={item}
+                            alt="avatars"
+                            className="size-full object-cover object-center"
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                <Heading
+                  className="text-center border-2"
+                  title={
+                    modalContent === "ride"
+                      ? "Ready to Go?"
+                      : "Instant or Sheduled- You Decide!"
+                  }
+                  tclass="mt-6"
+                  description={`Choose how you want to ${
+                    modalContent === "ride" ? "ride" : "send"
+                  } with EcoRide`}
+                  dclass="text-eiteen text-neutral"
+                />
+
+                <div className="flex-center gap-2 mt-12">
+                  <Btn
+                    text={
+                      modalContent === "ride"
+                        ? "Instant Ride"
+                        : "Instant Delivery"
+                    }
+                    handleClick={handleClick}
+                  />
+                  <Btn
+                    text={
+                      modalContent === "ride"
+                        ? "Schedule Ride"
+                        : "Schedule a Delivery"
+                    }
+                    type="secondary"
+                    handleClick={handleClick}
                   />
                 </div>
-              );
-            })}
-          </div>
-        </div>
+              </>
+            )}
 
-        <Heading
-          className="text-center mt-6"
-          title="Ready to Go?"
-          description="Choose how you want to ride with EcoRide"
-          dclass="text-eiteen text-neutral"
-        />
+            {content === 1 && (
+              <>
+                <div>
+                  <div className="w-[653px] h-[247px] bg-gray-500 flex-center rounded-[27px]">
+                    Map
+                  </div>
+                  <Heading
+                    className="text-center border-2 max-w-[520px] mx-auto"
+                    title="Where Are You Headed?"
+                    tclass="mt-6"
+                    description="Start your eco-friendly journey by entering your pickup location and drop-off destination."
+                    dclass="text-eiteen text-neutral"
+                  />
+                </div>
 
-        <div className="flex-center gap-2 mt-14">
-          <Btn text="Instant Ride" />
-          <Btn text="Shedule Ride" type="secondary" />
-        </div>
+                <ModalForm />
+              </>
+            )}
+          </>
+        )}
       </div>
     </section>
   );

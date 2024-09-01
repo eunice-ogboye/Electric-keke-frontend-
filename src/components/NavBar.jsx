@@ -3,7 +3,7 @@ import { nav_links } from "../constants";
 import React from "react";
 import { cn } from "../lib/utils";
 
-const NavBar = () => {
+const NavBar = ({ dark }) => {
   const { pathname } = useLocation();
 
   return (
@@ -12,18 +12,24 @@ const NavBar = () => {
         return item.href.startsWith("#") ? (
           <li
             key={item.title}
-            className={cn("text-base-white text-[18px]", {
-              "text-pgreen": pathname === item.href,
-            })}
+            className={cn(
+              `${dark ? "text-neutral" : "text-base-white"} text-[18px]`,
+              {
+                "text-pgreen": pathname === item.href,
+              }
+            )}
           >
             <a href={item.href}>{item.title}</a>
           </li>
         ) : (
           <Link to={item.href} key={item.title}>
             <li
-              className={cn("text-base-white text-[18px]", {
-                "text-pgreen": pathname === item.href,
-              })}
+              className={cn(
+                `${dark ? "text-neutral" : "text-base-white"} text-[18px]`,
+                {
+                  "text-pgreen": pathname === item.href,
+                }
+              )}
             >
               {item.title}
             </li>

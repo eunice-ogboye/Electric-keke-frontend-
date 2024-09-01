@@ -21,7 +21,7 @@ const Account = () => {
       <p className="text-right font-josefin text-base">
         Already have an account?{" "}
         <Link
-          to="/login/in"
+          to="login"
           className="text-green-500"
           onClick={() =>
             dispatch({
@@ -43,7 +43,7 @@ const Account = () => {
         <div className="mt-10 space-y-6">
           {account_types.map((item) => (
             <Link
-              to="/onboarding/register"
+              to="register"
               key={item.title}
               onClick={() =>
                 dispatch({

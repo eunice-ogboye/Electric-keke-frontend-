@@ -7,17 +7,17 @@ import {
   Hero,
   Testimonial,
 } from "../components";
+import { Section } from ".";
 const HomePage = ({ children }) => {
   return (
-    <>
-      <Header />
+    <Section>
       <Hero />
       <About />
       {children}
       <Testimonial />
       <Connected />
       <Footer />
-    </>
+    </Section>
   );
 };
 

@@ -14,9 +14,11 @@ import {
   InputOTPSlot,
 } from "../components/ui/input-otp";
 import { cn } from "../lib/utils";
+import Btn from "./Btn";
 
 const ReusableForm = ({ type = "register" }) => {
   const { dispatch } = useGlobalContext();
+  
   const switchOnboardingType = (switchType) => {
     dispatch({ type: "changeBg", payload: { onboardingType: switchType } });
   };
@@ -66,15 +68,13 @@ const ReusableForm = ({ type = "register" }) => {
           />
 
           <div className="w-[25.5rem] h-[16rem] border shadow-md rounded-md mx-auto mt-24 flex-center">
-            <div className="rounded-full bg-pgreen3 size-20 flex-center">
+            <div className="rounded-full bg-pgreen-3 size-20 flex-center">
               <img src="/tick.svg" alt="tick" />
             </div>
           </div>
 
           <div className="mt-14 max-w-[343px] mx-auto">
-            <Button className="bg-pgreen mb-5 rounded-full w-full">
-              Proceed
-            </Button>
+            <Btn text="Proceed" size="full" to="/authentication/login" handleClick={() => switchOnboardingType('login')} />
             <div className="text-sm flex-center gap-1">
               <img src="/small-lock.svg" alt="lock" />
               Your info is safely secure
@@ -117,7 +117,7 @@ const ReusableForm = ({ type = "register" }) => {
                 return (
                   <Link
                     key={item.title}
-                    to="/onboarding/otp-2"
+                    to="/authentication/otp-2"
                     onClick={() => switchOnboardingType("otp2")}
                   >
                     <div className="px-4 py-2 flex items-center border-2">
@@ -282,15 +282,15 @@ const ReusableForm = ({ type = "register" }) => {
                 onClick={() => {
                   if (type === "register") {
                     switchOnboardingType("complete");
-                    return navigate("/onboarding/complete-profile");
+                    return navigate("/authentication/complete-profile");
                   }
                   if (type === "complete") {
                     switchOnboardingType("otp");
-                    return navigate("/onboarding/choose-otp");
+                    return navigate("/authentication/choose-otp");
                   }
                   if (type === "otp2") {
                     switchOnboardingType("congrats");
-                    return navigate("/onboarding/congrats");
+                    return navigate("/authentication/congrats");
                   }
                   if (type === "forget") {
                     switchOnboardingType("new");
@@ -313,7 +313,7 @@ const ReusableForm = ({ type = "register" }) => {
                 <p className="text-center mt-10 text-eiteen">
                   Dont have an account?{" "}
                   <Link
-                    to="/onboarding/register"
+                    to="/authentication/register"
                     onClick={() => switchOnboardingType("register")}
                   >
                     Sign Up!

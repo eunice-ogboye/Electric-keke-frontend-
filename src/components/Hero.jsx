@@ -8,16 +8,18 @@ const HeroCta = () => {
     dispatch,
   } = useGlobalContext();
 
+  const setModalWithAction = (content) => {
+    dispatch({ type: "modalContent", payload: { modalContent: content } });
+  };
+
   return (
     <div className="flex-center gap-2 mt-6">
       <Btn
         text={homePage === "main" ? "Book a Ride" : "Register"}
-        handleClick={() => {
-          dispatch({ type: "modal", payload: { modal: true } });
-        }}
+        handleClick={() => setModalWithAction('ride')}
       />
       {homePage === "main" && (
-        <Btn text="Request For Delivery" type="secondary" />
+        <Btn text="Request For Delivery" type="secondary" handleClick={() => setModalWithAction('delivery')} />
       )}
     </div>
   );

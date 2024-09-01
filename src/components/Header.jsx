@@ -4,13 +4,13 @@ import { Button } from "./ui/button";
 import Btn from "./Btn";
 import NavBar from "./NavBar";
 
-const Header = () => {
+const Header = ({darkLogo}) => {
   return (
     <header className="header">
       <div className="header-container">
-        <Logo main />
-        <NavBar />
-        <Btn text="Sign Up" to="/onboarding" />
+        <Logo main dark={darkLogo} />
+        <NavBar dark={darkLogo} />
+        <Btn text="Sign Up" to="/authentication" />
       </div>
     </header>
   );

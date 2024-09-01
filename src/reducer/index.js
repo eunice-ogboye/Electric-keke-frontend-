@@ -2,11 +2,13 @@ export const initialState = {
   onboardingType: "main",
   homePage: "main",
   modal: false,
+  modalContent: "ride",
+  rider: null
 };
 
 export const reducer = (state, action) => {
   const { type, payload } = action;
-  const { onboardingType, homePage, modal } = payload;
+  const { onboardingType, homePage, modal, modalContent, rider } = payload;
 
   switch (type) {
     case "changeBg":
@@ -16,6 +18,12 @@ export const reducer = (state, action) => {
       return { ...state, homePage };
     case "modal":
       return { ...state, modal };
+    case "modalContent":
+      return { ...state, modal: true, modalContent };
+    case "rider":
+      // console.log(rider)
+      localStorage.setItem("rider", JSON.stringify(rider));
+      return { ...state, rider };
     default:
       return state;
   }

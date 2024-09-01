@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "0",
+    "name": "Matthew Collins",
+    "rating": 2,
+    "plate_number": "IKJ-479XA",
+    "color": "White",
+    "photo": "/persons/rider1.png"
+  },
+  {
+    "_id": "1",
+    "name": "Olumide Daniel",
+    "rating": 4,
+    "plate_number": "IKJ-479XA",
+    "color": "Red",
+    "photo": "/persons/rider2.png"
+  },
+  {
+    "_id": "2",
+    "name": "John Okafor",
+    "rating": 3,
+    "plate_number": "IKJ-479XA",
+    "color": "Black",
+    "photo": "/persons/rider3.png"
+  },
+  {
+    "_id": "3",
+    "name": "Tariq",
+    "rating": 3,
+    "plate_number": "IKJ-479XA",
+    "color": "Black",
+    "photo": "/persons/rider4.jpeg"
+  },
+  {
+    "_id": "4",
+    "name": "JohnBull MySon",
+    "rating": 2,
+    "plate_number": "VIC-479TK",
+    "color": "Black",
+    "photo": "/persons/rider5.jpeg"
+  },
+  {
+    "_id": "5",
+    "name": "Clark Kent",
+    "rating": 4,
+    "plate_number": "VIC-479TK",
+    "color": "Black",
+    "photo": "/persons/rider6.png"
+  }
+]

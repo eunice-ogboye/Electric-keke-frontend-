@@ -74,6 +74,10 @@
   }
 }
 
+h2 {
+  @apply text-[2rem];
+}
+
 .board {
   @apply w-1/2 min-h-screen shadow-2xl relative;
 }
@@ -167,9 +171,21 @@
 }
 
 .header {
-  @apply absolute z-20  w-full top-[60px] px-[7.5rem]
+  @apply absolute z-20  w-full top-[60px] px-[7.5rem];
 }
 
 .header-container {
-  @apply flex items-center justify-between border border-pgreen h-[4.75rem] rounded-[40px] p-2 bg-neutral/20 backdrop-blur-lg;
+  @apply flex items-center justify-between border-2 border-pgreen/40 h-[4.75rem] rounded-[40px] p-2 bg-neutral/20 backdrop-blur-lg;
+}
+
+.rider {
+  @apply h-[498px] relative rounded-[20px] overflow-hidden;
+}
+
+.rider-overlay {
+  @apply w-full h-[190px] absolute bottom-0 bg-info backdrop-blur-md py-5 px-8 rounded-b-[20px];
+}
+
+.rider-btn {
+  @apply bg-pgreen-1 text-pgreen-3;
 }

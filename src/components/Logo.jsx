@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 
-const Logo = ({ logoClassName, titleClassName, main }) => {
+const Logo = ({ logoClassName, titleClassName, main, dark }) => {
   // useEffect(() => {
   //   console.log(window.innerHeight, window.innerWidth)
   // }, [])
   const LogoMain = () => {
     return (
       <div>
-        <img src="/logo2.svg" alt="logo" />
+        <img src={dark ? "/logo_dark.svg" : "/logo2.svg"} alt="logo" />
       </div>
     );
   };
