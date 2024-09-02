@@ -1,21 +1,23 @@
 import Account from "./Account";
 import Earn from "./Earn";
 import Home from "./Home";
-import Template from "./Template";
+import Notification from "./Notification";
 import Riders from "./Riders";
 import RiderIndex from "./RiderIndex";
 import RiderInfo from "./RiderInfo";
+import Support from "./Support";
+import Template from "./Template";
 import Tracking from "./Tracking";
-import Notification from "./Notification";
 
 export {
   Account,
   Earn,
   Home,
-  Template,
+  Notification,
   Riders,
   RiderIndex,
   RiderInfo,
+  Support,
+  Template,
   Tracking,
-  Notification
 };

@@ -8,14 +8,20 @@ import {
   Testimonial,
 } from "../components";
 import { Section } from ".";
-const HomePage = ({ children }) => {
+const HomePage = ({ children, type }) => {
   return (
     <Section>
       <Hero />
-      <About />
-      {children}
-      <Testimonial />
-      <Connected />
+      {type === "support" ? (
+        <>{children}</>
+      ) : (
+        <>
+          <About />
+          {children}
+          <Testimonial />
+          <Connected />
+        </>
+      )}
       <Footer />
     </Section>
   );

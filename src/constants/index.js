@@ -31,8 +31,10 @@ const otp_choice = [
 ];
 
 const hero_description = {
-  main: '"Join the Green Movement with Our Electric Keke: Real-time tracking, affordable pricing—making your life easier and the planet healthier."',
-  earn: " By joining us as a driver, you will enjoy flexible working hours, competitive earnings, and the opportunity to contribute to a greener enviroment. Drive with us and be part of eco-friendly revolution.",
+  main: "Join the Green Movement with Our Electric Keke: Real-time tracking, affordable pricing—making your life easier and the planet healthier.",
+  earn: "By joining us as a driver, you will enjoy flexible working hours, competitive earnings, and the opportunity to contribute to a greener enviroment. Drive with us and be part of eco-friendly revolution.",
+  support:
+    "Have a question or need assistance? Our support team is ready to help you with any issue, big or small",
 };
 
 const about_titles = {
@@ -97,6 +99,7 @@ const testimonies = {
       location: "Lagos, Nigeria",
     },
   ],
+  support: [],
 };
 
 const connected = {
@@ -123,6 +126,25 @@ const socials = [
   },
 ];
 
+const care_socials = [
+  {
+    title: "Facebook",
+    icon: "/facebook.svg",
+  },
+  {
+    title: "Twitter",
+    icon: "/twitter.svg",
+  },
+  {
+    title: "Whatsapp",
+    icon: "/whatsapp.svg",
+  },
+  {
+    title: "Instagram",
+    icon: "/instagram.svg",
+  },
+];
+
 const earn_requirements = [
   "Minimum age at least 22 years old",
   "Valid drivers license.",
@@ -142,7 +164,7 @@ const nav_links = [
   { title: "Home", href: "/" },
   { title: "About", href: "#about" },
   { title: "Earn With Us", href: "/earn-with-us" },
-  { title: "Support", href: "/*" },
+  { title: "Support", href: "/support" },
 ];
 
 const formTitle = {
@@ -156,6 +178,8 @@ const formTitle = {
   new: "Enter New Password",
   passUpdate: "Enter Code",
 };
+
+const support_links = ["General", "Account", "Payment", "Services"];
 
 export {
   account_types,
@@ -174,5 +198,7 @@ export {
   earn_requirements,
   contribution,
   nav_links,
-  formTitle
+  formTitle,
+  support_links,
+  care_socials
 };

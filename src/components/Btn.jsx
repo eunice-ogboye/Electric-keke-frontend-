@@ -10,11 +10,12 @@ const Btn = ({
   handleClick,
   fixed,
   to,
+  variant
 }) => {
   const sizing = {
     default: "h-14 w-[171px]",
-    full: "h-16 w-full",
-    sm: "",
+    full: "h-14 w-full",
+    sm: "h-12 w-[123px]",
     md: "h-8 w-[123px]",
     "md-full": "h-8 w-full",
     lg: "",
@@ -33,6 +34,7 @@ const Btn = ({
         className={`${sizing[size]} ${rounding[radius]} ${typing[type]} text-eiteen text-white font-medium disabled:bg-gray-400`}
         disabled={disabled}
         onClick={handleClick}
+        variant={variant}
       >
         {text}
       </Button>

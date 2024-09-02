@@ -116,7 +116,7 @@ h2 {
 }
 
 .hero-board {
-  @apply bg-black/60 size-full home-pad pt-52;
+  @apply bg-black/60 size-full;
 }
 
 .hero-title {
@@ -188,4 +188,12 @@ h2 {
 
 .rider-btn {
   @apply bg-pgreen-1 text-pgreen-3;
+}
+
+.r-form-body-margin {
+  @apply mt-[30px] my-dell:mt-[3rem] mb-[30px] my-dell:mb-20;
+}
+
+.r-form-body {
+  @apply r-form-body-margin space-y-[15px] my-dell:space-y-5 flex flex-col;
 }

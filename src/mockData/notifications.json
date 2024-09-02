@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Verify your email address",
+    "desc": "This allow you to retrieve your account if you loose access.",
+    "account": true
+  },
+  {
+    "title": "Receive 30% discount for your first ride",
+    "desc": "Order your first ride or delivery with our electric keke and enjoy 30% discount."
+  },
+  {
+    "title": "Your ride is on it way ",
+    "desc": "your ride is on it way, driver is 5min away from the pick up location."
+  },
+  {
+    "title": "Order confirm ",
+    "desc": "Order confirm, item picked up at 12, olorunda street, pick up time 2:45pm, item to be delivered to 45, onikan street estimated delivery time 3:30pm"
+  }
+]

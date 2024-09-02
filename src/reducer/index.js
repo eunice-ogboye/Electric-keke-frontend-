@@ -4,11 +4,12 @@ export const initialState = {
   modal: false,
   modalContent: "ride",
   rider: null,
+  support: "faq",
 };
 
 export const reducer = (state, action) => {
   const { type, payload } = action;
-  const { authType, homePage, modal, modalContent, rider } = payload;
+  const { authType, homePage, modal, modalContent, rider, support } = payload;
 
   switch (type) {
     case "changeAuthBg":
@@ -24,6 +25,8 @@ export const reducer = (state, action) => {
       // console.log(rider)
       localStorage.setItem("rider", JSON.stringify(rider));
       return { ...state, rider };
+    case "support":
+      return { ...state, support };
     default:
       return state;
   }

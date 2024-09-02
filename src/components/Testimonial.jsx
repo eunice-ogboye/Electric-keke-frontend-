@@ -7,7 +7,7 @@ const Testimonial = () => {
   const {
     globalState: { homePage },
   } = useGlobalContext();
-  
+
   return (
     <section className="home-pad py-[7.5rem] bg-base-white">
       <div>

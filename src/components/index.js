@@ -1,6 +1,7 @@
 import About from "./About";
 import Heading from "./Heading";
 import Hero from "./Hero";
+import Faq from "./Faq";
 import Mission from "./Mission";
 import Testimonial from "./Testimonial";
 import Connected from "./Connected";
@@ -9,17 +10,20 @@ import Flexibility from "./Flexibility";
 import Contribution from "./Contribution";
 import Header from "./Header";
 import Modal from "./Modal";
+import ContactSupport from "./ContactSupport";
 
 export {
   About,
-  Testimonial,
+  ContactSupport,
+  Contribution,
+  Faq,
+  Header,
   Heading,
   Hero,
   Mission,
   Connected,
   Footer,
   Flexibility,
-  Contribution,
-  Header,
-  Modal
+  Modal,
+  Testimonial,
 };

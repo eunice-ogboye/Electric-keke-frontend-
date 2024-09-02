@@ -8,7 +8,8 @@ import {
   RiderIndex,
   RiderInfo,
   Tracking,
-  Notification
+  Notification,
+  Support
 } from "./pages";
 import { Boarding } from "./shared-layout";
 import { Modal } from "./components";
@@ -22,6 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/earn-with-us" element={<Earn />} />
+        <Route path="/support" element={<Support />} />
         <Route path="/riders" element={<Riders />}>
           <Route index element={<RiderIndex />} />
           <Route path=":id" element={<RiderInfo />} />

@@ -6,12 +6,12 @@ import { useGlobalContext } from "../context";
 
 const Home = () => {
   useTitle("Home");
-  const { dispatch } = useGlobalContext();
+  const { Dispatch } = useGlobalContext();
 
   useEffect(() => {
-    dispatch({ type: "homePage", payload: { homePage: "main" } });
+    Dispatch("homePage", { homePage: "main" });
   }, []);
-  
+
   return (
     <HomePage>
       <Mission />
