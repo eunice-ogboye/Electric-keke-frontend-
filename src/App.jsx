@@ -10,7 +10,8 @@ import {
   Tracking,
   Notification,
   Support,
-  Driver
+  Driver,
+  DriverAuth,
 } from "./pages";
 import { Boarding } from "./shared-layout";
 import { Modal } from "./components";
@@ -25,7 +26,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/earn-with-us" element={<Earn />} />
         <Route path="/support" element={<Support />} />
-        <Route path="/driver/:id" element={<Driver />} />
+        <Route path="/driver/:id" element={<Driver />}></Route>
         <Route path="/riders" element={<Riders />}>
           <Route index element={<RiderIndex />} />
           <Route path=":id" element={<RiderInfo />} />
@@ -35,6 +36,7 @@ function App() {
         <Route path="/authentication" element={<Boarding />}>
           <Route index element={<Account />} />
           <Route path=":id" element={<Template />} />
+          <Route path="driver-auth" element={<DriverAuth />} />
         </Route>
       </Routes>
     </>

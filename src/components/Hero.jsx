@@ -29,7 +29,8 @@ const HeroCta = () => {
             text={homePage === "main" ? "Book a Ride" : "Register"}
             handleClick={() => {
               if (homePage === "earn") {
-                return navigate("/authentication");
+                Dispatch("changeHomePage", { homePage: "driver-auth" });
+                return navigate("/authentication/driver-auth");
               }
               setModalWithAction("ride");
             }}

@@ -48,8 +48,8 @@ const ReusableForm = ({ type = "register" }) => {
   });
 
   /**Create a fucntion to dispatch and navigate base on type */
-  const switchTypeNavigate = (authType, link) => {
-    Dispatch("changeAuthBg", { authType });
+  const switchTypeNavigate = (homePage, link) => {
+    Dispatch("changeHomePage", { homePage });
     navigate(link);
   };
 

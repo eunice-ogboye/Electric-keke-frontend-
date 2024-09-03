@@ -1,6 +1,7 @@
 export const initialState = {
-  authType: "main",
   homePage: "main",
+  driverAuthProcess: "Identity",
+  // homePage: "main",
   modal: false,
   modalContent: "ride",
   rider: null,
@@ -11,19 +12,21 @@ export const initialState = {
 export const reducer = (state, action) => {
   const { type, payload } = action;
   const {
-    authType,
     homePage,
     modal,
     modalContent,
     rider,
     support,
     user,
+    driverAuthProcess,
   } = payload;
 
   switch (type) {
-    case "changeAuthBg":
-      localStorage.setItem("authType", JSON.stringify(authType));
-      return { ...state, authType };
+    case "driverAuth":
+      return { ...state, driverAuthProcess };
+    case "changeHomePage":
+      localStorage.setItem("homePage", JSON.stringify(homePage));
+      return { ...state, homePage };
     case "homePage":
       return { ...state, homePage };
     case "modal":

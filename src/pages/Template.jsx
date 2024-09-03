@@ -5,21 +5,21 @@ import { useEffect } from "react";
 
 const Template = () => {
   const {
-    globalState: { authType },
+    globalState: { homePage },
     dispatch,
   } = useGlobalContext();
 
   useEffect(() => {
-    const authType = localStorage.getItem("authType");
+    const homePage = localStorage.getItem("homePage");
     dispatch({
-      type: "changeAuthBg",
-      payload: { authType: JSON.parse(authType) },
+      type: "changeHomePage",
+      payload: { homePage: JSON.parse(homePage) },
     });
   }, []);
 
   return (
     <div className="board-pad w-full my-dell:w-1/2">
-      <ReusableForm type={authType} />
+      <ReusableForm type={homePage} />
     </div>
   );
 };

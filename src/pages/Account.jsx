@@ -9,11 +9,11 @@ import { cn } from "../lib/utils";
 
 const Account = () => {
   useTitle("Account");
-  const { dispatch } = useGlobalContext();
+  const { Dispatch } = useGlobalContext();
   const [type, setType] = useState("Passenger");
 
   useEffect(() => {
-    dispatch({ type: "changeAuthBg", payload: { authType: "main" } });
+    Dispatch("changeHomePage", { homePage: "main" });
   }, []);
 
   return (
@@ -23,12 +23,9 @@ const Account = () => {
         <Link
           to="login"
           className="text-green-500"
-          onClick={() =>
-            dispatch({
-              type: "changeAuthBg",
-              payload: { authType: "login" },
-            })
-          }
+          onClick={() => {
+            Dispatch("changeHomePage", { homePage: "login" });
+          }}
         >
           Log in
         </Link>
@@ -45,12 +42,9 @@ const Account = () => {
             <Link
               to="register"
               key={item.title}
-              onClick={() =>
-                dispatch({
-                  type: "changeAuthBg",
-                  payload: { authType: "register" },
-                })
-              }
+              onClick={() => {
+                Dispatch("changeHomePage", { homePage: "register" });
+              }}
             >
               <div
                 className={cn(
