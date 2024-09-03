@@ -63,7 +63,7 @@ const About = () => {
       </div>
 
       {homePage === "main" && (
-        <div className="py-20">
+        <div className="py-20 overflow-hidden">
           <Heading
             introTitle="Service"
             title={about_titles.two}

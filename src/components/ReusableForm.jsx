@@ -284,11 +284,14 @@ const ReusableForm = ({ type = "register" }) => {
                         //"/authentication/update-passcode"
                       );
                     case "login":
-                      Dispatch("user", {
-                        userNumber: Math.floor(Math.random() * 2),
-                      });
-                      console.log("login");
-                      return switchTypeNavigate("main", "/");
+                      const users = [{ role: "rider" }, { role: "passenger" }];
+                      // let user = users[Math.floor(Math.random() * 2)];
+                      let user = users[0];
+                      const { role } = user;
+                      Dispatch("user", { user });
+                      return role === "rider"
+                        ? switchTypeNavigate("main", "/driver/driverId")
+                        : switchTypeNavigate("main", "/");
                     default:
                       console.log("jose");
                   }

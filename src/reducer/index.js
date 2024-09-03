@@ -17,7 +17,6 @@ export const reducer = (state, action) => {
     modalContent,
     rider,
     support,
-    userNumber,
     user,
   } = payload;
 
@@ -38,10 +37,7 @@ export const reducer = (state, action) => {
     case "support":
       return { ...state, support };
     case "user":
-      const users = [{ role: "rider" }, { role: "passenger" }];
-      localStorage.setItem("user", JSON.stringify(users[userNumber]));
-      return { ...state, user: users[userNumber] };
-    case "setUser":
+      localStorage.setItem("user", JSON.stringify(user));
       return { ...state, user };
     default:
       return state;

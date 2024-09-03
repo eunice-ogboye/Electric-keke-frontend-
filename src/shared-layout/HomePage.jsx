@@ -3,7 +3,6 @@ import {
   About,
   Connected,
   Footer,
-  Header,
   Hero,
   Testimonial,
 } from "../components";

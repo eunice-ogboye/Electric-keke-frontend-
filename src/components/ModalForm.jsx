@@ -19,7 +19,7 @@ const ModalFormInput = ({
   showTarget,
 }) => {
   return (
-    <div className="h-[59px] border border-neutral py-4 px-5 rounded-md bg-white flex items-center justify-between">
+    <div className="h-10 md:h-[59px] border border-neutral py-4 px-5 rounded-md bg-white flex items-center justify-between">
       <input
         type="text"
         placeholder={placeholder}
@@ -78,7 +78,7 @@ const ModalForm = () => {
         handleChange={handleChange}
       />
       {price && (
-        <div className="h-[59px] py-4 px-5 rounded-md bg-pgreen-1 flex items-center justify-between">
+        <div className="h-10 md:h-[59px] py-4 px-5 rounded-md bg-pgreen-1 flex items-center justify-between">
           <p>#3000</p>
         </div>
       )}

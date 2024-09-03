@@ -10,7 +10,6 @@ const Btn = ({
   handleClick,
   fixed,
   to,
-  variant
 }) => {
   const sizing = {
     default: "h-14 w-[171px]",
@@ -19,22 +18,28 @@ const Btn = ({
     md: "h-8 w-[123px]",
     "md-full": "h-8 w-full",
     lg: "",
+    driver: "h-[34px] w-[95px] md:h-14 md:w-[171px]",
+    none: 'h-fit w-fit'
   };
   const rounding = {
     default: "rounded-normal",
   };
-  const typing = {
+  const variants = {
     default: "primary-btn",
     secondary: "secondary-btn",
-    rider: 'rider-btn'
+    rider: "rider-btn",
+    invisible: "bg-transparent",
   };
   const Btn = () => {
     return (
       <Button
-        className={`${sizing[size]} ${rounding[radius]} ${typing[type]} text-eiteen text-white font-medium disabled:bg-gray-400`}
+        className={`${sizing[size]} ${rounding[radius]} ${
+          variants[type]
+        } text-eiteen ${
+          type === "invisible" ? "text-black" : "text-white"
+        } font-medium disabled:bg-gray-400 transition-all duration-300`}
         disabled={disabled}
         onClick={handleClick}
-        variant={variant}
       >
         {text}
       </Button>
@@ -45,7 +50,7 @@ const Btn = ({
     return (
       <Link
         to={to}
-        className={`${sizing[size]} ${rounding[radius]} ${typing[type]} text-eiteen text-white font-medium flex-center`}
+        className={`${sizing[size]} ${rounding[radius]} ${variants[type]} text-eiteen text-white font-medium flex-center`}
         onClick={handleClick}
       >
         {text}

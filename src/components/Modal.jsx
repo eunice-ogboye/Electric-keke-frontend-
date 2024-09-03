@@ -24,14 +24,14 @@ const Modal = () => {
   };
 
   return (
-    <section className="w-full min-h-screen fixed top-0 left-0 z-50 flex-center bg-black/50">
+    <section className="modal">
       <div
         className={`${
           content === 0 && modalContent !== "rate"
-            ? "w-[478px] min-h-[348px] py-4"
+            ? "w-full max-w-[478px] min-h-[348px] py-4"
             : modalContent === "rate"
             ? "flex-center w-[607px] h-[577px]"
-            : "w-[715px] min-h-[665px] py-10 px-7"
+            : "w-[715px] md:min-h-[665px] py-5 md:py-10 px-3 md:px-7"
         }  bg-white rounded-xl relative`}
       >
         {/* cancel btn */}
@@ -139,16 +139,16 @@ const Modal = () => {
 
             {content === 1 && (
               <>
-                <div>
-                  <div className="w-[653px] h-[247px] bg-gray-500 flex-center rounded-[27px]">
+                <div className="location-container">
+                  <div className="location-map">
                     Map
                   </div>
                   <Heading
                     className="text-center border-2 max-w-[520px] mx-auto"
                     title="Where Are You Headed?"
-                    tclass="mt-6"
+                    tclass="md:mt-6"
                     description="Start your eco-friendly journey by entering your pickup location and drop-off destination."
-                    dclass="text-eiteen text-neutral"
+                    dclass="text-base md:text-eiteen text-neutral"
                   />
                 </div>
 

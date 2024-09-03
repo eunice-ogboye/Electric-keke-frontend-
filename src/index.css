@@ -162,7 +162,6 @@ h2 {
   @apply text-[2rem] text-pgreen-0 leading-[38px] font-bold;
 }
 
-
 /* DIRECTION */
 
 .direction {
@@ -229,25 +228,34 @@ h2 {
 }
 
 .doughnut-stats-info {
-  @apply ml-7 w-8/12 space-y-4
+  @apply ml-7 w-8/12 space-y-4;
 }
 
 .dough-info {
-  @apply flex items-center justify-between text-xs
+  @apply flex items-center justify-between text-xs;
 }
 
 .dough-info-point {
-  @apply size-[10px] border rounded-full inline-block
+  @apply size-[10px] border rounded-full inline-block;
 }
 
 .trips {
-  @apply w-4/12 my-dell:w-[150px] space-y-2 md:space-y-4 h-full 
+  @apply w-4/12 my-dell:w-[150px] space-y-2 md:space-y-4 h-full;
 }
 
 .trip {
-  @apply h-[calc(50%-4px)] md:h-[calc(50%-8px)] w-full bg-white rounded-20 px-2 py-3
+  @apply h-[calc(50%-4px)] md:h-[calc(50%-8px)] w-full bg-white rounded-20 px-2 py-3;
 }
 
 .performance-board {
-  @apply h-[338px] bg-white mt-5 rounded-20 flex-center
+  @apply h-[338px] bg-white mt-5 rounded-20 flex-center;
+}
+
+/* MODAL */
+.modal {
+  @apply w-full min-h-screen fixed top-0 left-0 z-50 flex-center bg-black/50 home-pad;
+}
+
+.location-map {
+  @apply w-full max-w-[653px] h-[150px] md:h-[247px] bg-gray-500 flex-center rounded-[27px];
 }
