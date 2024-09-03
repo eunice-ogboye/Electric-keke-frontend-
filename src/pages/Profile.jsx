@@ -60,9 +60,9 @@ const Profile = () => {
             <Btn text="Cancel" type="secondary" />
           </div>
         </form>
-      <div className="absolute right-0 -bottom-36 md:-bottom-64">
-        <img src="/profile-tree.png" alt="profile-tree" />
-      </div>
+        <div className="absolute right-0 -bottom-36 md:-bottom-64 -z-20">
+          <img src="/profile-tree.png" alt="profile-tree" />
+        </div>
       </div>
     </Section>
   );
