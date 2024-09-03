@@ -12,6 +12,7 @@ import Schedule from "./Schedule";
 import Support from "./Support";
 import Template from "./Template";
 import Tracking from "./Tracking";
+import Settings from "./Settings";
 
 export {
   Account,
@@ -28,4 +29,5 @@ export {
   Support,
   Template,
   Tracking,
+  Settings,
 };

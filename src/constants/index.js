@@ -184,6 +184,16 @@ const support_links = ["General", "Account", "Payment", "Services"];
 const footer_note =
   "Eco-Ride is more than just a service—it's a movement towards a more sustainable and efficient future.Whether you're booking a ride, sending a package, or planning ahead, Eco-Ride is here to meet your needs while caring for the planet";
 
+const settings = [
+  "Profile Management",
+  "Driver's License & Document",
+  "Availability & Scheduling",
+  "Notifications & Alerts",
+  "Earnings & Payment",
+  "Security & Privacy",
+  "Support & Feedback",
+];
+
 export {
   account_types,
   onboardingImages,
@@ -205,4 +215,5 @@ export {
   support_links,
   care_socials,
   footer_note,
+  settings,
 };

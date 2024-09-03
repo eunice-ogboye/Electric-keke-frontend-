@@ -14,6 +14,7 @@ import {
   DriverAuth,
   Profile,
   Schedule,
+  Settings,
 } from "./pages";
 import { Boarding } from "./shared-layout";
 import { Modal } from "./components";
@@ -42,6 +43,7 @@ function App() {
           <Route path=":id" element={<Template />} />
           <Route path="driver-auth" element={<DriverAuth />} />
         </Route>
+        <Route path="/settings" element={<Settings />} />
       </Routes>
     </>
   );
