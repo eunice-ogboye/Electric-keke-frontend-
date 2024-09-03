@@ -30,7 +30,7 @@ const Header = ({ darkLogo }) => {
                 <img src="/bell.svg" alt="notification" />
               </div>
             </Link>
-            <Link to="/profile">
+            <Link to="/profile/:id">
               <div>
                 <img src={`/avatars/${user?.role}.svg`} alt="notification" />
               </div>
