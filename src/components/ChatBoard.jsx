@@ -15,6 +15,9 @@ const Chat = ({ identity }) => {
     <div
       className={`flex ${identity === "sender" && "justify-end"}`}
       onDrag={(e) => e.stopPropagation()}
+      style={{
+        userSelect: "none"
+      }}
     >
       <div
         className={`px-2 py-4 rounded-b-20 flex items-end w-[90%] md:w-[50%] ${person[identity].box}`}
