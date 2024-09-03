@@ -3,6 +3,7 @@ import { hero_description, support_links } from "../constants";
 import { useGlobalContext } from "../context";
 import Btn from "./Btn";
 import { useNavigate } from "react-router-dom";
+import Togglers from "./Togglers";
 
 const HeroCta = () => {
   const navigate = useNavigate();
@@ -39,34 +40,22 @@ const HeroCta = () => {
             <Btn
               text="Request For Delivery"
               type="secondary"
-              handleClick={() => setModalWithAction("delivery")}
+              handleClick={() => {
+                setModalWithAction("delivery");
+              }}
             />
           )}
         </>
       ) : (
         <div>
-          <div className="flex-center mt-10">
-            <button
-              className={`border-b  font-bold text-base w-[180px] pb-4 ${
-                support === "faq"
-                  ? "border-b-pgreen text-pgreen"
-                  : "text-white border-b-base-white"
-              }`}
-              onClick={() => setSupport("faq")}
-            >
-              FAQ
-            </button>
-            <button
-              className={`border-b  font-bold text-base w-[180px] pb-4 ${
-                support === "contact"
-                  ? "border-b-pgreen text-pgreen"
-                  : "text-white border-b-base-white"
-              }`}
-              onClick={() => setSupport("contact")}
-            >
-              Contact Us
-            </button>
-          </div>
+          <Togglers
+            text1="Faq"
+            text2="Contact Us"
+            isConditionTrue={support === "faq"}
+            handleClick1={() => setSupport("faq")}
+            handleClick2={() => setSupport("contact")}
+            color="one"
+          />
 
           <div className="space-x-11 mt-6">
             {support_links.map((item) => {

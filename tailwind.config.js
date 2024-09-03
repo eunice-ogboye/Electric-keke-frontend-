@@ -93,6 +93,7 @@ module.exports = {
         warning: "#EDA145",
         peach: "#EDA14580",
         info: "#0A0B0A1A",
+        tertiary: "#F5F5F5",
       },
       borderRadius: {
         20: "20px",

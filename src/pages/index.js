@@ -8,6 +8,7 @@ import Profile from "./Profile";
 import Riders from "./Riders";
 import RiderIndex from "./RiderIndex";
 import RiderInfo from "./RiderInfo";
+import Schedule from "./Schedule";
 import Support from "./Support";
 import Template from "./Template";
 import Tracking from "./Tracking";
@@ -23,6 +24,7 @@ export {
   Riders,
   RiderIndex,
   RiderInfo,
+  Schedule,
   Support,
   Template,
   Tracking,

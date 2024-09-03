@@ -13,6 +13,7 @@ import {
   Driver,
   DriverAuth,
   Profile,
+  Schedule,
 } from "./pages";
 import { Boarding } from "./shared-layout";
 import { Modal } from "./components";
@@ -27,7 +28,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/earn-with-us" element={<Earn />} />
         <Route path="/support" element={<Support />} />
-        <Route path="/driver/:id" element={<Driver />}></Route>
+        <Route path="/driver/:id" element={<Driver />} />
+        <Route path="/schedule-ride" element={<Schedule />} />
         <Route path="/riders" element={<Riders />}>
           <Route index element={<RiderIndex />} />
           <Route path=":id" element={<RiderInfo />} />

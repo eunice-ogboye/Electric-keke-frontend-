@@ -8,15 +8,15 @@ import {
   SelectValue,
 } from "./ui/select";
 
-export function SelectInput() {
+export function SelectInput({placeholder = 'select', label}) {
   return (
     <Select>
       <SelectTrigger className="border border-pgreen rounded-[6px] h-[64px] w-full max-w-96">
-        <SelectValue placeholder="Select a fruit" />
+        <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>Fruits</SelectLabel>
+          <SelectLabel>{label}</SelectLabel>
           <SelectItem value="apple">Apple</SelectItem>
           <SelectItem value="banana">Banana</SelectItem>
           <SelectItem value="blueberry">Blueberry</SelectItem>

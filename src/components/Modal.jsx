@@ -4,10 +4,13 @@ import Btn from "./Btn";
 import { useGlobalContext } from "../context";
 import ModalForm from "./ModalForm";
 import Rate from "./Rate";
+import { useNavigate } from "react-router-dom";
 
 const Modal = () => {
+  const navigate = useNavigate();
   const {
     dispatch,
+    Dispatch,
     globalState: { modalContent },
   } = useGlobalContext();
   const [content, setContent] = useState(0);
@@ -131,7 +134,10 @@ const Modal = () => {
                         : "Schedule a Delivery"
                     }
                     type="secondary"
-                    handleClick={handleClick}
+                    handleClick={() => {
+                      Dispatch("modal", { modal: false });
+                      navigate("/schedule-ride");
+                    }}
                   />
                 </div>
               </>
@@ -140,9 +146,7 @@ const Modal = () => {
             {content === 1 && (
               <>
                 <div className="location-container">
-                  <div className="location-map">
-                    Map
-                  </div>
+                  <div className="location-map">Map</div>
                   <Heading
                     className="text-center border-2 max-w-[520px] mx-auto"
                     title="Where Are You Headed?"

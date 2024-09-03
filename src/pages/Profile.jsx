@@ -4,25 +4,7 @@ import { SelectInput } from "../components/SelectInput";
 import React from "react";
 import { ToggleStats } from "../components";
 import Btn from "../components/Btn";
-
-const ProfileFormRow = ({ name, label, type = "text", children }) => {
-  return (
-    <div>
-      <label htmlFor={name} className="text-base block">
-        {label}
-      </label>
-      {children ? (
-        children
-      ) : (
-        <input
-          type={type}
-          name={name}
-          className="border border-pgreen rounded-[6px] h-[64px] w-full max-w-96"
-        />
-      )}
-    </div>
-  );
-};
+import FormRow from "../components/FormRow";
 
 const Profile = () => {
   return (
@@ -45,16 +27,16 @@ const Profile = () => {
           className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-9 gap-x-[50px]"
           onSubmit={(e) => e.preventDefault()}
         >
-          <ProfileFormRow name="first-name" label="First Name" />
-          <ProfileFormRow name="middle-name" label="Middle Name" />
-          <ProfileFormRow name="last-name" label="Last Name" />
-          <ProfileFormRow name="email" label="Email Address" type="email" />
-          <ProfileFormRow name="phone" label="Phone Number" />
-          <ProfileFormRow label="Date Of Birth" children={<DatePicker />} />
-          <ProfileFormRow label="State" children={<SelectInput />} />
-          <ProfileFormRow name="lga" label="L.G.A" />
-          <ProfileFormRow name="address" label="Address" />
-          <ProfileFormRow name="password" label="Password" type="password" />
+          <FormRow name="first-name" label="First Name" />
+          <FormRow name="middle-name" label="Middle Name" />
+          <FormRow name="last-name" label="Last Name" />
+          <FormRow name="email" label="Email Address" type="email" />
+          <FormRow name="phone" label="Phone Number" />
+          <FormRow label="Date Of Birth" children={<DatePicker />} />
+          <FormRow label="State" children={<SelectInput />} />
+          <FormRow name="lga" label="L.G.A" />
+          <FormRow name="address" label="Address" />
+          <FormRow name="password" label="Password" type="password" />
           <div className="flex items-end justify-between gap-4 border">
             <Btn text="Save" />
             <Btn text="Cancel" type="secondary" />
