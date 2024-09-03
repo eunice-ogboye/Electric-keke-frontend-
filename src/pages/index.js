@@ -1,4 +1,5 @@
 import Account from "./Account";
+import CustomerCare from "./CustomerCare";
 import Driver from "./Driver";
 import DriverAuth from "./DriverAuth";
 import Earn from "./Earn";
@@ -10,12 +11,13 @@ import RiderIndex from "./RiderIndex";
 import RiderInfo from "./RiderInfo";
 import Schedule from "./Schedule";
 import Support from "./Support";
+import Settings from "./Settings";
 import Template from "./Template";
 import Tracking from "./Tracking";
-import Settings from "./Settings";
 
 export {
   Account,
+  CustomerCare,
   Driver,
   DriverAuth,
   Earn,
@@ -27,7 +29,7 @@ export {
   RiderInfo,
   Schedule,
   Support,
+  Settings,
   Template,
   Tracking,
-  Settings,
 };

@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import {
   Home,
   Account,
+  CustomerCare,
   Template,
   Earn,
   Riders,
@@ -44,6 +45,7 @@ function App() {
           <Route path="driver-auth" element={<DriverAuth />} />
         </Route>
         <Route path="/settings" element={<Settings />} />
+        <Route path="/customer-care" element={<CustomerCare />} />
       </Routes>
     </>
   );
