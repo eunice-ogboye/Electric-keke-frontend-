@@ -12,6 +12,7 @@ import {
   Support,
   Driver,
   DriverAuth,
+  Profile,
 } from "./pages";
 import { Boarding } from "./shared-layout";
 import { Modal } from "./components";
@@ -33,6 +34,7 @@ function App() {
         </Route>
         <Route path="/notification" element={<Notification />} />
         <Route path="/tracking" element={<Tracking />} />
+        <Route path="/profile/:id" element={<Profile />} />
         <Route path="/authentication" element={<Boarding />}>
           <Route index element={<Account />} />
           <Route path=":id" element={<Template />} />
