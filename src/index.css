@@ -99,7 +99,7 @@ h2 {
 }
 
 .home-pad {
-  @apply px-[7.5rem];
+  @apply px-5 my-dell:px-[7.5rem];
 }
 
 .primary-btn {
@@ -112,11 +112,11 @@ h2 {
 
 /******** HOME HERO ******/
 .hero {
-  @apply h-[696px] relative;
+  @apply relative;
 }
 
 .hero-board {
-  @apply bg-black/60 size-full;
+  @apply bg-black/60 size-full min-h-[696px] px-1;
 }
 
 .hero-title {
@@ -162,8 +162,11 @@ h2 {
   @apply text-[2rem] text-pgreen-0 leading-[38px] font-bold;
 }
 
+
+/* DIRECTION */
+
 .direction {
-  @apply mt-6 flex items-center gap-2;
+  @apply mt-6 flex items-center justify-center md:justify-start gap-2;
 }
 
 .direction-btn {
@@ -171,12 +174,17 @@ h2 {
 }
 
 .header {
-  @apply absolute z-20  w-full top-[60px] px-[7.5rem];
+  @apply md:absolute z-20 w-full top-[5vh] md:px-5 lg:px-20 xl:px-[7.5rem];
+}
+
+.mobile-header {
+  @apply flex items-center justify-between px-[17px] py-3 md:hidden;
 }
 
 .header-container {
-  @apply flex items-center justify-between border-2 border-pgreen/40 h-[4.75rem] rounded-[40px] p-2 bg-neutral/20 backdrop-blur-lg;
+  @apply hidden md:flex items-center justify-between md:border-2 md:border-pgreen/40 h-[4.75rem] md:rounded-[40px] px-[17px] md:p-2 md:bg-neutral/20 md:backdrop-blur-lg;
 }
+/* h-[4.75rem] container height max */
 
 .rider {
   @apply h-[498px] relative rounded-[20px] overflow-hidden;
@@ -196,4 +204,50 @@ h2 {
 
 .r-form-body {
   @apply r-form-body-margin space-y-[15px] my-dell:space-y-5 flex flex-col;
+}
+
+/* DRIVER */
+
+.driver-board {
+  @apply home-pad pt-[43px] md:pt-[10rem] pb-16;
+}
+
+.driver {
+  @apply border border-neutral min-h-[693px] px-[9px] md:px-0 md:pl-10 lg:pl-10 py-10 rounded-[40px] bg-neutral-1 overflow-hidden;
+}
+
+.statistics {
+  @apply w-full md:w-1/2 my-dell:w-[515px] border-8;
+}
+
+.stats {
+  @apply h-[174px] my-dell:h-[200px] flex items-center gap-x-4 w-full border-4 border-red-500;
+}
+
+.doughnut-stats {
+  @apply h-full w-8/12 lg:w-[365px] bg-white rounded-20 p-4 flex flex-col justify-between;
+}
+
+.doughnut-stats-info {
+  @apply ml-7 w-8/12 space-y-4
+}
+
+.dough-info {
+  @apply flex items-center justify-between text-xs
+}
+
+.dough-info-point {
+  @apply size-[10px] border rounded-full inline-block
+}
+
+.trips {
+  @apply w-4/12 my-dell:w-[150px] space-y-2 md:space-y-4 h-full 
+}
+
+.trip {
+  @apply h-[calc(50%-4px)] md:h-[calc(50%-8px)] w-full bg-white rounded-20 px-2 py-3
+}
+
+.performance-board {
+  @apply h-[338px] bg-white mt-5 rounded-20 flex-center
 }

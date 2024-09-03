@@ -20,10 +20,10 @@ const Testimonial = () => {
         />
 
         <div className="mt-10">
-          <div className="flex items-center">
+          <div className="md:flex items-center">
             {testimonies[homePage].map((item) => {
               return (
-                <div className="w-[409px] h-[440px]" key={item.name}>
+                <div className="w-full md:w-[409px] h-[440px]" key={item.name}>
                   <img
                     src={item.photo}
                     alt={item.name}
@@ -32,12 +32,12 @@ const Testimonial = () => {
                 </div>
               );
             })}
-            <div className="border tablet:max-w-[639px] laptop:max-w-[739px] ml-10">
+            <div className="border w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10">
               {testimonies[homePage].map((item) => {
                 return (
                   <div className="" key={item.name}>
-                    <p className="text-neutral text-2xl">{item.testimony}</p>
-                    <div className="mt-6">
+                    <p className="text-neutral text-2xl text-center md:text-left">{item.testimony}</p>
+                    <div className="mt-6 text-center md:text-left">
                       <p className="text-base text-neutral">{item.name}</p>
                       <p className="text-base text-neutral">{item.location}</p>
                     </div>

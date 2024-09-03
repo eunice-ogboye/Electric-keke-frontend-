@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 
 const Riders = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [ridersTitle, setRidersTitle] = useState("Available Riders");
   const switchRiderTitle = (title) => {
     setRidersTitle(title);
@@ -13,7 +13,7 @@ const Riders = () => {
 
   return (
     <Section darkLogo={true}>
-      <div className="home-pad pt-48">
+      <div className="home-pad py-10 md:py-48">
         <Outlet context={{ ridersTitle, switchRiderTitle }} />
       </div>
     </Section>

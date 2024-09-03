@@ -19,26 +19,31 @@ const About = () => {
     <section className="home-pad bg-base-white">
       <div className={`min-h-[696px] ${homePage === "main" && "flex-center"}`}>
         {homePage === "earn" && <Flexibility />}
-        <div className="min-h-[526px] flex items-center">
+
+        <div className="min-h-[526px] md:flex items-center">
           <div className="w-full tablet:w-6/12">
             {homePage === "main" ? (
               <>
                 <Heading
+                  className="w-full"
                   introTitle="About Us"
-                  introClass="text-pgreen"
+                  introClass="text-pgreen mx-auto md:mx-0"
                   title={about_titles.one}
+                  tclass="text-center md:text-left"
                   description={about_descriptions.one}
-                  dclass="mt-5 mb-10 text-tblack text-eiteen"
+                  dclass="mt-5 mb-10 text-tblack text-eiteen text-center md:text-left"
                   type="about"
                 />
-                <Btn text="Learn More" />
+                <div className="text-center md:text-left">
+                  <Btn text="Learn More" />
+                </div>
               </>
             ) : (
               <>
-                <h2 className="text-[2rem] font-bold">Requirements</h2>
+                <h2 className="text-[2rem] font-bold text-center md:text-left">Requirements</h2>
                 <ul className="list-disc pl-4 mt-7">
                   {earn_requirements.map((item, index) => (
-                    <li key={index} className="text-2xl text-neutral">
+                    <li key={index} className="text-base md:text-2xl text-neutral">
                       {item}
                     </li>
                   ))}
@@ -47,7 +52,7 @@ const About = () => {
             )}
           </div>
 
-          <div className="w-[33rem] h-[454px]">
+          <div className="md:w-[33rem] md:h-[454px]">
             <img
               src={homePage === "main" ? "/about.png" : "/earn_about_bg.png"}
               alt="about keke"

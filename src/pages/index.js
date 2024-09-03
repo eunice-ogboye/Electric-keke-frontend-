@@ -1,4 +1,5 @@
 import Account from "./Account";
+import Driver from "./Driver";
 import Earn from "./Earn";
 import Home from "./Home";
 import Notification from "./Notification";
@@ -11,6 +12,7 @@ import Tracking from "./Tracking";
 
 export {
   Account,
+  Driver,
   Earn,
   Home,
   Notification,

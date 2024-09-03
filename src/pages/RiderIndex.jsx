@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 const RiderIndex = () => {
   const { switchRiderTitle, ridersTitle } = useOutletContext();
-  const { dispatch } = useGlobalContext();
+  const { dispatch, Dispatch } = useGlobalContext();
 
   useEffect(() => {
     localStorage.clear("rider");
@@ -18,12 +18,9 @@ const RiderIndex = () => {
     <>
       <div className="flex items-center justify-between">
         <h2 className="font-bold">{ridersTitle}</h2>
-        <Btn
-          type="cancel"
-          fixed
-        />
+        <Btn type="cancel" fixed />
       </div>
-      <div className="grid grid-cols-3 gap-x-6 gap-y-2 mt-7 relative">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-2 mt-7 relative">
         {riders.map((item) => {
           return (
             <Rider
@@ -31,7 +28,7 @@ const RiderIndex = () => {
               {...item}
               handleClick={() => {
                 switchRiderTitle(item.name);
-                dispatch({ type: "rider", payload: { rider: item } });
+                Dispatch("rider", { rider: item });
               }}
             />
           );

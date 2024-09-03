@@ -181,6 +181,9 @@ const formTitle = {
 
 const support_links = ["General", "Account", "Payment", "Services"];
 
+const footer_note =
+  "Eco-Ride is more than just a service—it's a movement towards a more sustainable and efficient future.Whether you're booking a ride, sending a package, or planning ahead, Eco-Ride is here to meet your needs while caring for the planet";
+
 export {
   account_types,
   onboardingImages,
@@ -200,5 +203,6 @@ export {
   nav_links,
   formTitle,
   support_links,
-  care_socials
+  care_socials,
+  footer_note,
 };

@@ -283,6 +283,12 @@ const ReusableForm = ({ type = "register" }) => {
                         "passUpdate"
                         //"/authentication/update-passcode"
                       );
+                    case "login":
+                      Dispatch("user", {
+                        userNumber: Math.floor(Math.random() * 2),
+                      });
+                      console.log("login");
+                      return switchTypeNavigate("main", "/");
                     default:
                       console.log("jose");
                   }

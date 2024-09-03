@@ -1,9 +1,10 @@
-import { Header } from "../components";
+import { Header, MobileHeader } from "../components";
 import React from "react";
 
 const Section = ({ children, darkLogo }) => {
   return (
     <section>
+      <MobileHeader />
       <Header darkLogo={darkLogo} />
       {children}
     </section>

@@ -5,11 +5,21 @@ export const initialState = {
   modalContent: "ride",
   rider: null,
   support: "faq",
+  user: null,
 };
 
 export const reducer = (state, action) => {
   const { type, payload } = action;
-  const { authType, homePage, modal, modalContent, rider, support } = payload;
+  const {
+    authType,
+    homePage,
+    modal,
+    modalContent,
+    rider,
+    support,
+    userNumber,
+    user,
+  } = payload;
 
   switch (type) {
     case "changeAuthBg":
@@ -27,6 +37,12 @@ export const reducer = (state, action) => {
       return { ...state, rider };
     case "support":
       return { ...state, support };
+    case "user":
+      const users = [{ role: "rider" }, { role: "passenger" }];
+      localStorage.setItem("user", JSON.stringify(users[userNumber]));
+      return { ...state, user: users[userNumber] };
+    case "setUser":
+      return { ...state, user };
     default:
       return state;
   }

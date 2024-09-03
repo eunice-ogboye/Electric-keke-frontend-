@@ -1,31 +1,34 @@
 import React from "react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 
-ChartJS.register(ArcElement);
+ChartJS.register(ArcElement, Legend, Tooltip, Title);
 
-const DoughnutChart = () => {
+const DoughnutChart = ({ chartData }) => {
+  const labels = chartData.map((item) => item.title);
+  const cuts = chartData.map((item) => item.amount);
+
   const data = {
-    labels: ["Red", "Blue", "Yellow"],
+    labels,
     datasets: [
       {
-        label: "My First Dataset",
-        data: [300, 50, 100],
-        backgroundColor: [
-          "rgb(255, 99, 132)",
-          "rgb(54, 162, 235)",
-          "rgb(255, 205, 86)",
-        ],
+        label: "income",
+        data: cuts,
+        backgroundColor: ["#F68D2B", "#344BFD", "#F4A79D"],
         hoverOffset: 4,
       },
     ],
   };
-  return (
-    <>
-    <p>Doughnut</p>
-      <Doughnut data={data} />
-    </>
-  );
+
+  const chartOptions = {
+    cutout: "50%",
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  };
+  return <Doughnut data={data} options={chartOptions} />;
 };
 
 export default DoughnutChart;

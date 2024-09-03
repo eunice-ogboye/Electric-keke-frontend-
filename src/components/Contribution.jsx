@@ -4,8 +4,8 @@ import React from "react";
 const Contribution = () => {
   return (
     <section className="home-pad py-20 bg-base-white">
-      <div className="min-h-[546px] flex items-center">
-        <div className="w-1/2 h-[546px] border rounded-normal bg-gradient-to-b from-pgreen to-peach">
+      <div className="min-h-[546px] md:flex items-center">
+        <div className="md:w-1/2 md:h-[546px] border rounded-normal bg-gradient-to-b from-pgreen to-peach">
           <img
             src="/hand-phone.svg"
             alt="hand and phone"
@@ -13,10 +13,14 @@ const Contribution = () => {
           />
         </div>
 
-        <div className="w-1/2 py-16 pl-16">
+        <div className="md:w-1/2 py-16 md:pl-16">
           <div>
-            <h2 className="font-bold text-[2rem]">{contribution.title}</h2>
-            <p className="text-neutral text-2xl mt-7">{contribution.desc}</p>
+            <h2 className="font-bold text-[2rem] text-center md:text-left">
+              {contribution.title}
+            </h2>
+            <p className="text-neutral text-2xl mt-7 text-center md:text-left">
+              {contribution.desc}
+            </p>
           </div>
         </div>
       </div>

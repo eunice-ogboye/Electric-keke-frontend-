@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Btn from "./Btn";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
+import { useGlobalContext } from "../context";
 
 const Header = ({ darkLogo }) => {
-  const [user, setUser] = useState({
-    role: "passenger",
-  });
+  const {
+    globalState: { user },
+    Dispatch,
+  } = useGlobalContext();
+
+  useEffect(() => {
+    const getUser = localStorage.getItem("user");
+    const user = JSON.parse(getUser);
+    Dispatch("setUser", { user });
+  }, []);
+
+  // console.log(user);
   return (
     <header className="header">
       <div className="header-container">
@@ -22,7 +32,7 @@ const Header = ({ darkLogo }) => {
             </Link>
             <Link to="/profile">
               <div>
-                <img src={`/avatars/${user.role}.svg`} alt="notification" />
+                <img src={`/avatars/${user?.role}.svg`} alt="notification" />
               </div>
             </Link>
           </div>

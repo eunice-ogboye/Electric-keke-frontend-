@@ -2,8 +2,10 @@ import { useState } from "react";
 import { hero_description, support_links } from "../constants";
 import { useGlobalContext } from "../context";
 import Btn from "./Btn";
+import { useNavigate } from "react-router-dom";
 
 const HeroCta = () => {
+  const navigate = useNavigate();
   const {
     globalState: { homePage, support },
     Dispatch,
@@ -25,7 +27,12 @@ const HeroCta = () => {
         <>
           <Btn
             text={homePage === "main" ? "Book a Ride" : "Register"}
-            handleClick={() => setModalWithAction("ride")}
+            handleClick={() => {
+              if (homePage === "earn") {
+                return navigate("/authentication");
+              }
+              setModalWithAction("ride");
+            }}
           />
           {homePage === "main" && (
             <Btn
@@ -64,6 +71,7 @@ const HeroCta = () => {
             {support_links.map((item) => {
               return (
                 <Btn
+                  key={item}
                   text={item}
                   size="sm"
                   type={supportType === item ? "default" : "rider"}
@@ -90,9 +98,9 @@ const Hero = () => {
             homePage === "main"
               ? "pt-[234px] max-w-[1169px]"
               : homePage === "earn"
-              ? "pt-[231px]"
+              ? "pt-[231px] max-w-[1193px]"
               : "pt-[248px] max-w-[1109px]"
-          }  mx-auto`}
+          }  mx-auto pb-[146px]`}
         >
           {homePage === "main" ? (
             <h1 className="hero-title">
