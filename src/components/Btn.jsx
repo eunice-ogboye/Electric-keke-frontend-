@@ -10,6 +10,7 @@ const Btn = ({
   handleClick,
   fixed,
   to,
+  icon,
 }) => {
   const sizing = {
     default: "h-14 w-[171px]",
@@ -19,7 +20,7 @@ const Btn = ({
     "md-full": "h-8 w-full",
     lg: "",
     driver: "h-[34px] w-[95px] md:h-14 md:w-[171px]",
-    none: 'h-fit w-fit'
+    none: "h-fit w-fit",
   };
   const rounding = {
     default: "rounded-normal",
@@ -28,20 +29,20 @@ const Btn = ({
     default: "primary-btn",
     secondary: "secondary-btn",
     rider: "rider-btn",
-    invisible: "bg-transparent",
+    invisible: "bg-transparent shadow",
   };
   const Btn = () => {
     return (
       <Button
         className={`${sizing[size]} ${rounding[radius]} ${
           variants[type]
-        } text-eiteen ${
+        } text-eiteen font-montserrat ${
           type === "invisible" ? "text-black" : "text-white"
         } font-medium disabled:bg-gray-400 transition-all duration-300`}
         disabled={disabled}
         onClick={handleClick}
       >
-        {text}
+        {icon && icon} {text}
       </Button>
     );
   };
@@ -50,24 +51,24 @@ const Btn = ({
     return (
       <Link
         to={to}
-        className={`${sizing[size]} ${rounding[radius]} ${variants[type]} text-eiteen text-white font-medium flex-center`}
+        className={`${sizing[size]} ${rounding[radius]} ${variants[type]} text-eiteen text-white font-medium flex-center font-montserrat`}
         onClick={handleClick}
       >
-        {text}
+        {icon && icon} {text}
       </Link>
     );
   };
 
   const CancleBtn = () => {
     return (
-      <button
-        className={`rounded-full  p-1 ${
-          fixed ? null : "absolute top-2 right-2 bg-neutral/40"
+      <Button
+        className={`rounded-full size-5  p-1 ${
+          fixed ? null : "absolute top-2 right-2 bg-eco-neutral-prime/40"
         }`}
         onClick={handleClick}
       >
         <img src="/cancel.svg" alt="cancel" />
-      </button>
+      </Button>
     );
   };
 

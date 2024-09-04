@@ -26,7 +26,7 @@ const ModalFormInput = ({
         name={name}
         value={value}
         onChange={handleChange}
-        className="text-eiteen w-10/12"
+        className="text-eiteen w-10/12 font-montserrat"
       />
       {showTarget && (
         <div>
@@ -41,14 +41,14 @@ const ModalForm = () => {
   const navigate = useNavigate();
   const { dispatch } = useGlobalContext();
   const [modalFormData, setModalFormData] = useState({
-    initialPoint: "",
-    finalPoint: "",
+    location: "",
+    destination: "",
   });
   const [price, setPrice] = useState(false);
 
   const handleChange = (e) =>
     setModalFormData({ ...modalFormData, [e.target.name]: e.target.value });
-  const isDisabled = !modalFormData.initialPoint || !modalFormData.finalPoint;
+  const isDisabled = !modalFormData.location || !modalFormData.destination;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -66,15 +66,15 @@ const ModalForm = () => {
     >
       <ModalFormInput
         placeholder="Input Pick up address"
-        name="initialPoint"
-        value={modalFormData.initialPoint}
+        name="location"
+        value={modalFormData.location}
         handleChange={handleChange}
         showTarget
       />
       <ModalFormInput
         placeholder="Drop off location"
-        name="finalPoint"
-        value={modalFormData.finalPoint}
+        name="destination"
+        value={modalFormData.destination}
         handleChange={handleChange}
       />
       {price && (

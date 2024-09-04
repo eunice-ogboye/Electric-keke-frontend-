@@ -1,9 +1,28 @@
 import React from "react";
 
-const FormRow = ({ name, label, labelTextSize, type = "text", children, value, handleChange }) => {
+const FormRow = ({
+  name,
+  label,
+  labelTextSize,
+  type = "text",
+  children,
+  value,
+  handleChange,
+  formRowContainer,
+  auth,
+}) => {
   return (
-    <div>
-      <label htmlFor={name} className={`${labelTextSize || "text-base"} block`}>
+    <div className={formRowContainer}>
+      <label
+        htmlFor={name}
+        className={`${
+          auth
+            ? "text-eiteen text-eco-neutral-prime"
+            : labelTextSize
+            ? labelTextSize
+            : "text-base"
+        } block`}
+      >
         {label}
       </label>
       {children ? (
@@ -15,7 +34,7 @@ const FormRow = ({ name, label, labelTextSize, type = "text", children, value, h
           id={name}
           onChange={handleChange}
           value={value}
-          className="border border-pgreen rounded-[6px] h-[64px] w-full max-w-96"
+          className={auth ? "auth-input" : "schedule-input"}
         />
       )}
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Heading } from ".";
 import Btn from "./Btn";
 import { useGlobalContext } from "../context";
@@ -7,8 +7,23 @@ import Rate from "./Rate";
 import { useNavigate } from "react-router-dom";
 import Map from "./Map";
 
+const getAvatars = (content) => {
+  return content === "ride"
+    ? [
+        { src: "/how-to-go/ride1.png", bgColor: "bg-eco-green" },
+        { src: "/how-to-go/ride3.png", bgColor: "bg-[#AA9C75]" },
+        { src: "/how-to-go/ride3.png", bgColor: "bg-[#D4B5AD]" },
+      ]
+    : [
+        { src: "/how-to-go/delivery1.png", bgColor: "bg-[#B5CBF8]" },
+        { src: "/how-to-go/delivery2.png", bgColor: "bg-eco-green-agile" },
+        { src: "/how-to-go/delivery3.png", bgColor: "bg-[#D4B5AD]" },
+      ];
+};
+
 const Modal = () => {
   const navigate = useNavigate();
+  const modalContainer = useRef(null);
   const {
     dispatch,
     Dispatch,
@@ -27,8 +42,42 @@ const Modal = () => {
     setContent(1);
   };
 
+  // useEffect(() => {
+  //   window.addEventListener("scroll", (e) => {
+  //     const pageY = window.scrollY;
+  //     console.log(pageY);
+  //   });
+  //   return () => {
+  //     window.removeEventListener("scroll", (e) => {
+  //       const pageY = window.scrollY;
+  //       console.log(pageY);
+  //     });
+  //   };
+  // }, []);
+
+  const closeModalWhenBodyClick = (e) => {
+    const modal = modalContainer.current;
+    const pageY = window.scrollY;
+    const xStart = modal.offsetLeft;
+    const xEnd = modal.offsetLeft + modal.clientWidth;
+    const yStart = modal.offsetTop + pageY;
+    const yEnd = modal.offsetTop + modal.clientHeight + pageY;
+    const clickPositionX = e.pageX;
+    const clickPositionY = e.pageY;
+   if (
+      clickPositionX > xStart &&
+      clickPositionX < xEnd &&
+      clickPositionY > yStart &&
+      clickPositionY < yEnd
+    ) {
+      console.log("yes");
+      return;
+    }
+    Dispatch("modal", { modal: false });
+  };
+
   return (
-    <section className="modal">
+    <section className="modal" onClick={closeModalWhenBodyClick}>
       <div
         className={`${
           content === 0 && modalContent !== "rate"
@@ -37,14 +86,17 @@ const Modal = () => {
             ? "flex-center w-[607px] h-[577px]"
             : "w-[715px] md:min-h-[665px] py-5 md:py-10 px-3 md:px-7"
         }  bg-white rounded-xl relative`}
+        ref={modalContainer}
       >
         {/* cancel btn */}
-        <Btn
-          type="cancel"
-          handleClick={() =>
-            dispatch({ type: "modal", payload: { modal: false } })
-          }
-        />
+        {content === 1 && (
+          <Btn
+            type="cancel"
+            handleClick={() =>
+              dispatch({ type: "modal", payload: { modal: false } })
+            }
+          />
+        )}
         {modalContent === "rate" ? (
           <div className="">
             {!comment && (
@@ -93,23 +145,20 @@ const Modal = () => {
             {content === 0 && (
               <>
                 <div className="h-20">
-                  <div className="h-14 w-[7.5rem] relative mx-auto border-4 mt-[1.5rem]">
-                    {[
-                      "/avatars/avatar1.svg",
-                      "/avatars/avatar2.svg",
-                      "/avatars/avatar1.svg",
-                    ].map((item, index) => {
+                  <div className="h-14 w-[7.5rem] relative mx-auto mt-[1.5rem] isolate">
+                    {getAvatars(modalContent).map((item, index) => {
                       return (
                         <div
                           key={index}
-                          className={`absolute ${
-                            index === 2 && "right-0 bottom-0"
-                          } ${index === 0 && ""} ${
-                            index === 1 && "left-1/2 bottom-0 -translate-x-1/2"
-                          }`}
+                          className={`absolute border rounded-full overflow-hidden ${
+                            index === 0 &&
+                            "left-1/2 bottom-0 -translate-x-1/2 size-[56px]"
+                          } ${index === 1 && "bottom-0 -z-10 size-[48px]"} ${
+                            index === 2 && "right-0 bottom-0 -z-10 size-[48px]"
+                          } ${item.bgColor}`}
                         >
                           <img
-                            src={item}
+                            src={item.src}
                             alt="avatars"
                             className="size-full object-cover object-center"
                           />
@@ -120,7 +169,7 @@ const Modal = () => {
                 </div>
 
                 <Heading
-                  className="text-center border-2"
+                  className="text-center"
                   title={
                     modalContent === "ride"
                       ? "Ready to Go?"

@@ -27,11 +27,11 @@ const About = () => {
                 <Heading
                   className="w-full"
                   introTitle="About Us"
-                  introClass="text-pgreen mx-auto md:mx-0"
+                  introClass="text-eco-green mx-auto md:mx-0"
                   title={about_titles.one}
-                  tclass="text-center md:text-left"
+                  tclass="text-center md:text-left text-eco-neutral"
                   description={about_descriptions.one}
-                  dclass="mt-5 mb-10 text-tblack text-eiteen text-center md:text-left"
+                  dclass="mt-5 mb-10 text-eiteen text-center md:text-left"
                   type="about"
                 />
                 <div className="text-center md:text-left">
@@ -40,10 +40,15 @@ const About = () => {
               </>
             ) : (
               <>
-                <h2 className="text-[2rem] font-bold text-center md:text-left">Requirements</h2>
+                <h2 className="text-[2rem] font-bold text-center md:text-left">
+                  Requirements
+                </h2>
                 <ul className="list-disc pl-4 mt-7">
                   {earn_requirements.map((item, index) => (
-                    <li key={index} className="text-base md:text-2xl text-neutral">
+                    <li
+                      key={index}
+                      className="text-base md:text-2xl text-eco-neutral-prime font-montserrat"
+                    >
                       {item}
                     </li>
                   ))}
@@ -69,8 +74,8 @@ const About = () => {
             title={about_titles.two}
             tclass="max-w-[623px] mx-auto text-center border"
             description={about_descriptions.two}
-            dclass="mt-7 text-center text-tblack text-eiteen"
-            introClass="mx-auto text-pgreen"
+            dclass="mt-7 text-center text-eiteen"
+            introClass="mx-auto text-eco-green"
             type="about"
           />
 
@@ -84,7 +89,7 @@ const About = () => {
 
                   <div className="mt-8">
                     <h2 className="service-title">{item.title}</h2>
-                    <p className="text-neutral text-base mt-2">{item.desc}</p>
+                    <p className="font-montserrat text-base mt-2 text-eco-neutral-prime">{item.desc}</p>
                   </div>
                 </div>
               </div>

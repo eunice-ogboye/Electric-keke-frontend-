@@ -18,7 +18,7 @@ const Contribution = () => {
             <h2 className="font-bold text-[2rem] text-center md:text-left">
               {contribution.title}
             </h2>
-            <p className="text-neutral text-2xl mt-7 text-center md:text-left">
+            <p className="text-eco-neutral-prime font-montserrat text-2xl mt-7 text-center md:text-left">
               {contribution.desc}
             </p>
           </div>

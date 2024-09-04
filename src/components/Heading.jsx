@@ -23,7 +23,7 @@ const Heading = ({
         {title}
       </h1>
       {description && (
-        <p className={`font-normal ${dclass}`}>{description}</p>
+        <p className={`font-normal text-eco-neutral-prime font-montserrat ${dclass}`}>{description}</p>
       )}
     </div>
   );

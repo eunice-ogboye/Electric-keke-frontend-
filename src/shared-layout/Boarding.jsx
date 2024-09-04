@@ -4,6 +4,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import { useTitle } from "../lib/hooks";
+import CustomBg from "../components/CustomBg";
 
 const Boarding = () => {
   useTitle("Authentication");
@@ -29,9 +30,7 @@ const Boarding = () => {
               />
             </>
           ) : (
-            <div className="size-full bg-green-500 flex-center px-24">
-              <h1 className="briefing">{briefs[homePage]}</h1>
-            </div>
+            <CustomBg children={<h1 className="briefing">{briefs[homePage]}</h1>} />
           )}
         </div>
       )}

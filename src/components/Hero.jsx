@@ -54,7 +54,7 @@ const HeroCta = () => {
             isConditionTrue={support === "faq"}
             handleClick1={() => setSupport("faq")}
             handleClick2={() => setSupport("contact")}
-            color="one"
+            color="color1"
           />
 
           <div className="space-x-11 mt-6">
@@ -101,9 +101,10 @@ const Hero = () => {
                   alt="circle"
                   className="absolute size-full scale-125"
                 />
-                Rides
+                <span className="text-eco-green">Rides</span>
               </div>{" "}
-              & Swift Deliveries at Your Fingertips
+              & Swift <span className="text-eco-green">Deliveries</span> at Your
+              Fingertips
             </h1>
           ) : homePage === "earn" ? (
             <h1 className="hero-title max-w-[1076px] mx-auto">

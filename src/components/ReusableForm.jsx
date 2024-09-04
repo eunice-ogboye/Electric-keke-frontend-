@@ -62,14 +62,14 @@ const ReusableForm = ({ type = "register" }) => {
         <div className="my-dell:mt-32">
           <Logo
             logoClassName="size-16"
-            titleClassName="text-pgreen text-[1.5rem]"
+            titleClassName="text-eco-green text-[1.5rem]"
           />
           <Heading
             title={formTitle[type]}
             className="text-center mt-2 my-dell:mt-10"
           />
 
-          <div className="w-[25.5rem] h-[16rem] border shadow-md rounded-md mx-auto my-[30px] my-dell:mt-24 flex-center">
+          <div className="congrats-board">
             <div className="rounded-full bg-pgreen-3 size-20 flex-center">
               <img src="/tick.svg" alt="tick" />
             </div>
@@ -95,7 +95,7 @@ const ReusableForm = ({ type = "register" }) => {
         >
           <Logo
             logoClassName="size-16"
-            titleClassName="text-pgreen text-[1.5rem]"
+            titleClassName="text-eco-green text-[1.5rem]"
           />
           <Heading
             title={formTitle[type]}
@@ -149,12 +149,14 @@ const ReusableForm = ({ type = "register" }) => {
                 name="name"
                 value={formData.name}
                 handleChange={handleChange}
+                auth
               />
               <FormRow
                 type="password"
                 label="Password"
                 value={formData.password}
                 handleChange={handleChange}
+                auth
               />
               <FormRow
                 type="password"
@@ -162,6 +164,7 @@ const ReusableForm = ({ type = "register" }) => {
                 name="checkPass"
                 value={formData.checkPass}
                 handleChange={handleChange}
+                auth
               />
             </div>
           ) : type === "forget" ? (
@@ -172,6 +175,7 @@ const ReusableForm = ({ type = "register" }) => {
                 name="name"
                 value={formData.name}
                 handleChange={handleChange}
+                auth
               />
             </div>
           ) : type === "new" ? (
@@ -182,6 +186,7 @@ const ReusableForm = ({ type = "register" }) => {
                 name="password"
                 value={formData.password}
                 handleChange={handleChange}
+                auth
               />
               <FormRow
                 type="password"
@@ -189,6 +194,7 @@ const ReusableForm = ({ type = "register" }) => {
                 name="checkPass"
                 value={formData.checkPass}
                 handleChange={handleChange}
+                auth
               />
             </div>
           ) : (
@@ -199,6 +205,7 @@ const ReusableForm = ({ type = "register" }) => {
                 name="name"
                 value={formData.name}
                 handleChange={handleChange}
+                auth
               />
               <FormRow
                 type={type === "register" ? "email" : "text"}
@@ -206,6 +213,7 @@ const ReusableForm = ({ type = "register" }) => {
                 name={type === "register" ? "email" : "state"}
                 value={type === "register" ? formData.email : formData.state}
                 handleChange={handleChange}
+                auth
               />
               <FormRow
                 type={type === "register" ? "password" : "text"}
@@ -215,6 +223,7 @@ const ReusableForm = ({ type = "register" }) => {
                   type === "register" ? formData.password : formData.address
                 }
                 handleChange={handleChange}
+                auth
               />
               {type === "register" && (
                 <FormRow
@@ -223,6 +232,7 @@ const ReusableForm = ({ type = "register" }) => {
                   name="checkPass"
                   value={formData.checkPass}
                   handleChange={handleChange}
+                  auth
                 />
               )}
             </div>
@@ -304,6 +314,7 @@ const ReusableForm = ({ type = "register" }) => {
                   <Link
                     to="/authentication/register"
                     onClick={() => switchTypeNavigate("register")}
+                    className="text-eco-green"
                   >
                     Sign Up!
                   </Link>
@@ -315,15 +326,22 @@ const ReusableForm = ({ type = "register" }) => {
                   {type === "register" && (
                     <p className="font-bold text-center text-base mb-1">or</p>
                   )}
-                  <Button
-                    className="rounded-full w-full flex items-center gap-10 shadow-lg font-bold"
-                    variant="ghost"
-                  >
-                    <span>
-                      <img src="/google.svg" alt="google" />
-                    </span>
-                    {type === "register" ? "Register" : "Continue"} with Google
-                  </Button>
+                  <Btn
+                    // className="rounded-full w-full flex items-center gap-10 shadow-lg font-bold"
+                    // variant="ghost"
+                    text={
+                      type === "register"
+                        ? "Register with Google"
+                        : "Continue with Google"
+                    }
+                    size="full"
+                    type="invisible"
+                    icon={
+                      <span className="mr-3">
+                        <img src="/google.svg" alt="google" />
+                      </span>
+                    }
+                  />
                 </div>
               ) : type === "forget" || type === "new" ? null : (
                 <div

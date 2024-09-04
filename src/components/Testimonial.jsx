@@ -36,10 +36,16 @@ const Testimonial = () => {
               {testimonies[homePage].map((item) => {
                 return (
                   <div className="" key={item.name}>
-                    <p className="text-neutral text-2xl text-center md:text-left">{item.testimony}</p>
+                    <p className="text-neutral text-2xl text-center md:text-left font-montserrat">
+                      {item.testimony}
+                    </p>
                     <div className="mt-6 text-center md:text-left">
-                      <p className="text-base text-neutral">{item.name}</p>
-                      <p className="text-base text-neutral">{item.location}</p>
+                      <p className="text-base text-eco-neutral-prime font-montserrat">
+                        {item.name}
+                      </p>
+                      <p className="text-base text-eco-neutral-prime font-montserrat">
+                        {item.location}
+                      </p>
                     </div>
                   </div>
                 );

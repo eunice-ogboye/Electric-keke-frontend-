@@ -79,7 +79,11 @@ h2 {
 }
 
 .board {
-  @apply hidden my-dell:block w-1/2 min-h-screen shadow-2xl relative;
+  @apply hidden my-dell:block w-1/2 min-h-screen relative;
+}
+
+.board {
+  filter: drop-shadow(6px 5px 20px rgba(0, 0, 0, 0.3));
 }
 
 .board-pad {
@@ -103,11 +107,11 @@ h2 {
 }
 
 .primary-btn {
-  @apply bg-pgreen hover:bg-red-600;
+  @apply bg-eco-green hover:bg-red-600;
 }
 
 .secondary-btn {
-  @apply bg-pgreen/10 border border-pgreen text-pgreen;
+  @apply bg-eco-green/10 border border-eco-green text-eco-green;
 }
 
 /******** HOME HERO ******/
@@ -124,15 +128,24 @@ h2 {
 }
 
 .hero-description {
-  @apply text-base-white text-center font-semibold text-[1.5rem];
+  @apply text-base-white text-center font-semibold text-2xl font-montserrat;
 }
 
 .hero-img {
   @apply size-full absolute top-0 left-0 -z-10;
 }
 
+.flexible {
+  @apply px-9 py-5 rounded-normal text-center mt-8 mb-5 bg-white;
+}
+
+.flexible {
+  filter: drop-shadow(0 132px 132px rgba(0, 0, 0, 0.09))
+    drop-shadow(0 297px 178px rgba(0, 0, 0, 0.05));
+}
+
 .intro-title {
-  @apply relative w-fit;
+  @apply relative w-fit font-montserrat;
 }
 
 .intro-title::after {
@@ -155,11 +168,15 @@ h2 {
 }
 
 .service {
-  @apply border border-neutral rounded-[2rem] h-[327px] flex-center p-[14px];
+  @apply rounded-[2rem] h-[327px] flex items-start p-[14px] bg-white drop-shadow-service;
+}
+.service {
+  filter: drop-shadow(0 79px 32px rgba(0, 0, 0, 0.01))
+    drop-shadow(0 44px 26px rgba(0, 0, 0, 0.05));
 }
 
 .service-title {
-  @apply text-[2rem] text-pgreen-0 leading-[38px] font-bold;
+  @apply text-[2rem] text-eco-green leading-[38px] font-bold;
 }
 
 /* DIRECTION */
@@ -169,7 +186,7 @@ h2 {
 }
 
 .direction-btn {
-  @apply bg-transparent flex-center border border-neutral rounded-full size-10 p-0;
+  @apply bg-transparent flex-center border border-eco-neutral-prime rounded-full size-10 p-0;
 }
 
 .header {
@@ -181,7 +198,7 @@ h2 {
 }
 
 .header-container {
-  @apply hidden md:flex items-center justify-between md:border-2 md:border-pgreen/40 h-[4.75rem] md:rounded-[40px] px-[17px] md:p-2 md:bg-neutral/20 md:backdrop-blur-lg;
+  @apply hidden md:flex items-center justify-between md:border-2 md:border-eco-green/40 h-[4.75rem] md:rounded-[40px] px-[17px] md:p-2 md:bg-eco-neutral/20 md:backdrop-blur-lg;
 }
 /* h-[4.75rem] container height max */
 
@@ -194,7 +211,7 @@ h2 {
 }
 
 .rider-btn {
-  @apply bg-pgreen-1 text-pgreen-3;
+  @apply bg-eco-green-agile text-eco-green-dark;
 }
 
 .r-form-body-margin {
@@ -212,15 +229,15 @@ h2 {
 }
 
 .driver {
-  @apply border border-neutral min-h-[693px] px-[9px] md:px-0 md:pl-10 lg:pl-10 py-10 rounded-[40px] bg-neutral-1 overflow-hidden;
+  @apply border border-eco-neutral-prime min-h-[693px] px-[9px] md:px-0 md:pl-10 lg:pl-10 py-10 rounded-[40px] bg-eco-neutral-driver overflow-hidden;
 }
 
 .statistics {
-  @apply w-full md:w-1/2 my-dell:w-[515px] border-8;
+  @apply w-full md:w-1/2 my-dell:w-[515px];
 }
 
 .stats {
-  @apply h-[174px] my-dell:h-[200px] flex items-center gap-x-4 w-full border-4 border-red-500;
+  @apply h-[174px] my-dell:h-[200px] flex items-center gap-x-4 w-full;
 }
 
 .doughnut-stats {
@@ -232,7 +249,7 @@ h2 {
 }
 
 .dough-info {
-  @apply flex items-center justify-between text-xs;
+  @apply flex items-center justify-between text-xs font-montserrat text-eco-neutral-prime;
 }
 
 .dough-info-point {
@@ -263,3 +280,20 @@ h2 {
 /* .location-map .leaflet-container {
   @apply h-full w-full
 } */
+/* REUSABLE FORM */
+.congrats-board {
+  @apply w-[25.5rem] h-[16rem] rounded-md mx-auto my-[30px] my-dell:mt-24 flex-center bg-white;
+}
+.congrats-board {
+  filter: drop-shadow(0 11px 25px rgba(0, 0, 0, 0.1))
+    drop-shadow(0 45px 45px rgba(0, 0, 0, 0.09));
+}
+
+/* input classes */
+.schedule-input {
+  @apply border border-eco-green rounded-[6px] h-[64px] w-full max-w-96;
+}
+
+.auth-input {
+  @apply border border-eco-neutral-input rounded-[6px] h-[54px] w-full;
+}

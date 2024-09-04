@@ -9,7 +9,7 @@ const ContactSupport = () => {
           <img src="/headphone.svg" alt="headphone" />
         </div>
 
-        <p className="font-bold text-2xl">Customer Services</p>
+        <p className="font-bold text-2xl font-montserrat">Customer Services</p>
       </div>
       {care_socials.map((item, index) => {
         return (
@@ -21,7 +21,7 @@ const ContactSupport = () => {
               <img src={item.icon} alt="headphone" />
             </div>
 
-            <p className="font-bold text-2xl">{item.title}</p>
+            <p className="font-bold text-2xl font-montserrat">{item.title}</p>
           </div>
         );
       })}

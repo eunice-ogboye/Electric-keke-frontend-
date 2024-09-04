@@ -33,7 +33,7 @@ const Connected = () => {
             type="about"
           />
 
-          <form className="bg-base-white flex items-center justify-between py-6 px-5 rounded-lg max-w-[534px] mt-6 mx-auto">
+          <form className="bg-base-white flex items-center justify-between py-2 px-4 rounded-lg max-w-[534px] mt-6 mx-auto">
             <div className="flex items-center border">
               <div>
                 <img src="/email.svg" alt="email" />
@@ -42,12 +42,10 @@ const Connected = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your email address"
-                className="w-[203px] ml-2 text-eiteen bg-none border-none outline-none"
+                className="w-[203px] ml-2 text-eiteen bg-none border-none outline-none font-montserrat"
               />
             </div>
-            <Button size="sm" className="primary-btn">
-              Subscribe
-            </Button>
+            <Button className="h-[56px] w-[162px]    primary-btn">Subscribe</Button>
           </form>
         </div>
       </div>

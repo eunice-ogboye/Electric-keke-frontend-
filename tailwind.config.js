@@ -20,9 +20,12 @@ module.exports = {
       boxShadow: {
         DEFAULT: "0 5px 4px  rgba(0, 0, 0, 0.1)",
         flex: "0 6px 12px rgba(0, 0, 0, 0.25)",
+        service:
+          "0 44px 26px rgba(0, 0, 0, 0.05), 0 79px 32px 30px rgba(0, 0, 0, 0.01)",
       },
       dropShadow: {
         DEFAULT: "0 35px 35px rgba(0, 0, 0, 0.25)",
+        service: ",",
       },
       screens: {
         mobile: "480px",
@@ -38,6 +41,29 @@ module.exports = {
         eiteen: "1.125rem",
       },
       colors: {
+        "eco-green": {
+          DEFAULT: "#77BB77",
+          prime: "#8EC68E",
+          dark: '#234623',
+          faint: "#E8F4E8",
+          faint2: "#A2C7A2",
+          social: '#F4F6F9',
+          agile: "#D2E8D2",
+        },
+        "eco-white": {
+          DEFAULT: "#FAFAFA",
+        },
+        "eco-neutral": {
+          DEFAULT: "#151413",
+          thick: "#101828",
+          thick2: "#9F9C9C",
+          input: "#B5B3B3",
+          prime: "#898483",
+          border: "#CCCBCB",
+          faint: "#9F9C9C",
+          bg: "#B5B3B3",
+          driver: '#F2F2F2'
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -74,19 +100,6 @@ module.exports = {
         },
         tblack: {
           DEFAULT: "#494949",
-        },
-        pgreen: {
-          0: "#234623",
-          1: "#D2E8D2",
-          3: "#0B7B69",
-          DEFAULT: "#77BB77",
-          background: "#8EC68E",
-          fade: "#E8F4E8",
-        },
-        neutral: {
-          0: "#151413",
-          1: "#F2F2F2",
-          DEFAULT: "#898483",
         },
         "base-white": "#FAFAFA",
         head: "#5CAE5C",
