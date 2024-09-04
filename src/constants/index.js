@@ -194,6 +194,24 @@ const settings = [
   "Support & Feedback",
 ];
 
+const delivery_process = [
+  {
+    title: "Driver accepts rides",
+    desc: 'Estimated time: 3sec',
+    icon: '/accept.svg'
+  },
+  {
+    title: "On the way",
+    desc: 'Estimated time: 10sec',
+    icon: '/way.svg'
+  },
+  {
+    title: "Driver accepts rides",
+    desc: 'Estimated time: 3sec',
+    icon: '/.svg'
+  },
+]
+
 export {
   account_types,
   onboardingImages,
