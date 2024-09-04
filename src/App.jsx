@@ -20,6 +20,7 @@ import {
 import { Boarding } from "./shared-layout";
 import { Modal } from "./components";
 import { useGlobalContext } from "./context";
+import 'leaflet/dist/leaflet.css';
 
 function App() {
   const { modal } = useGlobalContext().globalState;

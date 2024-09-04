@@ -1,3 +1,4 @@
+import Map from "../components/Map";
 import Btn from "../components/Btn";
 import DeliveryProcess, {
   DeliveryProcessLine,
@@ -18,11 +19,7 @@ const Tracking = () => {
 
       <div className="mt-4 md:mt-[31px] md:flex gap-6 items-start">
         <div className="w-full md:w-1/2 h-96 md:h-[881.32px]">
-          <img
-            src="/tracking-map.png"
-            alt="tracking"
-            className="size-full object-cover object-center"
-          />
+          <Map className="w-full h-full" />
         </div>
 
         <div className="w-full max-w-[586px] mt-3 md:mt-0 border">

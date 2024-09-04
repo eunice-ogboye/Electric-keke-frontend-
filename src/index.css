@@ -259,3 +259,7 @@ h2 {
 .location-map {
   @apply w-full max-w-[653px] h-[150px] md:h-[247px] bg-gray-500 flex-center rounded-[27px];
 }
+
+/* .location-map .leaflet-container {
+  @apply h-full w-full
+} */

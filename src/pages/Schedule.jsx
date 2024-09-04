@@ -6,6 +6,7 @@ import Togglers from "../components/Togglers";
 import { Section } from "../shared-layout";
 import React, { useState } from "react";
 import Btn from "../components/Btn";
+import Map from "../components/Map";
 
 const Schedule = ({ children }) => {
   const [schedule, setSchedule] = useState("ride");
@@ -136,8 +137,8 @@ const Schedule = ({ children }) => {
                 <Btn text="No" type="secondary" />
               </div>
             </div>
-            <div className="max-w-[504px] h-[285px] border mt-10 md:mt-0">
-              <img src="/schedule-map.svg" alt="schedule map" className="size-full object-cover object-center" />
+            <div className="w-full max-w-[504px] h-[285px] border mt-10 md:mt-0">
+              <Map className="max-w-full h-[285px]" />
             </div>
           </div>
         </div>

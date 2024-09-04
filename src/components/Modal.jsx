@@ -5,6 +5,7 @@ import { useGlobalContext } from "../context";
 import ModalForm from "./ModalForm";
 import Rate from "./Rate";
 import { useNavigate } from "react-router-dom";
+import Map from "./Map";
 
 const Modal = () => {
   const navigate = useNavigate();
@@ -160,7 +161,9 @@ const Modal = () => {
             {content === 1 && (
               <>
                 <div className="location-container">
-                  <div className="location-map">Map</div>
+                  <div className="location-map">
+                    <Map className="w-full h-full rounded-[27px]" />
+                  </div>
                   <Heading
                     className="text-center border-2 max-w-[520px] mx-auto"
                     title="Where Are You Headed?"
