@@ -103,7 +103,7 @@ h2 {
 }
 
 .primary-btn {
-  @apply bg-pgreen;
+  @apply bg-pgreen hover:bg-red-600;
 }
 
 .secondary-btn {
