@@ -28,7 +28,7 @@ const Rate = ({ rate, handleClick, statik, big, className }) => {
       <>
         {!show && (
           <div
-            className="flex items-center w-fit"
+            className={`flex items-center w-fit ${className}`}
             onMouseEnter={() => setShow(true)}
           >
             {[1, 2, 3, 4, 5].map((item) => (
@@ -47,7 +47,7 @@ const Rate = ({ rate, handleClick, statik, big, className }) => {
         )}
         {show && (
           <div
-            className="flex items-center w-fit"
+          className={`flex items-center w-fit ${className}`}
             onMouseLeave={() => setShow(false)}
           >
             {[1, 2, 3, 4, 5].map((item) => (

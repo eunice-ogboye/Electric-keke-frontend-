@@ -45,17 +45,31 @@ const Modal = () => {
           }
         />
         {modalContent === "rate" ? (
-          <div className="min-h-[259px] w-[404px] border-2 flex flex-col items-center justify-between">
+          <div className="">
             {!comment && (
-              <div className="size-[103px] rounded-full border"></div>
+              <div className="size-[103px] rounded-full border mx-auto">
+                <img
+                  src="/persons/rider1.png"
+                  alt="rider"
+                  className="size-full rounded-full"
+                />
+              </div>
             )}
-            <Rate rate={rate} big handleClick={handleClick} statik={comment} />
-            <Heading
-              className="text-center"
-              title={comment ? "Great!" : "Rate Your Experience"}
-              tclass="text-[40px]"
-              description={comment && "Tell us a bit more about your ride"}
-            />
+            <div className="w-fit mt-6">
+              <Rate
+                rate={rate}
+                big
+                handleClick={handleClick}
+                statik={comment}
+                className="mx-auto space-x-3"
+              />
+              <Heading
+                className="text-nowrap mt-6 text-center"
+                title={comment ? "Great!" : "Rate Your Experience"}
+                tclass="text-[40px]"
+                description={comment && "Tell us a bit more about your ride"}
+              />
+            </div>
 
             {comment && (
               <form className="w-full">
