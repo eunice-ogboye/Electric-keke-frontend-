@@ -36,6 +36,8 @@ module.exports = {
       fontFamily: {
         josefin: ["Josefin Sans", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
+        inter: ['Inter', 'sans-serif'],
+        nunito: ['Nunito', 'system-ui']
       },
       fontSize: {
         eiteen: "1.125rem",
@@ -62,7 +64,7 @@ module.exports = {
           border: "#CCCBCB",
           faint: "#9F9C9C",
           bg: "#B5B3B3",
-          driver: '#F2F2F2'
+          driver: '#F2F2F2',
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -107,6 +109,8 @@ module.exports = {
         peach: "#EDA14580",
         info: "#0A0B0A1A",
         tertiary: "#F5F5F5",
+        'tertiary-text': '#757575',
+        'chat': '#4D4D4D'
       },
       borderRadius: {
         20: "20px",
