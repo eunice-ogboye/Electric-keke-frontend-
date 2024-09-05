@@ -1,11 +1,33 @@
+import { useGSAP } from "@gsap/react";
+import { animateFromPosition } from "../animate";
 import { footer_note, socials } from "../constants";
 import React from "react";
+import { useGlobalContext } from "../context";
 
 const Footer = () => {
+  const {globalState: {homePage}} = useGlobalContext();
+  // useGSAP(() => {
+  //   const scrollTrigger = {
+  //     trigger: ".footer-main",
+  //     start: "top 60%",
+  //   };
+  //   animateFromPosition(".footer-main", {
+  //     y: 100,
+  //     x: -200,
+  //     opacity: 0,
+  //     scrollTrigger,
+  //   });
+  //   animateFromPosition(".footer-copywright", {
+  //     y: 300,
+  //     opacity: 0,
+  //     scrollTrigger,
+  //   });
+  // }, []);
+
   return (
-    <footer className="home-pad py-10 md:py-[5.9rem] bg-eco-neutral">
+    <footer className="home-pad py-10 md:py-[5.9rem] bg-eco-neutral overflow-hidden">
       <div>
-        <div className="md:flex items-start justify-between border-b px-2 py-6">
+        <div className="md:flex items-start justify-between border-b px-2 py-6 footer-main">
           <div className="w-full md:max-w-[364px]">
             <div className="w-fit mx-auto md:mx-0">
               <img src="/logo2.svg" alt="logo" />
@@ -53,7 +75,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        <p className="text-base text-center mt-6 text-base-white font-montserrat">
+        <p className="text-base text-center mt-6 text-base-white font-montserrat footer-copywright">
           All rights reserved. Copyright © 2024 | Eco-Ride
         </p>
       </div>

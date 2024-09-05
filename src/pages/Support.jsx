@@ -1,8 +1,8 @@
 import { useTitle } from "../lib/hooks";
 import { useGlobalContext } from "../context";
-import { HomePage } from "../shared-layout";
+import { HomePage, Section } from "../shared-layout";
 import React, { useEffect } from "react";
-import { ContactSupport, Faq } from "../components";
+import { ContactSupport, Faq, Hero } from "../components";
 
 const Support = () => {
   const {
@@ -16,15 +16,12 @@ const Support = () => {
   }, []);
 
   return (
-    <HomePage type="support">
+    <Section>
+      <Hero />
       <div className="home-pad min-h-[617px] flex-center">
-        {support === "faq" ? (
-          <Faq />
-        ) : (
-          <ContactSupport />
-        )}
+        {support === "faq" ? <Faq /> : <ContactSupport />}
       </div>
-    </HomePage>
+    </Section>
   );
 };
 

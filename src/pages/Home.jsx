@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useTitle } from "../lib/hooks";
-import { Mission } from "../components";
-import { HomePage } from "../shared-layout";
+import { About, Connected, Hero, Mission, Testimonial } from "../components";
+import { HomePage, Section } from "../shared-layout";
 import { useGlobalContext } from "../context";
 
 const Home = () => {
@@ -13,9 +13,13 @@ const Home = () => {
   }, []);
 
   return (
-    <HomePage>
+    <Section>
+      <Hero />
+      <About />
       <Mission />
-    </HomePage>
+      <Testimonial />
+      <Connected />
+    </Section>
   );
 };
 

@@ -2,11 +2,47 @@ import Heading from "./Heading";
 import { testimonial_title, testimonies } from "../constants";
 import Direction from "./Direction";
 import { useGlobalContext } from "../context";
+import { useGSAP } from "@gsap/react";
+import { animateFromPosition, animateFromToPosition } from "../animate";
 
 const Testimonial = () => {
   const {
     globalState: { homePage },
   } = useGlobalContext();
+
+  // useGSAP(() => {
+  //   animateFromPosition(".testimonial-heading", {
+  //     y: -200,
+  //     opacity: 0,
+  //     scrollTrigger: {
+  //       trigger: ".testimonial-heading",
+  //       start: "top center",
+  //     },
+  //   });
+  //   animateFromToPosition(
+  //     ".testimony",
+  //     {
+  //       x: 200,
+  //       opacity: 0,
+  //     },
+  //     {
+  //       x: 0,
+  //       opacity: 1,
+  //       scrollTrigger: {
+  //         trigger: ".testimony",
+  //         start: "top center",
+  //       },
+  //     }
+  //   );
+  //   animateFromPosition(".testimony-giver", {
+  //     x: -200,
+  //     opacity: 0,
+  //     scrollTrigger: {
+  //       trigger: ".testimony-giver",
+  //       start: "top center",
+  //     },
+  //   });
+  // }, []);
 
   return (
     <section className="home-pad py-[7.5rem] bg-base-white">
@@ -15,7 +51,7 @@ const Testimonial = () => {
           introTitle="Testimonial"
           introClass="mx-auto text-pgreen"
           title={testimonial_title[homePage]}
-          className="text-center"
+          className="text-center testimonial-heading"
           type="about"
         />
 
@@ -23,7 +59,10 @@ const Testimonial = () => {
           <div className="md:flex items-center">
             {testimonies[homePage].map((item) => {
               return (
-                <div className="w-full md:w-[409px] h-[440px]" key={item.name}>
+                <div
+                  className="w-full md:w-[409px] h-[440px] testimony-giver"
+                  key={item.name}
+                >
                   <img
                     src={item.photo}
                     alt={item.name}
@@ -35,7 +74,7 @@ const Testimonial = () => {
             <div className="border w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10">
               {testimonies[homePage].map((item) => {
                 return (
-                  <div className="" key={item.name}>
+                  <div className="testimony" key={item.name}>
                     <p className="text-neutral text-2xl text-center md:text-left font-montserrat">
                       {item.testimony}
                     </p>

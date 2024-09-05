@@ -1,13 +1,14 @@
-import { Header, MobileHeader } from "../components";
+import { Footer, Header, MobileHeader } from "../components";
 import React from "react";
 
 const Section = ({ children, darkLogo }) => {
   return (
-    <section>
+    <>
       <MobileHeader />
       <Header darkLogo={darkLogo} />
-      {children}
-    </section>
+      <section>{children}</section>
+      <Footer />
+    </>
   );
 };
 

@@ -14,8 +14,11 @@ const NavBar = ({ dark }) => {
         return (
           <Link to={item.href} key={item.title}>
             <li
+              // className={`${dark ? 'text-eco-neutral-prime' : 'text-eco-white'} ${isActive && '!text-eco-green font-bold'}`}
               className={cn(
-                `${dark ? "text-eco-neutral-prime" : "text-eco-white"} text-eiteen font-montserrat`,
+                `text-eiteen font-montserrat ${
+                  dark ? "text-eco-neutral-prime" : "text-eco-white"
+                } `,
                 {
                   "text-eco-green font-bold": isActive,
                 }

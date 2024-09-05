@@ -1,18 +1,18 @@
-import { useState } from "react";
 import { hero_description, support_links } from "../constants";
 import { useGlobalContext } from "../context";
 import Btn from "./Btn";
 import { useNavigate } from "react-router-dom";
 import Togglers from "./Togglers";
+import { useGSAP } from "@gsap/react";
+import { animateFromPosition, animateFromToPosition } from "../animate";
+import gsap from "gsap";
 
 const HeroCta = () => {
   const navigate = useNavigate();
   const {
-    globalState: { homePage, support },
+    globalState: { homePage, support, supportOption },
     Dispatch,
   } = useGlobalContext();
-
-  const [supportType, setSupportType] = useState("General");
 
   const setModalWithAction = (content) => {
     Dispatch("modalContent", { modalContent: content });
@@ -64,7 +64,7 @@ const HeroCta = () => {
                   key={item}
                   text={item}
                   size="sm"
-                  type={supportType === item ? "default" : "rider"}
+                  type={supportOption === item ? "default" : "rider"}
                 />
               );
             })}
@@ -79,6 +79,20 @@ const Hero = () => {
   const {
     globalState: { homePage },
   } = useGlobalContext();
+
+  useGSAP(() => {
+    console.log(homePage);
+    let homeTitleAnimObject = { x: 2000 };
+    // if (homePage === "earn") {
+    //   homeTitleAnimObject = { opacity: 0 };
+    // }
+    // animateFromToPosition(".hero-title", { x: 2000 }, { x: 0 });
+    animateFromPosition(".hero-title", homeTitleAnimObject);
+    animateFromPosition(".animate-image", {
+      x: -2000,
+      delay: 0.075,
+    });
+  }, []);
 
   return (
     <div className="hero">
@@ -99,7 +113,7 @@ const Hero = () => {
                 <img
                   src="/circle-out.svg"
                   alt="circle"
-                  className="absolute size-full scale-125"
+                  className="absolute size-full scale-125 animate-image block"
                 />
                 <span className="text-eco-green">Rides</span>
               </div>{" "}

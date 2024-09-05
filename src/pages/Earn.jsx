@@ -1,20 +1,32 @@
 import React, { useEffect } from "react";
-import { HomePage } from "../shared-layout";
+import { HomePage, Section } from "../shared-layout";
 import { useTitle } from "../lib/hooks";
-import { Contribution } from "../components";
+import {
+  About,
+  Connected,
+  Contribution,
+  Footer,
+  Hero,
+  Testimonial,
+} from "../components";
 import { useGlobalContext } from "../context";
 const Earn = () => {
   useTitle("Earn");
-  const { dispatch } = useGlobalContext();
+  const { Dispatch } = useGlobalContext();
 
   useEffect(() => {
-    dispatch({ type: "homePage", payload: { homePage: "earn" } });
+    Dispatch('homePage', {homePage: 'earn'})
   }, []);
 
   return (
-    <HomePage>
+    <Section>
+      <Hero />
+      <About />
       <Contribution />
-    </HomePage>
+      <Testimonial />
+      <Connected />
+      {/* <Footer /> */}
+    </Section>
   );
 };
 

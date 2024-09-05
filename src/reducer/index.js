@@ -6,6 +6,7 @@ export const initialState = {
   modalContent: "ride",
   rider: null,
   support: "faq",
+  supportOption: 'General',
   user: null,
 };
 

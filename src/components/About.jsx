@@ -9,19 +9,78 @@ import {
 import { Flexibility } from ".";
 import { useGlobalContext } from "../context";
 import Btn from "./Btn";
+import { useGSAP } from "@gsap/react";
+import { animateFromPosition, animateFromToPosition } from "../animate";
 
 const About = () => {
   const {
     globalState: { homePage },
   } = useGlobalContext();
 
+  // useGSAP(() => {
+  //   animateFromToPosition(
+  //     ".brief",
+  //     {
+  //       x: -2000,
+  //     },
+  //     {
+  //       x: 0,
+  //       scrollTrigger: {
+  //         trigger: ".brief",
+  //         start: "top center",
+  //       },
+  //     }
+  //   );
+  //   animateFromToPosition(
+  //     ".about-image",
+  //     {
+  //       x: 2000,
+  //     },
+  //     {
+  //       x: 0,
+  //       scrollTrigger: {
+  //         trigger: ".about-image",
+  //         start: "top center",
+  //       },
+  //     }
+  //   );
+  //   animateFromPosition(".service-head-title", {
+  //     y: -200,
+  //     opacity: 0,
+  //     scrollTrigger: {
+  //       trigger: ".service-head-title",
+  //       start: "top center",
+  //     },
+  //   });
+  //   animateFromPosition(".service-desc", {
+  //     x: -200,
+  //     opacity: 0,
+  //     scrollTrigger: {
+  //       trigger: ".service-desc",
+  //       start: "top center",
+  //     },
+  //   });
+  //   animateFromPosition(".service", {
+  //     opacity: 0,
+  //     // stagger: 55,
+  //     stagger: {
+  //       ease: "power2.in",
+  //       amount: 1.25,
+  //     },
+  //     scrollTrigger: {
+  //       trigger: ".service",
+  //       start: "top center",
+  //     },
+  //   });
+  // }, []);
+
   return (
-    <section className="home-pad bg-base-white">
+    <section className="home-pad bg-base-white overflow-hidden">
       <div className={`min-h-[696px] ${homePage === "main" && "flex-center"}`}>
         {homePage === "earn" && <Flexibility />}
 
         <div className="min-h-[526px] md:flex items-center">
-          <div className="w-full tablet:w-6/12">
+          <div className="w-full tablet:w-6/12 brief">
             {homePage === "main" ? (
               <>
                 <Heading
@@ -57,7 +116,7 @@ const About = () => {
             )}
           </div>
 
-          <div className="md:w-[33rem] md:h-[454px]">
+          <div className="md:w-[33rem] md:h-[454px] about-image">
             <img
               src={homePage === "main" ? "/about.png" : "/earn_about_bg.png"}
               alt="about keke"
@@ -72,10 +131,10 @@ const About = () => {
           <Heading
             introTitle="Service"
             title={about_titles.two}
-            tclass="max-w-[623px] mx-auto text-center border"
+            tclass="max-w-[623px] mx-auto text-center border service-head-title"
             description={about_descriptions.two}
-            dclass="mt-7 text-center text-eiteen"
-            introClass="mx-auto text-eco-green"
+            dclass="mt-7 text-center text-eiteen service-desc"
+            introClass="mx-auto text-eco-green service-head-title"
             type="about"
           />
 
@@ -89,7 +148,9 @@ const About = () => {
 
                   <div className="mt-8">
                     <h2 className="service-title">{item.title}</h2>
-                    <p className="font-montserrat text-base mt-2 text-eco-neutral-prime">{item.desc}</p>
+                    <p className="font-montserrat text-base mt-2 text-eco-neutral-prime">
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
               </div>
