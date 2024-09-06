@@ -10,7 +10,6 @@ const FormRow = ({
   handleChange,
   formRowContainer,
   auth,
-  font
 }) => {
   return (
     <div className={formRowContainer}>
@@ -22,7 +21,7 @@ const FormRow = ({
             : labelTextSize
             ? labelTextSize
             : "text-base"
-        } ${font} block`}
+        } block`}
       >
         {label}
       </label>

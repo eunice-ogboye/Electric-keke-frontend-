@@ -291,54 +291,9 @@ h2 {
 
 /* input classes */
 .schedule-input {
-  @apply border border-eco-green rounded-[6px] h-[64px] w-full max-w-[392px];
+  @apply border border-eco-green rounded-[6px] h-[64px] w-full max-w-96;
 }
 
 .auth-input {
   @apply border border-eco-neutral-input rounded-[6px] h-[54px] w-full;
-}
-
-/* TRACKING */
-.track-board {
-  @apply mt-4 md:mt-[31px] md:flex gap-6 items-start;
-}
-
-.track-map {
-  @apply w-full md:w-1/2 h-96 md:h-[881.32px];
-}
-
-.track-details {
-  @apply w-full max-w-[586px] mt-3 md:mt-0;
-}
-
-.track-driver {
-  @apply md:flex items-center py-2 px-4 justify-between bg-eco-green-faint;
-}
-
-.track-driver-details {
-  @apply flex items-center justify-between w-full mt-2 md:mt-0 md:w-[72%];
-}
-
-.track-driver-stats {
-  @apply text-eiteen text-eco-neutral-prime font-montserrat;
-}
-
-.track-cta {
-  @apply w-[123px] flex items-center justify-between;
-}
-
-.track-action {
-  @apply size-[50px] flex-center;
-}
-
-.track-location {
-  @apply h-[70px] max-w-[586px] rounded-[14px] flex items-center py-6 px-7 bg-white;
-}
-
-.track-location {
-  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.25));
-}
-
-.ride-amount {
-  @apply bg-eco-green-faint flex-center h-[56px] w-[179px] text-eiteen font-bold rounded-[10px] font-montserrat;
 }

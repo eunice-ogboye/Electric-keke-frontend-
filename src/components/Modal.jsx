@@ -42,6 +42,19 @@ const Modal = () => {
     setContent(1);
   };
 
+  // useEffect(() => {
+  //   window.addEventListener("scroll", (e) => {
+  //     const pageY = window.scrollY;
+  //     console.log(pageY);
+  //   });
+  //   return () => {
+  //     window.removeEventListener("scroll", (e) => {
+  //       const pageY = window.scrollY;
+  //       console.log(pageY);
+  //     });
+  //   };
+  // }, []);
+
   const closeModalWhenBodyClick = (e) => {
     const modal = modalContainer.current;
     const pageY = window.scrollY;
@@ -108,21 +121,19 @@ const Modal = () => {
                 title={comment ? "Great!" : "Rate Your Experience"}
                 tclass="text-[40px]"
                 description={comment && "Tell us a bit more about your ride"}
-                dclass="text-[28px]"
               />
             </div>
 
             {comment && (
-              <form className="w-full mt-20">
+              <form className="w-full">
                 <label className="w-full">
-                  <span className="block text-base font-semibold font-montserrat">Comment</span>
+                  <span className="block text-base font-semibold">Comment</span>
                   <textarea
                     name="comment"
                     id="comment"
                     cols="30"
                     rows="3"
-                    className="px-3 py-2 w-full resize-none text-eco-neutral-700 font-montserrat bg-eco-white border border-eco-neutral-border"
-                    placeholder="Type your comment"
+                    className="px-3 py-2 w-full resize-none"
                   ></textarea>
                 </label>
                 <Btn text="Send" size="md-full" />

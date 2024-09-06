@@ -62,8 +62,8 @@ const Btn = ({
   const CancleBtn = () => {
     return (
       <Button
-        className={`rounded-full size-10  p-1 ${
-          fixed ? " bg-transparent" : "absolute top-2 right-2 bg-eco-neutral-prime/40"
+        className={`rounded-full size-5  p-1 ${
+          fixed ? null : "absolute top-2 right-2 bg-eco-neutral-prime/40"
         }`}
         onClick={handleClick}
       >

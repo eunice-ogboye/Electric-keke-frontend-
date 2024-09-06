@@ -18,7 +18,7 @@ const DeliveryProcess = ({ image, title, desc }) => {
       </div>
       <div>
         <p className="font-bold text-eiteen">{title}</p>
-        <p className="text-sm text-eco-neutral-prime font-montserrat">{desc}</p>
+        <p className="text-sm text-neutral">{desc}</p>
       </div>
     </div>
   );
