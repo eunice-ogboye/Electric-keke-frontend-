@@ -41,8 +41,8 @@ const DriverAuth = () => {
   const titleAndText = getDriverAuthImageAndTitle(driverAuthProcess);
 
   return (
-    <section className="home-pad py-11 border-4 w-full">
-      <div className="border border-red-500">
+    <section className="home-pad py-11 w-full">
+      <div>
         <div>
           <Heading
             className="text-center"

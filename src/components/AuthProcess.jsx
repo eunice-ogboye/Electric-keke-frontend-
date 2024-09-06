@@ -41,7 +41,7 @@ const AuthProcess = () => {
             <div key={index}>
               <div
                 className={`size-5 md:size-10 rounded-full mx-auto flex-center ${
-                  completed ? "bg-pgreen-0" : "bg-neutral-1"
+                  completed ? "bg-eco-green-prime" : "bg-eco-neutral-faint"
                 }`}
               >
                 {completed && <div className="size-2 md:size-5 bg-white rounded-full" />}

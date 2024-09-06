@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useTitle } from "../lib/hooks";
-import { About, Connected, Hero, Mission, Testimonial } from "../components";
+import { About, Connected, Footer, Hero, Mission, Testimonial } from "../components";
 import { HomePage, Section } from "../shared-layout";
 import { useGlobalContext } from "../context";
 
@@ -19,6 +19,7 @@ const Home = () => {
       <Mission />
       <Testimonial />
       <Connected />
+      <Footer />
     </Section>
   );
 };

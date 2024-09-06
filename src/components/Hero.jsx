@@ -80,19 +80,21 @@ const Hero = () => {
     globalState: { homePage },
   } = useGlobalContext();
 
-  useGSAP(() => {
-    console.log(homePage);
-    let homeTitleAnimObject = { x: 2000 };
-    // if (homePage === "earn") {
-    //   homeTitleAnimObject = { opacity: 0 };
-    // }
-    // animateFromToPosition(".hero-title", { x: 2000 }, { x: 0 });
-    animateFromPosition(".hero-title", homeTitleAnimObject);
-    animateFromPosition(".animate-image", {
-      x: -2000,
-      delay: 0.075,
-    });
-  }, []);
+  // const gsapCondition = homePage === 'main' ? 'main' : 'earn';
+
+  // useGSAP(() => {
+  //   console.log(homePage);
+  //   let homeTitleAnimObject = { x: 2000 };
+  //   // if (homePage === "earn") {
+  //   //   homeTitleAnimObject = { opacity: 0 };
+  //   // }
+  //   // animateFromToPosition(".hero-title", { x: 2000 }, { x: 0 });
+  //   animateFromPosition(".hero-title", homeTitleAnimObject);
+  //   animateFromPosition(".title-2", {
+  //     x: -2000,
+  //     delay: 0.075,
+  //   });
+  // }, []);
 
   return (
     <div className="hero">
@@ -107,26 +109,28 @@ const Hero = () => {
           }  mx-auto pb-[146px]`}
         >
           {homePage === "main" ? (
-            <h1 className="hero-title">
-              Eco-Friendly{" "}
-              <div className="relative inline-block ">
-                <img
-                  src="/circle-out.svg"
-                  alt="circle"
-                  className="absolute size-full scale-125 animate-image block"
-                />
-                <span className="text-eco-green">Rides</span>
-              </div>{" "}
-              & Swift <span className="text-eco-green">Deliveries</span> at Your
-              Fingertips
-            </h1>
+            <div className="relative">
+              <h1 className="hero-title anime1">
+                Eco-Friendly{" "}
+                <div className="relative inline-block ">
+                  <img
+                    src="/circle-out.svg"
+                    alt="circle"
+                    className="absolute size-full scale-125 animate-image block"
+                  />
+                  <span className="text-eco-green">Rides</span>
+                </div>{" "}
+                & Swift <span className="text-eco-green">Deliveries</span> at
+                Your Fingertips
+              </h1>
+            </div>
           ) : homePage === "earn" ? (
-            <h1 className="hero-title max-w-[1076px] mx-auto">
+            <h1 className="hero-title max-w-[1076px] mx-auto anime2">
               Drive Green, Earn More Join the <br />
               Eco-Ride Team Today
             </h1>
           ) : (
-            <h1 className="hero-title">Help & Support Center</h1>
+            <h1 className="hero-title anime1">Help & Support Center</h1>
           )}
 
           <div className={`${homePage === "main" && "px-[30px]"} mt-6`}>

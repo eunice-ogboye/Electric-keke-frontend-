@@ -75,7 +75,6 @@ const Modal = () => {
         }  bg-white rounded-xl relative`}
         ref={modalContainer}
       >
-        {/* cancel btn */}
         {content === 1 && (
           <Btn
             type="cancel"

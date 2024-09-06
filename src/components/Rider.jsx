@@ -31,7 +31,7 @@ const Rider = ({
             <p className="text-eiteen text-eco-white font-montserrat">Keke Color: {color}</p>
             <Btn
               text="View Details"
-              to={name + plate_number}
+              // to={name + plate_number}
               size="md"
               type="rider"
               handleClick={handleClick}

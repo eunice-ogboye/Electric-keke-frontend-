@@ -17,62 +17,62 @@ const About = () => {
     globalState: { homePage },
   } = useGlobalContext();
 
-  // useGSAP(() => {
-  //   animateFromToPosition(
-  //     ".brief",
-  //     {
-  //       x: -2000,
-  //     },
-  //     {
-  //       x: 0,
-  //       scrollTrigger: {
-  //         trigger: ".brief",
-  //         start: "top center",
-  //       },
-  //     }
-  //   );
-  //   animateFromToPosition(
-  //     ".about-image",
-  //     {
-  //       x: 2000,
-  //     },
-  //     {
-  //       x: 0,
-  //       scrollTrigger: {
-  //         trigger: ".about-image",
-  //         start: "top center",
-  //       },
-  //     }
-  //   );
-  //   animateFromPosition(".service-head-title", {
-  //     y: -200,
-  //     opacity: 0,
-  //     scrollTrigger: {
-  //       trigger: ".service-head-title",
-  //       start: "top center",
-  //     },
-  //   });
-  //   animateFromPosition(".service-desc", {
-  //     x: -200,
-  //     opacity: 0,
-  //     scrollTrigger: {
-  //       trigger: ".service-desc",
-  //       start: "top center",
-  //     },
-  //   });
-  //   animateFromPosition(".service", {
-  //     opacity: 0,
-  //     // stagger: 55,
-  //     stagger: {
-  //       ease: "power2.in",
-  //       amount: 1.25,
-  //     },
-  //     scrollTrigger: {
-  //       trigger: ".service",
-  //       start: "top center",
-  //     },
-  //   });
-  // }, []);
+  useGSAP(() => {
+    animateFromToPosition(
+      ".brief",
+      {
+        x: -2000,
+      },
+      {
+        x: 0,
+        scrollTrigger: {
+          trigger: ".brief",
+          start: "top center",
+        },
+      }
+    );
+    animateFromToPosition(
+      ".about-image",
+      {
+        x: 2000,
+      },
+      {
+        x: 0,
+        scrollTrigger: {
+          trigger: ".about-image",
+          start: "top center",
+        },
+      }
+    );
+    animateFromPosition(".service-head-title", {
+      y: -200,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".service-head-title",
+        start: "top center",
+      },
+    });
+    animateFromPosition(".service-desc", {
+      x: -200,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".service-desc",
+        start: "top center",
+      },
+    });
+    animateFromPosition(".service", {
+      opacity: 0,
+      // stagger: 55,
+      stagger: {
+        ease: "power2.in",
+        amount: 1.25,
+      },
+      scrollTrigger: {
+        trigger: ".service",
+        start: "top center",
+      },
+    });
+  }, []);
 
   return (
     <section className="home-pad bg-base-white overflow-hidden">

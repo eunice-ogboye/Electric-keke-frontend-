@@ -10,24 +10,24 @@ const Connected = () => {
     globalState: { homePage },
   } = useGlobalContext();
 
-  // useGSAP(() => {
-  //   animateFromPosition(".connect-heading", {
-  //     y: -200,
-  //     opacity: 0,
-  //     scrollTrigger: {
-  //       trigger: ".connect-heading",
-  //       start: "top center",
-  //     },
-  //   });
-  //   animateFromPosition(".connect-form", {
-  //     y: 200,
-  //     opacity: 0,
-  //     scrollTrigger: {
-  //       trigger: ".connect-form",
-  //       start: "top center",
-  //     },
-  //   });
-  // }, [homePage]);
+  useGSAP(() => {
+    animateFromPosition(".connect-heading", {
+      y: -200,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".connect-heading",
+        // start: "top center",
+      },
+    });
+    animateFromPosition(".connect-form", {
+      y: 200,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".connect-form",
+        // start: "top center",
+      },
+    });
+  }, []);
 
   return (
     <section>

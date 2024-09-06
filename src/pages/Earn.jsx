@@ -25,7 +25,7 @@ const Earn = () => {
       <Contribution />
       <Testimonial />
       <Connected />
-      {/* <Footer /> */}
+      <Footer />
     </Section>
   );
 };

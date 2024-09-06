@@ -10,39 +10,42 @@ const Testimonial = () => {
     globalState: { homePage },
   } = useGlobalContext();
 
-  // useGSAP(() => {
-  //   animateFromPosition(".testimonial-heading", {
-  //     y: -200,
-  //     opacity: 0,
-  //     scrollTrigger: {
-  //       trigger: ".testimonial-heading",
-  //       start: "top center",
-  //     },
-  //   });
-  //   animateFromToPosition(
-  //     ".testimony",
-  //     {
-  //       x: 200,
-  //       opacity: 0,
-  //     },
-  //     {
-  //       x: 0,
-  //       opacity: 1,
-  //       scrollTrigger: {
-  //         trigger: ".testimony",
-  //         start: "top center",
-  //       },
-  //     }
-  //   );
-  //   animateFromPosition(".testimony-giver", {
-  //     x: -200,
-  //     opacity: 0,
-  //     scrollTrigger: {
-  //       trigger: ".testimony-giver",
-  //       start: "top center",
-  //     },
-  //   });
-  // }, []);
+  useGSAP(() => {
+    animateFromToPosition(
+      ".testimony",
+      {
+        x: 200,
+        opacity: 0,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: ".testimony",
+          start: "top center",
+        },
+      }
+    );
+    animateFromPosition(".testimony-giver", {
+      x: -200,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".testimony-giver",
+        start: "top center",
+      },
+    });
+  }, [homePage]);
+
+  useGSAP(() => {
+    animateFromPosition(".testimonial-heading", {
+      y: -200,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".testimonial-heading",
+        start: "top center",
+      },
+    });
+  }, []);
 
   return (
     <section className="home-pad py-[7.5rem] bg-base-white">
