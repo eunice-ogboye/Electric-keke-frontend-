@@ -4,7 +4,7 @@ import { useGlobalContext } from "../context";
 import Btn from "./Btn";
 import Togglers from "./Togglers";
 
-const HeroCta = () => {
+const HeroCta = ({type}) => {
   const navigate = useNavigate();
   const {
     globalState: { homePage, support, supportOption },
@@ -21,19 +21,19 @@ const HeroCta = () => {
 
   return (
     <div className="flex-center gap-2 mt-6">
-      {homePage === "main" || homePage === "earn" ? (
+      {type === "main" || type === "earn" ? (
         <>
           <Btn
-            text={homePage === "main" ? "Book a Ride" : "Register"}
+            text={type === "main" ? "Book a Ride" : "Register"}
             handleClick={() => {
-              if (homePage === "earn") {
+              if (type === "earn") {
                 Dispatch("changeHomePage", { homePage: "driver-auth" });
                 return navigate("/authentication/driver-auth");
               }
               setModalWithAction("ride");
             }}
           />
-          {homePage === "main" && (
+          {type === "main" && (
             <Btn
               text="Request For Delivery"
               type="secondary"

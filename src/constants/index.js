@@ -30,7 +30,6 @@ const otp_choice = [
   { title: "Email", icon: "/email.svg" },
 ];
 
-
 const about_titles = {
   one: "Who We Are",
   two: "Discover The Full Range Of Eco-Ride Services",
@@ -188,6 +187,13 @@ const settings = [
   "Support & Feedback",
 ];
 
+const hero_descriptions = {
+  main: " Join the Green Movement with Our Electric Keke: Real-time tracking, affordable pricing—making your life easier and the planet healthier.",
+  earn: "By joining us as a driver, you will enjoy flexible working hours, competitive earnings, and the opportunity to contribute to a greener enviroment. Drive with us and be part of eco-friendly revolution.",
+  support:
+    " Have a question or need assistance? Our support team is ready to help you with any issue, big or smal",
+};
+
 export {
   account_types,
   onboardingImages,
@@ -209,4 +215,5 @@ export {
   care_socials,
   footer_note,
   settings,
+  hero_descriptions
 };

@@ -1,19 +1,12 @@
 import React, { useEffect } from "react";
 import { useTitle } from "../lib/hooks";
-import { Connected, Footer, Mission } from "../components";
-import Hero from "../components/home/Hero";
-import {  Section } from "../shared-layout";
-import { useGlobalContext } from "../context";
-import About from '../components/home/About'
-import Testimonial from "../components/home/Testimonial";
+import { Connected, Footer, Mission, Testimonial } from "../components";
+import { Section } from "../shared-layout";
+import Hero from "../components/Hero";
+import About from "../components/About";
 
 const Home = () => {
   useTitle("Home");
-  const { Dispatch } = useGlobalContext();
-
-  useEffect(() => {
-    Dispatch("homePage", { homePage: "main" });
-  }, []);
 
   return (
     <Section>

@@ -1,15 +1,10 @@
 import Heading from "./Heading";
 import { connected } from "../constants";
 import { Button } from "./ui/button";
-import { useGlobalContext } from "../context";
 import { useGSAP } from "@gsap/react";
 import { animateFromPosition } from "../animate";
 
-const Connected = () => {
-  const {
-    globalState: { homePage },
-  } = useGlobalContext();
-
+const Connected = ({ type = "main" }) => {
   useGSAP(() => {
     animateFromPosition(".connect-heading", {
       y: -200,
@@ -32,19 +27,17 @@ const Connected = () => {
   return (
     <section>
       <div className="min-h-[704px] flex-center bg-black/60 relative home-pad">
-        {(homePage === "main" || homePage === "earn") && (
-          <div className="size-full min-h-[704px] absolute top-0 left-0 -z-10">
-            <img
-              src={
-                homePage === "main"
-                  ? "/main_connected_bg.png"
-                  : "/earn_connected_bg.png"
-              }
-              alt="earn_connected"
-              className="size-full object-center object-cover"
-            />
-          </div>
-        )}
+        <div className="size-full min-h-[704px] absolute top-0 left-0 -z-10">
+          <img
+            src={
+              type === "main"
+                ? "/main_connected_bg.png"
+                : "/earn_connected_bg.png"
+            }
+            alt="earn_connected"
+            className="size-full object-center object-cover"
+          />
+        </div>
         <div className="max-w-[894px]">
           <Heading
             className="w-full text-center text-eco-white connect-heading"

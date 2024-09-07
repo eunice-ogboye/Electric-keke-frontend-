@@ -5,43 +5,28 @@ import { useGlobalContext } from "../context";
 import { useGSAP } from "@gsap/react";
 import { animateFromPosition, animateFromToPosition } from "../animate";
 
-const Testimonial = () => {
-  const {
-    globalState: { homePage },
-  } = useGlobalContext();
-
-  useGSAP(() => {
-    animateFromToPosition(
-      ".testimony",
-      {
-        x: 200,
-        opacity: 0,
-      },
-      {
-        x: 0,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: ".testimony",
-          start: "top center",
-        },
-      }
-    );
-    animateFromPosition(".testimony-giver", {
-      x: -200,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".testimony-giver",
-        start: "top center",
-      },
-    });
-  }, [homePage]);
-
+const Testimonial = ({type = 'main'}) => {
   useGSAP(() => {
     animateFromPosition(".testimonial-heading", {
       y: -200,
       opacity: 0,
       scrollTrigger: {
         trigger: ".testimonial-heading",
+        start: "top center",
+      },
+    });
+    animateFromPosition(".testimony", {
+      x: 2000,
+      scrollTrigger: {
+        trigger: ".testimony",
+        start: "top center",
+      },
+    });
+    animateFromPosition(".testimony-giver", {
+      x: -200,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".testimony-giver",
         start: "top center",
       },
     });
@@ -53,14 +38,14 @@ const Testimonial = () => {
         <Heading
           introTitle="Testimonial"
           introClass="mx-auto text-pgreen"
-          title={testimonial_title[homePage]}
+          title={testimonial_title[type]}
           className="text-center testimonial-heading"
           type="about"
         />
 
         <div className="mt-10">
           <div className="md:flex items-center">
-            {testimonies[homePage].map((item) => {
+            {testimonies[type].map((item) => {
               return (
                 <div
                   className="w-full md:w-[409px] h-[440px] testimony-giver"
@@ -75,7 +60,7 @@ const Testimonial = () => {
               );
             })}
             <div className="border w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10">
-              {testimonies[homePage].map((item) => {
+              {testimonies[type].map((item) => {
                 return (
                   <div className="testimony" key={item.name}>
                     <p className="text-neutral text-2xl text-center md:text-left font-montserrat">

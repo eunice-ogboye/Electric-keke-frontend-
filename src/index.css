@@ -124,37 +124,11 @@ h2 {
 }
 
 .hero-title {
-  @apply text-base-white text-[4rem] font-bold text-center leading-[76.8px] tracking-tighter;
-}
-
-.anime1 {
-  animation: animeTitle1 3s forwards;
-}
-
-.anime2 {
-  animation: animeTitle2 3s forwards;
-}
-
-@keyframes animeTitle1 {
-  0% {
-    transform: translate(2000px);
-  }
-  100% {
-    transform: translate(0px);
-  }
-}
-
-@keyframes animeTitle2 {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  @apply text-base-white text-3xl md:text-[4rem] font-bold text-center md:leading-[76.8px] tracking-tighter;
 }
 
 .hero-description {
-  @apply text-base-white text-center font-semibold text-2xl font-montserrat;
+  @apply text-base-white text-center font-semibold text-base md:text-2xl font-montserrat;
 }
 
 .hero-img {

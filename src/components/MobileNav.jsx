@@ -37,7 +37,7 @@ const MobileNav = () => {
                         key={item.title}
                         className={cn("mobilenav-sheet_close w-full")}
                       >
-                        <p className={cn("text-16 font-bold text-black-2 text-pgreen")}>
+                        <p className={cn("text-16 font-bold text-black-2 text-eco-green")}>
                           {item.title}
                         </p>
                       </Link>
