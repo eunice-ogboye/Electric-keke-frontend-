@@ -4,7 +4,7 @@ import { useGlobalContext } from "../context";
 import Btn from "./Btn";
 import Togglers from "./Togglers";
 
-const HeroCta = ({type}) => {
+const HeroCta = ({ type }) => {
   const navigate = useNavigate();
   const {
     globalState: { homePage, support, supportOption },
@@ -64,7 +64,7 @@ const HeroCta = ({type}) => {
                   type={supportOption === item ? "default" : "rider"}
                 />
               );
-            })}
+          })}
           </div>
         </div>
       )}

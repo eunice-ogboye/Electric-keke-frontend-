@@ -20,6 +20,7 @@ const Btn = ({
     "md-full": "h-8 w-full",
     lg: "",
     driver: "h-[34px] w-[95px] md:h-14 md:w-[171px]",
+    search: 'w-[93px] h-[38px] text-xs',
     none: "h-fit w-fit",
   };
   const rounding = {

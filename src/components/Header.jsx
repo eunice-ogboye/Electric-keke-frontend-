@@ -15,8 +15,11 @@ const Header = ({ darkLogo }) => {
 
   useEffect(() => {
     const getUser = localStorage.getItem("user");
-    const user = JSON.parse(getUser);
-    Dispatch("setUser", { user });
+    console.log(getUser);
+    if (getUser !== null) {
+      const user = JSON.parse(getUser);
+      Dispatch("user", { user });
+    }
   }, []);
 
   useGSAP(() => {
@@ -46,7 +49,13 @@ const Header = ({ darkLogo }) => {
             </Link>
           </div>
         ) : (
-          <Btn text="Sign Up" to="/authentication" />
+          <Btn
+            text="Sign Up"
+            to="/authentication/register"
+            handleClick={() => {
+              Dispatch("changeHomePage", { homePage: "register" });
+            }}
+          />
         )}
       </div>
     </header>

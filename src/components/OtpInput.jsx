@@ -7,13 +7,8 @@ import {
 
 const OtpInput = ({ value, handleChange }) => {
   return (
-    <InputOTP
-      maxLength={5}
-      value={value}
-      className="border-4 border-orange-800"
-      onChange={handleChange}
-    >
-      <InputOTPGroup className="justify-between w-[396px]">
+    <InputOTP maxLength={5} value={value} onChange={handleChange} className="w-full">
+      <InputOTPGroup className="justify-between w-full">
         <InputOTPSlot
           index={0}
           className="border-2 rounded-sm size-14 border-black"

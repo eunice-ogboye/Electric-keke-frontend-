@@ -33,7 +33,12 @@ const formClassName = (type) => {
 };
 
 const ReusableForm = ({ type = "register" }) => {
-  const { Dispatch } = useGlobalContext();
+  const {
+    Dispatch,
+    showAlert,
+    hideAlert,
+    globalState: { user },
+  } = useGlobalContext();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
@@ -60,17 +65,14 @@ const ReusableForm = ({ type = "register" }) => {
     <>
       {type === "congrats" ? (
         <div className="my-dell:mt-32">
-          <Logo
-            logoClassName="size-16"
-            titleClassName="text-eco-green text-[1.5rem]"
-          />
+          <Logo className="w-[122px] h-[81px] mx-auto" />
           <Heading
             title={formTitle[type]}
             className="text-center mt-2 my-dell:mt-10"
           />
 
           <div className="congrats-board">
-            <div className="rounded-full bg-pgreen-3 size-20 flex-center">
+            <div className="rounded-full bg-eco-green-dark size-20 flex-center">
               <img src="/tick.svg" alt="tick" />
             </div>
           </div>
@@ -79,8 +81,8 @@ const ReusableForm = ({ type = "register" }) => {
             <Btn
               text="Proceed"
               size="full"
-              to="/authentication/login"
-              handleClick={() => switchTypeNavigate("login")}
+              to="/authentication/account"
+              handleClick={() => switchTypeNavigate("main")}
             />
             <div className="text-sm flex-center gap-1 mt-[14px]">
               <img src="/small-lock.svg" alt="lock" />
@@ -93,10 +95,7 @@ const ReusableForm = ({ type = "register" }) => {
           onSubmit={(e) => e.preventDefault()}
           className={formClassName(type)}
         >
-          <Logo
-            logoClassName="size-16"
-            titleClassName="text-eco-green text-[1.5rem]"
-          />
+          <Logo className="w-[122px] h-[81px] mx-auto" />
           <Heading
             title={formTitle[type]}
             className="text-center mt-2 my-dell:mt-10"
@@ -111,7 +110,13 @@ const ReusableForm = ({ type = "register" }) => {
                   <Link
                     key={item.title}
                     to="/authentication/otp-2"
-                    onClick={() => switchTypeNavigate("otp2")}
+                    onClick={() => {
+                      switchTypeNavigate("otp2");
+                      showAlert("", "Otp sent");
+                      setTimeout(() => {
+                        hideAlert();
+                      }, 3000);
+                    }}
                   >
                     <div className="px-4 py-2 flex items-center border-2">
                       <div>
@@ -124,7 +129,7 @@ const ReusableForm = ({ type = "register" }) => {
               })}
             </div>
           ) : type === "otp2" || type === "passUpdate" ? (
-            <div className="r-form-body-margin w-[396px] mx-auto">
+            <div className="r-form-body-margin w-full md:w-[396px] mx-auto border-8">
               <div className="flex-center">
                 <OtpInput
                   value={formData.otpValue}
@@ -268,37 +273,37 @@ const ReusableForm = ({ type = "register" }) => {
                   // still break  the switch to make it short
                   switch (type) {
                     case "register":
-                      console.log("register");
                       return switchTypeNavigate(
-                        "complete"
-                        // "/authentication/complete-profile"
+                        "complete",
+                        "/authentication/complete-profile"
                       );
                     case "complete":
                       return switchTypeNavigate(
-                        "otp"
-                        // "/authentication/choose-otp"
+                        "otp",
+                        "/authentication/choose-otp"
                       );
                     case "otp2":
+                      showAlert("", "Account Successfully Created");
+                      setTimeout(() => {
+                        hideAlert();
+                      }, 3000);
                       return switchTypeNavigate(
-                        "congrats"
-                        // "/authentication/congrats"
+                        "congrats",
+                        "/authentication/success"
                       );
                     case "forget":
                       return switchTypeNavigate(
-                        "new"
-                        // "/authentication/forget-password"
+                        "new",
+                        "/authentication/forget-password"
                       );
                     case "new":
                       return switchTypeNavigate(
-                        "passUpdate"
-                        //"/authentication/update-passcode"
+                        "passUpdate",
+                        "/authentication/update-passcode"
                       );
                     case "login":
-                      const users = [{ role: "rider" }, { role: "passenger" }];
-                      // let user = users[Math.floor(Math.random() * 2)];
-                      let user = users[0];
                       const { role } = user;
-                      Dispatch("user", { user });
+                      console.log(user);
                       return role === "rider"
                         ? switchTypeNavigate("main", "/driver/driverId")
                         : switchTypeNavigate("main", "/");

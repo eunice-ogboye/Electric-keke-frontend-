@@ -12,14 +12,14 @@ const Testimonial = ({type = 'main'}) => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".testimonial-heading",
-        start: "top center",
+        // start: "top center",
       },
     });
     animateFromPosition(".testimony", {
       x: 2000,
       scrollTrigger: {
         trigger: ".testimony",
-        start: "top center",
+        // start: "top center",
       },
     });
     animateFromPosition(".testimony-giver", {
@@ -27,7 +27,7 @@ const Testimonial = ({type = 'main'}) => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".testimony-giver",
-        start: "top center",
+        // start: "top center",
       },
     });
   }, []);

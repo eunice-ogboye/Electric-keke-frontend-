@@ -26,7 +26,7 @@ const AuthProcess = () => {
   return (
     <div>
       <div className="flex items-center justify-between mt-3 md:mt-8 relative">
-        <div className="hidden w-[90%] h-[4px] bg-neutral absolute top-5 -z-30 left-1/2 -translate-x-1/2">
+        {/* <div className="hidden w-[90%] h-[4px] bg-neutral absolute top-5 -z-30 left-1/2 -translate-x-1/2">
           <div
             className="bg-pgreen"
             style={{
@@ -34,7 +34,7 @@ const AuthProcess = () => {
               height: "100%",
             }}
           ></div>
-        </div>
+        </div> */}
         {process.map((item, index) => {
           const completed = processesCompleted >= index;
           return (

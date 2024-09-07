@@ -1,12 +1,11 @@
 export const initialState = {
   homePage: "main",
   driverAuthProcess: "Identity",
-  // homePage: "main",
   modal: false,
   modalContent: "ride",
   rider: null,
   support: "faq",
-  supportOption: 'General',
+  supportOption: "General",
   user: null,
 };
 
@@ -28,14 +27,11 @@ export const reducer = (state, action) => {
     case "changeHomePage":
       localStorage.setItem("homePage", JSON.stringify(homePage));
       return { ...state, homePage };
-    case "homePage":
-      return { ...state, homePage };
     case "modal":
       return { ...state, modal };
     case "modalContent":
       return { ...state, modal: true, modalContent };
     case "rider":
-      // console.log(rider)
       localStorage.setItem("rider", JSON.stringify(rider));
       return { ...state, rider };
     case "support":

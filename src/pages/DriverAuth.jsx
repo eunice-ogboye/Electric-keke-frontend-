@@ -3,6 +3,7 @@ import { Heading } from "../components";
 import { useGlobalContext } from "../context";
 import React, { useEffect } from "react";
 import Btn from "../components/Btn";
+import { useNavigate } from "react-router-dom";
 
 const getDriverAuthImageAndTitle = (process) => {
   return process === "Identity"
@@ -29,7 +30,16 @@ const getDriverAuthImageAndTitle = (process) => {
       };
 };
 
+const checkDetails = (order) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(order());
+    }, 3000);
+  });
+};
+
 const DriverAuth = () => {
+  const navigate = useNavigate();
   const {
     Dispatch,
     globalState: { driverAuthProcess },
@@ -86,7 +96,7 @@ const DriverAuth = () => {
                       : "Upload License"
                   }
                   size="full"
-                  handleClick={() => {
+                  handleClick={async () => {
                     switch (driverAuthProcess) {
                       case "Identity":
                         return Dispatch("driverAuth", {
@@ -97,9 +107,15 @@ const DriverAuth = () => {
                           driverAuthProcess: "Driver License Back",
                         });
                       case "Driver License Back":
-                        return Dispatch("driverAuth", {
+                        Dispatch("driverAuth", {
                           driverAuthProcess: "Processing",
                         });
+                        await checkDetails(() => {
+                          Dispatch("user", { user: { role: "rider" } });
+                        });
+                        Dispatch("changeHomePage", { homePage: "login" });
+                        navigate("/authentication/login")
+                        return;
                       default:
                         console.log("I am here");
                     }

@@ -40,10 +40,14 @@ const Account = () => {
         <div className="mt-10 space-y-6">
           {account_types.map((item) => (
             <Link
-              to="register"
+              to={item.title === "Passenger" ? "/authentication/login" : "/authentication/driver-auth"}
               key={item.title}
               onClick={() => {
-                Dispatch("changeHomePage", { homePage: "register" });
+                if (item.title === "Passenger") {
+                  Dispatch("changeHomePage", { homePage: "login" });
+                  Dispatch("user", { user: { role: "passenger" } });
+                }
+                return;
               }}
             >
               <div

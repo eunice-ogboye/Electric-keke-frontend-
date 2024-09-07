@@ -17,6 +17,8 @@ const Template = () => {
     });
   }, []);
 
+  console.log(homePage)
+
   return (
     <div className="board-pad w-full my-dell:w-1/2">
       <ReusableForm type={homePage} />

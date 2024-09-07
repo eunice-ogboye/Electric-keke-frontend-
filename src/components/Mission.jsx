@@ -17,7 +17,7 @@ const Mission = () => {
         />
       </div>
 
-      <div className="px-3 mt-20 h-[810px] overflow-hidden">
+      <div className="px-3 mt-20 md:h-[810px] overflow-hidden">
         <img src="/map.svg" alt="map" className="" />
       </div>
 

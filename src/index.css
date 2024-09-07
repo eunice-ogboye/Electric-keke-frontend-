@@ -282,7 +282,7 @@ h2 {
 } */
 /* REUSABLE FORM */
 .congrats-board {
-  @apply w-[25.5rem] h-[16rem] rounded-md mx-auto my-[30px] my-dell:mt-24 flex-center bg-white;
+  @apply w-full md:w-[25.5rem] h-[16rem] rounded-md mx-auto my-[30px] my-dell:mt-24 flex-center bg-white;
 }
 .congrats-board {
   filter: drop-shadow(0 11px 25px rgba(0, 0, 0, 0.1))

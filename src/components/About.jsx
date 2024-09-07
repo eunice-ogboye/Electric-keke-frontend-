@@ -17,7 +17,7 @@ const About = ({ type = "main" }) => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".brief",
-        start: "top center",
+        // start: "top center",
       },
     });
     animateFromPosition(".about-image", {
@@ -25,7 +25,7 @@ const About = ({ type = "main" }) => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".about-image",
-        start: "top center",
+        // start: "top center",
       },
     });
     if (type === "main") {
@@ -37,21 +37,23 @@ const About = ({ type = "main" }) => {
         },
         scrollTrigger: {
           trigger: ".service",
-          start: "top center",
+          // start: "top center",
         },
       });
       animateFromPosition(".service-heading", {
         y: -200,
         opacity: 0,
-        scrollTrigger: {
-          trigger: ".service-heading",
-          start: "top center",
-        },
+        // scrollTrigger: {
+        //   trigger: ".service-heading",
+        //   // start: "top center",
+        // },
       });
       animateFromPosition(".service-desc", {
         x: -2000,
         opacity: 0,
-        scrollTrigger: { trigger: ".service-desc", start: "top center" },
+        scrollTrigger: { trigger: ".service-desc", 
+          // start: "top center"
+         },
       });
     }
   }, []);

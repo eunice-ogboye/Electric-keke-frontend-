@@ -20,13 +20,19 @@ import {
 import { Boarding } from "./shared-layout";
 import { Modal } from "./components";
 import { useGlobalContext } from "./context";
-import 'leaflet/dist/leaflet.css';
+import "leaflet/dist/leaflet.css";
+import Alert from "./components/Alert";
 
 function App() {
-  const { modal } = useGlobalContext().globalState;
+  const {
+    globalState: { modal },
+    alert: { show },
+  } = useGlobalContext();
+
   return (
     <>
       {modal && <Modal />}
+      {show && <Alert />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/earn-with-us" element={<Earn />} />
@@ -41,8 +47,8 @@ function App() {
         <Route path="/tracking" element={<Tracking />} />
         <Route path="/profile/:id" element={<Profile />} />
         <Route path="/authentication" element={<Boarding />}>
-          <Route index element={<Account />} />
           <Route path=":id" element={<Template />} />
+          <Route path="account" element={<Account />} />
           <Route path="driver-auth" element={<DriverAuth />} />
         </Route>
         <Route path="/settings" element={<Settings />} />

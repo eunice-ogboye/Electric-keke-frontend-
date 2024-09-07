@@ -14,7 +14,7 @@ const Schedule = ({ children }) => {
   return (
     <Section darkLogo={true}>
       <div className="home-pad pt-3 md:pt-[132px] pb-10">
-        <h2 className="font-bold text-center">Eco Schedule</h2>
+        <h2 className="hidden md:block font-bold text-center">Eco Schedule</h2>
         <Togglers
           text1="Rides"
           text2="Delivery"
@@ -24,7 +24,7 @@ const Schedule = ({ children }) => {
           color="color2"
         />
 
-        <SearchBar className="w-full max-w-[865px] border-2 mt-8 rounded-[40px] p-1 flex items-center justify-between mx-auto" />
+        <SearchBar className="hidden w-full max-w-[865px] border-2 mt-8 rounded-[40px] p-1 md:flex items-center justify-between mx-auto" />
 
         <div className="flex items-center justify-between mt-12 max-w-[510px] mx-auto">
           {["Details", "Long distance", "Short Distance", "Rating"].map(
@@ -32,7 +32,7 @@ const Schedule = ({ children }) => {
               return (
                 <div
                   key={item}
-                  className="text-base flex-center h-8 bg-tertiary px-2 rounded-sm"
+                  className="text-base flex-center h-8 bg-tertiary px-2 rounded-sm text-[0.63rem]"
                 >
                   {item}
                 </div>
@@ -84,8 +84,8 @@ const Schedule = ({ children }) => {
 
         <div className="mt-14">
           <p className="text-2xl font-medium">Details</p>
-          <div className="px-2 py-5 border border-pgreen flex gap-5">
-            <div className="max-w-[635px] border-2 border-red-500 ">
+          <div className="px-2 py-5 border border-eco-green md:flex gap-5">
+            <div className="max-w-[635px]">
               <div className="md:flex items-start justify-between">
                 <div className="space-y-[21px] w-full md:w-5/12 h-[183px] border">
                   <div>
@@ -132,11 +132,12 @@ const Schedule = ({ children }) => {
                   </div>
                 </div>
               </div>
-              <div className="flex items-end gap-4 border mt-6">
-                <Btn text="Yes" type="secondary" />
-                <Btn text="No" type="secondary" />
+              <div className="flex items-end justify-between gap-4 border mt-6">
+                <Btn text="Proceed" size="sm" />
+                <Btn text="Cancel" type="secondary" size="sm" />
               </div>
             </div>
+
             <div className="w-full max-w-[504px] h-[285px] border mt-10 md:mt-0">
               <Map className="max-w-full h-[285px]" />
             </div>

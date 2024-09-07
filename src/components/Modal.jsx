@@ -42,19 +42,6 @@ const Modal = () => {
     setContent(1);
   };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", (e) => {
-  //     const pageY = window.scrollY;
-  //     console.log(pageY);
-  //   });
-  //   return () => {
-  //     window.removeEventListener("scroll", (e) => {
-  //       const pageY = window.scrollY;
-  //       console.log(pageY);
-  //     });
-  //   };
-  // }, []);
-
   const closeModalWhenBodyClick = (e) => {
     const modal = modalContainer.current;
     const pageY = window.scrollY;
