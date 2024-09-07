@@ -1,14 +1,22 @@
 import React from "react";
 import HeroCta from "../HeroCta";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Hero = () => {
+  useGSAP(() => {
+    gsap.from(".hero-title", {
+      opacity: 0,
+      duration: 3
+    })
+  }, [])
   return (
     <div className="hero">
       <div className="hero-board">
         <div className="pt-[231px] max-w-[1193px] mx-auto pb-[146px]">
           <h1 className="hero-title max-w-[1076px] mx-auto">
-            Drive Green, Earn More Join the <br />
-            Eco-Ride Team Today
+            Drive Green, <span className="text-eco-green">Earn More</span> Join the <br />
+            Eco-Ride <span className="text-eco-green">Team</span>  Today
           </h1>
           <div className="mt-6">
             <p className="hero-description">

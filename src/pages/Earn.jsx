@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { Section } from "../shared-layout";
 import { useTitle } from "../lib/hooks";
 import {
-  About,
   Connected,
   Contribution,
-  Testimonial,
+  Footer,
 } from "../components";
 import Hero from '../components/earn/Hero'
 import { useGlobalContext } from "../context";
+import AboutEarn from "../components/earn/AboutEarn";
+import TestimonialEarn from "../components/earn/TestimonialEarn";
 const Earn = () => {
   useTitle("Earn");
   const { Dispatch } = useGlobalContext();
@@ -20,9 +21,9 @@ const Earn = () => {
   return (
     <Section>
       <Hero />
-      <About />
+      <AboutEarn />
       <Contribution />
-      <Testimonial />
+      <TestimonialEarn />
       <Connected />
       <Footer />
     </Section>

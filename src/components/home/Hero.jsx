@@ -1,7 +1,22 @@
 import React from "react";
 import HeroCta from "../HeroCta";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Hero = () => {
+  useGSAP(() => {
+    gsap.from(".hero-title", {
+      x: 2000,
+      duration: 1.25,
+    });
+    gsap.from(".animate-image", {
+      x: -2000,
+      opacity: 0,
+      duration: 2,
+      delay: 0.35
+    });
+  }, []);
+
   return (
     <div className="hero">
       <div className="hero-board">

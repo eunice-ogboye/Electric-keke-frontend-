@@ -2,7 +2,7 @@ import { useTitle } from "../lib/hooks";
 import { useGlobalContext } from "../context";
 import { Section } from "../shared-layout";
 import React, { useEffect } from "react";
-import { ContactSupport, Faq } from "../components";
+import { ContactSupport, Faq, Footer } from "../components";
 import Hero from "../components/support/Hero";
 
 const Support = () => {

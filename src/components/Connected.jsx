@@ -16,7 +16,7 @@ const Connected = () => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".connect-heading",
-        // start: "top center",
+        start: "top center",
       },
     });
     animateFromPosition(".connect-form", {
@@ -24,7 +24,7 @@ const Connected = () => {
       opacity: 0,
       scrollTrigger: {
         trigger: ".connect-form",
-        // start: "top center",
+        start: "top center",
       },
     });
   }, []);

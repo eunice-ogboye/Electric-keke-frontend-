@@ -6,23 +6,23 @@ import { useGlobalContext } from "../context";
 
 const Footer = () => {
   const {globalState: {homePage}} = useGlobalContext();
-  // useGSAP(() => {
-  //   const scrollTrigger = {
-  //     trigger: ".footer-main",
-  //     start: "top 60%",
-  //   };
-  //   animateFromPosition(".footer-main", {
-  //     y: 100,
-  //     x: -200,
-  //     opacity: 0,
-  //     scrollTrigger,
-  //   });
-  //   animateFromPosition(".footer-copywright", {
-  //     y: 300,
-  //     opacity: 0,
-  //     scrollTrigger,
-  //   });
-  // }, []);
+  useGSAP(() => {
+    const scrollTrigger = {
+      trigger: ".footer-main",
+      // start: "top 60%",
+    };
+    animateFromPosition(".footer-main", {
+      y: 100,
+      x: -200,
+      opacity: 0,
+      scrollTrigger,
+    });
+    animateFromPosition(".footer-copywright", {
+      y: 300,
+      opacity: 0,
+      scrollTrigger,
+    });
+  }, []);
 
   return (
     <footer className="home-pad py-10 md:py-[5.9rem] bg-eco-neutral overflow-hidden">

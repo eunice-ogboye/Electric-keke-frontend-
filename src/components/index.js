@@ -1,4 +1,3 @@
-import About from "./About";
 import Heading from "./Heading";
 import Faq from "./Faq";
 import Mission from "./Mission";
@@ -14,7 +13,6 @@ import ContactSupport from "./ContactSupport";
 import ToggleStats from "./ToggleStats";
 
 export {
-  About,
   ContactSupport,
   Contribution,
   Faq,

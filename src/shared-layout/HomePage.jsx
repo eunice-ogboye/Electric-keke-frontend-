@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  About,
   Connected,
   Footer,
   Testimonial,
@@ -13,7 +12,6 @@ const HomePage = ({ children, type }) => {
         <>{children}</>
       ) : (
         <>
-          <About />
           {children}
           <Testimonial />
           <Connected />
