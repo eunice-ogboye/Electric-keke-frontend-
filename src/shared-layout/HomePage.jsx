@@ -3,14 +3,12 @@ import {
   About,
   Connected,
   Footer,
-  Hero,
   Testimonial,
 } from "../components";
 import { Section } from ".";
 const HomePage = ({ children, type }) => {
   return (
     <Section>
-      <Hero />
       {type === "support" ? (
         <>{children}</>
       ) : (

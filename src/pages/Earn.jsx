@@ -1,14 +1,13 @@
 import React, { useEffect } from "react";
-import { HomePage, Section } from "../shared-layout";
+import { Section } from "../shared-layout";
 import { useTitle } from "../lib/hooks";
 import {
   About,
   Connected,
   Contribution,
-  Footer,
-  Hero,
   Testimonial,
 } from "../components";
+import Hero from '../components/earn/Hero'
 import { useGlobalContext } from "../context";
 const Earn = () => {
   useTitle("Earn");

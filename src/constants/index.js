@@ -30,12 +30,6 @@ const otp_choice = [
   { title: "Email", icon: "/email.svg" },
 ];
 
-const hero_description = {
-  main: "Join the Green Movement with Our Electric Keke: Real-time tracking, affordable pricing—making your life easier and the planet healthier.",
-  earn: "By joining us as a driver, you will enjoy flexible working hours, competitive earnings, and the opportunity to contribute to a greener enviroment. Drive with us and be part of eco-friendly revolution.",
-  support:
-    "Have a question or need assistance? Our support team is ready to help you with any issue, big or small",
-};
 
 const about_titles = {
   one: "Who We Are",
@@ -199,7 +193,6 @@ export {
   onboardingImages,
   briefs,
   otp_choice,
-  hero_description,
   about_titles,
   about_descriptions,
   services,
