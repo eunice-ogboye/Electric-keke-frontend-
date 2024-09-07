@@ -1,8 +1,9 @@
 import { useTitle } from "../lib/hooks";
 import { useGlobalContext } from "../context";
-import { HomePage, Section } from "../shared-layout";
+import { Section } from "../shared-layout";
 import React, { useEffect } from "react";
-import { ContactSupport, Faq, Footer, Hero } from "../components";
+import { ContactSupport, Faq } from "../components";
+import Hero from "../components/support/Hero";
 
 const Support = () => {
   const {

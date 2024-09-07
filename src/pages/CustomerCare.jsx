@@ -11,7 +11,7 @@ const CustomerCare = () => {
           <h2 className="text-2xl lg:text-5xl font-bold text-center">
             Help & Support Center
           </h2>
-          <p className="text-center text-2xl font-nunito">Customer Service</p>
+          <p className="text-center text-2xl">Customer Service</p>
         </div>
         <ChatBoard />
         <Messaging />

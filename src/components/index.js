@@ -1,6 +1,5 @@
 import About from "./About";
 import Heading from "./Heading";
-import Hero from "./Hero";
 import Faq from "./Faq";
 import Mission from "./Mission";
 import MobileHeader from "./MobileHeader";
@@ -21,7 +20,6 @@ export {
   Faq,
   Header,
   Heading,
-  Hero,
   Mission,
   MobileHeader,
   Connected,
