@@ -68,7 +68,7 @@ const Modal = () => {
       <div
         className={`${
           content === 0 && modalContent !== "rate"
-            ? "w-full max-w-[478px] min-h-[348px] py-4"
+            ? "w-full max-w-[478px] min-h-[348px] py-4 px-3"
             : modalContent === "rate"
             ? "flex-center w-[607px] h-[577px]"
             : "w-[715px] md:min-h-[665px] py-5 md:py-10 px-3 md:px-7"
