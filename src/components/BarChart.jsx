@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   Chart as ChartJs,
   Tooltip,
@@ -13,10 +11,6 @@ import { Bar } from "react-chartjs-2";
 ChartJs.register(CategoryScale, LinearScale, BarElement);
 
 const BarChart = () => {
-  // const data = {
-  //   labels: ["mon", "tue", "wed", "thur", "fri", "sat", "sun"],
-  //   datasets: [],
-  // };
   return (
     <Bar
       data={{
@@ -24,7 +18,7 @@ const BarChart = () => {
         datasets: [
           {
             label: "performance",
-            data: [20, 30, 40, 50, 60, 70, 80, "#77"],
+            data: [20, 30, 10, 40, 60, 90, 80],
             backgroundColor: "#77BB77",
           },
         ],
@@ -48,11 +42,12 @@ const BarChart = () => {
             ticks: {
               callback: function (value, index, values) {
                 const labels = [
-                  "Low",
-                  "Medium",
-                  "High",
-                  "Very High",
-                  "Extreme",
+                  "#1500",
+                  "#3000",
+                  "#4500",
+                  "#6000",
+                  "#7500",
+                  "#9000",
                 ];
                 return labels[index];
               },

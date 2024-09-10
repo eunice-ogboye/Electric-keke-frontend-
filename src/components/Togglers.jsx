@@ -7,6 +7,7 @@ const Togglers = ({
   text2,
   handleClick2,
   isConditionTrue,
+  font
 }) => {
   const toggleColor = {
     color1: {
@@ -30,7 +31,7 @@ const Togglers = ({
     return (
       <div className="flex-center mt-10 ">
         <button
-          className={`border-b  font-bold text-base w-[180px] pb-4 font-montserrat ${toggleColor[color].one}`}
+          className={`border-b  font-bold text-base w-[180px] pb-4 ${font ? font : 'font-montserrat'} ${toggleColor[color].one}`}
           onClick={handleClick1}
         >
           {text1}

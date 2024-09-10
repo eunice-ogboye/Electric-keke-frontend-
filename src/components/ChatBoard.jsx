@@ -3,27 +3,26 @@ import React, { useEffect, useState } from "react";
 const Chat = ({ identity }) => {
   const person = {
     sender: {
-      box: "bg-neutral rounded-e-20",
-      text: "text-white",
+      box: "bg-[#E7EBEF] rounded-e-20",
+      text: "text-black",
     },
     receiver: {
-      box: "bg-pgreen rounded-s-20 ",
-      text: "text-black",
+      box: "bg-eco-green rounded-s-20 ",
+      text: "text-white",
     },
   };
   return (
     <div
-      className={`flex ${identity === "sender" && "justify-end"}`}
-      onDrag={(e) => e.stopPropagation()}
+      className={`flex ${identity === "sender" && "justify-end"} mt-2`}
       style={{
-        userSelect: "none"
+        userSelect: "none",
       }}
     >
       <div
         className={`px-2 py-4 rounded-b-20 flex items-end w-[90%] md:w-[50%] ${person[identity].box}`}
       >
         <div>
-          <p className="text-white" onDrag={(e) => e.preventDefault()}>
+          <p className={`font-nunito text-eiteen ${person[identity].text}`} onDrag={(e) => e.preventDefault()}>
             Lorem ipsum dolor sit amet consectetur. Adipiscing convallis
             ultrices feugiat et. Mattis non non lectus tempus. Ornare sodales in
             ligula aliquam sed donec.
@@ -54,7 +53,7 @@ const ChatBoard = () => {
       }}
       onMouseUp={() => {
         setScroll(false);
-        console.log(scrollPos);
+        // console.log(scrollPos);
       }}
       onMouseMove={(e) => {
         if (!scroll) return;
@@ -62,7 +61,25 @@ const ChatBoard = () => {
         setScrollPos((prev) => ({
           ...prev,
           final: e.clientY,
-          diff: difference,
+          diff: difference / 10,
+        }));
+        e.currentTarget.scrollTop += scrollPos.diff;
+      }}
+      onTouchStart={(e) => {
+        setScroll(true);
+        setScrollPos((prev) => ({ ...prev, initial: e.touches[0].clientY }));
+        // console.log(e.touches[0]);
+      }}
+      onTouchEnd={e => {
+        setScroll(false);
+      }}
+      onTouchMove={e => {
+        if (!scroll) return;
+        const difference = -(e.touches[0].clientY - scrollPos.initial);
+        setScrollPos((prev) => ({
+          ...prev,
+          final: e.touches[0].clientY,
+          diff: difference / 10,
         }));
         e.currentTarget.scrollTop += scrollPos.diff;
       }}

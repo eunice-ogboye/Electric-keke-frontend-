@@ -33,7 +33,7 @@ const Driver = () => {
       <div className="driver-board">
         <div className="driver">
           <ToggleStats />
-          <h2 className="font-bold">Earnings</h2>
+          <h2 className="font-bold font-josefin">Earnings</h2>
 
           <div className="mt-5 md:flex items-center justify-between">
             <div className="statistics">
@@ -41,14 +41,10 @@ const Driver = () => {
               <div className="stats">
                 <div className="doughnut-stats">
                   <div>
-                    <p className="text-base font-bold font-montserrat">
-                      Total Income
-                    </p>
+                    <p className="text-base font-bold">Total Income</p>
                     <div className="mt-4 flex items-center">
                       <div>
-                        <p className="text-[0.65rem] font-montserrat">
-                          March 2023
-                        </p>
+                        <p className="text-[0.65rem]">March 2023</p>
                         <div className="size-[67px]">
                           <DoughnutChart chartData={data} />
                         </div>
@@ -82,8 +78,10 @@ const Driver = () => {
                   {trips.map((item) => {
                     return (
                       <div key={item.title} className="trip">
-                        <p className="text-sm lg:text-base font-montserrat">{item.title}</p>
-                        <p className="text-neutral-0 font-bold text-2xl">
+                        <p className="text-sm lg:text-base font-montserrat">
+                          {item.title}
+                        </p>
+                        <p className="text-neutral-0 font-bold text-2xl font-josefin">
                           {item.total}
                         </p>
                       </div>
@@ -94,12 +92,12 @@ const Driver = () => {
               {/* weekly stats */}
               <div className="performance-board">
                 <div className="flex flex-col justify-between items-center">
-                  <p className="font-bold font-montserrat">Ride & Delivery Performance</p>
+                  <p className="font-bold">Ride & Delivery Performance</p>
 
                   <div className="h-[158px] w-[295px]">
                     <BarChart />
                   </div>
-                  <div className="w-[252px] flex items-center font-montserrat gap-1">
+                  <div className="w-[252px] flex items-center gap-1">
                     <p className="text-2xl font-bold">30%</p>
 
                     <p className="text-xs text-neutral">
