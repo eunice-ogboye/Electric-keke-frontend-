@@ -36,7 +36,7 @@ const MobileHeader = () => {
                   <img src="/bell.svg" alt="notification" />
                 </div>
               </Link>
-              <Link to="/profile">
+              <Link to="/profile/idnumber">
                 <div className="size-5">
                   <img src={`/avatars/${user?.role}.svg`} alt="notification" />
                 </div>
