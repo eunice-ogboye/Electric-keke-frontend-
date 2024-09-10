@@ -4,8 +4,6 @@ import Btn from "./Btn";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
-import { useGSAP } from "@gsap/react";
-import { animateFromPosition } from "../animate";
 
 const Header = ({ darkLogo }) => {
   const {
@@ -20,14 +18,6 @@ const Header = ({ darkLogo }) => {
       const user = JSON.parse(getUser);
       Dispatch("user", { user });
     }
-  }, []);
-
-  useGSAP(() => {
-    animateFromPosition(".header", {
-      y: -200,
-      duration: 1.75,
-      ease: "bounce",
-    });
   }, []);
 
   return (

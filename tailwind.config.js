@@ -36,6 +36,8 @@ module.exports = {
       fontFamily: {
         josefin: ["Josefin Sans", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
+        inter: ["Inter", "system-ui"],
+        nunito: ["Nunito", 'system-ui'],
       },
       fontSize: {
         eiteen: "1.125rem",
@@ -44,10 +46,10 @@ module.exports = {
         "eco-green": {
           DEFAULT: "#77BB77",
           prime: "#8EC68E",
-          dark: '#234623',
+          dark: "#234623",
           faint: "#E8F4E8",
           faint2: "#A2C7A2",
-          social: '#F4F6F9',
+          social: "#F4F6F9",
           agile: "#D2E8D2",
         },
         "eco-white": {
@@ -62,7 +64,7 @@ module.exports = {
           border: "#CCCBCB",
           faint: "#9F9C9C",
           bg: "#B5B3B3",
-          driver: '#F2F2F2'
+          driver: "#F2F2F2",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

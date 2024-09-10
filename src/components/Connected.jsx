@@ -1,33 +1,12 @@
 import Heading from "./Heading";
 import { connected } from "../constants";
 import { Button } from "./ui/button";
-import { useGSAP } from "@gsap/react";
-import { animateFromPosition } from "../animate";
 
 const Connected = ({ type = "main" }) => {
-  useGSAP(() => {
-    animateFromPosition(".connect-heading", {
-      y: -200,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".connect-heading",
-        start: "top center",
-      },
-    });
-    animateFromPosition(".connect-form", {
-      y: 200,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".connect-form",
-        start: "top center",
-      },
-    });
-  }, []);
-
   return (
     <section>
-      <div className="min-h-[704px] flex-center bg-black/60 relative home-pad">
-        <div className="size-full min-h-[704px] absolute top-0 left-0 -z-10">
+      <div className="h-[457px] md:min-h-[704px] flex-center bg-black/60 relative home-pad">
+        <div className="size-full h-[457px] md:min-h-[704px] absolute top-0 left-0 -z-10">
           <img
             src={
               type === "main"
@@ -42,8 +21,9 @@ const Connected = ({ type = "main" }) => {
           <Heading
             className="w-full text-center text-eco-white connect-heading"
             title={connected.title}
+            tclass="font-josefin"
             description={connected.desc}
-            dclass="mt-6 text-2xl"
+            dclass="mt-6 text-base md:text-2xl"
             type="about"
           />
 

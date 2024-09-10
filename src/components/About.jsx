@@ -5,78 +5,33 @@ import {
   earn_requirements,
   services,
 } from "../constants";
-import { animateFromPosition } from "../animate";
-import { useGSAP } from "@gsap/react";
 import { Flexibility, Heading } from ".";
 import Btn from "./Btn";
+import { ScrollTrigger } from "gsap/all";
+import gsap from "gsap";
+gsap.registerPlugin(ScrollTrigger);
 
 const About = ({ type = "main" }) => {
-  useGSAP(() => {
-    animateFromPosition(".brief", {
-      x: -2000,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".brief",
-        // start: "top center",
-      },
-    });
-    animateFromPosition(".about-image", {
-      x: 2000,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".about-image",
-        // start: "top center",
-      },
-    });
-    if (type === "main") {
-      animateFromPosition(".service", {
-        y: 20,
-        opacity: 0,
-        stagger: {
-          amount: 0.75,
-        },
-        scrollTrigger: {
-          trigger: ".service",
-          // start: "top center",
-        },
-      });
-      animateFromPosition(".service-heading", {
-        y: -200,
-        opacity: 0,
-        // scrollTrigger: {
-        //   trigger: ".service-heading",
-        //   // start: "top center",
-        // },
-      });
-      animateFromPosition(".service-desc", {
-        x: -2000,
-        opacity: 0,
-        scrollTrigger: { trigger: ".service-desc", 
-          // start: "top center"
-         },
-      });
-    }
-  }, []);
   return (
-    <section className="home-pad bg-base-white overflow-hidden">
+    <section className="home-pad bg-base-white">
       <div className={`min-h-[696px] ${type === "main" && "flex-center"}`}>
         {type === "earn" && <Flexibility />}
 
         <div className="min-h-[526px] md:flex items-center">
-          <div className="w-full tablet:w-6/12 brief">
+          <div id="brief" className="about-brief">
             {type === "main" ? (
               <>
                 <Heading
                   className="w-full"
                   introTitle="About Us"
-                  introClass="text-eco-green mx-auto md:mx-0"
+                  introClass="text-eco-green"
                   title={about_titles.one}
-                  tclass="text-center md:text-left text-eco-neutral"
+                  tclass="text-eco-neutral font-josefin"
                   description={about_descriptions.one}
-                  dclass="mt-5 mb-10 text-eiteen text-center md:text-left"
+                  dclass="mt-5 mb-10 text-base md:text-eiteen"
                   type="about"
                 />
-                <div className="text-center md:text-left">
+                <div>
                   <Btn text="Learn More" />
                 </div>
               </>
@@ -99,7 +54,7 @@ const About = ({ type = "main" }) => {
             )}
           </div>
 
-          <div className="md:w-[33rem] md:h-[454px] about-image">
+          <div id="about-image" className="about-image">
             <img
               src={type === "main" ? "/about.png" : "/earn_about_bg.png"}
               alt="about keke"
@@ -114,9 +69,9 @@ const About = ({ type = "main" }) => {
           <Heading
             introTitle="Service"
             title={about_titles.two}
-            tclass="max-w-[623px] mx-auto text-center border service-heading"
+            tclass="max-w-[623px] mx-auto text-center border service-heading font-josefin"
             description={about_descriptions.two}
-            dclass="mt-7 text-center text-eiteen service-desc"
+            dclass="mt-3 md:mt-7 text-center text-base md:text-eiteen service-desc"
             introClass="mx-auto text-eco-green service-heading"
             type="about"
           />
@@ -125,13 +80,13 @@ const About = ({ type = "main" }) => {
             {services.map((item) => (
               <div key={item.title} className="service">
                 <div className="flex flex-col items-center text-center">
-                  <div className="size-[65px] flex-center bg-pgreen-1 rounded-full">
+                  <div className="size-[65px] flex-center bg-eco-green-faint rounded-full">
                     <img src={item.icon} alt={item.title} />
                   </div>
 
-                  <div className="mt-8">
+                  <div className="mt-[21px] md:mt-[22px] lg:mt-8">
                     <h2 className="service-title">{item.title}</h2>
-                    <p className="font-montserrat text-base mt-2 text-eco-neutral-prime">
+                    <p className="font-montserrat text-xs md:text-base mt-[5px] lg:mt-2 text-eco-neutral-prime">
                       {item.desc}
                     </p>
                   </div>

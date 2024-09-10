@@ -1,27 +1,7 @@
-import { useGSAP } from "@gsap/react";
 import { contribution } from "../constants";
 import React from "react";
-import { animateFromPosition } from "../animate";
 
 const Contribution = () => {
-  useGSAP(() => {
-    animateFromPosition(".hand", {
-      x: -2000,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".hand",
-        start: "top center",
-      },
-    });
-    animateFromPosition(".details", {
-      x: 2000,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".details",
-        start: "top center",
-      },
-    });
-  }, []);
   return (
     <section className="home-pad py-20 bg-base-white">
       <div className="min-h-[546px] md:flex items-center">

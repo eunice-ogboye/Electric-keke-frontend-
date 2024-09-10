@@ -96,8 +96,8 @@ const testimonies = {
 };
 
 const connected = {
-  title: "Stay Connected with EcoRide",
-  desc: "Don’t miss out on the latest updates, exclusive offers, and insights into how we’re driving the future of eco-friendly transportation and logistics",
+  title: "Stay Connected with Eco-Ride",
+  desc: "Don't miss out on the latest updates, exclusive offers, and insights into how we're driving the future of eco-friendly transportation and logistics",
 };
 
 const socials = [

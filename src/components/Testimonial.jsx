@@ -1,54 +1,26 @@
 import Heading from "./Heading";
 import { testimonial_title, testimonies } from "../constants";
 import Direction from "./Direction";
-import { useGlobalContext } from "../context";
-import { useGSAP } from "@gsap/react";
-import { animateFromPosition, animateFromToPosition } from "../animate";
 
-const Testimonial = ({type = 'main'}) => {
-  useGSAP(() => {
-    animateFromPosition(".testimonial-heading", {
-      y: -200,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".testimonial-heading",
-        // start: "top center",
-      },
-    });
-    animateFromPosition(".testimony", {
-      x: 2000,
-      scrollTrigger: {
-        trigger: ".testimony",
-        // start: "top center",
-      },
-    });
-    animateFromPosition(".testimony-giver", {
-      x: -200,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: ".testimony-giver",
-        // start: "top center",
-      },
-    });
-  }, []);
-
+const Testimonial = ({ type = "main" }) => {
   return (
-    <section className="home-pad py-[7.5rem] bg-base-white">
+    <section className="home-pad pt-8 py-10 md:py-[7.5rem] bg-base-white">
       <div>
         <Heading
           introTitle="Testimonial"
           introClass="mx-auto text-pgreen"
           title={testimonial_title[type]}
+          tclass="font-josefin"
           className="text-center testimonial-heading"
           type="about"
         />
 
         <div className="mt-10">
-          <div className="md:flex items-center">
+          <div className="flex flex-col md:flex-row items-center ">
             {testimonies[type].map((item) => {
               return (
                 <div
-                  className="w-full md:w-[409px] h-[440px] testimony-giver"
+                  className="w-full h-[304px] md:w-[409px] md:h-[440px] mt-6 md:mt-0"
                   key={item.name}
                 >
                   <img
@@ -59,18 +31,19 @@ const Testimonial = ({type = 'main'}) => {
                 </div>
               );
             })}
-            <div className="border w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10">
+
+            <div className="border w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10 order-first md:order-last">
               {testimonies[type].map((item) => {
                 return (
                   <div className="testimony" key={item.name}>
-                    <p className="text-neutral text-2xl text-center md:text-left font-montserrat">
+                    <p className="text-neutral text-base md:text-2xl text-center md:text-left font-montserrat">
                       {item.testimony}
                     </p>
                     <div className="mt-6 text-center md:text-left">
-                      <p className="text-base text-eco-neutral-prime font-montserrat">
+                      <p className="text-xs md:text-base md:-eco-neutral-prime font-montserrat">
                         {item.name}
                       </p>
-                      <p className="text-base text-eco-neutral-prime font-montserrat">
+                      <p className="text-xs md:text-base text-eco-neutral-prime font-montserrat">
                         {item.location}
                       </p>
                     </div>

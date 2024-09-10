@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
-
-const Logo = ({ logoClassName, className, main, dark }) => {
+const Logo = ({ logoClassName, className }) => {
   return (
     <div className={className}>
-      <img src="/logo.svg" alt="logo" className="size-full" />
+      <img
+        src="/logo.svg"
+        alt="logo"
+        className={logoClassName || "size-full"}
+      />
     </div>
   );
 };

@@ -4,15 +4,15 @@ import { mission } from "../constants";
 
 const Mission = () => {
   return (
-    <section className="py-[7.5rem] bg-eco-green-prime">
+    <section className="py-14 lg:py-[7.5rem] bg-eco-green-prime">
       <div className="home-pad">
         <Heading
           introTitle="Our Vision"
           introClass="text-base-white mission"
           title={mission.title}
-          tclass="text-base-white"
+          tclass="text-base-white font-josefin"
           description={mission.desc}
-          dclass="!text-base-white text-2xl mt-4"
+          dclass="!text-base-white text-base md:text-xl lg:text-2xl mt-4"
           className="max-w-[894px]"
         />
       </div>
@@ -22,7 +22,7 @@ const Mission = () => {
       </div>
 
       <div className="mt-14 max-w-[933px] mx-auto">
-        <p className="text-center text-2xl text-base-white font-montserrat">
+        <p className="text-center text-xs md:text-xl lg:text-2xl text-base-white font-montserrat">
           By expanding our fleet of electric Kekes, we aim to make every journey
           a step towards a greener future, reducing emissions and improving air
           quality in our cities

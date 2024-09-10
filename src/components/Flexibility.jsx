@@ -1,18 +1,6 @@
-import { animateFromPosition } from "../animate";
-import { useGSAP } from "@gsap/react";
 import React from "react";
 
 const Flexibility = () => {
-  useGSAP(() => {
-    animateFromPosition('.flexible', {
-      y: -200,
-      opacity: 0,
-      scrollTrigger: {
-        trigger: '.flexible',
-        start: 'top center'
-      }
-    })
-  }, [])
   return (
     <div className="flexible">
       <h2 className="text-eco-green font-bold text-[2rem] font-montserrat">
