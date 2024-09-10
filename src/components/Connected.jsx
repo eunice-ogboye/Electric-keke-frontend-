@@ -36,10 +36,10 @@ const Connected = ({ type = "main" }) => {
                 type="email"
                 name="email"
                 placeholder="Enter your email address"
-                className="w-[203px] ml-2 text-eiteen bg-none border-none outline-none font-montserrat"
+                className="w-20 ml-2 text-eiteen bg-none border-none outline-none font-montserrat"
               />
             </div>
-            <Button className="h-[56px] w-[162px]    primary-btn">
+            <Button className="h-[56px] w-[162px] primary-btn">
               Subscribe
             </Button>
           </form>
