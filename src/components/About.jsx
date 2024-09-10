@@ -7,9 +7,6 @@ import {
 } from "../constants";
 import { Flexibility, Heading } from ".";
 import Btn from "./Btn";
-import { ScrollTrigger } from "gsap/all";
-import gsap from "gsap";
-gsap.registerPlugin(ScrollTrigger);
 
 const About = ({ type = "main" }) => {
   return (
@@ -37,7 +34,7 @@ const About = ({ type = "main" }) => {
               </>
             ) : (
               <>
-                <h2 className="text-[2rem] font-bold text-center md:text-left">
+                <h2 className="text-[2rem] font-bold text-center md:text-left font-josefin">
                   Requirements
                 </h2>
                 <ul className="list-disc pl-4 mt-7">

@@ -83,7 +83,7 @@ h2 {
 }
 
 .about-image {
-  @apply w-96 h-[331px] md:w-[33rem] md:h-[454px] mt-6 md:mt-0;
+  @apply w-full h-[331px] md:w-[33rem] md:h-[454px] mt-6 md:mt-0 ;
 }
 
 .board {

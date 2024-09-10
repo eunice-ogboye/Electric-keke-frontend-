@@ -161,7 +161,7 @@ const Modal = () => {
                       ? "Ready to Go?"
                       : "Instant or Sheduled- You Decide!"
                   }
-                  tclass="mt-6"
+                  tclass="mt-6 font-josefin"
                   description={`Choose how you want to ${
                     modalContent === "ride" ? "ride" : "send"
                   } with EcoRide`}
