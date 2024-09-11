@@ -1,17 +1,20 @@
 import { footer_note, socials } from "../constants";
 import React from "react";
 import Logo from "./Logo";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
     <footer className="home-pad py-10 md:py-[5.9rem] bg-eco-neutral overflow-hidden">
       <div>
-        <div className="md:flex items-start justify-between border-b px-2 py-6 footer-main">
+        <motion.div
+          initial={{ x: -200, opacity: 0 }}
+          whileInView={{ x: 0 , opacity: 1}}
+          className="md:flex items-start justify-between border-b px-2 py-6 footer-main"
+        >
           <div className="w-full md:max-w-[364px]">
             <Logo logoClassName="w-[72px] h-[39px]" />
-            <p className="text-base-white text-base mt-6">
-              {footer_note}
-            </p>
+            <p className="text-base-white text-base mt-6">{footer_note}</p>
           </div>
 
           <div className="flex items-start flex-col md:flex-row my-5 md:my-0 gap-14 md:gap-10">
@@ -35,9 +38,7 @@ const Footer = () => {
           </div>
 
           <div className="text-base-white mt-14 md:mt-0">
-            <h3 className="font-bold">
-              social media
-            </h3>
+            <h3 className="font-bold">social media</h3>
             <ul className="flex items-center gap-5 mt-5">
               {socials.map((item) => {
                 return (
@@ -51,10 +52,14 @@ const Footer = () => {
               })}
             </ul>
           </div>
-        </div>
-        <p className="text-base text-center mt-6 text-base-white footer-copywright">
+        </motion.div>
+        <motion.p
+          initial={{ y: -200 }}
+          animate={{ y: 0 }}
+          className="text-base text-center mt-6 text-base-white footer-copywright"
+        >
           All rights reserved. Copyright © 2024 | Eco-Ride
-        </p>
+        </motion.p>
       </div>
     </footer>
   );

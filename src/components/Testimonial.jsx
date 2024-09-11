@@ -1,6 +1,7 @@
 import Heading from "./Heading";
 import { testimonial_title, testimonies } from "../constants";
 import Direction from "./Direction";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Testimonial = ({ type = "main" }) => {
   return (
@@ -13,45 +14,57 @@ const Testimonial = ({ type = "main" }) => {
           tclass="font-josefin"
           className="text-center testimonial-heading"
           type="about"
+          initial={{ y: -200, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
         />
 
         <div className="mt-10">
           <div className="flex flex-col md:flex-row items-center ">
-            {testimonies[type].map((item) => {
-              return (
-                <div
-                  className="w-full h-[304px] md:w-[409px] md:h-[440px] mt-6 md:mt-0"
-                  key={item.name}
-                >
-                  <img
-                    src={item.photo}
-                    alt={item.name}
-                    className="rounded-normal size-full object-cover object-center"
-                  />
-                </div>
-              );
-            })}
-
-            <div className="border w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10 order-first md:order-last">
+            <AnimatePresence>
               {testimonies[type].map((item) => {
                 return (
-                  <div className="testimony" key={item.name}>
-                    <p className="text-neutral text-base md:text-2xl text-center md:text-left font-montserrat">
-                      {item.testimony}
-                    </p>
-                    <div className="mt-6 text-center md:text-left">
-                      <p className="text-xs md:text-base md:-eco-neutral-prime font-montserrat">
-                        {item.name}
-                      </p>
-                      <p className="text-xs md:text-base text-eco-neutral-prime font-montserrat">
-                        {item.location}
-                      </p>
-                    </div>
-                  </div>
+                  <motion.div
+                    initial={{ x: -200 }}
+                    whileInView={{ x: 0 }}
+                    className="w-full h-[304px] md:w-[409px] md:h-[440px] mt-6 md:mt-0"
+                    key={item.name}
+                  >
+                    <img
+                      src={item.photo}
+                      alt={item.name}
+                      className="rounded-normal size-full object-cover object-center"
+                    />
+                  </motion.div>
                 );
               })}
+            </AnimatePresence>
+
+            <motion.div
+              initial={{ x: 200 }}
+              whileInView={{ x: 0 }}
+              className="border w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10 order-first md:order-last"
+            >
+              <AnimatePresence>
+                {testimonies[type].map((item) => {
+                  return (
+                    <div className="testimony" key={item.name}>
+                      <p className="text-neutral text-base md:text-2xl text-center md:text-left font-montserrat">
+                        {item.testimony}
+                      </p>
+                      <div className="mt-6 text-center md:text-left">
+                        <p className="text-xs md:text-base md:-eco-neutral-prime font-montserrat">
+                          {item.name}
+                        </p>
+                        <p className="text-xs md:text-base text-eco-neutral-prime font-montserrat">
+                          {item.location}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </AnimatePresence>
               <Direction />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

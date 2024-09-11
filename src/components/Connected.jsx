@@ -1,6 +1,7 @@
 import Heading from "./Heading";
 import { connected } from "../constants";
 import { Button } from "./ui/button";
+import { motion } from "framer-motion";
 
 const Connected = ({ type = "main" }) => {
   return (
@@ -25,9 +26,15 @@ const Connected = ({ type = "main" }) => {
             description={connected.desc}
             dclass="mt-6 text-base md:text-2xl"
             type="about"
+            initial={{ y: -200 }}
+            animate={{ y: 0 }}
           />
 
-          <form className="bg-base-white flex items-center justify-between py-2 px-4 rounded-lg max-w-[534px] mt-6 mx-auto connect-form">
+          <motion.form
+            initial={{ y: 200, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            className="bg-base-white flex items-center justify-between py-2 px-4 rounded-lg max-w-[534px] mt-6 mx-auto connect-form"
+          >
             <div className="flex items-center border">
               <div>
                 <img src="/email.svg" alt="email" />
@@ -42,7 +49,7 @@ const Connected = ({ type = "main" }) => {
             <Button className="h-[56px] w-[162px] primary-btn">
               Subscribe
             </Button>
-          </form>
+          </motion.form>
         </div>
       </div>
     </section>

@@ -31,7 +31,7 @@ function App() {
 
   return (
     <>
-      <div className="App max-w-screen-2xl">
+      <div className="App max-w-screen-2xl overflow-hidden">
         {modal && <Modal />}
         {show && <Alert />}
         <Routes>

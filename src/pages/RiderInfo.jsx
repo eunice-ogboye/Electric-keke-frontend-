@@ -4,10 +4,7 @@ import React, { useEffect, useState } from "react";
 import Btn from "../components/Btn";
 import { useNavigate } from "react-router-dom";
 import { Heading } from "../components";
-// import { useOutletContext } from "react-router-dom";
 import reviews from "../mockData/reviews";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 
 const fetchAcceptance = (order, time) => {
   return new Promise((resolve) => {

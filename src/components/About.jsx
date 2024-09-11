@@ -7,15 +7,22 @@ import {
 } from "../constants";
 import { Flexibility, Heading } from ".";
 import Btn from "./Btn";
+import { motion } from "framer-motion";
 
 const About = ({ type = "main" }) => {
   return (
-    <section className="home-pad bg-base-white">
+    <section className="home-pad bg-base-white overflow-hidden">
       <div className={`min-h-[696px] ${type === "main" && "flex-center"}`}>
         {type === "earn" && <Flexibility />}
 
         <div className="min-h-[526px] md:flex items-center">
-          <div id="brief" className="about-brief">
+          <motion.div
+            initial={{ opacity: 0, x: -200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.85 }}
+            id="brief"
+            className="about-brief"
+          >
             {type === "main" ? (
               <>
                 <Heading
@@ -49,15 +56,21 @@ const About = ({ type = "main" }) => {
                 </ul>
               </>
             )}
-          </div>
+          </motion.div>
 
-          <div id="about-image" className="about-image">
+          <motion.div
+            initial={{ opacity: 0, x: 200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.85 }}
+            id="about-image"
+            className="about-image"
+          >
             <img
               src={type === "main" ? "/about.png" : "/earn_about_bg.png"}
               alt="about keke"
               className="size-full object-cover object-center"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -71,6 +84,10 @@ const About = ({ type = "main" }) => {
             dclass="mt-3 md:mt-7 text-center text-base md:text-eiteen service-desc"
             introClass="mx-auto text-eco-green service-heading"
             type="about"
+            initial={{ y: -200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            initialp={{ opacity: 0, x: -200 }}
+            animatep={{ opacity: 1, x: 0 }}
           />
 
           <div className="service-board">

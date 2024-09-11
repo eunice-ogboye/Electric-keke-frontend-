@@ -4,8 +4,6 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import Btn from "../components/Btn";
 import { useEffect } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 
 const RiderIndex = () => {
   const navigate = useNavigate();

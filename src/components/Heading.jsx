@@ -1,4 +1,4 @@
-import React from "react";
+import { motion } from "framer-motion";
 
 const Heading = ({
   title,
@@ -9,23 +9,41 @@ const Heading = ({
   introClass,
   className,
   type,
+  initial,
+  animate,
+  initialp,
+  animatep
 }) => {
   return (
-    <div className={className}>
+    <motion.div
+      initial={initial}
+      whileInView={animate}
+      transition={{ duration: 0.85 }}
+      className={className}
+    >
       {introTitle && (
         <p className={`${introClass} intro-title`}>{introTitle}</p>
       )}
       <h1
         className={`font-bold ${
-          type === "about" ? "text-[2rem] md:text-[40px] lg:text-5xl" : "text-[2rem]"
+          type === "about"
+            ? "text-[2rem] md:text-[40px] lg:text-5xl"
+            : "text-[2rem]"
         } ${tclass}`}
       >
         {title}
       </h1>
       {description && (
-        <p className={`font-normal text-eco-neutral-prime font-montserrat ${dclass}`}>{description}</p>
+        <motion.p
+          initial={initialp}
+          whileInView={animatep}
+          transition={{ duration: 2 }}
+          className={`font-normal text-eco-neutral-prime font-montserrat ${dclass}`}
+        >
+          {description}
+        </motion.p>
       )}
-    </div>
+    </motion.div>
   );
 };
 
