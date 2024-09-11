@@ -223,7 +223,7 @@ h2 {
 }
 
 .rider-overlay {
-  @apply w-full h-[92px] md:h-[190px] absolute bottom-0 bg-info backdrop-blur-md  pb-2 md:py-5 px-1 md:px-8 rounded-b-[20px];
+  @apply w-full h-[92px] md:h-[190px] absolute bottom-0 bg-info backdrop-blur-md  pb-2 md:py-5 px-1 md:pl-8 md:pr-2 rounded-b-[20px];
 }
 
 .rider-btn {

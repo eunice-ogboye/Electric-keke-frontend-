@@ -24,13 +24,13 @@ import "leaflet/dist/leaflet.css";
 import Alert from "./components/Alert";
 import { AnimatePresence } from "framer-motion";
 import { useEffect } from "react";
+import Admin from "./pages/Admin";
 
 function App() {
   const {
     globalState: { modal },
     alert: { show },
   } = useGlobalContext();
-
 
   return (
     <>
@@ -59,6 +59,7 @@ function App() {
           </Route>
           <Route path="/settings" element={<Settings />} />
           <Route path="/customer-care" element={<CustomerCare />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </div>
     </>

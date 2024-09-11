@@ -65,7 +65,7 @@ const Btn = ({
     return (
       <Button
         className={`rounded-full size-5  p-1 ${
-          fixed ? null : "absolute top-2 right-2 bg-eco-neutral-prime/40"
+          fixed ? 'bg-transparent size-10' : "absolute top-2 right-2 bg-eco-neutral-prime/40"
         }`}
         onClick={handleClick}
       >
