@@ -20,6 +20,7 @@ const About = ({ type = "main" }) => {
             initial={{ opacity: 0, x: -200 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.85 }}
+            viewport={{ once: true, amount: 0.5 }}
             id="brief"
             className="about-brief"
           >
@@ -62,6 +63,7 @@ const About = ({ type = "main" }) => {
             initial={{ opacity: 0, x: 200 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.85 }}
+            viewport={{ once: true, amount: 0.5 }}
             id="about-image"
             className="about-image"
           >
@@ -94,7 +96,7 @@ const About = ({ type = "main" }) => {
             {services.map((item) => (
               <div key={item.title} className="service">
                 <div className="flex flex-col items-center text-center">
-                  <div className="size-[65px] flex-center bg-eco-green-faint rounded-full">
+                  <div className="size-[43px] md:size-[65px] flex-center bg-eco-green-faint rounded-full">
                     <img src={item.icon} alt={item.title} />
                   </div>
 

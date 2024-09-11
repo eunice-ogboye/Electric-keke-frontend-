@@ -13,7 +13,7 @@ const Riders = () => {
 
   return (
     <Section darkLogo={true}>
-      <div className="home-pad py-10 md:pt-48 md:pb-10">
+      <div className="px-1 py-20 md:pt-48 md:pb-10">
         <Outlet context={{ ridersTitle, switchRiderTitle }} />
       </div>
     </Section>

@@ -26,6 +26,7 @@ const Testimonial = ({ type = "main" }) => {
                   <motion.div
                     initial={{ x: -200 }}
                     whileInView={{ x: 0 }}
+                    transition={{type: 'spring'}}
                     className="w-full h-[304px] md:w-[409px] md:h-[440px] mt-6 md:mt-0"
                     key={item.name}
                   >
@@ -42,6 +43,7 @@ const Testimonial = ({ type = "main" }) => {
             <motion.div
               initial={{ x: 200 }}
               whileInView={{ x: 0 }}
+              transition={{type: 'spring'}}
               className="border w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10 order-first md:order-last"
             >
               <AnimatePresence>

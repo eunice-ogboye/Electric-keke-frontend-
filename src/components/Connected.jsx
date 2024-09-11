@@ -46,7 +46,7 @@ const Connected = ({ type = "main" }) => {
                 className="w-20 ml-2 text-eiteen bg-none border-none outline-none font-montserrat"
               />
             </div>
-            <Button className="h-[56px] w-[162px] primary-btn">
+            <Button className="w-[135px] h-12 md:h-[56px] md:w-[162px] primary-btn">
               Subscribe
             </Button>
           </motion.form>

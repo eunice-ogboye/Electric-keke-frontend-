@@ -28,6 +28,7 @@ export const reducer = (state, action) => {
       localStorage.setItem("homePage", JSON.stringify(homePage));
       return { ...state, homePage };
     case "modal":
+      // console.log(modal);
       return { ...state, modal };
     case "modalContent":
       return { ...state, modal: true, modalContent };

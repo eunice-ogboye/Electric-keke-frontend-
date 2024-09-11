@@ -83,7 +83,7 @@ h2 {
 }
 
 .about-image {
-  @apply w-full h-[331px] md:w-[33rem] md:h-[454px] mt-6 md:mt-0 ;
+  @apply w-full h-[331px] md:w-[33rem] md:h-[454px] mt-6 md:mt-0;
 }
 
 .board {
@@ -210,7 +210,7 @@ h2 {
 }
 
 .mobile-header {
-  @apply flex items-center justify-between px-[17px] py-3 md:hidden;
+  @apply flex items-center justify-between px-[17px] py-3 md:hidden absolute z-50 w-full bg-white/[6%] backdrop-blur-2xl;
 }
 
 .header-container {
@@ -219,11 +219,11 @@ h2 {
 /* h-[4.75rem] container height max */
 
 .rider {
-  @apply h-[498px] relative rounded-[20px] overflow-hidden;
+  @apply h-[15rem] md:h-[498px] relative rounded-[9px] md:rounded-[20px] overflow-hidden;
 }
 
 .rider-overlay {
-  @apply w-full h-[190px] absolute bottom-0 bg-info backdrop-blur-md py-5 px-8 rounded-b-[20px];
+  @apply w-full h-[92px] md:h-[190px] absolute bottom-0 bg-info backdrop-blur-md  pb-2 md:py-5 px-1 md:px-8 rounded-b-[20px];
 }
 
 .rider-btn {

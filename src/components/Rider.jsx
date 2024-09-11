@@ -22,17 +22,20 @@ const Rider = ({
       </div>
       <div className="rider-overlay">
         <div className="flex flex-col justify-between h-full">
-          <h2 className="font-bold text-eco-white">{name}</h2>
+          <h2 className="font-bold text-eco-white !text-base">{name}</h2>
           <Rate rate={rating} statik />
-          <p className="text-eiteen text-eco-white font-montserrat">
+          <p className="text-[0.625rem] md:text-eiteen text-eco-white font-montserrat">
             Licence Plate: {plate_number}
           </p>
+
           <div className="flex items-center justify-between">
-            <p className="text-eiteen text-eco-white font-montserrat">Keke Color: {color}</p>
+            <p className="text-[0.625rem] md:text-eiteen  text-eco-white font-montserrat">
+              Keke Color: {color}
+            </p>
             <Btn
               text="View Details"
               // to={name + plate_number}
-              size="md"
+              size="rider"
               type="rider"
               handleClick={handleClick}
             />

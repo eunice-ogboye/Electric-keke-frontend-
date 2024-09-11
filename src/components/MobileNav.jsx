@@ -10,6 +10,7 @@ import {
 } from "../components/ui/sheet";
 import { nav_links } from "../constants";
 import { cn } from "../lib/utils";
+import Menu from "../assets/svg/Menu";
 
 const MobileNav = () => {
   const { pathname } = useLocation();
@@ -17,7 +18,8 @@ const MobileNav = () => {
     <section>
       <Sheet>
         <SheetTrigger>
-          <img src="/menu.svg" alt="menu" />
+          <Menu />
+          {/* <img src="/menu.svg" alt="menu" /> */}
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-white">
           <Link to="/" className="cursor-pointer">

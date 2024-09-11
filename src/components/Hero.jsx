@@ -9,9 +9,9 @@ const Hero = ({ type = "main" }) => {
       <div className="hero-board">
         <div
           className={`${
-            type === "main" && "pt-[33px] md:pt-[234px] max-w-[1169px]"
-          } ${type === "earn" && "pt-[33px] md:pt-[231px] max-w-[1193px]"} ${
-            type === "support" && "pt-[33px] md:pt-[248px] max-w-[1109px]"
+            type === "main" && "pt-[102px] md:pt-[234px] max-w-[1169px]"
+          } ${type === "earn" && "pt-[102px] md:pt-[231px] max-w-[1193px]"} ${
+            type === "support" && "pt-[102px] md:pt-[248px] max-w-[1109px]"
           }  mx-auto pb-[108px] md:pb-[146px]`}
         >
           {type === "main" && (
@@ -27,8 +27,8 @@ const Hero = ({ type = "main" }) => {
               Eco-Friendly{" "}
               <div className="relative inline-block ">
                 <motion.img
-                  initial={{ x: 4000 }}
-                  animate={{ x: 0 }}
+                  initial={{ x: 4000, scale: 0 }}
+                  animate={{ x: 0, scale: 1.35 }}
                   transition={{ duration: 0.75 }}
                   src="/circle-out.svg"
                   alt="circle"

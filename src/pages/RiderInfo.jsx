@@ -30,37 +30,19 @@ const RiderInfo = () => {
     }
   }, []);
 
-  useGSAP(() => {
-    gsap.from(".rider-info", {
-      xPercent: 100,
-    });
-  }, []);
-
   const acceptance = () => {
     setWaiting(true);
-    gsap.from(".accepting", {
-      y: 1000,
-      delay: 3,
-    });
     fetchAcceptance(() => {
       navigate("/tracking");
       setWaiting(false);
     }, 5000);
   };
 
-  const goBackToRiderIndex = () => {
-    gsap.to(".rider-info", {
-      xPercent: 100,
-      onComplete() {
-        navigate("/riders");
-      },
-    });
-  };
 
   return (
     <>
-      <div className="relative border-8">
-        <div className="flex-center bg-yellow-700 fixed -bottom-52 left-0 w-full">
+      <div className="relative home-pad">
+        <div className="flex-center bg-yellow-700 fixed top-full left-0 w-full py-20">
           <div>
             <div className="flex-center mb-5">
               <img src="/waiting.svg" alt="waiting" />
@@ -80,13 +62,15 @@ const RiderInfo = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between rider-info border">
+        <div className="flex items-center justify-between rider-info">
           <h2 className="font-bold">{rider?.name}</h2>
-          <Btn type="cancel" handleClick={goBackToRiderIndex} fixed />
+          <Btn type="cancel" 
+          // handleClick={goBackToRiderIndex} 
+          fixed />
         </div>
 
         <div className="md:flex mt-7 rider-info">
-          <div className="w-full max-w-[510px] border justify-between">
+          <div className="w-full max-w-[510px] justify-between">
             <div className="w-full h-96 md:h-[630px]">
               <img
                 src={rider?.photo}
@@ -101,7 +85,7 @@ const RiderInfo = () => {
           </div>
 
           <div className="w-full max-w-[588px] md:ml-[102px] pt-3">
-            <div className="w-full max-w-96 border h-fit md:h-[174px]">
+            <div className="w-full max-w-96 h-fit md:h-[174px]">
               <div>
                 <p className="text-2xl font-montserrat">
                   License plate: {rider?.plate_number}

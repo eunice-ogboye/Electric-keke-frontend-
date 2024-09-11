@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Heading } from ".";
 import Btn from "./Btn";
 import { useGlobalContext } from "../context";
@@ -6,6 +6,7 @@ import ModalForm from "./ModalForm";
 import Rate from "./Rate";
 import { useNavigate } from "react-router-dom";
 import Map from "./Map";
+import { motion } from "framer-motion";
 
 const getAvatars = (content) => {
   return content === "ride"
@@ -27,7 +28,7 @@ const Modal = () => {
   const {
     dispatch,
     Dispatch,
-    globalState: { modalContent },
+    globalState: { modalContent, modal },
   } = useGlobalContext();
   const [content, setContent] = useState(0);
   const [rate, setRate] = useState(0);
@@ -51,21 +52,41 @@ const Modal = () => {
     const yEnd = modal.offsetTop + modal.clientHeight + pageY;
     const clickPositionX = e.pageX;
     const clickPositionY = e.pageY;
-   if (
+    if (
       clickPositionX > xStart &&
       clickPositionX < xEnd &&
       clickPositionY > yStart &&
       clickPositionY < yEnd
     ) {
-      console.log("yes");
+      console.log("yes click is within the modalref");
       return;
     }
     Dispatch("modal", { modal: false });
   };
 
   return (
-    <section className="modal" onClick={closeModalWhenBodyClick}>
-      <div
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={modal ? "show" : "hide"}
+      variants={{
+        show: {
+          opacity: 1,
+        },
+        hide: {
+          opacity: 0,
+        },
+      }}
+      exit={{ y: 200, opacity: 0 }}
+      className="modal"
+      onClick={closeModalWhenBodyClick}
+      style={{ pointerEvents: modal ? "auto" : "none" }}
+    >
+      <motion.div
+        variants={{
+          show: { opacity: 1 },
+          hide: { opacity: 0 },
+        }}
+        exit={{ opacity: 0, transition: { duration: 1 } }}
         className={`${
           content === 0 && modalContent !== "rate"
             ? "w-full max-w-[478px] min-h-[348px] py-4 px-3"
@@ -75,14 +96,14 @@ const Modal = () => {
         }  bg-white rounded-xl relative`}
         ref={modalContainer}
       >
-        {content === 1 && (
+        {/* {content === 1 && (
           <Btn
             type="cancel"
             handleClick={() =>
               dispatch({ type: "modal", payload: { modal: false } })
             }
           />
-        )}
+        )} */}
         {modalContent === "rate" ? (
           <div className="">
             {!comment && (
@@ -131,10 +152,28 @@ const Modal = () => {
             {content === 0 && (
               <>
                 <div className="h-20">
-                  <div className="h-14 w-[7.5rem] relative mx-auto mt-[1.5rem] isolate">
+                  <motion.div
+                    variants={{
+                      show: {
+                        opacity: 1,
+                        transition: {
+                          delayChildren: 0.035,
+                          staggerChildren: 0.25,
+                        },
+                      },
+                      hide: { opacity: 0 },
+                    }}
+                    className="h-14 w-[7.5rem] relative mx-auto mt-[1.5rem] isolate"
+                  >
                     {getAvatars(modalContent).map((item, index) => {
                       return (
-                        <div
+                        <motion.div
+                          variants={{
+                            show: {
+                              opacity: 1,
+                            },
+                            hide: { opacity: 0 },
+                          }}
                           key={index}
                           className={`absolute border rounded-full overflow-hidden ${
                             index === 0 &&
@@ -148,10 +187,10 @@ const Modal = () => {
                             alt="avatars"
                             className="size-full object-cover object-center"
                           />
-                        </div>
+                        </motion.div>
                       );
                     })}
-                  </div>
+                  </motion.div>
                 </div>
 
                 <Heading
@@ -202,7 +241,7 @@ const Modal = () => {
                   <Heading
                     className="text-center border-2 max-w-[520px] mx-auto"
                     title="Where Are You Headed?"
-                    tclass="md:mt-6"
+                    tclass="md:mt-6 font-josefin !text-2xl"
                     description="Start your eco-friendly journey by entering your pickup location and drop-off destination."
                     dclass="text-base md:text-eiteen text-neutral"
                   />
@@ -213,8 +252,8 @@ const Modal = () => {
             )}
           </>
         )}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 

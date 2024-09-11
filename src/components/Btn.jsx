@@ -13,14 +13,15 @@ const Btn = ({
   icon,
 }) => {
   const sizing = {
-    default: "h-14 w-[171px]",
-    full: "h-14 w-full",
+    default: "h-12 md:h-14 min-w-[134px] md:min-w-[171px]",
+    full: "h-12 md:h-14 w-full",
     sm: "h-12 w-[123px]",
     md: "h-8 w-[123px]",
     "md-full": "h-8 w-full",
     lg: "",
+    rider: "lg:w-[135px] lg:h-[34px] md:w-[91.4pxpx] md:h-[22.64px] h-[18px] w-[75px] text-[0.625rem]",
     driver: "h-[34px] w-[95px] md:h-14 md:w-[171px]",
-    search: 'w-[93px] h-[38px] text-xs',
+    search: "w-[93px] h-[38px] text-xs",
     none: "h-fit w-fit",
   };
   const rounding = {

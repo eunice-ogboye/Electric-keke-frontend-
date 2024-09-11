@@ -19,7 +19,7 @@ const MobileHeader = () => {
     Dispatch("setUser", { user });
   }, []);
   return (
-    <header className="mobile-header">
+    <header className="mobile-header h-16">
       {pathname !== "/schedule-ride" && <MobileNav />}
 
       <Logo dark main />
