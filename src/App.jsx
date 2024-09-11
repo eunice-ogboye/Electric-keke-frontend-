@@ -31,7 +31,7 @@ function App() {
 
   return (
     <>
-      <div className="App max-w-screen-laptop">
+      <div className="App max-w-screen-2xl">
         {modal && <Modal />}
         {show && <Alert />}
         <Routes>

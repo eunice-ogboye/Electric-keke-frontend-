@@ -13,7 +13,7 @@ const Header = ({ darkLogo }) => {
 
   useEffect(() => {
     const getUser = localStorage.getItem("user");
-    console.log(getUser);
+    // console.log(getUser);
     if (getUser !== null) {
       const user = JSON.parse(getUser);
       Dispatch("user", { user });
