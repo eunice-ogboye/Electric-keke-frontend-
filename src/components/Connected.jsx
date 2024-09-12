@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Connected = ({ type = "main" }) => {
   return (
     <section>
-      <div className="h-[457px] md:min-h-[704px] flex-center bg-black/60 relative home-pad">
+      <div className="h-[457px] md:min-h-[704px] flex-center bg-black/60 relative home-pad overflow-hidden">
         <div className="size-full h-[457px] md:min-h-[704px] absolute top-0 left-0 -z-10">
           <img
             src={
@@ -31,8 +31,9 @@ const Connected = ({ type = "main" }) => {
           />
 
           <motion.form
-            initial={{ y: 200, opacity: 0 }}
+            initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
+            viewport={{once: true}}
             className="bg-base-white flex items-center justify-between py-2 px-4 rounded-lg max-w-[534px] mt-6 mx-auto connect-form"
           >
             <div className="flex items-center border">

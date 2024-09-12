@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import Heading from "./Heading";
 import FormRow from "./FormRow";
 import { useState } from "react";
-import { Button } from "./ui/button";
+// import { Button } from "./ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { formTitle, otp_choice } from "../constants";
 import { useGlobalContext } from "../context";
@@ -11,6 +11,7 @@ import { useGlobalContext } from "../context";
 import { cn } from "../lib/utils";
 import Btn from "./Btn";
 import OtpInput from "./OtpInput";
+import registerUser from "../lib/actions/register";
 
 const getDescription = (type) => {
   return type === "otp2"
@@ -41,7 +42,7 @@ const ReusableForm = ({ type = "register" }) => {
   } = useGlobalContext();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: "",
+    fullname: "",
     email: "",
     password: "",
     checkPass: "",
@@ -60,6 +61,42 @@ const ReusableForm = ({ type = "register" }) => {
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(type, "handling");
+    switch (type) {
+      case "register":
+        // return registerUser();
+        return switchTypeNavigate(
+          "complete",
+          "/authentication/complete-profile"
+        );
+      case "complete":
+        return switchTypeNavigate("otp", "/authentication/choose-otp");
+      case "otp2":
+        showAlert("", "Account Successfully Created");
+        setTimeout(() => {
+          hideAlert();
+        }, 3000);
+        return switchTypeNavigate("congrats", "/authentication/success");
+      case "forget":
+        return switchTypeNavigate("new", "/authentication/forget-password");
+      case "new":
+        return switchTypeNavigate(
+          "passUpdate",
+          "/authentication/update-passcode"
+        );
+      case "login":
+        const { role } = user;
+        console.log(user);
+        return role === "rider"
+          ? switchTypeNavigate("main", "/driver/driverId")
+          : switchTypeNavigate("main", "/");
+      default:
+        console.log("jose");
+    }
+  };
 
   return (
     <>
@@ -91,10 +128,7 @@ const ReusableForm = ({ type = "register" }) => {
           </div>
         </div>
       ) : (
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className={formClassName(type)}
-        >
+        <form onSubmit={handleSubmit} className={formClassName(type)}>
           <Logo className="w-[122px] h-[81px] mx-auto" />
           <Heading
             title={formTitle[type]}
@@ -152,7 +186,7 @@ const ReusableForm = ({ type = "register" }) => {
                 type="text"
                 label="Email or Phone number"
                 name="name"
-                value={formData.name}
+                value={formData.fullname}
                 handleChange={handleChange}
                 auth
               />
@@ -269,48 +303,6 @@ const ReusableForm = ({ type = "register" }) => {
                     : "Continue"
                 }
                 size="full"
-                handleClick={() => {
-                  // still break  the switch to make it short
-                  switch (type) {
-                    case "register":
-                      return switchTypeNavigate(
-                        "complete",
-                        "/authentication/complete-profile"
-                      );
-                    case "complete":
-                      return switchTypeNavigate(
-                        "otp",
-                        "/authentication/choose-otp"
-                      );
-                    case "otp2":
-                      showAlert("", "Account Successfully Created");
-                      setTimeout(() => {
-                        hideAlert();
-                      }, 3000);
-                      return switchTypeNavigate(
-                        "congrats",
-                        "/authentication/success"
-                      );
-                    case "forget":
-                      return switchTypeNavigate(
-                        "new",
-                        "/authentication/forget-password"
-                      );
-                    case "new":
-                      return switchTypeNavigate(
-                        "passUpdate",
-                        "/authentication/update-passcode"
-                      );
-                    case "login":
-                      const { role } = user;
-                      console.log(user);
-                      return role === "rider"
-                        ? switchTypeNavigate("main", "/driver/driverId")
-                        : switchTypeNavigate("main", "/");
-                    default:
-                      console.log("jose");
-                  }
-                }}
               />
               {/* for login route to sign up */}
               {type === "login" && (

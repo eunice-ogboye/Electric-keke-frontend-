@@ -30,6 +30,7 @@ const Mission = () => {
       <motion.div
         initial={{ y: 200, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
+        viewport={{once: true}}
         className="mt-14 max-w-[933px] mx-auto"
       >
         <p className="text-center text-xs md:text-xl lg:text-2xl text-base-white font-montserrat">

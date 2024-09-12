@@ -12,13 +12,14 @@ const Heading = ({
   initial,
   animate,
   initialp,
-  animatep
+  animatep,
 }) => {
   return (
     <motion.div
       initial={initial}
       whileInView={animate}
       transition={{ duration: 0.85 }}
+      viewport={{ once: true }}
       className={className}
     >
       {introTitle && (

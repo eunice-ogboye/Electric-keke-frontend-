@@ -23,7 +23,6 @@ import { useGlobalContext } from "./context";
 import "leaflet/dist/leaflet.css";
 import Alert from "./components/Alert";
 import { AnimatePresence } from "framer-motion";
-import { useEffect } from "react";
 import Admin from "./pages/Admin";
 
 function App() {
@@ -40,6 +39,7 @@ function App() {
           {show && <Alert />}
         </AnimatePresence>
         <Routes>
+          
           <Route path="/" element={<Home />} />
           <Route path="/earn-with-us" element={<Earn />} />
           <Route path="/support" element={<Support />} />

@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const Testimonial = ({ type = "main" }) => {
   return (
-    <section className="home-pad pt-8 py-10 md:py-[7.5rem] bg-base-white">
+    <section className="home-pad pt-8 py-10 md:py-[7.5rem] bg-base-white overflow-hidden">
       <div>
         <Heading
           introTitle="Testimonial"
@@ -14,7 +14,7 @@ const Testimonial = ({ type = "main" }) => {
           tclass="font-josefin"
           className="text-center testimonial-heading"
           type="about"
-          initial={{ y: -200, opacity: 0 }}
+          initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
         />
 
@@ -44,7 +44,7 @@ const Testimonial = ({ type = "main" }) => {
               initial={{ x: 200 }}
               whileInView={{ x: 0 }}
               transition={{type: 'spring'}}
-              className="border w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10 order-first md:order-last"
+              className="w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10 order-first md:order-last"
             >
               <AnimatePresence>
                 {testimonies[type].map((item) => {

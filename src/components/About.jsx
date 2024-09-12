@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   about_descriptions,
   about_titles,
@@ -17,7 +17,7 @@ const About = ({ type = "main" }) => {
 
         <div className="min-h-[526px] md:flex items-center">
           <motion.div
-            initial={{ opacity: 0, x: -200 }}
+            initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.85 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -60,7 +60,7 @@ const About = ({ type = "main" }) => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 200 }}
+            initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.85 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -81,7 +81,7 @@ const About = ({ type = "main" }) => {
           <Heading
             introTitle="Service"
             title={about_titles.two}
-            tclass="max-w-[623px] mx-auto text-center border service-heading font-josefin"
+            tclass="max-w-[623px] mx-auto text-center service-heading font-josefin"
             description={about_descriptions.two}
             dclass="mt-3 md:mt-7 text-center text-base md:text-eiteen service-desc"
             introClass="mx-auto text-eco-green service-heading"
