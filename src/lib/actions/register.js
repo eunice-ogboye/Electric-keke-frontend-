@@ -1,21 +1,34 @@
 import axios from "axios";
 
-const registerUser = async () => {
+const registerUser = async (
+  formData,
+  showAlert,
+  switchTypeNavigate,
+) => {
+  const { fullname, email, password, checkPass, phone, state, address, otp } =
+    formData;
   try {
     const { data } = await axios.post("/api/register-user/", {
-      fullname: "Josemaria",
-      address: "3 tajudee",
-      state_of_residence: "igboelerin",
+      fullname,
+      address: address,
+      state_of_residence: state,
       role: "Admin",
-      email: "user@example.com",
-      phone: "9999999",
-      password: "string",
-      re_password: "string",
-      message_type: "email",
+      email,
+      phone,
+      password,
+      re_password: checkPass,
+      message_type: otp,
     });
+    showAlert("", "OTP Sent for account verification");
+    switchTypeNavigate("verification", "/authentication/verification");
     console.log(data);
+    localStorage.setItem("userId", JSON.stringify(data.id));
   } catch (error) {
-    console.log(error);
+    console.log("jose");
+    const { data } = error.response;
+    const dataValues = Object.values(data);
+    console.log(dataValues);
+    showAlert("", dataValues[0] || "something went wrong");
   }
 };
 

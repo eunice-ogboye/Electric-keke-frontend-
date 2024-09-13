@@ -82,6 +82,18 @@ const testimonies = {
         "Eco-Ride has completely changed the way I get around the city. Not only are the rides comfortable and affordable, but knowing that I'm helping reduce emissions makes it even better. I’m proud to be part of this eco-friendly movement!",
       location: "Lagos, Nigeria",
     },
+    {
+      name: "Ahryson",
+      photo: "/persons/tolu.png",
+      testimony: "I am the Designer",
+      location: "Lokoja, Nigeria",
+    },
+    {
+      name: "Emem",
+      photo: "/persons/tolu.png",
+      testimony: "I am the project manager",
+      location: "Lokoja, Nigeria",
+    },
   ],
   earn: [
     {
@@ -90,6 +102,18 @@ const testimonies = {
       testimony:
         "Driving with Eco-Ride has been a game-changer for me. The app is easy to use, and I love that I’m contributing to a greener environment. Plus, the flexible schedule allows me to balance work with my personal life. I’m proud to be part of this eco-friendly movement!",
       location: "Lagos, Nigeria",
+    },
+    {
+      name: "Ahryson",
+      photo: "/persons/tolu.png",
+      testimony: "I am the Designer",
+      location: "Lokoja, Nigeria",
+    },
+    {
+      name: "Emem",
+      photo: "/persons/tolu.png",
+      testimony: "I am the project manager",
+      location: "Lokoja, Nigeria",
     },
   ],
   support: [],
@@ -215,5 +239,5 @@ export {
   care_socials,
   footer_note,
   settings,
-  hero_descriptions
+  hero_descriptions,
 };

@@ -56,9 +56,17 @@ const Hero = ({ type = "main" }) => {
           )}
 
           {type === "support" && (
-            <h1 id="title" className="hero-title title-transform">
+            <motion.h1
+              initial={{
+                x: 2000,
+              }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.75 }}
+              id="title"
+              className="hero-title title-transform"
+            >
               Help & Support Center
-            </h1>
+            </motion.h1>
           )}
 
           <div className="mt-6 px-[30px]">

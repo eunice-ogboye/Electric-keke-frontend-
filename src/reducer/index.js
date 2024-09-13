@@ -1,5 +1,5 @@
 export const initialState = {
-  homePage: "main",
+  homePage: "login",
   driverAuthProcess: "Identity",
   modal: false,
   modalContent: "ride",

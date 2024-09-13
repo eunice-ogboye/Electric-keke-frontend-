@@ -74,6 +74,10 @@
   }
 }
 
+::-ms-reveal {
+  display: none
+}
+
 h2 {
   @apply text-[2rem];
 }
@@ -307,9 +311,9 @@ h2 {
 
 /* input classes */
 .schedule-input {
-  @apply border border-eco-green rounded-[6px] h-[64px] w-full max-w-96;
+  @apply border border-eco-green px-5 rounded-[6px] h-[64px] w-full max-w-96;
 }
 
 .auth-input {
-  @apply border border-eco-neutral-input rounded-[6px] h-[54px] w-full;
+  @apply border border-eco-neutral-input px-5 rounded-[6px] h-[54px] w-full;
 }

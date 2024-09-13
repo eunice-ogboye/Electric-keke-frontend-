@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 const About = ({ type = "main" }) => {
   return (
-    <section className="home-pad bg-base-white overflow-hidden">
+    <section id="about" className="home-pad bg-base-white overflow-hidden">
       <div className={`min-h-[696px] ${type === "main" && "flex-center"}`}>
         {type === "earn" && <Flexibility />}
 
@@ -77,7 +77,7 @@ const About = ({ type = "main" }) => {
       </div>
 
       {type === "main" && (
-        <div className="py-20 overflow-hidden">
+        <div className="py-20 overflow-hidden" id="services">
           <Heading
             introTitle="Service"
             title={about_titles.two}

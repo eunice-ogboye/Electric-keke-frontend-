@@ -54,7 +54,7 @@ const HeroCta = ({ type }) => {
             color="color1"
           />
 
-          <div className="space-x-11 mt-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 justify-items-center gap-3 mt-6">
             {support_links.map((item) => {
               return (
                 <Btn

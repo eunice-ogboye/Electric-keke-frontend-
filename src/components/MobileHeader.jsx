@@ -15,8 +15,12 @@ const MobileHeader = () => {
 
   useEffect(() => {
     const getUser = localStorage.getItem("user");
+    if (!getUser) {
+      console.log("no user");
+      return;
+    }
     const user = JSON.parse(getUser);
-    Dispatch("setUser", { user });
+    Dispatch("user", { user });
   }, []);
   return (
     <header className="mobile-header h-16">
@@ -36,9 +40,9 @@ const MobileHeader = () => {
                   <img src="/bell.svg" alt="notification" />
                 </div>
               </Link>
-              <Link to="/profile/idnumber">
+              <Link to={`/profile/${user?.id}`}>
                 <div className="size-5">
-                  <img src={`/avatars/${user?.role}.svg`} alt="notification" />
+                  <img src={`/avatars/passenger.svg`} alt="notification" />
                 </div>
               </Link>
             </div>
@@ -46,9 +50,9 @@ const MobileHeader = () => {
             <Btn
               text="Sign Up"
               size="sm"
-              to="/authentication/register"
+              to="/authentication"
               handleClick={() => {
-                Dispatch("changeHomePage", { homePage: "register" });
+                Dispatch("changeHomePage", { homePage: "main" });
               }}
             />
           )}

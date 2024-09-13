@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "./Logo";
 import Heading from "./Heading";
 import FormRow from "./FormRow";
@@ -12,6 +12,10 @@ import { cn } from "../lib/utils";
 import Btn from "./Btn";
 import OtpInput from "./OtpInput";
 import registerUser from "../lib/actions/register";
+import loginUser from "../lib/actions/login";
+import axios from "axios";
+import verification from "../lib/actions/verify";
+import requestOtp from "../lib/actions/requestOtp";
 
 const getDescription = (type) => {
   return type === "otp2"
@@ -37,11 +41,14 @@ const ReusableForm = ({ type = "register" }) => {
   const {
     Dispatch,
     showAlert,
-    hideAlert,
+    // hideAlert,
     globalState: { user },
   } = useGlobalContext();
+
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
+    username: "",
     fullname: "",
     email: "",
     password: "",
@@ -49,50 +56,90 @@ const ReusableForm = ({ type = "register" }) => {
     phone: "",
     state: "",
     address: "",
-    otp: "phone",
+    otp: "email",
     otpValue: "",
   });
+
+  const [active, setActive] = useState(true);
+
+  useEffect(() => {
+    const getFormData = localStorage.getItem("formData");
+    if (getFormData !== null) {
+      setFormData(JSON.parse(getFormData));
+    }
+  }, []);
+
+  useEffect(() => {
+    const { fullname, email, password, checkPass, phone, state, address } =
+      formData;
+
+    if (type === "register" && fullname && email && password && checkPass) {
+      setActive(false);
+    } else if (type === "login" && email && password && checkPass) {
+      setActive(false);
+    } else if (type === "complete" && phone && state && address) {
+      setActive(false);
+    } else if (type === "verification") {
+      const { otpValue } = formData;
+      const numberOfCharacters = otpValue.split("").length;
+      if (numberOfCharacters === 5) {
+        setActive(false);
+      } else {
+        setActive(true);
+      }
+    } else {
+      setActive(true);
+    }
+  }, [formData]);
 
   /**Create a fucntion to dispatch and navigate base on type */
   const switchTypeNavigate = (homePage, link) => {
     Dispatch("changeHomePage", { homePage });
+    setActive(true);
     navigate(link);
   };
 
-  const handleChange = (e) =>
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    localStorage.setItem("formData", JSON.stringify(formData));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(type, "handling");
+
     switch (type) {
       case "register":
-        // return registerUser();
+        const { password, checkPass } = formData;
+        const passwordMatches = password === checkPass;
+        if (!passwordMatches) {
+          showAlert("success", "password unmatch");
+          return;
+        }
         return switchTypeNavigate(
           "complete",
           "/authentication/complete-profile"
         );
+
       case "complete":
         return switchTypeNavigate("otp", "/authentication/choose-otp");
-      case "otp2":
-        showAlert("", "Account Successfully Created");
-        setTimeout(() => {
-          hideAlert();
-        }, 3000);
-        return switchTypeNavigate("congrats", "/authentication/success");
+
+      case "verification":
+        const { otpValue } = formData;
+        await verification(otpValue, showAlert, switchTypeNavigate);
+        return;
+
       case "forget":
         return switchTypeNavigate("new", "/authentication/forget-password");
+
       case "new":
         return switchTypeNavigate(
           "passUpdate",
           "/authentication/update-passcode"
         );
+
       case "login":
-        const { role } = user;
-        console.log(user);
-        return role === "rider"
-          ? switchTypeNavigate("main", "/driver/driverId")
-          : switchTypeNavigate("main", "/");
+        await loginUser(formData, showAlert, switchTypeNavigate, Dispatch);
+        return;
       default:
         console.log("jose");
     }
@@ -119,7 +166,7 @@ const ReusableForm = ({ type = "register" }) => {
               text="Proceed"
               size="full"
               to="/authentication/account"
-              handleClick={() => switchTypeNavigate("main")}
+              handleClick={() => switchTypeNavigate("login")}
             />
             <div className="text-sm flex-center gap-1 mt-[14px]">
               <img src="/small-lock.svg" alt="lock" />
@@ -141,41 +188,51 @@ const ReusableForm = ({ type = "register" }) => {
               <p>Where should we send your OTP?</p>
               {otp_choice.map((item) => {
                 return (
-                  <Link
+                  <div
                     key={item.title}
-                    to="/authentication/otp-2"
-                    onClick={() => {
-                      switchTypeNavigate("otp2");
-                      showAlert("", "Otp sent");
-                      setTimeout(() => {
-                        hideAlert();
-                      }, 3000);
+                    className="px-4 py-2 flex items-center border-2"
+                    onClick={async () => {
+                      // setFormData((prev) => ({
+                      //   ...prev,
+                      //   otp: item.title.toLowerCase(),
+                      // }));
+                      await registerUser(
+                        formData,
+                        showAlert,
+                        switchTypeNavigate
+                      );
                     }}
                   >
-                    <div className="px-4 py-2 flex items-center border-2">
-                      <div>
-                        <img src={item.icon} alt={item.title} />
-                      </div>
-                      <p className="ml-3">{item.title}</p>
+                    <div>
+                      <img src={item.icon} alt={item.title} />
                     </div>
-                  </Link>
+                    <p className="ml-3">{item.title}</p>
+                  </div>
                 );
               })}
             </div>
-          ) : type === "otp2" || type === "passUpdate" ? (
+          ) : type === "verification" ? (
             <div className="r-form-body-margin w-full md:w-[396px] mx-auto border-8">
               <div className="flex-center">
                 <OtpInput
                   value={formData.otpValue}
-                  handleChange={(value) =>
-                    setFormData((prev) => ({ ...prev, otpValue: value }))
-                  }
+                  handleChange={(value) => {
+                    setFormData((prev) => ({ ...prev, otpValue: value }));
+                    // console.log(formData)
+                  }}
                 />
               </div>
               <div className="flex items-center justify-between">
                 <p>
                   Didn't receive an OTP?{" "}
-                  <span className="text-blue-600">Resend</span>
+                  <span
+                    className="text-blue-600 cursor-pointer"
+                    onClick={async () => {
+                      await requestOtp(showAlert, formData);
+                    }}
+                  >
+                    Resend
+                  </span>
                 </p>
                 <p className="">00:30</p>
               </div>
@@ -185,14 +242,15 @@ const ReusableForm = ({ type = "register" }) => {
               <FormRow
                 type="text"
                 label="Email or Phone number"
-                name="name"
-                value={formData.fullname}
+                name="username"
+                value={formData.username}
                 handleChange={handleChange}
                 auth
               />
               <FormRow
                 type="password"
                 label="Password"
+                name="password"
                 value={formData.password}
                 handleChange={handleChange}
                 auth
@@ -240,9 +298,9 @@ const ReusableForm = ({ type = "register" }) => {
             <div className="r-form-body">
               <FormRow
                 type="text"
-                label="Full Name"
-                name="name"
-                value={formData.name}
+                label={type === "register" ? "Full Name" : "Phone"}
+                name={type === "register" ? "fullname" : "phone"}
+                value={type === "register" ? formData.fullname : formData.phone}
                 handleChange={handleChange}
                 auth
               />
@@ -303,6 +361,7 @@ const ReusableForm = ({ type = "register" }) => {
                     : "Continue"
                 }
                 size="full"
+                disabled={active}
               />
               {/* for login route to sign up */}
               {type === "login" && (

@@ -39,7 +39,6 @@ function App() {
           {show && <Alert />}
         </AnimatePresence>
         <Routes>
-          
           <Route path="/" element={<Home />} />
           <Route path="/earn-with-us" element={<Earn />} />
           <Route path="/support" element={<Support />} />
@@ -53,8 +52,8 @@ function App() {
           <Route path="/tracking" element={<Tracking />} />
           <Route path="/profile/:id" element={<Profile />} />
           <Route path="/authentication" element={<Boarding />}>
+            <Route index element={<Account />} />
             <Route path=":id" element={<Template />} />
-            <Route path="account" element={<Account />} />
             <Route path="driver-auth" element={<DriverAuth />} />
           </Route>
           <Route path="/settings" element={<Settings />} />

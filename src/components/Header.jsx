@@ -32,18 +32,18 @@ const Header = ({ darkLogo }) => {
                 <img src="/bell.svg" alt="notification" />
               </div>
             </Link>
-            <Link to="/profile/idnumber">
+            <Link to={`/profile/${user?.id}`}>
               <div>
-                <img src={`/avatars/${user?.role}.svg`} alt="notification" />
+                <img src={`/avatars/passenger.svg`} alt="notification" />
               </div>
             </Link>
           </div>
         ) : (
           <Btn
             text="Sign Up"
-            to="/authentication/register"
+            to="/authentication"
             handleClick={() => {
-              Dispatch("changeHomePage", { homePage: "register" });
+              Dispatch("changeHomePage", { homePage: "main" });
             }}
           />
         )}

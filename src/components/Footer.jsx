@@ -2,6 +2,7 @@ import { footer_note, socials } from "../constants";
 import React from "react";
 import Logo from "./Logo";
 import { motion } from "framer-motion";
+import { HashLink as Link } from "react-router-hash-link";
 
 const Footer = () => {
   return (
@@ -9,7 +10,8 @@ const Footer = () => {
       <div>
         <motion.div
           initial={{ x: -200, opacity: 0 }}
-          whileInView={{ x: 0 , opacity: 1}}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="md:flex items-start justify-between border-b px-2 py-6 footer-main"
         >
           <div className="w-full md:max-w-[364px]">
@@ -21,10 +23,21 @@ const Footer = () => {
             <div className="text-base-white">
               <h3 className="font-bold">Explore</h3>
               <ul className="mt-6 space-y-4">
-                <li>About Us</li>
-                <li>Earn With Us</li>
-                <li>Mission</li>
-                <li>Services</li>
+                <li>
+                  <Link to="#about">About Us</Link>
+                  {/* <a href="#about">About Us</a> */}
+                </li>
+                <li>
+                  <Link to="/earn-with-us">Earn With Us</Link>
+                </li>
+                <li>
+                  <Link to="/#mission">Mission</Link>
+                  {/* <a href="#mission">Mission</a> */}
+                </li>
+                <li>
+                  <Link to="/#services">Services</Link>
+                  {/* <a href="#services">Services</a> */}
+                </li>
               </ul>
             </div>
 

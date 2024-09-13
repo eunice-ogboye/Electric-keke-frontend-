@@ -21,7 +21,7 @@ const Account = () => {
       <p className="text-right font-josefin text-base">
         Already have an account?{" "}
         <Link
-          to="login"
+          to="/authentication/login"
           className="text-green-500"
           onClick={() => {
             Dispatch("changeHomePage", { homePage: "login" });
@@ -40,12 +40,11 @@ const Account = () => {
         <div className="mt-10 space-y-6">
           {account_types.map((item) => (
             <Link
-              to={item.title === "Passenger" ? "/authentication/login" : "/authentication/driver-auth"}
+              to="/authentication/register"
               key={item.title}
               onClick={() => {
                 if (item.title === "Passenger") {
-                  Dispatch("changeHomePage", { homePage: "login" });
-                  Dispatch("user", { user: { role: "passenger" } });
+                  Dispatch("changeHomePage", { homePage: "register" });
                 }
                 return;
               }}

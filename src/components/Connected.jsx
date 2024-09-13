@@ -36,7 +36,7 @@ const Connected = ({ type = "main" }) => {
             viewport={{once: true}}
             className="bg-base-white flex items-center justify-between py-2 px-4 rounded-lg max-w-[534px] mt-6 mx-auto connect-form"
           >
-            <div className="flex items-center border">
+            <div className="flex items-center">
               <div>
                 <img src="/email.svg" alt="email" />
               </div>
@@ -44,7 +44,7 @@ const Connected = ({ type = "main" }) => {
                 type="email"
                 name="email"
                 placeholder="Enter your email address"
-                className="w-20 ml-2 text-eiteen bg-none border-none outline-none font-montserrat"
+                className="w-[200px] md:w-[264px] ml-2 text-sm md:text-eiteen bg-none border-none outline-none font-montserrat"
               />
             </div>
             <Button className="w-[135px] h-12 md:h-[56px] md:w-[162px] primary-btn">

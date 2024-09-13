@@ -1,7 +1,7 @@
 import AuthProcess from "../components/AuthProcess";
 import { Heading } from "../components";
 import { useGlobalContext } from "../context";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Btn from "../components/Btn";
 import { useNavigate } from "react-router-dom";
 
@@ -44,11 +44,36 @@ const DriverAuth = () => {
     Dispatch,
     globalState: { driverAuthProcess },
   } = useGlobalContext();
+  const videoContainer = useRef(null);
+
+  const [stream, setStream] = useState(null);
+
   useEffect(() => {
     Dispatch("changeHomePage", { homePage: "driver-auth" });
   }, []);
 
   const titleAndText = getDriverAuthImageAndTitle(driverAuthProcess);
+
+  const startWebCam = async () => {
+    if (navigator.mediaDevices && navigator.mediaCapabilities) {
+      // we have access
+      const constraints = {
+        video: true,
+      };
+      try {
+        const videoStream = await navigator.mediaDevices.getUserMedia(
+          constraints
+        );
+        videoContainer.current.srcObject = videoStream
+        setStream(videoStream);
+      } catch (error) {
+        console.log(error);
+        throw new Error("access to camera denied");
+      }
+    } else {
+      throw new Error("No access to webcam");
+    }
+  };
 
   return (
     <section className="home-pad py-11 w-full">
@@ -71,13 +96,23 @@ const DriverAuth = () => {
                     : "w-full md:w-[635px] h-[394px]"
                 } mx-auto overflow-hidden`}
               >
-                <div className="size-full">
-                  <img
-                    src={titleAndText.img}
-                    alt="selfie"
-                    className="size-full"
-                  />
-                </div>
+                {stream ? (
+                  <video
+                    id="webcam"
+                    autoPlay
+                    playsInline
+                    className="size-full border border-red-500"
+                    ref={videoContainer}
+                  ></video>
+                ) : (
+                  <div className="size-full">
+                    <img
+                      src={titleAndText.img}
+                      alt="selfie"
+                      className="size-full"
+                    />
+                  </div>
+                )}
               </div>
             )}
             <Heading
@@ -97,28 +132,29 @@ const DriverAuth = () => {
                   }
                   size="full"
                   handleClick={async () => {
-                    switch (driverAuthProcess) {
-                      case "Identity":
-                        return Dispatch("driverAuth", {
-                          driverAuthProcess: "Driver License Front",
-                        });
-                      case "Driver License Front":
-                        return Dispatch("driverAuth", {
-                          driverAuthProcess: "Driver License Back",
-                        });
-                      case "Driver License Back":
-                        Dispatch("driverAuth", {
-                          driverAuthProcess: "Processing",
-                        });
-                        await checkDetails(() => {
-                          Dispatch("user", { user: { role: "rider" } });
-                        });
-                        Dispatch("changeHomePage", { homePage: "login" });
-                        navigate("/authentication/login")
-                        return;
-                      default:
-                        console.log("I am here");
-                    }
+                    startWebCam();
+                    // switch (driverAuthProcess) {
+                    //   case "Identity":
+                    //     return Dispatch("driverAuth", {
+                    //       driverAuthProcess: "Driver License Front",
+                    //     });
+                    //   case "Driver License Front":
+                    //     return Dispatch("driverAuth", {
+                    //       driverAuthProcess: "Driver License Back",
+                    //     });
+                    //   case "Driver License Back":
+                    //     Dispatch("driverAuth", {
+                    //       driverAuthProcess: "Processing",
+                    //     });
+                    //     await checkDetails(() => {
+                    //       Dispatch("user", { user: { role: "rider" } });
+                    //     });
+                    //     Dispatch("changeHomePage", { homePage: "login" });
+                    //     navigate("/authentication/login");
+                    //     return;
+                    //   default:
+                    //     console.log("I am here");
+                    // }
                   }}
                 />
               </div>
