@@ -1,25 +1,5 @@
 import axios from "axios";
-/**address
-: 
-"3, Amakaohia Ikeduru"
-email
-: 
-"Joseyjayy2@gmail.com"
-fullname
-: 
-"airxist"
-id
-: 
-"a85f50ef-86e0-4e8a-9688-7b3afdc802d2"
-phone
-: 
-"08167504874"
-role
-: 
-"Admin"
-state_of_residence
-: 
-"Imo State" */
+
 const verification = async (otp, showAlert, switchTypeNavigate) => {
   // will change this later
   const identity = localStorage.getItem("userId");
@@ -34,7 +14,7 @@ const verification = async (otp, showAlert, switchTypeNavigate) => {
     console.log(data);
     showAlert("", detail);
     switchTypeNavigate("congrats", "/authentication/success");
-    localStorage.removeItem('userId');
+    localStorage.removeItem("userId");
   } catch (error) {
     const {
       data: { detail },

@@ -1,27 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Btn from "./Btn";
 import MobileNav from "./MobileNav";
-import { useGlobalContext } from "../context";
 import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getLoggedInUser } from "../lib/actions/login";
+import { getToken } from "../lib/actions/customAxios";
 
 const MobileHeader = () => {
-  const {
-    globalState: { user },
-    Dispatch,
-  } = useGlobalContext();
-  const { pathname } = useLocation();
-  // console.log(pathname);
-
+  const [user, setUser] = useState(null);
   useEffect(() => {
-    const getUser = localStorage.getItem("user");
-    if (!getUser) {
-      console.log("no user");
-      return;
-    }
-    const user = JSON.parse(getUser);
-    Dispatch("user", { user });
+    const fetchLoggedInUser = async () => {
+      try {
+        const loggedInUser = await getLoggedInUser();
+        console.log(loggedInUser);
+        setUser(loggedInUser)
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchLoggedInUser();
   }, []);
+  const { pathname } = useLocation();
   return (
     <header className="mobile-header h-16">
       {pathname !== "/schedule-ride" && <MobileNav />}
@@ -48,7 +48,7 @@ const MobileHeader = () => {
             </div>
           ) : (
             <Btn
-              text="Sign Up"
+              text={user?.name || "Sign Up"}
               size="sm"
               to="/authentication"
               handleClick={() => {

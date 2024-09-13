@@ -3,21 +3,21 @@ import Logo from "./Logo";
 import Btn from "./Btn";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
-import { useGlobalContext } from "../context";
+import { getLoggedInUser } from "../lib/actions/login";
 
 const Header = ({ darkLogo }) => {
-  const {
-    globalState: { user },
-    Dispatch,
-  } = useGlobalContext();
-
+  const [user, setUser] = useState(null);
   useEffect(() => {
-    const getUser = localStorage.getItem("user");
-    // console.log(getUser);
-    if (getUser !== null) {
-      const user = JSON.parse(getUser);
-      Dispatch("user", { user });
-    }
+    const fetchLoggedInUser = async () => {
+      try {
+        const loggedInUser = await getLoggedInUser();
+        console.log(loggedInUser);
+        setUser(loggedInUser);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchLoggedInUser();
   }, []);
 
   return (

@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { formTitle, otp_choice } from "../constants";
 import { useGlobalContext } from "../context";
-
+import { useDispatch } from "react-redux";
 import { cn } from "../lib/utils";
 import Btn from "./Btn";
 import OtpInput from "./OtpInput";
@@ -16,6 +16,7 @@ import loginUser from "../lib/actions/login";
 import axios from "axios";
 import verification from "../lib/actions/verify";
 import requestOtp from "../lib/actions/requestOtp";
+import { addUser } from "../store/slices/user-slice";
 
 const getDescription = (type) => {
   return type === "otp2"
@@ -44,6 +45,11 @@ const ReusableForm = ({ type = "register" }) => {
     // hideAlert,
     globalState: { user },
   } = useGlobalContext();
+  const dispatch = useDispatch();
+
+  const loggedInUser = (user) => {
+    dispatch(addUser(user))
+  }
 
   const navigate = useNavigate();
 
@@ -138,7 +144,7 @@ const ReusableForm = ({ type = "register" }) => {
         );
 
       case "login":
-        await loginUser(formData, showAlert, switchTypeNavigate, Dispatch);
+        await loginUser(formData, showAlert, switchTypeNavigate, Dispatch, dispatch);
         return;
       default:
         console.log("jose");
@@ -269,8 +275,8 @@ const ReusableForm = ({ type = "register" }) => {
               <FormRow
                 type="text"
                 label="Email or phone number"
-                name="name"
-                value={formData.name}
+                name="username"
+                value={formData.username}
                 handleChange={handleChange}
                 auth
               />

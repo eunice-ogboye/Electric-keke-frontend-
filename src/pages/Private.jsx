@@ -1,38 +1,30 @@
-import { getLoggedInUser } from "../lib/actions/login";
-import { useGlobalContext } from "../context";
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getLoggedInUser } from "../lib/actions/login";
 
-const ProtectedRoute = ({ children }) => {
-  const {
-    globalState: { user },
-    Dispatch,
-  } = useGlobalContext();
-
+const ProtectedRoute = () => {
   const [loading, setLoading] = useState(true);
-
+  const [user, setUser] = useState(null);
   useEffect(() => {
     const fetchLoggedInUser = async () => {
       try {
-        await getLoggedInUser(Dispatch);
+        const loggedInUser = await getLoggedInUser();
+        console.log(loggedInUser);
+        setUser(loggedInUser);
         setLoading(false);
       } catch (error) {
         console.log(error);
       }
     };
-
-    if (user === null) {
-      fetchLoggedInUser();
-    } else {
-      setLoading(false);
-    }
+    fetchLoggedInUser();
   }, []);
 
   if (loading) {
-    return <div>Loading ....</div>;
+    return <div>...</div>;
   }
 
-  return user ? children : <Navigate to="/" />;
+  return user ? <Outlet context={user} /> : <Navigate to="/" />;
 };
 
 export default ProtectedRoute;

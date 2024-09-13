@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const getToken = (name) => {
+export const getToken = (name) => {
   const retrieveToken = localStorage.getItem(name);
   if (!retrieveToken) {
     console.log("no token found for", name);
@@ -27,7 +27,7 @@ customAxios.interceptors.request.use(
     if (accessToken) {
       req.headers.Authorization = `Bearer ${accessToken}`;
     }
-    console.log("the request", req);
+    // console.log("the request", req);
     return req;
   },
   (err) => {
@@ -38,14 +38,11 @@ customAxios.interceptors.request.use(
 
 customAxios.interceptors.response.use(
   (res) => {
-    console.log("interceptors response");
-    console.log("the response", res);
     return res;
   },
   async (err) => {
-    console.log("accessToken expired, going to refresh");
+    console.log("accessToken expired, going to refresh", err.status);
     const originalRequest = err.config;
-    console.log(err.status);
     if (err.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
@@ -64,7 +61,6 @@ customAxios.interceptors.response.use(
         });
         // console.log(data)
 
-        console.log(accessToken, refreshToken);
         localStorage.setItem("accessToken", JSON.stringify(accessToken));
         localStorage.setItem("refreshToken", JSON.stringify(refreshToken));
         // // update axios instance
