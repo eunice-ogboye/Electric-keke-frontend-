@@ -6,10 +6,12 @@ import Btn from "../components/Btn";
 import FormRow from "../components/FormRow";
 import { useGlobalContext } from "../context";
 import ProtectedRoute from "./Private";
+import logoutUser from "../lib/actions/logout";
 
 const Profile = () => {
   const {
     globalState: { user },
+    showAlert
   } = useGlobalContext();
 
   const [profileFormData, setProfileFormData] = useState({
@@ -39,7 +41,7 @@ const Profile = () => {
       password: "",
     });
 
-    console.log(user, 'josemaria add')
+    // console.log(user, 'josemaria add')
   }, []);
 
   // console.log(user);
@@ -59,6 +61,10 @@ const Profile = () => {
               className="size-full object-cover object-center"
             />
           </div>
+
+          <Btn text="logout user" handleClick={() => {
+            logoutUser(showAlert)
+          }} />
 
           <form className="mt-14 " onSubmit={(e) => e.preventDefault()}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-9 gap-x-[50px]">
