@@ -4,7 +4,7 @@ const account_types = [
 ];
 
 const onboardingImages = {
-  main: "/onboarding-people.png",
+  start: "/onboarding-people.png",
 };
 
 const briefs = {
@@ -12,8 +12,8 @@ const briefs = {
     "Sign up to start your eco-friendly journey with EcoRide. Join us in making transportation greener and more efficient. Your adventure towards a sustainable future begins here!",
   complete:
     "Complete your profile to unlock the full EcoRide experience. Help us personalize your journey and enhance your eco-friendly rides.",
-  otp: "Choose where you will like to receive your OTP, via Phone number or Gmail. This step helps secure your EcoRide account.",
-  otp2: "Enter the OTP sent to your phone to verify your account. This ensures your Eco-Ride is secure and personalized. your safety is our priority.",
+  otpMethod: "Choose where you will like to receive your OTP, via Phone number or Gmail. This step helps secure your EcoRide account.",
+  verification: "Enter the OTP sent to your phone to verify your account. This ensures your Eco-Ride is secure and personalized. your safety is our priority.",
   congrats:
     "Congratulations on successfully signing up for EcoRide! please proceed to login and start your eco-friendly journey with us.",
   login:
@@ -187,13 +187,13 @@ const nav_links = [
 const formTitle = {
   register: "Register Your Account!",
   complete: "Complete Your Profile!",
-  otp: "OTP!",
-  otp2: "Complete Your Profile!",
+  otpMethod: "OTP!",
+  verification: "Complete Your Profile!",
   congrats: "Continue to Log in",
   login: "Log in to your Account",
   forget: "Forgot Password",
   new: "Enter New Password",
-  passUpdate: "Enter Code",
+  update: "Enter Code",
 };
 
 const support_links = ["General", "Account", "Payment", "Services"];

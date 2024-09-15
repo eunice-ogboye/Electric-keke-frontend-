@@ -1,14 +1,15 @@
 import riders from "../mockData/riders";
 import Rider from "../components/Rider";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { useGlobalContext } from "../context";
 import Btn from "../components/Btn";
 import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { riderSelection } from "../store/slices/global-slice";
 
 const RiderIndex = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { switchRiderTitle, ridersTitle } = useOutletContext();
-  const { Dispatch } = useGlobalContext();
 
   useEffect(() => {
     localStorage.clear("rider");
@@ -23,8 +24,7 @@ const RiderIndex = () => {
             key={item._id}
             {...item}
             handleClick={() => {
-              // gotoRiderInfo(item.name + item._id);
-              Dispatch("rider", { rider: item });
+              dispatch(riderSelection(item));
             }}
           />
         );

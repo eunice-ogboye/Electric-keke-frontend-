@@ -1,10 +1,8 @@
-import { useGlobalContext } from "../context";
+import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 
 const AuthProcess = () => {
-  const {
-    globalState: { driverAuthProcess },
-  } = useGlobalContext();
+  const { driverAuthProcess } = useSelector((state) => state.global);
 
   const process = [
     "Identity",
@@ -44,7 +42,9 @@ const AuthProcess = () => {
                   completed ? "bg-eco-green-prime" : "bg-eco-neutral-faint"
                 }`}
               >
-                {completed && <div className="size-2 md:size-5 bg-white rounded-full" />}
+                {completed && (
+                  <div className="size-2 md:size-5 bg-white rounded-full" />
+                )}
               </div>
               <p
                 className={`mt-4 md:mt-[35px] text-xs md:text-[28px] ${

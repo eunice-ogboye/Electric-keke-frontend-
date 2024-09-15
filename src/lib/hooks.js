@@ -1,4 +1,5 @@
-import { useGlobalContext } from "../context";
+import { useDispatch } from "react-redux";
+// import { useGlobalContext } from "../context";
 import { useEffect } from "react";
 
 export const useTitle = (title) => {
@@ -7,10 +8,10 @@ export const useTitle = (title) => {
   }, [title]);
 };
 
-export const useFormType = (type) => {
-  const { dispatch } = useGlobalContext();
+// export const useFormType = (type) => {
+//   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch({ type: "changeHomePage", payload: { imageType: type } });
-  }, [type]);
-};
+//   useEffect(() => {
+//     dispatch({ type: "changeHomePage", payload: { imageType: type } });
+//   }, [type]);
+// };

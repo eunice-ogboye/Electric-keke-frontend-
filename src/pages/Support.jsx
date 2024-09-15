@@ -1,21 +1,14 @@
 import { useTitle } from "../lib/hooks";
-import { useGlobalContext } from "../context";
 import { Section } from "../shared-layout";
-import React, { useEffect } from "react";
 import { ContactSupport, Faq, Footer } from "../components";
 import Hero from "../components/Hero";
 import SearchBar from "../components/SearchBar";
+import { useSelector } from "react-redux";
 
 const Support = () => {
   useTitle("Support");
-  const {
-    Dispatch,
-    globalState: { support },
-  } = useGlobalContext();
-
-  useEffect(() => {
-    Dispatch("homePage", { homePage: "support" });
-  }, []);
+  // redux globals
+  const { support } = useSelector((state) => state.global);
 
   return (
     <Section>

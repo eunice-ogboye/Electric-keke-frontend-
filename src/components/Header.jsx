@@ -3,22 +3,14 @@ import Logo from "./Logo";
 import Btn from "./Btn";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
-import { getLoggedInUser } from "../lib/actions/login";
+import { useDispatch } from "react-redux";
+import { changeAuthPage } from "../store/slices/global-slice";
+import { getItemFromLs } from "../lib/ls";
 
 const Header = ({ darkLogo }) => {
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const fetchLoggedInUser = async () => {
-      try {
-        const loggedInUser = await getLoggedInUser();
-        console.log(loggedInUser);
-        setUser(loggedInUser);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchLoggedInUser();
-  }, []);
+  const dispatch = useDispatch();
+
+  const [user, setUser] = useState(getItemFromLs("user") || null);
 
   return (
     <header className="header">
@@ -33,17 +25,20 @@ const Header = ({ darkLogo }) => {
               </div>
             </Link>
             <Link to={`/profile/${user?.id}`}>
-              <div>
-                <img src={`/avatars/passenger.svg`} alt="notification" />
+              <div className="size-12 flex-center text-3xl font-bold rounded-full bg-eco-green-dark text-white font-josefin">
+                {user.fullname[0]}
               </div>
+              {/* <div>
+                <img src={`/avatars/passenger.svg`} alt="notification" />
+              </div> */}
             </Link>
           </div>
         ) : (
           <Btn
             text="Sign Up"
-            to="/authentication"
+            to="/authentication/register"
             handleClick={() => {
-              Dispatch("changeHomePage", { homePage: "main" });
+              dispatch(changeAuthPage("register"));
             }}
           />
         )}

@@ -1,19 +1,27 @@
 import { Link } from "react-router-dom";
 import Heading from "../components/Heading";
 import { account_types } from "../constants";
-import { useState } from "react";
 import { useTitle } from "../lib/hooks";
-import { useGlobalContext } from "../context";
 import { useEffect } from "react";
 import { cn } from "../lib/utils";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  changeAuthPage,
+  changeRegistryMethod,
+} from "../store/slices/global-slice";
 
 const Account = () => {
   useTitle("Account");
-  const { Dispatch } = useGlobalContext();
-  const [type, setType] = useState("Passenger");
+  // redux globals and  dispatch func
+  const dispatch = useDispatch();
+  const { registerAs } = useSelector((state) => state.global);
+
+  const registrationMethod = (type) => {
+    dispatch(changeRegistryMethod(type));
+  };
 
   useEffect(() => {
-    Dispatch("changeHomePage", { homePage: "main" });
+    dispatch(changeAuthPage("start"));
   }, []);
 
   return (
@@ -23,9 +31,7 @@ const Account = () => {
         <Link
           to="/authentication/login"
           className="text-green-500"
-          onClick={() => {
-            Dispatch("changeHomePage", { homePage: "login" });
-          }}
+          onClick={() => dispatch(changeAuthPage("login"))}
         >
           Log in
         </Link>
@@ -40,23 +46,28 @@ const Account = () => {
         <div className="mt-10 space-y-6">
           {account_types.map((item) => (
             <Link
-              to="/authentication/register"
+              to={
+                item.title === "Passenger" ? "/" : "/authentication/driver-auth"
+              }
               key={item.title}
               onClick={() => {
-                if (item.title === "Passenger") {
-                  Dispatch("changeHomePage", { homePage: "register" });
+                const { title } = item;
+                if (title === "Passenger") {
+                  dispatch(changeAuthPage(null));
+                } else {
+                  dispatch(changeAuthPage("driver-auth"));
+                  // registrationMethod(item.title);
                 }
-                return;
               }}
             >
               <div
                 className={cn(
                   `flex items-center justify-between max-w-[26.625rem] h-28 rounded-md px-7 py-6 cursor-pointer`,
                   {
-                    "bg-pgreenfade border border-pgreen": item.title === type,
+                    "bg-pgreenfade border border-pgreen":
+                      item.title === registerAs,
                   }
                 )}
-                onClick={() => setType(item.title)}
               >
                 <div className="flex items-center gap-5">
                   <div>

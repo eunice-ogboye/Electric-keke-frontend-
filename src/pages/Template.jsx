@@ -1,28 +1,23 @@
-import { useGlobalContext } from "../context";
 import ReusableForm from "../components/ReusableForm";
 import React from "react";
 import { useEffect, memo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getItemFromLs } from "../lib/ls";
+import { changeAuthPage } from "../store/slices/global-slice";
 
 const Template = () => {
-  const {
-    globalState: { homePage },
-    dispatch,
-  } = useGlobalContext();
+  // redux global and dispatch func
+  const { authPage } = useSelector((state) => state.global);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // console.log('checking hompage')
-    const homePage = localStorage.getItem("homePage");
-    dispatch({
-      type: "changeHomePage",
-      payload: { homePage: JSON.parse(homePage) },
-    });
+    const page = getItemFromLs("authPage");
+    dispatch(changeAuthPage(page));
   }, []);
-
-  // console.log(homePage)
 
   return (
     <div className="board-pad w-full my-dell:w-1/2">
-      <ReusableForm type={homePage} />
+      <ReusableForm type={authPage} />
     </div>
   );
 };

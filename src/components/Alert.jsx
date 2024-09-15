@@ -1,10 +1,8 @@
-import { useGlobalContext } from "../context";
+import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 
 const Alert = () => {
-  const {
-    alert: { msg },
-  } = useGlobalContext();
+  const {alert: {msg}} = useSelector(state => state.global)
 
   return (
     <motion.div

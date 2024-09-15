@@ -1,13 +1,5 @@
 import axios from "axios";
-
-export const getToken = (name) => {
-  const retrieveToken = localStorage.getItem(name);
-  if (!retrieveToken) {
-    console.log("no token found for", name);
-  }
-  const token = JSON.parse(retrieveToken);
-  return token;
-};
+import { addItemToLs, getItemFromLs } from "../ls";
 
 // const controller = new AbortController();
 
@@ -22,12 +14,11 @@ const customAxios = axios.create({
 
 customAxios.interceptors.request.use(
   async (req) => {
-    const accessToken = getToken("accessToken");
+    const accessToken = getItemFromLs("accessToken");
 
     if (accessToken) {
       req.headers.Authorization = `Bearer ${accessToken}`;
     }
-    // console.log("the request", req);
     return req;
   },
   (err) => {
@@ -53,7 +44,7 @@ customAxios.interceptors.response.use(
       // }
 
       try {
-        const refreshToken = getToken("refreshToken");
+        const refreshToken = getItemFromLs("refreshToken");
         const {
           data: { access: accessToken, refresh: newRefreshToken },
         } = await axios.post("/api/token/refresh/", {
@@ -61,8 +52,8 @@ customAxios.interceptors.response.use(
         });
         // console.log(data)
 
-        localStorage.setItem("accessToken", JSON.stringify(accessToken));
-        localStorage.setItem("refreshToken", JSON.stringify(refreshToken));
+        addItemToLs("accessToken", accessToken);
+        addItemToLs("refreshToken", refreshToken);
         // // update axios instance
         originalRequest.headers["Authorization"] = `Bearer ${accessToken}`;
         return customAxios(originalRequest);

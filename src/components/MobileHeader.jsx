@@ -1,27 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
 import Btn from "./Btn";
 import MobileNav from "./MobileNav";
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getLoggedInUser } from "../lib/actions/login";
-import { getToken } from "../lib/actions/customAxios";
+import { useDispatch } from "react-redux";
+import { changeAuthPage } from "../store/slices/global-slice";
+import { getItemFromLs } from "../lib/ls";
 
 const MobileHeader = () => {
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const fetchLoggedInUser = async () => {
-      try {
-        const loggedInUser = await getLoggedInUser();
-        console.log(loggedInUser);
-        setUser(loggedInUser)
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchLoggedInUser();
-  }, []);
+  const dispatch = useDispatch();
+
+  const [user, setUser] = useState(getItemFromLs("user") || null);
   const { pathname } = useLocation();
+
   return (
     <header className="mobile-header h-16">
       {pathname !== "/schedule-ride" && <MobileNav />}
@@ -41,18 +32,21 @@ const MobileHeader = () => {
                 </div>
               </Link>
               <Link to={`/profile/${user?.id}`}>
-                <div className="size-5">
-                  <img src={`/avatars/passenger.svg`} alt="notification" />
+                <div className="size-8 flex-center text-xl font-bold rounded-full bg-eco-green-dark text-white font-josefin">
+                  {user.fullname[0]}
                 </div>
+                {/* <div className="size-5">
+                  <img src={`/avatars/passenger.svg`} alt="notification" />
+                </div> */}
               </Link>
             </div>
           ) : (
             <Btn
-              text={user?.name || "Sign Up"}
+              text="Sign Up"
               size="sm"
-              to="/authentication"
+              to="/authentication/register"
               handleClick={() => {
-                Dispatch("changeHomePage", { homePage: "main" });
+                dispatch(changeAuthPage("register"));
               }}
             />
           )}

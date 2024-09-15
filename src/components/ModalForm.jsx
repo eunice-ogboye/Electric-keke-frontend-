@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Btn from "./Btn";
 import { useNavigate } from "react-router-dom";
-import { useGlobalContext } from "../context";
+import { useDispatch } from "react-redux";
+import { toggleModal } from "../store/slices/global-slice";
 
 const getPrice = async (action, time) => {
   return new Promise((resolve) => {
@@ -38,8 +39,8 @@ const ModalFormInput = ({
 };
 
 const ModalForm = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { dispatch } = useGlobalContext();
   const [modalFormData, setModalFormData] = useState({
     location: "",
     destination: "",
@@ -56,7 +57,7 @@ const ModalForm = () => {
       await getPrice(() => setPrice(true), 5000);
       return;
     }
-    dispatch({ type: "modal", payload: { modal: false } });
+    dispatch(toggleModal(false))
     navigate("/riders");
   };
   return (

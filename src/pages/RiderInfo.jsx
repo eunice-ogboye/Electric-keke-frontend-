@@ -1,4 +1,3 @@
-import { useGlobalContext } from "../context";
 import Rate from "../components/Rate";
 import React, { useEffect, useState } from "react";
 import Btn from "../components/Btn";
@@ -18,19 +17,17 @@ const fetchAcceptance = (order, time) => {
 
 const RiderInfo = () => {
   // const { switchRiderTitle, ridersTitle } = useOutletContext();
+  const [rider, setRider] = useState(
+    JSON.parse(localStorage.getItem("rider")) || null
+  );
   const navigate = useNavigate();
-  const [waiting, setWaiting] = useState(false);
-  const {
-    Dispatch,
-    globalState: { rider },
-  } = useGlobalContext();
 
-  useEffect(() => {
-    const getRider = localStorage.getItem("rider");
-    if (getRider !== null) {
-      Dispatch("rider", { rider: JSON.parse(getRider) });
-    }
-  }, []);
+  // useEffect(() => {
+  //   const getRider = localStorage.getItem("rider");
+  //   if (getRider !== null) {
+  //     Dispatch("rider", { rider: JSON.parse(getRider) });
+  //   }
+  // }, []);
 
   const acceptance = () => {
     setWaiting(true);
@@ -133,8 +130,8 @@ const RiderInfo = () => {
             </div>
 
             <div className="mt-4 md:hidden">
-            <Btn size="full" text="Request Ride" handleClick={acceptance} />
-          </div>
+              <Btn size="full" text="Request Ride" handleClick={acceptance} />
+            </div>
           </div>
         </div>
       </div>

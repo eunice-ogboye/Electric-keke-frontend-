@@ -19,19 +19,20 @@ import {
 } from "./pages";
 import { Boarding } from "./shared-layout";
 import { Modal } from "./components";
-import { useGlobalContext } from "./context";
 import "leaflet/dist/leaflet.css";
 import Alert from "./components/Alert";
 import { AnimatePresence } from "framer-motion";
 import Admin from "./pages/Admin";
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./pages/Private";
+import Verification from "./pages/Verification";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 function App() {
   const {
-    globalState: { modal },
     alert: { show },
-  } = useGlobalContext();
+    modal,
+  } = useSelector((state) => state.global);
 
   return (
     <>
@@ -45,7 +46,17 @@ function App() {
           <Route path="/earn-with-us" element={<Earn />} />
           <Route path="/support" element={<Support />} />
           <Route path="/authentication" element={<Boarding />}>
-            <Route index element={<Account />} />
+            <Route path="register-as" element={<Account />} />
+            <Route
+              path="verification"
+              element={
+                <ErrorBoundary
+                  fallback={<div className="flex-center">Some erro</div>}
+                >
+                  <Verification />
+                </ErrorBoundary>
+              }
+            />
             <Route path=":id" element={<Template />} />
             <Route path="driver-auth" element={<DriverAuth />} />
           </Route>

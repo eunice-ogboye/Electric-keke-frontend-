@@ -1,12 +1,13 @@
 import React, { useRef, useState } from "react";
 import { Heading } from ".";
 import Btn from "./Btn";
-import { useGlobalContext } from "../context";
 import ModalForm from "./ModalForm";
 import Rate from "./Rate";
 import { useNavigate } from "react-router-dom";
 import Map from "./Map";
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleModal } from "../store/slices/global-slice";
 
 const getAvatars = (content) => {
   return content === "ride"
@@ -23,13 +24,13 @@ const getAvatars = (content) => {
 };
 
 const Modal = () => {
+  const dispatch = useDispatch();
+  const { modal, modalContent } = useSelector((state) => state.global);
+  //
   const navigate = useNavigate();
+  // ref
   const modalContainer = useRef(null);
-  const {
-    dispatch,
-    Dispatch,
-    globalState: { modalContent, modal },
-  } = useGlobalContext();
+  //states
   const [content, setContent] = useState(0);
   const [rate, setRate] = useState(0);
   const [comment, setComment] = useState(false);
@@ -61,7 +62,7 @@ const Modal = () => {
       console.log("yes click is within the modalref");
       return;
     }
-    Dispatch("modal", { modal: false });
+    dispatch(toggleModal(false));
   };
 
   return (
@@ -96,14 +97,6 @@ const Modal = () => {
         }  bg-white rounded-xl relative`}
         ref={modalContainer}
       >
-        {/* {content === 1 && (
-          <Btn
-            type="cancel"
-            handleClick={() =>
-              dispatch({ type: "modal", payload: { modal: false } })
-            }
-          />
-        )} */}
         {modalContent === "rate" ? (
           <div className="">
             {!comment && (
@@ -224,7 +217,7 @@ const Modal = () => {
                     }
                     type="secondary"
                     handleClick={() => {
-                      Dispatch("modal", { modal: false });
+                      dispatch(toggleModal(false))
                       navigate("/schedule-ride");
                     }}
                   />

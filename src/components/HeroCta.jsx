@@ -1,22 +1,28 @@
 import { useNavigate } from "react-router-dom";
 import { support_links } from "../constants";
-import { useGlobalContext } from "../context";
 import Btn from "./Btn";
 import Togglers from "./Togglers";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  changeAuthPage,
+  changeModalContent,
+  chooseSupport,
+} from "../store/slices/global-slice";
 
 const HeroCta = ({ type }) => {
   const navigate = useNavigate();
-  const {
-    globalState: { homePage, support, supportOption },
-    Dispatch,
-  } = useGlobalContext();
+  // redux dispatch and globals
+  const dispatch = useDispatch();
+  const { support, supportOption } = useSelector((state) => state.global);
 
-  const setModalWithAction = (content) => {
-    Dispatch("modalContent", { modalContent: content });
+  // change modal content
+  const alterModalContent = (content) => {
+    dispatch(changeModalContent(content));
   };
 
-  const setSupport = (key) => {
-    Dispatch("support", { support: key });
+  // what kind of support
+  const whatSupport = (key) => {
+    dispatch(chooseSupport(key));
   };
 
   return (
@@ -27,10 +33,11 @@ const HeroCta = ({ type }) => {
             text={type === "main" ? "Book a Ride" : "Register"}
             handleClick={() => {
               if (type === "earn") {
-                Dispatch("changeHomePage", { homePage: "driver-auth" });
+                dispatch(changeAuthPage("driver-auth"));
+                // Dispatch("changeHomePage", { homePage: "driver-auth" });
                 return navigate("/authentication/driver-auth");
               }
-              setModalWithAction("ride");
+              alterModalContent("ride");
             }}
           />
           {type === "main" && (
@@ -38,7 +45,7 @@ const HeroCta = ({ type }) => {
               text="Request For Delivery"
               type="secondary"
               handleClick={() => {
-                setModalWithAction("delivery");
+                alterModalContent("delivery");
               }}
             />
           )}
@@ -49,8 +56,8 @@ const HeroCta = ({ type }) => {
             text1="Faq"
             text2="Contact Us"
             isConditionTrue={support === "faq"}
-            handleClick1={() => setSupport("faq")}
-            handleClick2={() => setSupport("contact")}
+            handleClick1={() => whatSupport("faq")}
+            handleClick2={() => whatSupport("contact")}
             color="color1"
           />
 
@@ -64,7 +71,7 @@ const HeroCta = ({ type }) => {
                   type={supportOption === item ? "default" : "rider"}
                 />
               );
-          })}
+            })}
           </div>
         </div>
       )}

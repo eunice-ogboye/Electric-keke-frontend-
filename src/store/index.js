@@ -1,10 +1,14 @@
-import {configureStore} from '@reduxjs/toolkit'
-import userReducer from './slices/user-slice'
+import { configureStore } from "@reduxjs/toolkit";
+import userReducer from "./slices/user-slice";
+import globalSlice from "./slices/global-slice";
+import formDataSlice from "./slices/form-data-slice";
 
 const store = configureStore({
   reducer: {
-    user: userReducer
-  }
-})
+    user: userReducer,
+    global: globalSlice,
+    formData: formDataSlice,
+  },
+});
 
-export default store
+export default store;

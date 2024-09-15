@@ -3,11 +3,12 @@ import Btn from "../components/Btn";
 import DeliveryProcess, {
   DeliveryProcessLine,
 } from "../components/DeliveryProcess";
-import { useGlobalContext } from "../context";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { changeModalContent } from "../store/slices/global-slice";
 
 const Tracking = () => {
-  const { Dispatch } = useGlobalContext();
+  const dispatch = useDispatch();
   return (
     <section className="home-pad py-5">
       <header className="flex items-center gap-2">
@@ -35,8 +36,12 @@ const Tracking = () => {
                 </div>
                 <div className="flex items-center justify-between  mt-2 md:mt-0 w-[72%]">
                   <div>
-                    <p className="text-xl md:text-[28px] font-bold">Harrison David</p>
-                    <p className="text-sm md:text-eiteen text-neutral">On his way...</p>
+                    <p className="text-xl md:text-[28px] font-bold">
+                      Harrison David
+                    </p>
+                    <p className="text-sm md:text-eiteen text-neutral">
+                      On his way...
+                    </p>
                   </div>
 
                   <div className="w-[88px] lg:w-[123px] flex items-center justify-between">
@@ -84,9 +89,12 @@ const Tracking = () => {
                 <div className="bg-eco-green-faint flex-center h-[56px] w-[179px] text-eiteen font-bold rounded-[10px]">
                   #3000
                 </div>
-                <Btn text="Cancel Ride" handleClick={() => {
-                  Dispatch('modalContent', {modalContent: "rate"})
-                }} />
+                <Btn
+                  text="Cancel Ride"
+                  handleClick={() => {
+                    dispatch(changeModalContent("rate"));
+                  }}
+                />
               </div>
             </div>
           </div>

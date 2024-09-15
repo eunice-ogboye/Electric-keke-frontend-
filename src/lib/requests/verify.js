@@ -1,6 +1,7 @@
+import { changeAuthPage } from "../../store/slices/global-slice";
 import axios from "axios";
 
-const verification = async (otp, showAlert, switchTypeNavigate) => {
+const verification = async (otp, showAlert) => {
   // will change this later
   const identity = localStorage.getItem("userId");
   const id = JSON.parse(identity);
@@ -11,18 +12,15 @@ const verification = async (otp, showAlert, switchTypeNavigate) => {
       id,
       otp,
     });
-    console.log(data);
-    showAlert("", detail);
-    switchTypeNavigate("congrats", "/authentication/success");
+    showAlert(detail);
     localStorage.removeItem("userId");
   } catch (error) {
     const {
       data: { detail },
     } = error.response;
-    showAlert("", detail || "verification failed");
+    showAlert(detail || "verification failed");
   } finally {
     // localStorage.removeItem('userId');
-    switchTypeNavigate("congrats", "/authentication/success");
   }
 };
 
