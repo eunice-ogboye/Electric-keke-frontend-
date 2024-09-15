@@ -4,12 +4,35 @@ import FormRow from "../components/FormRow";
 import SearchBar from "../components/SearchBar";
 import Togglers from "../components/Togglers";
 import { Section } from "../shared-layout";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import Btn from "../components/Btn";
 import Map from "../components/Map";
+import generateTime from "../utils/generateTime";
+import CustomSelectItem from "../components/CustomSelectItem";
+import generateCount from "../utils/generateCount";
 
 const Schedule = () => {
-  const [schedule, setSchedule] = useState("ride");
+  const [scheduleType, setScheduleType] = useState("ride");
+
+  const [scheduleFormData, setScheduleFormData] = useState({
+    rider: "",
+    booking_type: scheduleType,
+    origin: "",
+    destination: "",
+    price: "",
+    package_details: "",
+  });
+
+  const time = useCallback(() => {
+    return generateTime();
+  }, [scheduleType]);
+
+  const handleChange = (e) => {
+    setScheduleFormData({
+      ...scheduleFormData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   return (
     <Section darkLogo={true}>
@@ -20,9 +43,9 @@ const Schedule = () => {
         <Togglers
           text1="Rides"
           text2="Delivery"
-          isConditionTrue={schedule === "ride"}
-          handleClick1={() => setSchedule("ride")}
-          handleClick2={() => setSchedule("delivery")}
+          isConditionTrue={scheduleType === "ride"}
+          handleClick1={() => setScheduleType("ride")}
+          handleClick2={() => setScheduleType("delivery")}
           color="color2"
           font="font-nunito"
         />
@@ -49,14 +72,18 @@ const Schedule = () => {
           onSubmit={(e) => e.preventDefault()}
         >
           <FormRow
-            name="location"
+            name="origin"
             label="Enter Your Location"
             formRowContainer="font-inter"
+            value={scheduleFormData.origin}
+            handleChange={handleChange}
           />
           <FormRow
             name="destination"
             label="Enter Your Destination"
             formRowContainer="font-inter"
+            value={scheduleFormData.destination}
+            handleChange={handleChange}
           />
           <FormRow
             label="Select Date"
@@ -70,17 +97,28 @@ const Schedule = () => {
                 placeholder="00:00"
                 label="Time"
                 formRowContainer="font-inter"
+                children={<CustomSelectItem items={generateTime()} />}
               />
             }
           />
           <FormRow
             label={
-              schedule === "ride" ? "Number of Passengers" : "Number of Goods"
+              scheduleType === "ride"
+                ? "Number of Passengers"
+                : "Number of Goods"
             }
-            children={<SelectInput placeholder="01" label="Time" />}
+            children={
+              <SelectInput
+                placeholder="01"
+                label={
+                  scheduleType === "ride" ? "total persons" : "total goods"
+                }
+                children={<CustomSelectItem items={generateCount()} />}
+              />
+            }
             formRowContainer="font-inter"
           />
-          {schedule === "ride" ? (
+          {scheduleType === "ride" ? (
             <FormRow
               label="Share a Ride"
               children={
@@ -117,7 +155,7 @@ const Schedule = () => {
                       Your Location
                     </p>
                     <p className="text-eiteen flex flex-col justify-center h-[46px] font-nunito">
-                      No. 1 karuga housing, new extension, kaduna.
+                      {scheduleFormData.origin || "ojodu berger"}
                     </p>
                   </div>
                   <div>
@@ -125,7 +163,8 @@ const Schedule = () => {
                       Destination
                     </p>
                     <p className="text-eiteen flex flex-col justify-center h-[46px] font-nunito">
-                      Colab innovation hub, barnawa kaduna
+                      {scheduleFormData.destination ||
+                        "Colab innovation hub, barnawa kaduna"}
                     </p>
                   </div>
                 </div>
