@@ -16,7 +16,7 @@ import requestOtp from "../lib/requests/auth/otp-request";
 import { addUser } from "../store/slices/user-slice";
 import { addItemToLs, getItemFromLs } from "../lib/ls";
 import { changeInputValue, setFormData } from "../store/slices/form-data-slice";
-import FormInputs from "./formInputs/FormInputs";
+import FormInputs from "./FormInputs";
 import {
   alertUser,
   changeAuthPage,

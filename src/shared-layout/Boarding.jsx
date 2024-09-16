@@ -1,15 +1,19 @@
 import { briefs, onboardingImages } from "../constants";
 import Overlay from "../components/Overlay";
-import React from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useTitle } from "../lib/hooks";
 import CustomBg from "../components/CustomBg";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import { getItemFromLs } from "../lib/ls";
 
 const Boarding = () => {
   useTitle("Authentication");
   // redux globals
-  const { authPage } = useSelector((state) => state.global);
+  // const { authPage } = useSelector((state) => state.global);
+  const [authPage, setAuthPage] = useState(
+    getItemFromLs("authPage") || "start"
+  );
 
   return (
     <section className="flex">
@@ -19,7 +23,7 @@ const Boarding = () => {
             <img src="/cancel.svg" alt="cancel" />
           </div>
 
-          {authPage === ("start" || "verification") ? (
+          {authPage === ("start" || "otpMethod" || "forget") ? (
             <>
               <Overlay className="overlay" />
               <img
@@ -30,7 +34,11 @@ const Boarding = () => {
             </>
           ) : (
             <CustomBg
-              children={<h1 className="briefing">{briefs[authPage]}</h1>}
+              children={
+                <div className="w-[320px] lg:w-[501px] mx-auto">
+                  <h1 className="briefing">{briefs[authPage]}</h1>
+                </div>
+              }
             />
           )}
         </div>

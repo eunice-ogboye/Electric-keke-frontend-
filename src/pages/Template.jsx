@@ -16,7 +16,7 @@ const Template = () => {
   }, []);
 
   return (
-    <div className="board-pad w-full my-dell:w-1/2">
+    <div className="board-pad w-full md:w-1/2">
       <ReusableForm type={authPage} />
     </div>
   );

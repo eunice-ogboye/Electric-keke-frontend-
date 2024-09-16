@@ -1,12 +1,12 @@
 import React from "react";
-import FormRow from "../FormRow";
-import { otp_choice } from "../../constants";
+import FormRow from "./FormRow";
+import { otp_choice } from "../constants";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { alertUser, hideAlert } from "../../store/slices/global-slice";
-import OtpInput from "../OtpInput";
-import { changeInputValue } from "../../store/slices/form-data-slice";
-import registerUser from "../../lib/requests/auth/register-user";
+import { alertUser, hideAlert } from "../store/slices/global-slice";
+import OtpInput from "./OtpInput";
+import { changeInputValue } from "../store/slices/form-data-slice";
+import registerUser from "../lib/requests/auth/register-user";
 
 const FormInputs = ({ type, formData, handleChange, handleOtpType }) => {
   const dispatch = useDispatch();
@@ -38,12 +38,11 @@ const FormInputs = ({ type, formData, handleChange, handleOtpType }) => {
                   try {
                     await registerUser(formData);
                     navigate("/authentication/verification");
-                    showAlert('Otp Sent for verification')
+                    showAlert("Otp Sent for verification");
                   } catch (error) {
-                    console.log(error)
+                    console.log(error);
                     // showAlert(error)
                   }
-                  // dispatch(changeAuthPage("verification"));
                 }}
               >
                 <div>
