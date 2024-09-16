@@ -111,7 +111,7 @@ h2 {
 }
 
 .briefing {
-  @apply text-white font-bold text-xl lg:text-[2rem] md:leading-[24px] font-montserrat;
+  @apply text-white font-bold text-xl lg:text-[2rem] leading-[24px] lg:leading-[2rem] font-montserrat;
 }
 
 .home-pad {
