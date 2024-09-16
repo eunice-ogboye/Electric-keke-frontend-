@@ -36,6 +36,7 @@ const registerUser = async (formData) => {
     const { data } = error.response;
     const dataValues = Object.values(data);
     console.log(dataValues);
+    console.log(error);
     throw new Error("Problem i am tired");
   }
 };
