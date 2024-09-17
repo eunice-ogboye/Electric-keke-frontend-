@@ -8,6 +8,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 const Riders = () => {
   // const navigate = useNavigate();
   const [ridersTitle, setRidersTitle] = useState("Available Riders");
+  
   const switchRiderTitle = (title) => {
     setRidersTitle(title);
   };

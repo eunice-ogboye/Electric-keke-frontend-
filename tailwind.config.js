@@ -37,7 +37,7 @@ module.exports = {
         josefin: ["Josefin Sans", "sans-serif"],
         montserrat: ["Montserrat", "sans-serif"],
         inter: ["Inter", "system-ui"],
-        nunito: ["Nunito", 'system-ui'],
+        nunito: ["Nunito", "system-ui"],
       },
       fontSize: {
         eiteen: "1.125rem",
@@ -109,6 +109,7 @@ module.exports = {
         peach: "#EDA14580",
         info: "#0A0B0A1A",
         tertiary: "#F5F5F5",
+        silver: "#768EA9",
       },
       borderRadius: {
         20: "20px",

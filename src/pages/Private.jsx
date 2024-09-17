@@ -5,6 +5,7 @@ import { getItemFromLs } from "../lib/ls";
 
 const ProtectedRoute = () => {
   const [user, setUser] = useState(getItemFromLs("user") || null);
+  console.log(user, "from private route");
 
   return user ? <Outlet context={user} /> : <Navigate to="/" />;
 };

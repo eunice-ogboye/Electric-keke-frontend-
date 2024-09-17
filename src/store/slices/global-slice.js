@@ -1,16 +1,17 @@
-import { addItemToLs } from "../../lib/ls";
+import { add } from "date-fns";
+import { addItemToLs, getItemFromLs } from "../../lib/ls";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   alert: { show: false, msg: "alert" },
-  authPage: "start",
+  authPage: getItemFromLs("authPage") || "",
   driverAuthProcess: "Identity",
   modal: false,
   modalContent: "ride",
   rider: null,
   support: "faq",
   supportOption: "General",
-  registerAs: "Passenger",
+  registerAs: "",
   verificationType: "activate",
 };
 
@@ -20,6 +21,7 @@ const globalSlice = createSlice({
   reducers: {
     riderSelection(state, action) {
       const rider = action.payload;
+      addItemToLs("rider", rider);
       return { ...state, rider };
     },
     alertUser(state, action) {
@@ -57,6 +59,7 @@ const globalSlice = createSlice({
     },
     changeRegistryMethod(state, action) {
       const registerAs = action.payload;
+      addItemToLs("registeringAs", registerAs);
       return { ...state, registerAs };
     },
     driveAuth(state, action) {

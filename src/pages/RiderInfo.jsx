@@ -6,6 +6,10 @@ import { Heading } from "../components";
 import reviews from "../mockData/reviews";
 import { motion } from "framer-motion";
 import Loader from "../assets/svg/Loader";
+import { getItemFromLs } from "../lib/ls";
+import { useDispatch, useSelector } from "react-redux";
+import bookEcoRide from "../lib/requests/booking/book-eco-ride";
+import { alertUser, hideAlert } from "../store/slices/global-slice";
 
 const fetchAcceptance = (order, time) => {
   return new Promise((resolve) => {
@@ -16,25 +20,37 @@ const fetchAcceptance = (order, time) => {
 };
 
 const RiderInfo = () => {
-  // const { switchRiderTitle, ridersTitle } = useOutletContext();
-  const [rider, setRider] = useState(
-    JSON.parse(localStorage.getItem("rider")) || null
-  );
+  const dispatch = useDispatch();
+  const showAlert = (msg) => {
+    dispatch(alertUser(msg));
+    setTimeout(() => {
+      dispatch(hideAlert());
+    }, 5000);
+  };
+  const [waiting, setWaiting] = useState(false);
+  const [rider, setRider] = useState(getItemFromLs("rider") || null);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const getRider = localStorage.getItem("rider");
-  //   if (getRider !== null) {
-  //     Dispatch("rider", { rider: JSON.parse(getRider) });
-  //   }
-  // }, []);
+  // const acceptance = async () => {
+  //   setWaiting(true);
+  //   fetchAcceptance(() => {
+  //     setWaiting(false);
+  //     navigate("/tracking");
+  //   }, 5000);
+  // };
 
-  const acceptance = () => {
-    setWaiting(true);
-    fetchAcceptance(() => {
-      setWaiting(false);
-      navigate("/tracking");
-    }, 5000);
+  const submitBooking = async () => {
+    const bookData = getItemFromLs("book-data");
+    console.log(bookData, "from submit");
+    try {
+      const { data } = await bookEcoRide(bookData);
+      setWaiting(true);
+      showAlert("Give us a moment");
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+      showAlert(`Error Booking Ride with Rider ${rider.name}`);
+    }
   };
 
   return waiting ? (
@@ -77,7 +93,7 @@ const RiderInfo = () => {
           </div>
 
           <div className="mt-4 hidden md:block">
-            <Btn size="full" text="Request Ride" handleClick={acceptance} />
+            <Btn size="full" text="Request Ride" handleClick={submitBooking} />
           </div>
         </div>
 
@@ -130,7 +146,11 @@ const RiderInfo = () => {
             </div>
 
             <div className="mt-4 md:hidden">
-              <Btn size="full" text="Request Ride" handleClick={acceptance} />
+              <Btn
+                size="full"
+                text="Request Ride"
+                handleClick={submitBooking}
+              />
             </div>
           </div>
         </div>

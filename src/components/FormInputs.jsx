@@ -31,17 +31,20 @@ const FormInputs = ({ type, formData, handleChange, handleOtpType }) => {
                 key={item.title}
                 className="px-4 py-2 flex items-center border-2"
                 onMouseOver={() => {
+                  console.log(item.title)
                   handleOtpType(item.title.toLowerCase());
                 }}
                 onClick={async () => {
-                  console.log(formData);
+                  // console.log(formData);
                   try {
                     await registerUser(formData);
-                    navigate("/authentication/verification");
                     showAlert("Otp Sent for verification");
+                    navigate("/authentication/verification");
                   } catch (error) {
-                    console.log(error);
-                    // showAlert(error)
+                    showAlert(error.message)
+                    // showAlert("Something dae wrong")
+                    // this is here for development purpos
+                    // navigate("/authentication/verification");
                   }
                 }}
               >

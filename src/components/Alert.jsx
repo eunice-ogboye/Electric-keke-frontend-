@@ -11,8 +11,8 @@ const Alert = () => {
       exit={{ y: -200, opacity: 0 }}
       className="flex items-center justify-between fixed top-5 md:top-20 right-3 md:right-20 shadow-2xl border border-eco-neutral-border p-5 z-[200] rounded-lg bg-white"
     >
-      <div className="flex items-center gap-2 md:gap-0 justify-between md:w-[338px]">
-        <p>{msg}</p>
+      <div className="flex items-center gap-2 md:gap-0 justify-between md:min-w-[338px]">
+        <p className="mr-4">{msg}</p>
         <div className="rounded-full bg-eco-green-dark size-7 flex-center">
           <img src="/tick.svg" alt="tick" className="size-5" />
         </div>

@@ -8,12 +8,17 @@ import {
   changeModalContent,
   chooseSupport,
 } from "../store/slices/global-slice";
+import { updateBookingData } from "../store/slices/bookride-slice";
 
 const HeroCta = ({ type }) => {
   const navigate = useNavigate();
   // redux dispatch and globals
   const dispatch = useDispatch();
   const { support, supportOption } = useSelector((state) => state.global);
+
+  const chooseHowToRide = (key, value) => {
+    dispatch(updateBookingData({ key, value }));
+  };
 
   // change modal content
   const alterModalContent = (content) => {
@@ -34,10 +39,10 @@ const HeroCta = ({ type }) => {
             handleClick={() => {
               if (type === "earn") {
                 dispatch(changeAuthPage("driver-auth"));
-                // Dispatch("changeHomePage", { homePage: "driver-auth" });
                 return navigate("/authentication/driver-auth");
               }
               alterModalContent("ride");
+              chooseHowToRide("booking_type", "ride");
             }}
           />
           {type === "main" && (
@@ -46,6 +51,7 @@ const HeroCta = ({ type }) => {
               type="secondary"
               handleClick={() => {
                 alterModalContent("delivery");
+                chooseHowToRide("booking_type", "delivery");
               }}
             />
           )}

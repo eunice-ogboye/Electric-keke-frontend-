@@ -25,7 +25,10 @@ const getAvatars = (content) => {
 
 const Modal = () => {
   const dispatch = useDispatch();
-  const { modal, modalContent } = useSelector((state) => state.global);
+  const {
+    bookData,
+    global: { modal, modalContent },
+  } = useSelector((state) => state);
   //
   const navigate = useNavigate();
   // ref
@@ -217,7 +220,7 @@ const Modal = () => {
                     }
                     type="secondary"
                     handleClick={() => {
-                      dispatch(toggleModal(false))
+                      dispatch(toggleModal(false));
                       navigate("/schedule-ride");
                     }}
                   />

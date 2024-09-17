@@ -1,7 +1,8 @@
-import { addItemToLs } from "../../../lib/ls";
+import { addItemToLs, deletItemFromLs, getItemFromLs } from "../../../lib/ls";
 import { axiosCustomizedRequest } from "../axiosCustomized";
 
 const registerUser = async (formData) => {
+  const role = getItemFromLs("registeringAs");
   const {
     fullname,
     email,
@@ -12,7 +13,7 @@ const registerUser = async (formData) => {
     address,
     message_type,
   } = formData;
-  console.log(formData);
+
   try {
     const { data } = await axiosCustomizedRequest({
       url: "/auth/register-user/",
@@ -21,7 +22,7 @@ const registerUser = async (formData) => {
         fullname,
         address: address,
         state_of_residence: state,
-        role: "User",
+        role,
         email,
         phone,
         password,
@@ -32,12 +33,19 @@ const registerUser = async (formData) => {
 
     console.log(data);
     addItemToLs("userId", data.id);
+    // wont delete register as it is needed to detemine verification
+    // deletItemFromLs("registerAs");
   } catch (error) {
     const { data } = error.response;
-    const dataValues = Object.values(data);
-    console.log(dataValues);
-    console.log(error);
-    throw new Error("Problem i am tired");
+    const dataValues = Object.keys(data);
+    let constructedMsg = "";
+    dataValues.forEach((item) => {
+      if (item === "phone" || item === "email") {
+        constructedMsg += ` ${item},`;
+      }
+    });
+    constructedMsg += " has been used";
+    throw new Error(constructedMsg);
   }
 };
 

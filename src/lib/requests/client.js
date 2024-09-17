@@ -7,9 +7,12 @@ const client = axios.create({
 
 export const clientRequest = async ({ ...options }) => {
   console.log(options);
+
   const accessToken = getItemFromLs("accessToken");
   client.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+
   const onSuccess = (res) => res;
+
   const onError = (err) => {
     console.log(err);
 
@@ -25,7 +28,7 @@ export const clientRequest = async ({ ...options }) => {
 
         const {
           data: { access: accessToken, refresh: newRefreshToken },
-        } = axios.post("/api/auth/token/refresh");
+        } = axios.post("/api/auth/token/refresh/");
         const isTheSame = refreshToken === newRefreshToken;
         
         console.log(isTheSame, "is the old rt and new rt same?");
@@ -41,9 +44,11 @@ export const clientRequest = async ({ ...options }) => {
           .catch((err) => console.log(err));
       } catch (error) {
         console.log(error);
+
         deletItemFromLs("accessToken");
         deletItemFromLs("refreshToken");
         deletItemFromLs("user");
+
         return Promise.reject(err);
       }
     }

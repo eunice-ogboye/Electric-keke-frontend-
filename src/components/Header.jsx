@@ -17,6 +17,19 @@ const Header = ({ darkLogo }) => {
       <div className="header-container">
         <Logo main dark={darkLogo} />
         <NavBar dark={darkLogo} />
+
+        {!user && (
+          <Link
+            to="/authentication/login"
+            onClick={() => {
+              dispatch(changeAuthPage("login"));
+            }}
+            className="text-white"
+          >
+            Login
+          </Link>
+        )}
+
         {user ? (
           <div className="flex items-center gap-3">
             <Link to="/notification">
@@ -36,9 +49,9 @@ const Header = ({ darkLogo }) => {
         ) : (
           <Btn
             text="Sign Up"
-            to="/authentication/register"
+            to="/authentication/register-as"
             handleClick={() => {
-              dispatch(changeAuthPage("register"));
+              dispatch(changeAuthPage("start"));
             }}
           />
         )}

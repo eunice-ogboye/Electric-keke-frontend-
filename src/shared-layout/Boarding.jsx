@@ -5,25 +5,36 @@ import { Outlet } from "react-router-dom";
 import { useTitle } from "../lib/hooks";
 import CustomBg from "../components/CustomBg";
 // import { useSelector } from "react-redux";
-import { getItemFromLs } from "../lib/ls";
+import { clearLs, getItemFromLs } from "../lib/ls";
+import { useSelector } from "react-redux";
+import { Button } from "../components/ui/button";
+import { ShieldCloseIcon, XIcon } from "lucide-react";
+import Btn from "../components/Btn";
 
 const Boarding = () => {
   useTitle("Authentication");
   // redux globals
-  // const { authPage } = useSelector((state) => state.global);
-  const [authPage, setAuthPage] = useState(
-    getItemFromLs("authPage") || "start"
-  );
+  const { authPage } = useSelector((state) => state.global);
+
+  console.log(authPage);
 
   return (
     <section className="flex">
       {authPage === "driver-auth" ? null : (
         <div className="board">
-          <div className="cancel-btn">
-            <img src="/cancel.svg" alt="cancel" />
-          </div>
+          <Btn
+            to="/"
+            icon={<XIcon />}
+            handleClick={() => {
+              clearLs();
+            }}
+            className="cancel-btn"
+          />
+          {/* <Button className="cancel-btn p-0" onClick={() =>}>
+            <XIcon color="black" />
+          </Button> */}
 
-          {authPage === ("start" || "otpMethod" || "forget") ? (
+          {authPage === "start" ? (
             <>
               <Overlay className="overlay" />
               <img

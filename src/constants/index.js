@@ -12,8 +12,10 @@ const briefs = {
     "Sign up to start your eco-friendly journey with EcoRide. Join us in making transportation greener and more efficient. Your adventure towards a sustainable future begins here!",
   complete:
     "Complete your profile to unlock the full EcoRide experience. Help us personalize your journey and enhance your eco-friendly rides.",
-  otpMethod: "Choose where you will like to receive your OTP, via Phone number or Gmail. This step helps secure your EcoRide account.",
-  verification: "Enter the OTP sent to your phone to verify your account. This ensures your Eco-Ride is secure and personalized. your safety is our priority.",
+  otpMethod:
+    "Choose where you will like to receive your OTP, via Phone number or Gmail. This step helps secure your EcoRide account.",
+  verification:
+    "Enter the OTP sent to your phone to verify your account. This ensures your Eco-Ride is secure and personalized. your safety is our priority.",
   congrats:
     "Congratulations on successfully signing up for EcoRide! please proceed to login and start your eco-friendly journey with us.",
   login:
@@ -26,7 +28,7 @@ const briefs = {
 };
 
 const otp_choice = [
-  { title: "Phone", icon: "/phone.svg" },
+  { title: "Sms", icon: "/phone.svg" },
   { title: "Email", icon: "/email.svg" },
 ];
 
@@ -179,7 +181,7 @@ const contribution = {
 
 const nav_links = [
   { title: "Home", href: "/" },
-  { title: "About", href: "#about" },
+  { title: "About", href: "/about" },
   { title: "Earn With Us", href: "/earn-with-us" },
   { title: "Support", href: "/support" },
 ];
@@ -218,7 +220,59 @@ const hero_descriptions = {
     " Have a question or need assistance? Our support team is ready to help you with any issue, big or smal",
 };
 
+const admin_pages = [
+  { title: "Overview", href: "/admin", icon: "/users/overview.svg" },
+  {
+    title: "User Management",
+    href: "user-management",
+    icon: "/users/user-management.svg",
+  },
+  {
+    title: "Financial Management",
+    href: "financial-management",
+    icon: "/users/finance.svg",
+  },
+  {
+    title: "Settings",
+    href: "settings",
+    icon: "/users/setting.svg",
+  },
+];
+
+const user_dashboard = [
+  {
+    title: "Active Users",
+    analysisDigits: 2399,
+    percent: 20,
+    icon: "/users/users.svg",
+    // iconBg: "bg-red-500",
+  },
+  {
+    title: "Total Rides",
+    analysisDigits: "3000",
+    percent: 20,
+    icon: "/users/rides.svg",
+    // iconBg: "bg-yellow-500",
+  },
+  {
+    title: "Total Deliveries",
+    analysisDigits: 298,
+    percent: 20,
+    icon: "/users/deliveries.svg",
+    // iconBg: "bg-eco-green",
+  },
+  {
+    title: "Disabled Users",
+    analysisDigits: 22,
+    percent: 20,
+    icon: "/users/disabled.svg",
+    // iconBg: "bg-eco-neutral-faint",
+  },
+];
+
 export {
+  user_dashboard,
+  admin_pages,
   account_types,
   onboardingImages,
   briefs,

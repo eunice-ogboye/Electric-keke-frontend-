@@ -1,8 +1,15 @@
 import { useState } from "react";
 import Btn from "./Btn";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { toggleModal } from "../store/slices/global-slice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  alertUser,
+  changeAuthPage,
+  hideAlert,
+  toggleModal,
+} from "../store/slices/global-slice";
+import { updateBookingData } from "../store/slices/bookride-slice";
+import { getItemFromLs } from "../lib/ls";
 
 const getPrice = async (action, time) => {
   return new Promise((resolve) => {
@@ -40,26 +47,51 @@ const ModalFormInput = ({
 
 const ModalForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const [modalFormData, setModalFormData] = useState({
-    location: "",
-    destination: "",
-  });
-  const [price, setPrice] = useState(false);
+  const { origin, destination, price } = useSelector((state) => state.bookData);
 
-  const handleChange = (e) =>
-    setModalFormData({ ...modalFormData, [e.target.name]: e.target.value });
-  const isDisabled = !modalFormData.location || !modalFormData.destination;
+  const showAlert = (msg) => {
+    dispatch(alertUser(msg));
+    setTimeout(() => {
+      dispatch(hideAlert())
+    }, 5000);
+  };
+
+  const navigate = useNavigate();
+  const [showPrice, setShowPrice] = useState(false);
+
+  const handleChange = (e) => {
+    const key = e.target.name;
+    const value = e.target.value;
+    dispatch(updateBookingData({ key, value }));
+  };
+
+  const isDisabled = !origin || !destination;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!price) {
-      await getPrice(() => setPrice(true), 5000);
+    if (!showPrice) {
+      showAlert('Getting price estimate')
+      await getPrice(() => {
+        let price = `${Math.floor(Math.random() * 3000)}`;
+        dispatch(updateBookingData({ key: "price", value: price }));
+        setShowPrice(true);
+      }, 5000);
       return;
     }
-    dispatch(toggleModal(false))
-    navigate("/riders");
+    try {
+      const user = getItemFromLs("user");
+      if (!user) {
+        throw new Error("Open an accont");
+      }
+      navigate("/riders");
+    } catch (error) {
+      showAlert("Login to book a ride");
+    } finally {
+      console.log("me");
+      dispatch(toggleModal(false));
+    }
   };
+
   return (
     <form
       className="max-w-[520px] mx-auto mt-6 flex flex-col gap-[13px]"
@@ -67,24 +99,26 @@ const ModalForm = () => {
     >
       <ModalFormInput
         placeholder="Input Pick up address"
-        name="location"
-        value={modalFormData.location}
+        name="origin"
+        value={origin}
         handleChange={handleChange}
         showTarget
       />
       <ModalFormInput
         placeholder="Drop off location"
         name="destination"
-        value={modalFormData.destination}
+        value={destination}
         handleChange={handleChange}
       />
-      {price && (
+
+      {showPrice && (
         <div className="h-10 md:h-[59px] py-4 px-5 rounded-md bg-eco-green-faint flex items-center justify-between">
-          <p>#3000</p>
+          <p>#{price}</p>
         </div>
       )}
+
       <Btn
-        text={price ? "Proceed" : "Confirm"}
+        text={showPrice ? "Proceed" : "Confirm"}
         size="full"
         disabled={isDisabled}
       />

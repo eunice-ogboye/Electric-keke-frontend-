@@ -18,4 +18,6 @@ const deletItemFromLs = (key) => {
   localStorage.removeItem(key);
 };
 
-export { getItemFromLs, addItemToLs, deletItemFromLs };
+const clearLs = () => localStorage.clear();
+
+export { getItemFromLs, addItemToLs, deletItemFromLs, clearLs };

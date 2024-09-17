@@ -3,19 +3,15 @@ import Logo from "./Logo";
 import Heading from "./Heading";
 import FormRow from "./FormRow";
 import { useState } from "react";
-// import { Button } from "./ui/button";
 import { Link, useNavigate } from "react-router-dom";
-import { formTitle, otp_choice } from "../constants";
+import { formTitle } from "../constants";
 import { useDispatch, useSelector } from "react-redux";
 import { cn } from "../lib/utils";
 import Btn from "./Btn";
-import OtpInput from "./OtpInput";
 import loginUser from "../lib/requests/login";
-import verification from "../lib/requests/verify";
 import requestOtp from "../lib/requests/auth/otp-request";
-import { addUser } from "../store/slices/user-slice";
 import { addItemToLs, getItemFromLs } from "../lib/ls";
-import { changeInputValue, setFormData } from "../store/slices/form-data-slice";
+import { changeInputValue } from "../store/slices/form-data-slice";
 import FormInputs from "./FormInputs";
 import {
   alertUser,
@@ -23,7 +19,6 @@ import {
   changeVerificationType,
   hideAlert,
 } from "../store/slices/global-slice";
-import verifyOtp from "../lib/requests/auth/otp-verification";
 import resetPassword from "../lib/requests/auth/reset-password";
 
 const getDescription = (type) => {
@@ -78,11 +73,11 @@ const ReusableForm = ({ type = "register" }) => {
     setActive(true);
   };
 
-  useEffect(() => {
-    const data = getItemFromLs("formData");
-    // dispatch(setFormData(data));
-    console.log(data);
-  }, []);
+  // useEffect(() => {
+  //   const data = getItemFromLs("formData");
+  //   // dispatch(setFormData(data));
+  //   console.log(data);
+  // }, []);
 
   useEffect(() => {
     const {
@@ -113,10 +108,10 @@ const ReusableForm = ({ type = "register" }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { password, checkPass, otpValue, username, email } = formData;
+    const { password, checkPass, username, email } = formData;
     switch (type) {
       case "register":
-        console.log("who");
+        // check password matches
         const passwordMatches = password === checkPass;
         if (!passwordMatches) {
           showAlert("password unmatch");
@@ -147,7 +142,7 @@ const ReusableForm = ({ type = "register" }) => {
         }
 
       case "new":
-        console.log(username);
+        // console.log(username);
         try {
           const { detail } = await resetPassword({
             username,
@@ -199,9 +194,9 @@ const ReusableForm = ({ type = "register" }) => {
             <Btn
               text="Proceed"
               size="full"
-              to="/authentication/register-as"
+              to="/authentication/login"
               handleClick={() => {
-                dispatch(changeAuthPage("register-as"));
+                dispatch(changeAuthPage("login"));
               }}
             />
             <div className="text-sm flex-center gap-1 mt-[14px]">

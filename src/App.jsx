@@ -22,11 +22,16 @@ import { Modal } from "./components";
 import "leaflet/dist/leaflet.css";
 import Alert from "./components/Alert";
 import { AnimatePresence } from "framer-motion";
-import Admin from "./pages/Admin";
+// import Admin from "./pages/Admin";
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./pages/Private";
 import Verification from "./pages/Verification";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
+import AdminLayout from "./shared-layout/AdminLayout";
+import Overview from "./components/Admin/Overview";
+import UserManagement from "./components/Admin/UserManagement";
+import FinancialManagement from "./components/Admin/FinancialManagement";
+import { Link } from "react-router-dom";
 
 function App() {
   const {
@@ -45,6 +50,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/earn-with-us" element={<Earn />} />
           <Route path="/support" element={<Support />} />
+          
           <Route path="/authentication" element={<Boarding />}>
             <Route path="register-as" element={<Account />} />
             <Route
@@ -60,6 +66,7 @@ function App() {
             <Route path=":id" element={<Template />} />
             <Route path="driver-auth" element={<DriverAuth />} />
           </Route>
+          {/* protected routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/driver/:id" element={<Driver />} />
             <Route path="/schedule-ride" element={<Schedule />} />
@@ -72,8 +79,33 @@ function App() {
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/customer-care" element={<CustomerCare />} />
-            <Route path="/admin" element={<Admin />} />
           </Route>
+          {/* protected routes */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Overview />} />
+            <Route path="user-management" element={<UserManagement />} />
+            <Route
+              path="financial-management"
+              element={<FinancialManagement />}
+            />
+            <Route
+              path="settings"
+              element={
+                <div className="flex-center">Will You be working on this</div>
+              }
+            />
+          </Route>
+          <Route
+            path="*"
+            element={
+              <div className="w-full h-screen flex-center flex-col">
+                <p className="text-2xl font-bold">Not Found...</p>
+                <Link to="/" className="text-eco-green">
+                  Go Back to Home
+                </Link>
+              </div>
+            }
+          />
         </Routes>
       </div>
     </>

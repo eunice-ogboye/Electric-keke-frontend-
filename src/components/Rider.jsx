@@ -3,7 +3,9 @@ import Rate from "./Rate";
 import Btn from "./Btn";
 
 const Rider = ({
+  _id,
   name,
+  // email,
   rating,
   plate_number,
   color,
@@ -34,7 +36,7 @@ const Rider = ({
             </p>
             <Btn
               text="View Details"
-              to={name + plate_number}
+              to={name + _id}
               size="rider"
               type="rider"
               handleClick={handleClick}

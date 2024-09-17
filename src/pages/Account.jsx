@@ -20,12 +20,12 @@ const Account = () => {
     dispatch(changeRegistryMethod(type));
   };
 
-  useEffect(() => {
-    dispatch(changeAuthPage("start"));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(changeAuthPage("start"));
+  // }, []);
 
   return (
-    <div className="board-pad w-full my-dell:w-1/2">
+    <div className="board-pad w-full md:w-1/2">
       <p className="text-right font-josefin text-base">
         Already have an account?{" "}
         <Link
@@ -46,18 +46,13 @@ const Account = () => {
         <div className="mt-10 space-y-6">
           {account_types.map((item) => (
             <Link
-              to={
-                item.title === "Passenger" ? "/" : "/authentication/driver-auth"
-              }
+              to="/authentication/register"
               key={item.title}
               onClick={() => {
-                const { title } = item;
-                if (title === "Passenger") {
-                  dispatch(changeAuthPage(null));
-                } else {
-                  dispatch(changeAuthPage("driver-auth"));
-                  // registrationMethod(item.title);
-                }
+                const registeringAs =
+                  item.title === "Passenger" ? "User" : "Rider";
+                registrationMethod(registeringAs);
+                dispatch(changeAuthPage("register"));
               }}
             >
               <div

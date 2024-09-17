@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
+import { XIcon } from "lucide-react";
 
 const Btn = ({
   text,
@@ -11,6 +12,7 @@ const Btn = ({
   fixed,
   to,
   icon,
+  className
 }) => {
   const sizing = {
     default: "h-12 md:h-14 min-w-[134px] md:min-w-[171px]",
@@ -19,7 +21,8 @@ const Btn = ({
     md: "h-8 w-[123px]",
     "md-full": "h-8 w-full",
     lg: "",
-    rider: "lg:w-[135px] lg:h-[34px] md:w-[91.4pxpx] md:h-[22.64px] h-[18px] w-[75px] text-[0.625rem]",
+    rider:
+      "lg:w-[135px] lg:h-[34px] md:w-[91.4pxpx] md:h-[22.64px] h-[18px] w-[75px] !text-[0.625rem]",
     driver: "h-[34px] w-[95px] md:h-14 md:w-[171px]",
     search: "w-[93px] h-[38px] text-xs",
     none: "h-fit w-fit",
@@ -53,7 +56,7 @@ const Btn = ({
     return (
       <Link
         to={to}
-        className={`${sizing[size]} ${rounding[radius]} ${variants[type]} text-eiteen text-white font-medium flex-center font-montserrat`}
+        className={className || `${sizing[size]} ${rounding[radius]} ${variants[type]} text-eiteen text-white font-medium flex-center font-montserrat`}
         onClick={handleClick}
       >
         {icon && icon} {text}
@@ -65,11 +68,13 @@ const Btn = ({
     return (
       <Button
         className={`rounded-full size-5  p-1 ${
-          fixed ? 'bg-transparent size-10' : "absolute top-2 right-2 bg-eco-neutral-prime/40"
+          fixed
+            ? "bg-transparent size-10"
+            : "absolute top-2 right-2 bg-eco-neutral-prime/40"
         }`}
         onClick={handleClick}
       >
-        <img src="/cancel.svg" alt="cancel" />
+        <XIcon color="black" />
       </Button>
     );
   };
