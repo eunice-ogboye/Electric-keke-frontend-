@@ -1,5 +1,5 @@
 import axios from "axios";
-import { addItemToLs, deletItemFromLs, getItemFromLs } from "../ls";
+import { addItemToLs, clearLs, deletItemFromLs, getItemFromLs } from "../ls";
 
 const client = axios.create({
   baseURL: "/api",
@@ -9,12 +9,15 @@ export const clientRequest = async ({ ...options }) => {
   console.log(options);
 
   const accessToken = getItemFromLs("accessToken");
+  console.log(accessToken)
   client.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
   const onSuccess = (res) => res;
 
   const onError = (err) => {
+    console.log("...........onError...............");
     console.log(err);
+    console.log("...........onError...............");
 
     const originalRequest = err.config;
     const status = err.response.status;
@@ -30,7 +33,7 @@ export const clientRequest = async ({ ...options }) => {
           data: { access: accessToken, refresh: newRefreshToken },
         } = axios.post("/api/auth/token/refresh/");
         const isTheSame = refreshToken === newRefreshToken;
-        
+
         console.log(isTheSame, "is the old rt and new rt same?");
 
         // update tokens in ls
@@ -45,15 +48,13 @@ export const clientRequest = async ({ ...options }) => {
       } catch (error) {
         console.log(error);
 
-        deletItemFromLs("accessToken");
-        deletItemFromLs("refreshToken");
-        deletItemFromLs("user");
+        clearLs();
 
         return Promise.reject(err);
       }
     }
-    // what action do we want to take
-    return err;
+    
+    throw new Error('request error')
   };
   return client(options).then(onSuccess).catch(onError);
 };

@@ -27,9 +27,15 @@ const loginUser = async (formData, showAlert) => {
     addItemToLs("refreshToken", refreshToken);
     // user
     const user = await showMe();
+    const { role, id } = user;
     addItemToLs("user", user);
     // alert success
     showAlert("login successfull");
+    return role === "User"
+      ? "/"
+      : role === "Rider"
+      ? `/driver/${id}`
+      : "/admin";
   } catch (error) {
     console.log(error);
     const {

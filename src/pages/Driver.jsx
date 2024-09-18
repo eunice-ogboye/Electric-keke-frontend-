@@ -1,3 +1,4 @@
+import ReBarCharts from "../components/ReBarCharts";
 import { ToggleStats } from "../components";
 import BarChart from "../components/BarChart";
 import DoughnutChart from "../components/DoughnutChart";
@@ -95,7 +96,8 @@ const Driver = () => {
                   <p className="font-bold">Ride & Delivery Performance</p>
 
                   <div className="h-[158px] w-[295px]">
-                    <BarChart />
+                    {/* <BarChart /> */}
+                    <ReBarCharts />
                   </div>
                   <div className="w-[252px] flex items-center gap-1">
                     <p className="text-2xl font-bold">30%</p>

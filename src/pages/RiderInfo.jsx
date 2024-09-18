@@ -4,18 +4,21 @@ import Btn from "../components/Btn";
 import { useNavigate } from "react-router-dom";
 import { Heading } from "../components";
 import reviews from "../mockData/reviews";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 import Loader from "../assets/svg/Loader";
 import { getItemFromLs } from "../lib/ls";
 import { useDispatch, useSelector } from "react-redux";
-import bookEcoRide from "../lib/requests/booking/book-eco-ride";
+import bookRide from "../lib/requests/booking/bookRide";
 import { alertUser, hideAlert } from "../store/slices/global-slice";
 
-const fetchAcceptance = (order, time) => {
+const fetchAcceptance = (order, time, cancel) => {
   return new Promise((resolve) => {
-    setTimeout(() => {
+    const timing = setTimeout(() => {
       resolve(order());
     }, time);
+    cancel = () => {
+      clearTimeout(timing);
+    };
   });
 };
 
@@ -31,6 +34,57 @@ const RiderInfo = () => {
   const [rider, setRider] = useState(getItemFromLs("rider") || null);
   const navigate = useNavigate();
 
+  const parentVariant = {
+    out: {
+      x: 200,
+      opacity: 0,
+    },
+    enter: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        when: "beforeChildren",
+        duration: 2,
+        stagerChildren: 3,
+      },
+    },
+    leave: { x: -200, opacity: 0 },
+  };
+
+  const pictureContainer = {
+    out: { scale: 0, opacity: 0 },
+    enter: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.75,
+        delay: 0.2,
+      },
+    },
+  };
+  const reviewContainer = {
+    out: { opacity: 0 },
+    enter: {
+      opacity: 1,
+      transition: {
+        duration: 0.75,
+        delayChildren: 0.2,
+        staggerChildren: 0.65,
+      },
+    },
+  };
+  const reviewContainerChildren = {
+    out: { opacity: 0, y: 200 },
+    enter: (custom) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        delay: custom * 0.35,
+      },
+    }),
+  };
+
   // const acceptance = async () => {
   //   setWaiting(true);
   //   fetchAcceptance(() => {
@@ -39,32 +93,35 @@ const RiderInfo = () => {
   //   }, 5000);
   // };
 
+  useEffect(() => {
+    console.log(rider);
+  }, []);
+
   const submitBooking = async () => {
+    setWaiting(true);
     const bookData = getItemFromLs("book-data");
-    console.log(bookData, "from submit");
+    // console.log(bookData, "from submit");
     try {
-      const { data } = await bookEcoRide(bookData);
-      setWaiting(true);
-      showAlert("Give us a moment");
-      console.log(data);
+      const { data } = await bookRide(bookData);
+      showAlert("Ride Booking Succefull, Wait a moment");
+      // console.log(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       showAlert(`Error Booking Ride with Rider ${rider.name}`);
     }
   };
 
   return waiting ? (
     <motion.div
-      initial={{
-        y: 1000,
-      }}
-      animate={{ y: 0 }}
+      initial={{ y: 1000, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 3 } }}
       className="bg-white w-full py-20 z-50 h-[calc(100vh-20vh)]"
     >
       <div>
         <div className="w-fit h-fit mx-auto">
-          <Loader size={153} />
+          {/* <Loader size={153} /> */}
+          <img src="/loaders/loading.gif" />
         </div>
 
         <Heading
@@ -81,13 +138,25 @@ const RiderInfo = () => {
       </div>
     </motion.div>
   ) : (
-    <div className="relative">
-      <div className="md:flex mt-7 rider-info">
-        <div className="w-full max-w-[510px] justify-between">
+    <motion.div
+      initial="out"
+      animate="enter"
+      exit="leave"
+      transition={{ duration: 0.65, type: "just" }}
+      variants={parentVariant}
+      className="relative"
+    >
+      <motion.div className="md:flex mt-7 rider-info">
+        <motion.div
+          initial="out"
+          animate="enter"
+          variants={pictureContainer}
+          className="w-full max-w-[510px] justify-between"
+        >
           <div className="w-full h-[440px] md:h-[630px]">
             <img
-              src={rider?.photo}
-              alt={rider?.name}
+              src={rider?.photo || "/persons/rider1.png"}
+              alt={rider?.fullname}
               className="size-full rounded-normal object-center object-cover"
             />
           </div>
@@ -95,28 +164,45 @@ const RiderInfo = () => {
           <div className="mt-4 hidden md:block">
             <Btn size="full" text="Request Ride" handleClick={submitBooking} />
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-full max-w-[588px] md:ml-[102px] pt-3">
-          <div className="w-full max-w-96 h-fit md:h-[174px]">
+        <motion.div className="w-full max-w-[588px] md:ml-[102px] pt-3">
+          <motion.div className="w-full max-w-96 h-fit md:h-[174px]">
             <div>
               <p className="text-2xl font-montserrat">
-                License plate: {rider?.plate_number}
+                License plate: {rider?.plate_number || "lkj-238"}
               </p>
               <p className="text-2xl mt-4 font-montserrat">
-                Keke Color: {rider?.color}
+                Keke Color: {rider?.color || "yellow"}
               </p>
             </div>
 
-            <Rate rate={rider?.rating} statik big className="mt-2 md:mt-10" />
-          </div>
+            <Rate
+              rate={rider?.rating || 2}
+              statik
+              big
+              className="mt-2 md:mt-10"
+            />
+          </motion.div>
 
-          <div className="mt-5 md:mt-10">
-            <h2 className="font-bold">Review</h2>
+          <motion.div className="mt-5 md:mt-10">
+            <motion.h2 className="font-bold">Review</motion.h2>
 
-            <div className="space-y-2 mt-2 md:mt-6">
-              {reviews.map((item) => (
-                <div key={item.name} className="p-[15px] space-y-1">
+            <motion.div
+              initial="out"
+              animate="enter"
+              variants={reviewContainer}
+              className="space-y-2 mt-2 md:mt-6"
+            >
+              {reviews.map((item, index) => (
+                <motion.div
+                  initial="out"
+                  animate="enter"
+                  variants={reviewContainerChildren}
+                  key={item.name}
+                  custom={index}
+                  className="p-[15px] space-y-1"
+                >
                   <div className="flex items-center gap-[10px]">
                     <div className="size-[40px] rounded-full">
                       <img src={item.photo} alt={item.name} />
@@ -141,9 +227,9 @@ const RiderInfo = () => {
                       {item.createdAt}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             <div className="mt-4 md:hidden">
               <Btn
@@ -152,10 +238,10 @@ const RiderInfo = () => {
                 handleClick={submitBooking}
               />
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 

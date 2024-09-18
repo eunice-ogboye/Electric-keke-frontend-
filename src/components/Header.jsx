@@ -18,18 +18,6 @@ const Header = ({ darkLogo }) => {
         <Logo main dark={darkLogo} />
         <NavBar dark={darkLogo} />
 
-        {!user && (
-          <Link
-            to="/authentication/login"
-            onClick={() => {
-              dispatch(changeAuthPage("login"));
-            }}
-            className="text-white"
-          >
-            Login
-          </Link>
-        )}
-
         {user ? (
           <div className="flex items-center gap-3">
             <Link to="/notification">

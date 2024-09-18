@@ -1,6 +1,6 @@
 import { clientRequest } from "../client";
 
-const bookEcoRide = async ({ ...bookingData }) => {
+const bookRide = async ({ ...bookingData }) => {
   console.log(bookingData)
   try {
     const { data } = await clientRequest({
@@ -18,4 +18,4 @@ const bookEcoRide = async ({ ...bookingData }) => {
   }
 };
 
-export default bookEcoRide;
+export default bookRide;

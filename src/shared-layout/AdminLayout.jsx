@@ -6,21 +6,25 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import BoardManagement from "../components/Admin/BoardManagement";
 import Filter from "../components/Filter";
+import Analytics from "../components/Admin/Analytics";
+import { getItemFromLs } from "../lib/ls";
 
 const AdminLayout = () => {
   const [currentAdminPage, setCurrentAdminPage] = useState("Overview");
   const [usersToShow, setUsersToShow] = useState("All");
+  const [user] = useState(getItemFromLs('user'))
 
   const showUsers = (whoAre) => {
     setUsersToShow((prev) => (prev === whoAre ? "All" : whoAre));
   };
+
   const changeAdminPage = (to) => {
     setCurrentAdminPage(to);
   };
 
   return (
     <section>
-      <header className="flex items-center justify-between h-[104px] px-20">
+      <header className="flex items-center justify-between h-[104px] pl-8 pr-[7.75rem]">
         <Logo className="w-[84px] h-[56px]" />
 
         <div className="flex items-center justify-between gap-x-9">
@@ -41,7 +45,7 @@ const AdminLayout = () => {
                 />
               </div>
               <div>
-                <p className="font-bold text-sm">John Doe</p>
+                <p className="font-bold text-sm">{user.fullname}</p>
                 <p className="text-sm">Admin</p>
               </div>
             </div>
@@ -53,25 +57,30 @@ const AdminLayout = () => {
         </div>
       </header>
 
-      <div className="flex items-start gap-x-10 px-20">
+      <div className="flex items-start gap-x-10">
         <AdminSideBar
           currentAdminPage={currentAdminPage}
           changeAdminPage={changeAdminPage}
         />
 
-        <div className="w-[calc(100vw-297px)]">
-          <BoardManagement />
+        <div className="w-[calc(100vw-297px)] pr-[7.75rem]">
+          {currentAdminPage !== "Financial Management" && <BoardManagement />}
           <div className="flex items-center justify-between mt-8">
             <div className="border">
               <h3 className="text-4xl font-extrabold text-silver">
                 {currentAdminPage === "Overview"
                   ? "Dashboard Overview"
-                  : "Manage Users"}
+                  : currentAdminPage === "User Management"
+                  ? "Manage Users"
+                  : "Financial Management"}
               </h3>
+
               <p className="text-base">
                 {currentAdminPage === "Overview"
                   ? "Manage users and track activities"
-                  : "Manage Users"}
+                  : currentAdminPage === "User Management"
+                  ? "Manage Users"
+                  : "Keep Track with finance"}
               </p>
             </div>
 
@@ -93,6 +102,9 @@ const AdminLayout = () => {
               />
             </div>
           </div>
+
+          {(currentAdminPage === "Overview" ||
+            currentAdminPage === "Financial Management") && <Analytics />}
 
           <Outlet context={{ usersToShow }} />
         </div>

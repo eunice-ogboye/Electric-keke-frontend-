@@ -8,10 +8,3 @@ export const useTitle = (title) => {
   }, [title]);
 };
 
-// export const useFormType = (type) => {
-//   const dispatch = useDispatch();
-
-//   useEffect(() => {
-//     dispatch({ type: "changeHomePage", payload: { imageType: type } });
-//   }, [type]);
-// };

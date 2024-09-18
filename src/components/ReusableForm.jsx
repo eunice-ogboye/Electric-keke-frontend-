@@ -20,6 +20,7 @@ import {
   hideAlert,
 } from "../store/slices/global-slice";
 import resetPassword from "../lib/requests/auth/reset-password";
+import { useGlobalAuthContext } from "../contexts/AuthContext";
 
 const getDescription = (type) => {
   return type === "verification"
@@ -42,6 +43,7 @@ const formClassName = (type) => {
 };
 
 const ReusableForm = ({ type = "register" }) => {
+  const { AuthenticateLogin } = useGlobalAuthContext();
   // redux globals and dispatch func
   const formData = useSelector((state) => state.formData);
   const dispatch = useDispatch();
@@ -162,8 +164,9 @@ const ReusableForm = ({ type = "register" }) => {
 
       case "login":
         try {
-          await loginUser(formData, showAlert);
-          return changeAuthenticationPageAndRoute("/", null);
+          const data = await loginUser(formData, showAlert);
+          AuthenticateLogin();
+          return changeAuthenticationPageAndRoute(data, null);
         } catch (error) {
           console.log(error);
           return;

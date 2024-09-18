@@ -1,23 +1,21 @@
 import { DatePicker } from "../components/DatePicker";
 import { Section } from "../shared-layout";
 import { SelectInput } from "../components/SelectInput";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Btn from "../components/Btn";
 import FormRow from "../components/FormRow";
 import logoutUser from "../lib/requests/logout";
 import { Button } from "../components/ui/button";
-import { LogOut, LogOutIcon } from "lucide-react";
-import { getItemFromLs } from "../lib/ls";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  alertUser,
-  changeAuthPage,
-  hideAlert,
-} from "../store/slices/global-slice";
-import { useNavigate } from "react-router-dom";
-import deleteUser from "../lib/requests/deleteUser";
+import { LogOutIcon } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { alertUser, hideAlert } from "../store/slices/global-slice";
+import { useGlobalAuthContext } from "../contexts/AuthContext";
+import { useOutletContext } from "react-router-dom";
 
 const Profile = () => {
+  const { AuthenticateLogout } = useGlobalAuthContext();
+  const { user } = useOutletContext;
+
   const dispatch = useDispatch();
   const showAlert = (msg) => {
     dispatch(alertUser(msg));
@@ -25,9 +23,6 @@ const Profile = () => {
       dispatch(hideAlert());
     }, 3000);
   };
-  const navigate = useNavigate();
-
-  const [user, setUser] = useState(getItemFromLs("user") || null);
 
   const [profileFormData, setProfileFormData] = useState({
     firstname: "",
@@ -60,11 +55,9 @@ const Profile = () => {
             className="size-10 p-0 rounded-full flex-center absolute top-0 left-0 bg-emerald-900"
             onClick={async () => {
               try {
-                // await deleteUser();
                 await logoutUser(showAlert);
                 showAlert("Logout Succesfull");
-                dispatch(changeAuthPage("login"));
-                navigate("/authentication/login");
+                AuthenticateLogout();
               } catch (error) {
                 console.log(error);
               }

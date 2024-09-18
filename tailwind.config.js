@@ -105,6 +105,7 @@ module.exports = {
         },
         "base-white": "#FAFAFA",
         head: "#5CAE5C",
+        error: "#C03744",
         warning: "#EDA145",
         peach: "#EDA14580",
         info: "#0A0B0A1A",

@@ -3,8 +3,8 @@ import Rate from "./Rate";
 import Btn from "./Btn";
 
 const Rider = ({
-  _id,
-  name,
+  id,
+  fullname,
   // email,
   rating,
   plate_number,
@@ -18,14 +18,17 @@ const Rider = ({
       <div className="size-full">
         <img
           src={photo}
-          alt={name}
+          alt={fullname}
           className="size-full object-cover object-center"
         />
       </div>
       <div className="rider-overlay">
         <div className="flex flex-col justify-between h-full">
-          <h2 className="font-bold text-eco-white !text-base md:!text-[2rem]">{name}</h2>
+
+          <h2 className="font-bold text-eco-white !text-base md:!text-[2rem]">{fullname}</h2>
+
           <Rate rate={rating} statik />
+
           <p className="text-[0.625rem] md:text-eiteen text-eco-white font-montserrat">
             Licence Plate: {plate_number}
           </p>
@@ -34,9 +37,10 @@ const Rider = ({
             <p className="text-[0.625rem] md:text-eiteen  text-eco-white font-montserrat">
               Keke Color: {color}
             </p>
+
             <Btn
               text="View Details"
-              to={name + _id}
+              to={fullname + id}
               size="rider"
               type="rider"
               handleClick={handleClick}

@@ -8,6 +8,7 @@ const initialState = {
   driverAuthProcess: "Identity",
   modal: false,
   modalContent: "ride",
+  riders: getItemFromLs('riders') || [],
   rider: null,
   support: "faq",
   supportOption: "General",
@@ -19,6 +20,11 @@ const globalSlice = createSlice({
   name: "global",
   initialState,
   reducers: {
+    ridersListing(state, action) {
+      const riders = action.payload;
+      addItemToLs('riders', riders);
+      return { ...state, riders };
+    },
     riderSelection(state, action) {
       const rider = action.payload;
       addItemToLs("rider", rider);
@@ -74,6 +80,7 @@ const globalSlice = createSlice({
 });
 
 export const {
+  ridersListing,
   hideAlert,
   alertUser,
   changeAuthPage,

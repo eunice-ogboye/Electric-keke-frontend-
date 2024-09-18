@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import CountUp from "react-countup";
 
 const Board = ({ title, icon, analysisDigits, percent, iconBg }) => {
   return (
@@ -17,7 +18,7 @@ const Board = ({ title, icon, analysisDigits, percent, iconBg }) => {
       </div>
 
       <div className="mt-6">
-        <h2 className="text-5xl font-extrabold">{analysisDigits}</h2>
+        <h2 className="text-5xl font-extrabold"><CountUp end={analysisDigits} start={0} duration={5} /></h2>
         <p className="text-xs">
           <span className="text-eco-green">+{percent}%</span> from last month
         </p>

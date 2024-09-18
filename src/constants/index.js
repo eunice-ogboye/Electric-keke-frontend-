@@ -220,7 +220,7 @@ const hero_descriptions = {
     " Have a question or need assistance? Our support team is ready to help you with any issue, big or smal",
 };
 
-const admin_pages = [
+const admin_nav_links = [
   { title: "Overview", href: "/admin", icon: "/users/overview.svg" },
   {
     title: "User Management",
@@ -270,9 +270,61 @@ const user_dashboard = [
   },
 ];
 
+const finance_management_tablehead = [
+  {
+    title: "Transaction No",
+    tableClass: "col-span-2 px-2",
+  },
+  {
+    title: "Status",
+    tableClass: "col-span-1 justify-self-center px-2",
+  },
+  {
+    title: "Name",
+    tableClass: "col-span-3 justify-self-start px-2",
+  },
+  {
+    title: "Date",
+    tableClass: "col-span-1 justify-self-start px-2",
+  },
+  {
+    title: "Rides",
+    tableClass: "col-span-1 justify-self-start px-2",
+  },
+  {
+    title: "Action",
+    tableClass: "col-span-1 px-2",
+  },
+];
+
+const user_management_tablehead = [
+  {
+    title: "User Id",
+    tableClass: "col-span-1",
+  },
+  {
+    title: "Name",
+    tableClass: "col-span-3 justify-self-start",
+  },
+  {
+    title: "Sign Up Date",
+    tableClass: "col-span-2 justify-self-start",
+  },
+  {
+    title: "Status",
+    tableClass: "col-span-2 justify-self-start",
+  },
+  {
+    title: "Action",
+    tableClass: "col-span-1",
+  },
+];
+
 export {
+  finance_management_tablehead,
   user_dashboard,
-  admin_pages,
+  user_management_tablehead,
+  admin_nav_links,
   account_types,
   onboardingImages,
   briefs,
