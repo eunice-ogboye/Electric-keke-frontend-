@@ -1,4 +1,3 @@
-import React from "react";
 import DisplayTable from "../components/Admin/DisplayTable";
 import Pagination from "../components/Admin/Pagination";
 import { useOutletContext } from "react-router-dom";
