@@ -6,11 +6,12 @@ import { Button } from "./ui/button";
 import { useDispatch } from "react-redux";
 import { alertUser, hideAlert } from "../store/slices/global-slice";
 
-const AdminSideBar = ({ changeAdminPage }) => {
+const AdminSideBar = ({ setCurrentAdminPage }) => {
   const { pathname } = useLocation();
   const activeLink = pathname.slice(7);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  
   const showAlert = (msg) => {
     dispatch(alertUser(msg));
     setTimeout(() => {
@@ -19,7 +20,7 @@ const AdminSideBar = ({ changeAdminPage }) => {
   };
 
   return (
-    <aside className="w-[297px] mt-[77px] min-h-screen pb-20 flex flex-col items-center">
+    <aside className="admin-siderbar">
       <div className="min-h-full">
         <div className="mt-8 flex flex-col gap-2 min-h-[calc(100vh-96px)]">
           {admin_nav_links.map((item, index) => {
@@ -28,7 +29,7 @@ const AdminSideBar = ({ changeAdminPage }) => {
             return (
               <Link
                 to={item.href}
-                onClick={() => changeAdminPage(item.title)}
+                onClick={() => setCurrentAdminPage(item.title)}
                 key={item.title}
               >
                 <div

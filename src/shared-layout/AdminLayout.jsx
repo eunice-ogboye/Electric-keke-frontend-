@@ -8,34 +8,31 @@ import BoardManagement from "../components/Admin/BoardManagement";
 import Filter from "../components/Filter";
 import Analytics from "../components/Admin/Analytics";
 import { getItemFromLs } from "../lib/ls";
+import { overview_titles, overview_descriptions } from "../constants";
 
-const AdminLayout = ({children}) => {
+const AdminLayout = () => {
   const [currentAdminPage, setCurrentAdminPage] = useState("Overview");
-  const [usersToShow, setUsersToShow] = useState("All");
-  const [user] = useState(getItemFromLs('user'))
+  const [contentsToDisplay, setContentsToDisplay] = useState("All");
+  const [user] = useState(getItemFromLs("user"));
 
   const showUsers = (whoAre) => {
-    setUsersToShow((prev) => (prev === whoAre ? "All" : whoAre));
-  };
-
-  const changeAdminPage = (to) => {
-    setCurrentAdminPage(to);
+    setContentsToDisplay((prev) => (prev === whoAre ? "All" : whoAre));
   };
 
   return (
     <section>
-      <header className="flex items-center justify-between h-[104px] pl-8 pr-[7.75rem]">
+      <header className="admin-header">
         <Logo className="w-[84px] h-[56px]" />
 
         <div className="flex items-center justify-between gap-x-9">
-          <div className="size-9 flex-center">
+          <div className="admin-icon">
             <SearchIcon />
           </div>
-          <div className="size-9 flex-center">
+          <div className="admin-icon">
             <Bell />
           </div>
 
-          <div className="w-[150px] p-1 border rounded-full flex items-center justify-between">
+          <div className="admin-info">
             <div className="flex items-center gap-1">
               <div className="size-9 rounded-full">
                 <img
@@ -60,36 +57,28 @@ const AdminLayout = ({children}) => {
       <div className="flex items-start gap-x-10">
         <AdminSideBar
           currentAdminPage={currentAdminPage}
-          changeAdminPage={changeAdminPage}
+          changeAdminPage={setCurrentAdminPage}
         />
 
-        <div className="w-[calc(100vw-297px)] pr-[7.75rem]">
+        <div className="overview">
           {currentAdminPage !== "Financial Management" && <BoardManagement />}
-          <div className="flex items-center justify-between mt-8">
+
+          <div className="overview-info">
             <div className="border">
-              <h3 className="text-4xl font-extrabold text-silver">
-                {currentAdminPage === "Overview"
-                  ? "Dashboard Overview"
-                  : currentAdminPage === "User Management"
-                  ? "Manage Users"
-                  : "Financial Management"}
+              <h3 className="overview-title">
+                {overview_titles[currentAdminPage]}
               </h3>
 
               <p className="text-base">
-                {currentAdminPage === "Overview"
-                  ? "Manage users and track activities"
-                  : currentAdminPage === "User Management"
-                  ? "Manage Users"
-                  : "Keep Track with finance"}
+                {overview_descriptions[currentAdminPage]}
               </p>
             </div>
 
             <div className="flex items-center gap-x-3">
-              <div className="flex-center border rounded-[12px] py-2 px-3 gap-x-2">
-                <p className="font-inter text-base text-eco-neutral-thick">
+              <div className="export-action">
+                <p className="export-text">
                   Export
                 </p>
-
                 <div>
                   <img src="/admin-down.svg" alt="down" />
                 </div>
@@ -106,7 +95,7 @@ const AdminLayout = ({children}) => {
           {(currentAdminPage === "Overview" ||
             currentAdminPage === "Financial Management") && <Analytics />}
 
-          <Outlet context={{ usersToShow }} />
+          <Outlet context={{ contentsToDisplay }} />
         </div>
       </div>
     </section>

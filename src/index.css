@@ -63,6 +63,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground font-montserrat;
   }
@@ -160,8 +161,7 @@ h2 {
 }
 
 .flexible {
-  filter: drop-shadow(0 132px 132px rgba(0, 0, 0, 0.09))
-    drop-shadow(0 297px 178px rgba(0, 0, 0, 0.05));
+  filter: drop-shadow(0 132px 132px rgba(0, 0, 0, 0.09)) drop-shadow(0 297px 178px rgba(0, 0, 0, 0.05));
 }
 
 .intro-title {
@@ -190,9 +190,9 @@ h2 {
 .service {
   @apply rounded-[2rem] flex items-start px-[9px] py-[27px] md:px-[10px] md:py-[25px] lg:px-[14px] lg:py-12 bg-white drop-shadow-service;
 }
+
 .service {
-  filter: drop-shadow(0 79px 32px rgba(0, 0, 0, 0.01))
-    drop-shadow(0 44px 26px rgba(0, 0, 0, 0.05));
+  filter: drop-shadow(0 79px 32px rgba(0, 0, 0, 0.01)) drop-shadow(0 44px 26px rgba(0, 0, 0, 0.05));
 }
 
 .service-title {
@@ -220,6 +220,7 @@ h2 {
 .header-container {
   @apply hidden md:flex items-center justify-between md:border-2 md:border-eco-green/40 h-[4.75rem] md:rounded-[40px] px-[17px] md:p-2 md:bg-eco-neutral/20 md:backdrop-blur-lg;
 }
+
 /* h-[4.75rem] container height max */
 
 .rider {
@@ -227,7 +228,7 @@ h2 {
 }
 
 .rider-overlay {
-  @apply w-full h-[92px] md:h-[190px] absolute bottom-0 bg-info backdrop-blur-md  pb-2 md:py-5 px-1 md:pl-8 md:pr-2 rounded-b-[20px];
+  @apply w-full h-[92px] md:h-[190px] absolute bottom-0 bg-info backdrop-blur-md pb-2 md:py-5 px-1 md:pl-8 md:pr-2 rounded-b-[20px];
 }
 
 .rider-btn {
@@ -304,9 +305,9 @@ h2 {
 .congrats-board {
   @apply w-full md:w-[25.5rem] h-[16rem] rounded-md mx-auto my-[30px] my-dell:mt-24 flex-center bg-white;
 }
+
 .congrats-board {
-  filter: drop-shadow(0 11px 25px rgba(0, 0, 0, 0.1))
-    drop-shadow(0 45px 45px rgba(0, 0, 0, 0.09));
+  filter: drop-shadow(0 11px 25px rgba(0, 0, 0, 0.1)) drop-shadow(0 45px 45px rgba(0, 0, 0, 0.09));
 }
 
 /* input classes */
@@ -319,4 +320,38 @@ h2 {
 }
 
 /********************** Admin ****************/
+.admin-header {
+  @apply flex items-center justify-between h-[104px] pl-8 pr-[7.75rem]
+}
 
+.admin-icon {
+  @apply size-9 flex-center
+}
+
+.admin-info {
+  @apply w-[150px] p-1 border rounded-full flex items-center justify-between
+}
+
+.overview {
+  @apply w-[calc(100vw-297px)] pr-[7.75rem]
+}
+
+.overview-info {
+  @apply flex items-center justify-between mt-8
+}
+
+.overview-title {
+  @apply text-4xl font-extrabold text-silver
+}
+
+.export-action {
+  @apply flex-center border rounded-[12px] py-2 px-3 gap-x-2
+}
+
+.export-text {
+  @apply font-inter text-base text-eco-neutral-thick
+}
+
+.admin-sidebar {
+  @apply w-[297px] mt-[77px] min-h-screen pb-20 flex flex-col items-center
+}

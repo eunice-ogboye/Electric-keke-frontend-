@@ -4,11 +4,11 @@ import Pagination from "./Pagination";
 import { useOutletContext } from "react-router-dom";
 
 const UserManagement = () => {
-  const { usersToShow } = useOutletContext();
-  console.log(usersToShow);
-  return (
+  const { contentsToDisplay } = useOutletContext();
+  console.log(contentsToDisplay);
+return (
     <div className="mt-8">
-      <DisplayTable contentToShow={usersToShow} view="user" />
+      <DisplayTable contentsToDisplay={contentsToDisplay} contentType="user" />
       <Pagination />
     </div>
   );

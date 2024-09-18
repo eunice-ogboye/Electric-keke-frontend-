@@ -6,7 +6,7 @@ import { useOutletContext } from "react-router-dom";
 const FinancialManagement = () => {
   return (
     <div>
-      <DisplayTable view="finances" contentToShow="All" />
+      <DisplayTable view="finances" contentToDisplay="All" />
       <Pagination />
     </div>
   );

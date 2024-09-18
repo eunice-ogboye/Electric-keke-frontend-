@@ -320,30 +320,44 @@ const user_management_tablehead = [
   },
 ];
 
+const overview_titles = {
+  Overview: "Dashboard Overview",
+  "User Management": "Manage Users",
+  "Financial Management": "Financial Management"
+};
+
+const overview_descriptions = {
+  Overview: "Manage Users and Track Services",
+  "User Management": "Manage Users",
+  "Financial Management": "Keep Track With Finance"
+};
+
 export {
-  finance_management_tablehead,
-  user_dashboard,
-  user_management_tablehead,
-  admin_nav_links,
-  account_types,
-  onboardingImages,
-  briefs,
-  otp_choice,
   about_titles,
   about_descriptions,
-  services,
+  account_types,
+  admin_nav_links,
+  briefs,
+  care_socials,
+  connected,
+  contribution,
+  earn_requirements,
+  finance_management_tablehead,
+  footer_note,
+  formTitle,
+  hero_descriptions,
   mission,
+  nav_links,
+  onboardingImages,
+  otp_choice,
+  overview_titles,
+  overview_descriptions,
+  services,
+  settings,
+  socials,
+  support_links,
   testimonial_title,
   testimonies,
-  connected,
-  socials,
-  earn_requirements,
-  contribution,
-  nav_links,
-  formTitle,
-  support_links,
-  care_socials,
-  footer_note,
-  settings,
-  hero_descriptions,
+  user_dashboard,
+  user_management_tablehead,
 };
