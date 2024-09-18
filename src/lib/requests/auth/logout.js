@@ -1,5 +1,5 @@
-import { clearLs, deletItemFromLs } from "../ls";
-import { clientRequest } from "./client";
+import { clearLs, deletItemFromLs } from "../../ls";
+import { clientRequest } from "../client";
 
 const logoutUser = async (showAlert) => {
   try {

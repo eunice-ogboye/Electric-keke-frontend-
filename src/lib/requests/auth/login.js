@@ -1,6 +1,6 @@
-import { addItemToLs } from "../ls";
-import { showMe } from "./loggedInUser";
-import { axiosCustomizedRequest } from "./axiosCustomized";
+import { addItemToLs } from "../../ls";
+import { showMe } from "./showMe";
+import { axiosCustomizedRequest } from "../axiosCustomized";
 
 const loginUser = async (formData, showAlert) => {
   const { username, password, checkPass } = formData;

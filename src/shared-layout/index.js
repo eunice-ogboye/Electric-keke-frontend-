@@ -1,5 +1,5 @@
 import Boarding from "./Boarding";
-import HomePage from "./HomePage";
+// import HomePage from "./HomePage";
 import Section from "./Section";
 
-export { Boarding, HomePage, Section };
+export { Boarding, Section };

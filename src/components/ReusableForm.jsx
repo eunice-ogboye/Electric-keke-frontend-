@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import Logo from "./Logo";
 import Heading from "./Heading";
-import FormRow from "./FormRow";
+// import FormRow from "./FormRow";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { formTitle } from "../constants";
 import { useDispatch, useSelector } from "react-redux";
 import { cn } from "../lib/utils";
 import Btn from "./Btn";
-import loginUser from "../lib/requests/login";
+import loginUser from "../lib/requests/auth/login";
 import requestOtp from "../lib/requests/auth/otp-request";
 import { addItemToLs, getItemFromLs } from "../lib/ls";
 import { changeInputValue } from "../store/slices/form-data-slice";

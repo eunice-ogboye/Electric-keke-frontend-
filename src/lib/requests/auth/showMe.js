@@ -1,5 +1,5 @@
-import customAxios from "./customAxios";
-import { clientRequest } from "./client";
+// import customAxios from "./customAxios";
+import { clientRequest } from "../client";
 
 
 export const showMe = async () => {

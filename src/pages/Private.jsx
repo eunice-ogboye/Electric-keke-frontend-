@@ -7,7 +7,7 @@ import { useGlobalAuthContext } from "../contexts/AuthContext";
 const ProtectedRoute = () => {
   const [user, setUser] = useState(getItemFromLs("user") || null);
   const { isAuthenticated } = useGlobalAuthContext();
-  console.log(user, "from private route");
+  // console.log(user, "from private route");
 
   return isAuthenticated ? <Outlet context={user} /> : <Navigate to="/" />;
 };

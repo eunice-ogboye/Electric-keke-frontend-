@@ -1,7 +1,7 @@
 import { admin_nav_links } from "../constants";
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logoutUser from "../lib/requests/logout";
+import logoutUser from "../lib/requests/auth/logout";
 import { Button } from "./ui/button";
 import { useDispatch } from "react-redux";
 import { alertUser, hideAlert } from "../store/slices/global-slice";
@@ -19,9 +19,9 @@ const AdminSideBar = ({ changeAdminPage }) => {
   };
 
   return (
-    <aside className="w-[297px] border mt-[77px] h-[921px] pl-8">
-      <div>
-        <div className="mt-8 flex flex-col gap-2">
+    <aside className="w-[297px] mt-[77px] min-h-screen pb-20 flex flex-col items-center">
+      <div className="min-h-full">
+        <div className="mt-8 flex flex-col gap-2 min-h-[calc(100vh-96px)]">
           {admin_nav_links.map((item, index) => {
             const isActive = activeLink === item.href;
 
@@ -52,7 +52,7 @@ const AdminSideBar = ({ changeAdminPage }) => {
           })}
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 min-h-[96px] border border-r-indigo-500">
           <Link className="flex items-center gap-2 w-full max-w-[233px] py-3 pl-5 rounded-[14px] border">
             <div>
               <img src="/users/setting.svg" alt="setting" />

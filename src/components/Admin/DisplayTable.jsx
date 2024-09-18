@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import users from "../../mockData/users";
-import finances from "../../mockData/finances";
+import users from "../../mock-data/users";
+import finances from "../../mock-data/finances";
 import UserLoading from "../ErrorBoundary/Fallbacks/UserLoading";
 import Table, { TableContent } from "./Table";
 import {

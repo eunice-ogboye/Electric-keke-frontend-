@@ -317,3 +317,6 @@ h2 {
 .auth-input {
   @apply border border-eco-neutral-input px-5 rounded-[6px] h-[54px] w-full;
 }
+
+/********************** Admin ****************/
+

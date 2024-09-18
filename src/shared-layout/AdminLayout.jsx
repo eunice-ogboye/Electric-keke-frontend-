@@ -9,7 +9,7 @@ import Filter from "../components/Filter";
 import Analytics from "../components/Admin/Analytics";
 import { getItemFromLs } from "../lib/ls";
 
-const AdminLayout = () => {
+const AdminLayout = ({children}) => {
   const [currentAdminPage, setCurrentAdminPage] = useState("Overview");
   const [usersToShow, setUsersToShow] = useState("All");
   const [user] = useState(getItemFromLs('user'))

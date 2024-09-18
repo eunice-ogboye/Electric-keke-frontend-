@@ -3,9 +3,8 @@ const getItemFromLs = (item) => {
   if (retrieveItem !== null) {
     const item = JSON.parse(retrieveItem);
     return item;
-  } else {
-    console.log(item, "not found");
   }
+  return;
 };
 
 const addItemToLs = (key, item) => {
@@ -14,7 +13,7 @@ const addItemToLs = (key, item) => {
 };
 
 const deletItemFromLs = (key) => {
-  console.log("deleting", key)
+  console.log("deleting", key);
   localStorage.removeItem(key);
 };
 

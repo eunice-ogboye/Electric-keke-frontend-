@@ -1,5 +1,5 @@
 import Notify from "../components/Notify";
-import notifications from "../mockData/notifications";
+import notifications from "../mock-data/notifications";
 
 const Notification = () => {
   return (

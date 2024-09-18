@@ -4,7 +4,7 @@ import { SelectInput } from "../components/SelectInput";
 import React, { useState } from "react";
 import Btn from "../components/Btn";
 import FormRow from "../components/FormRow";
-import logoutUser from "../lib/requests/logout";
+import logoutUser from "../lib/requests/auth/logout";
 import { Button } from "../components/ui/button";
 import { LogOutIcon } from "lucide-react";
 import { useDispatch } from "react-redux";

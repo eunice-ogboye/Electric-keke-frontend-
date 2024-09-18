@@ -3,11 +3,11 @@ import React, { useEffect, useState } from "react";
 import Btn from "../components/Btn";
 import { useNavigate } from "react-router-dom";
 import { Heading } from "../components";
-import reviews from "../mockData/reviews";
-import { delay, motion } from "framer-motion";
-import Loader from "../assets/svg/Loader";
+import reviews from "../mock-data/reviews";
+import { motion } from "framer-motion";
+// import Loader from "../assets/svg/Loader";
 import { getItemFromLs } from "../lib/ls";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import bookRide from "../lib/requests/booking/bookRide";
 import { alertUser, hideAlert } from "../store/slices/global-slice";
 
@@ -93,9 +93,6 @@ const RiderInfo = () => {
   //   }, 5000);
   // };
 
-  useEffect(() => {
-    console.log(rider);
-  }, []);
 
   const submitBooking = async () => {
     setWaiting(true);

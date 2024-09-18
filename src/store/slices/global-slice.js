@@ -45,7 +45,7 @@ const globalSlice = createSlice({
     },
     changeAuthPage(state, action) {
       const authPage = action.payload;
-      console.log(authPage);
+      // console.log(authPage);
       addItemToLs("authPage", authPage);
       return { ...state, authPage };
     },
