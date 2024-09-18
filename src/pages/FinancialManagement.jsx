@@ -7,7 +7,7 @@ const FinancialManagement = () => {
   const {} = useOutletContext();
   return (
     <div>
-      <DisplayTable view="finances" contentToShow="All" />
+      <DisplayTable view="finances" contentToDisplay="All" />
       <Pagination />
     </div>
   );

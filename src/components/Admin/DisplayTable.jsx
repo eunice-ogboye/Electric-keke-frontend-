@@ -8,18 +8,20 @@ import {
   user_management_tablehead,
 } from "../../constants";
 
-const fetchContent = (time, option, typeOfContent) => {
+const fetchContent = (time, option, contentType) => {
+  console.log(contentType)
+  console.log(contentType)
   return new Promise((resolve) => {
     setTimeout(() => {
       let contents;
       if (option === "All") {
-        if (typeOfContent === 'user') {
+        if (contentType === 'user') {
           contents = users;
         } else {
           contents = finances
         }
       } else {
-        if (typeOfContent === 'user') {
+        if (contentType === 'user') {
           contents = users.filter((item) => item.status === option);
         } else {
           contents = finances.filter((item) => item.status === option);
@@ -30,7 +32,7 @@ const fetchContent = (time, option, typeOfContent) => {
   });
 };
 
-const DisplayTable = ({ contentToShow, view }) => {
+const DisplayTable = ({ contentsToDisplay, contentType }) => {
   const [loading, setLoading] = useState(true);
   const [contents, setClients] = useState([]);
 
@@ -39,7 +41,7 @@ const DisplayTable = ({ contentToShow, view }) => {
 
     const getContents = async () => {
       try {
-        const tableContents = await fetchContent(5000, contentToShow, view)
+        const tableContents = await fetchContent(5000, contentsToDisplay, contentType)
           .then((res) => res)
           .catch((err) => console.log(err));
         setLoading(false);
@@ -50,13 +52,13 @@ const DisplayTable = ({ contentToShow, view }) => {
     };
 
     getContents();
-  }, [contentToShow]);
+  }, [contentsToDisplay]);
 
   return (
     <div className="mt-8 border">
       <Table
         tableheadContent={
-          view === "user"
+          contentType === "user"
             ? user_management_tablehead
             : finance_management_tablehead
         }
@@ -75,7 +77,7 @@ const DisplayTable = ({ contentToShow, view }) => {
                     key={item.id + index}
                     {...item}
                     delay={index}
-                    userContent={view === "user" ? true : false}
+                    userContent={contentType === "user" ? true : false}
                   />
                 );
               })}
