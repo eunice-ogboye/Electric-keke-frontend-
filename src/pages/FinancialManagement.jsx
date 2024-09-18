@@ -4,6 +4,7 @@ import Pagination from "./Pagination";
 import { useOutletContext } from "react-router-dom";
 
 const FinancialManagement = () => {
+  const {} = useOutletContext();
   return (
     <div>
       <DisplayTable view="finances" contentToShow="All" />

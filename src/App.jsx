@@ -27,8 +27,8 @@ import ProtectedRoute from "./pages/Private";
 import Verification from "./pages/Verification";
 import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 import AdminLayout from "./shared-layout/AdminLayout";
-import UserManagement from "./components/Admin/UserManagement";
-import FinancialManagement from "./components/Admin/FinancialManagement";
+import UserManagement from "./pages/UserManagement";
+import FinancialManagement from "./pages/FinancialManagement";
 import { Link } from "react-router-dom";
 
 function App() {
@@ -78,19 +78,19 @@ function App() {
             <Route path="/profile/:id" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/customer-care" element={<CustomerCare />} />
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route path="user-management" element={<UserManagement />} />
-            <Route
-              path="financial-management"
-              element={<FinancialManagement />}
-            />
-            <Route
-              path="settings"
-              element={
-                <div className="flex-center">Will You be working on this</div>
-              }
-            />
-          </Route>
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route path="user-management" element={<UserManagement />} />
+              <Route
+                path="financial-management"
+                element={<FinancialManagement />}
+              />
+              <Route
+                path="settings"
+                element={
+                  <div className="flex-center">Will You be working on this</div>
+                }
+              />
+            </Route>
           </Route>
           {/* protected routes */}
 
