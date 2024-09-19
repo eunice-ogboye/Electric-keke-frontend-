@@ -7,30 +7,9 @@ import {
   finance_management_tablehead,
   user_management_tablehead,
 } from "../../constants";
+import fetchContent from "../../lib/requests/admin/fetchContents";
 
-const fetchContent = (time, option, typeOfContent) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      let contents;
-      if (option === "All") {
-        if (typeOfContent === 'user') {
-          contents = users;
-        } else {
-          contents = finances
-        }
-      } else {
-        if (typeOfContent === 'user') {
-          contents = users.filter((item) => item.status === option);
-        } else {
-          contents = finances.filter((item) => item.status === option);
-        }
-      }
-      resolve(contents);
-    }, time);
-  });
-};
-
-const DisplayTable = ({ contentToShow, view }) => {
+const DisplayTable = ({ contentsToDisplay, contentType }) => {
   const [loading, setLoading] = useState(true);
   const [contents, setClients] = useState([]);
 
@@ -39,7 +18,13 @@ const DisplayTable = ({ contentToShow, view }) => {
 
     const getContents = async () => {
       try {
-        const tableContents = await fetchContent(5000, contentToShow, view)
+        const tableContents = await fetchContent(
+          5000,
+          contentsToDisplay,
+          contentType,
+          users,
+          finances
+        )
           .then((res) => res)
           .catch((err) => console.log(err));
         setLoading(false);
@@ -50,13 +35,13 @@ const DisplayTable = ({ contentToShow, view }) => {
     };
 
     getContents();
-  }, [contentToShow]);
+  }, [contentsToDisplay]);
 
   return (
     <div className="mt-8 border">
       <Table
         tableheadContent={
-          view === "user"
+          contentType === "user"
             ? user_management_tablehead
             : finance_management_tablehead
         }
@@ -75,7 +60,7 @@ const DisplayTable = ({ contentToShow, view }) => {
                     key={item.id + index}
                     {...item}
                     delay={index}
-                    userContent={view === "user" ? true : false}
+                    userContent={contentType === "user" ? true : false}
                   />
                 );
               })}
