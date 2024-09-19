@@ -1,25 +1,30 @@
 // import { toggleModal } from "../store/slices/global-slice";
 
 const closeModalOnBodyClick = (e, flipModal) => {
-  console.log(e.target.children[0])
-  const modal = e.target.children[0]
-  const pageY = window.scrollY;
-  const xStart = modal.offsetLeft;
-  const xEnd = modal.offsetLeft + modal.clientWidth;
-  const yStart = modal.offsetTop + pageY;
-  const yEnd = modal.offsetTop + modal.clientHeight + pageY;
-  const clickPositionX = e.pageX;
-  const clickPositionY = e.pageY;
+  const child = e.currentTarget.children[0];
+  const childW = child.clientWidth;
+  const childH = child.clientHeight;
+  const windowScrollY = window.scrollY;
+  const startX = child.offsetLeft;
+  const startY = child.offsetTop + windowScrollY;
+  console.log(startX, startY);
+  const endX = startX + childW;
+  const endY = startY + childH + windowScrollY;
+
+  console.log(endX, endY);
+  const clickedPositionX = e.pageX;
+  const clickedPositionY = e.pageY;
+
+
   if (
-    clickPositionX > xStart &&
-    clickPositionX < xEnd &&
-    clickPositionY > yStart &&
-    clickPositionY < yEnd
+    clickedPositionX > startX &&
+    clickedPositionX < endX &&
+    clickedPositionY > startY &&
+    clickedPositionY < endY
   ) {
     console.log("yes click is within the modalref");
     return;
   }
-  // dispatch(toggleModal(false));
   flipModal(false)
 };
 

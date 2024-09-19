@@ -18,6 +18,10 @@ const Header = ({ darkLogo }) => {
         <Logo main dark={darkLogo} />
         <NavBar dark={darkLogo} />
 
+        <Link to="/settings" className="text-sm text-red-500">
+          Settings
+        </Link>
+
         {user ? (
           <div className="flex items-center gap-3">
             <Link to="/notification">

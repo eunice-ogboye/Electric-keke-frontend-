@@ -2,6 +2,7 @@ import { changeInputValue } from "../store/slices/form-data-slice";
 import {
   alertUser,
   changeAuthPage,
+  changeModalContent,
   changeVerificationType,
   hideAlert,
   toggleModal,
@@ -31,6 +32,10 @@ const dispatchables = () => {
     dispatch(changeInputValue({ key, value }));
   };
 
+  const openModalWithContent = (content) => {
+    dispatch(changeModalContent(content));
+  };
+
   const switchVerificationType = (v_type) => {
     dispatch(changeVerificationType(v_type));
   };
@@ -47,6 +52,7 @@ const dispatchables = () => {
     chooseOtpMethod,
     changeAuthenticationPage,
     changeAuthFormData,
+    openModalWithContent,
     showAlert,
     switchVerificationType,
   };

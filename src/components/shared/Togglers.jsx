@@ -7,7 +7,9 @@ const Togglers = ({
   text2,
   handleClick2,
   isConditionTrue,
-  font
+  font,
+  className,
+  btnClassName,
 }) => {
   const toggleColor = {
     color1: {
@@ -29,15 +31,20 @@ const Togglers = ({
   };
   const TogglerStraight = () => {
     return (
-      <div className="flex-center mt-10 ">
+      <div className={className || "flex-center mt-10"}>
         <button
-          className={`border-b  font-bold text-base w-[180px] pb-4 ${font ? font : 'font-montserrat'} ${toggleColor[color].one}`}
+          className={`border-b ${
+            btnClassName || "font-bold text-base w-[180px] font-montserrat"
+          } pb-4 ${font ? font : "font-montserrat"} ${toggleColor[color].one}`}
           onClick={handleClick1}
         >
           {text1}
         </button>
+
         <button
-          className={`border-b  font-bold text-base w-[180px] font-montserrat pb-4 ${toggleColor[color].two}`}
+          className={`${
+            btnClassName || "font-bold text-base w-[180px] font-montserrat"
+          } border-b  pb-4 ${toggleColor[color].two}`}
           onClick={handleClick2}
         >
           {text2}

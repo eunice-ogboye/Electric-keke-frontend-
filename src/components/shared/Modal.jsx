@@ -8,15 +8,15 @@ import ChooseModal from "../booking/ChooseModal";
 import DetailsModal from "../booking/DetailsModal";
 import { modalContainer } from "../../constants/variants";
 import dispatchables from "../../utils/dispatchables";
+import ProfileModal from "../profile/ProfileModal";
+import PaymentModal from "../profile/PaymentModal";
 
 const Modal = () => {
   // const dispatch = useDispatch();
   const { flipModal } = dispatchables();
 
-  const {
-    bookData,
-    global: { modal, modalContent },
-  } = useSelector((state) => state);
+  // const bookData = useSelector(state => state.bookData)
+  const { modal, modalContent } = useSelector((state) => state.global);
   //
   const navigate = useNavigate();
   //states
@@ -52,7 +52,7 @@ const Modal = () => {
         />
       )}
 
-      {content === "choose-how-to-ride" && (
+      {(modalContent === "ride" || modalContent === "delivery") && (
         <ChooseModal
           modalContent={modalContent}
           handleClick={handleClick}
@@ -60,7 +60,11 @@ const Modal = () => {
         />
       )}
 
-      {content === "details-of-ride" && <DetailsModal />}
+      {modalContent === "details" && <DetailsModal />}
+
+      {modalContent === "Profile Management" && <ProfileModal />}
+
+      {modalContent === "Payment Method" && <PaymentModal />}
     </motion.section>
   );
 };

@@ -495,3 +495,60 @@ h2 {
 .switch-login {
   @apply text-center mt-[30px] my-dell:mt-10 text-eiteen
 }
+
+/********************* settings ************/
+.setting {
+  @apply pt-10 md:pt-[7.5rem] pb-20 md:pb-[109px] home-pad
+}
+
+.setting-title {
+  @apply text-5xl font-bold text-center
+}
+
+.setting-container {
+  @apply flex items-center justify-between w-full max-w-[1200px] mx-auto mt-10
+}
+
+.setting-opts {
+  @apply text-2xl md:text-[2rem] font-normal flex items-center gap-7 hover:scale-110 transition-all duration-500 hover:text-eco-green cursor-pointer
+}
+
+.safe {
+  @apply hidden lg:block w-[539px] h-96
+}
+
+.profile-modal {
+  @apply w-full max-w-[600px] bg-white rounded-[16px] border border-modal/50 min-h-[438px]
+}
+
+.profile-opt-box {
+  @apply flex flex-col gap-y-6 mt-6
+}
+
+.profile-options {
+  @apply py-5 px-4 border border-eco-neutral-prime h-16 rounded-[14px] w-[410px] text-base flex items-center justify-between cursor-pointer font-bold
+}
+
+.payment-modal {
+  @apply w-full max-w-[600px] bg-white pt-12 px-9 pb-8 rounded-20
+}
+
+.payment-modal-title {
+  @apply font-bold font-josefin text-3xl
+}
+
+.card-container {
+  @apply rounded-[8px] w-full max-w-[528px] h-[254px] bg-gradient-to-br from-eco-green to-peach mt-10 flex-center
+}
+
+.master-card {
+  @apply w-full max-w-[316px] rounded-20 h-[190px] p-5 bg-gradient-to-br from-white/50 to-white/0 flex flex-col justify-between border-r-lime-200 border-t-lime-100 border
+}
+
+.user-name-expiry {
+  @apply flex items-center justify-between text-white font-semibold text-xs
+}
+
+.card-number {
+  @apply font-semibold text-white text-base text-justify
+}

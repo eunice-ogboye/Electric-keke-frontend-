@@ -111,6 +111,7 @@ module.exports = {
         info: "#0A0B0A1A",
         tertiary: "#F5F5F5",
         silver: "#768EA9",
+        modal: '#DEE5ED'
       },
       borderRadius: {
         20: "20px",
