@@ -1,7 +1,9 @@
 
 const fetchContent = (time, option, contentType, arr1, arr2) => {
-  console.log(contentType);
-  console.log(contentType, option, "............");
+  // console.log(contentType);
+  // console.log(contentType, option, "............");
+
+  console.log(option)
   return new Promise((resolve) => {
     setTimeout(() => {
       let contents;

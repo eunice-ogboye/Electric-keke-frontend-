@@ -40,6 +40,8 @@ const about_titles = {
 const about_descriptions = {
   one: "By choosing eco-rides, you're opting for vehicles that prioritize the environment, like our electric Kekes, which produce zero emissions and significantly reduce your carbon footprint.",
   two: "Eco-Ride isn’t just about getting from point A to point B—it's about redefining how we move and deliver in a way that’s both sustainable and efficient",
+  three:
+    "Eco-Ride is a forward-thinking transport and logistics service that puts the environment first. We operate electric Keke vehicles, providing both ride-hailing and delivery services that are affordable, efficient, and eco-friendly. At Eco-Ride, we believe in creating a sustainable future by reducing carbon emissions and improving air quality in our cities.",
 };
 
 const services = [
@@ -215,6 +217,7 @@ const settings = [
 
 const hero_descriptions = {
   main: " Join the Green Movement with Our Electric Keke: Real-time tracking, affordable pricing—making your life easier and the planet healthier.",
+  about: "",
   earn: "By joining us as a driver, you will enjoy flexible working hours, competitive earnings, and the opportunity to contribute to a greener enviroment. Drive with us and be part of eco-friendly revolution.",
   support:
     " Have a question or need assistance? Our support team is ready to help you with any issue, big or smal",
@@ -323,14 +326,17 @@ const user_management_tablehead = [
 const overview_titles = {
   Overview: "Dashboard Overview",
   "User Management": "Manage Users",
-  "Financial Management": "Financial Management"
+  "Financial Management": "Financial Management",
 };
 
 const overview_descriptions = {
   Overview: "Manage Users and Track Services",
   "User Management": "Manage Users",
-  "Financial Management": "Keep Track With Finance"
+  "Financial Management": "Keep Track With Finance",
 };
+
+const flexibility_text =
+  "At EcoRide, we understand the importance of work-life balance. That is why we offer flexible working hours, allowing you to choose your own schedule. whether you prefer to drive during the day, night, or just weekends, the choice is entirely yours.";
 
 export {
   about_titles,
@@ -343,6 +349,7 @@ export {
   contribution,
   earn_requirements,
   finance_management_tablehead,
+  flexibility_text,
   footer_note,
   formTitle,
   hero_descriptions,
