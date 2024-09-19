@@ -7,30 +7,7 @@ import {
   finance_management_tablehead,
   user_management_tablehead,
 } from "../../constants";
-
-const fetchContent = (time, option, contentType) => {
-  console.log(contentType)
-  console.log(contentType)
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      let contents;
-      if (option === "All") {
-        if (contentType === 'user') {
-          contents = users;
-        } else {
-          contents = finances
-        }
-      } else {
-        if (contentType === 'user') {
-          contents = users.filter((item) => item.status === option);
-        } else {
-          contents = finances.filter((item) => item.status === option);
-        }
-      }
-      resolve(contents);
-    }, time);
-  });
-};
+import fetchContent from "../../lib/requests/admin/fetchContents";
 
 const DisplayTable = ({ contentsToDisplay, contentType }) => {
   const [loading, setLoading] = useState(true);
@@ -41,7 +18,13 @@ const DisplayTable = ({ contentsToDisplay, contentType }) => {
 
     const getContents = async () => {
       try {
-        const tableContents = await fetchContent(5000, contentsToDisplay, contentType)
+        const tableContents = await fetchContent(
+          5000,
+          contentsToDisplay,
+          contentType,
+          users,
+          finances
+        )
           .then((res) => res)
           .catch((err) => console.log(err));
         setLoading(false);

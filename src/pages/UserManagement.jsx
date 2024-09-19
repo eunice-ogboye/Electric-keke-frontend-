@@ -5,7 +5,7 @@ import { useOutletContext } from "react-router-dom";
 const UserManagement = () => {
   const { contentsToDisplay } = useOutletContext();
   console.log(contentsToDisplay);
-return (
+  return (
     <div className="mt-8">
       <DisplayTable contentsToDisplay={contentsToDisplay} contentType="user" />
       <Pagination />

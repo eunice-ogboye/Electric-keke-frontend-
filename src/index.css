@@ -333,7 +333,7 @@ h2 {
 }
 
 .overview {
-  @apply w-[calc(100vw-297px)] pr-[7.75rem]
+  @apply  pr-[7.75rem]
 }
 
 .overview-info {
@@ -353,5 +353,21 @@ h2 {
 }
 
 .admin-sidebar {
-  @apply w-[297px] mt-[77px] min-h-screen pb-20 flex flex-col items-center
+  @apply w-[300px] mt-[77px] min-h-screen pb-20 flex flex-col items-center border
+}
+
+.admin_nav {
+  @apply mt-8 flex flex-col gap-2 min-h-[calc(100vh-96px)] border
+}
+
+.admin_nav_link {
+  @apply flex items-center gap-2 w-[233px] py-3 pl-5 rounded-[14px] border
+}
+
+.admin-footer {
+  @apply flex flex-col gap-2 min-h-[96px] border border-r-indigo-500
+}
+
+.admin-footer-item {
+  @apply flex items-center gap-2 w-full max-w-[233px] py-3 pl-5 rounded-[14px] shadow-2xl
 }

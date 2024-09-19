@@ -3,17 +3,23 @@ import Bell from "../assets/svg/Bell";
 import SearchIcon from "../assets/svg/SearchIcon";
 import Logo from "../components/Logo";
 import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import BoardManagement from "../components/Admin/BoardManagement";
 import Filter from "../components/Filter";
 import Analytics from "../components/Admin/Analytics";
 import { getItemFromLs } from "../lib/ls";
 import { overview_titles, overview_descriptions } from "../constants";
+import AdminNav from "../components/Admin/AdminNav";
+import { Link } from "react-router-dom";
+import { Button } from "../components/ui/button";
 
 const AdminLayout = () => {
   const [currentAdminPage, setCurrentAdminPage] = useState("Overview");
   const [contentsToDisplay, setContentsToDisplay] = useState("All");
   const [user] = useState(getItemFromLs("user"));
+
+  const {pathname} = useLocation();
+  const activeLink = pathname.slice(7);
 
   const showUsers = (whoAre) => {
     setContentsToDisplay((prev) => (prev === whoAre ? "All" : whoAre));
@@ -55,10 +61,38 @@ const AdminLayout = () => {
       </header>
 
       <div className="flex items-start gap-x-10">
-        <AdminSideBar
-          currentAdminPage={currentAdminPage}
-          changeAdminPage={setCurrentAdminPage}
-        />
+        <aside className="admin-siderbar">
+          <div className="min-h-full">
+            <AdminNav setCurrentAdminPage={setCurrentAdminPage} activeLink={activeLink} />
+
+            <div className="admin-footer">
+              <Link className="admin-footer-item">
+                <div>
+                  <img src="/users/setting.svg" alt="setting" />
+                </div>
+                <p className="">Help Center</p>
+              </Link>
+
+              <Button
+                className="admin-footer-item"
+                variant="ghost"
+                onClick={async () => {
+                  try {
+                    await logoutUser(showAlert);
+                    navigate("/");
+                  } catch (error) {
+                    showAlert(error.message);
+                  }
+                }}
+              >
+                <div>
+                  <img src="/logout.svg" alt="logout" />
+                </div>
+                <p className="text-error">Logout</p>
+              </Button>
+            </div>
+          </div>
+        </aside>
 
         <div className="overview">
           {currentAdminPage !== "Financial Management" && <BoardManagement />}
@@ -76,9 +110,7 @@ const AdminLayout = () => {
 
             <div className="flex items-center gap-x-3">
               <div className="export-action">
-                <p className="export-text">
-                  Export
-                </p>
+                <p className="export-text">Export</p>
                 <div>
                   <img src="/admin-down.svg" alt="down" />
                 </div>

@@ -4,12 +4,15 @@ import Pagination from "../components/Admin/Pagination";
 import { useOutletContext } from "react-router-dom";
 
 const FinancialManagement = () => {
-  const {} = useOutletContext();
+  const { contentsToDisplay } = useOutletContext();
   return (
-    <div>
-      <DisplayTable view="finances" contentToDisplay="All" />
+    <>
+      <DisplayTable
+        contentType="finances"
+        contentsToDisplay={contentsToDisplay}
+      />
       <Pagination />
-    </div>
+    </>
   );
 };
 
