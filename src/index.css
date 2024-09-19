@@ -63,6 +63,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground font-montserrat;
   }
@@ -128,31 +129,27 @@ h2 {
 
 /******** HOME HERO ******/
 .hero {
-  @apply relative;
+  @apply relative min-h-[696px];
 }
 
 .hero-board {
-  @apply bg-black/60 size-full px-1;
+  @apply bg-black/65 flex-center w-full h-[533px] md:h-[696px];
 }
 
 .hero-title {
   @apply text-base-white text-3xl md:text-[4rem] font-bold text-center md:leading-[76.8px] tracking-tighter font-josefin;
 }
 
-/* .title-transform {
-  @apply translate-x-full;
-}
-
-.title-opacity {
-  @apply opacity-0;
-} */
-
 .hero-description {
   @apply text-base-white text-center font-normal md:font-semibold text-base md:text-2xl;
 }
 
 .hero-img {
-  @apply size-full absolute top-0 left-0 -z-10;
+  @apply h-[533px] md:size-full absolute top-0 left-0 -z-10;
+}
+
+.page-brief-container {
+  @apply home-pad bg-base-white overflow-hidden
 }
 
 .flexible {
@@ -160,8 +157,7 @@ h2 {
 }
 
 .flexible {
-  filter: drop-shadow(0 132px 132px rgba(0, 0, 0, 0.09))
-    drop-shadow(0 297px 178px rgba(0, 0, 0, 0.05));
+  filter: drop-shadow(0 132px 132px rgba(0, 0, 0, 0.09)) drop-shadow(0 297px 178px rgba(0, 0, 0, 0.05));
 }
 
 .intro-title {
@@ -190,13 +186,111 @@ h2 {
 .service {
   @apply rounded-[2rem] flex items-start px-[9px] py-[27px] md:px-[10px] md:py-[25px] lg:px-[14px] lg:py-12 bg-white drop-shadow-service;
 }
+
 .service {
-  filter: drop-shadow(0 79px 32px rgba(0, 0, 0, 0.01))
-    drop-shadow(0 44px 26px rgba(0, 0, 0, 0.05));
+  filter: drop-shadow(0 79px 32px rgba(0, 0, 0, 0.01)) drop-shadow(0 44px 26px rgba(0, 0, 0, 0.05));
 }
 
 .service-title {
   @apply text-xl md:text-[2rem] text-eco-green-dark leading-[24px] lg:leading-[38px] font-bold font-josefin;
+}
+
+/********************* conect ***************/
+.connect {
+  @apply h-[457px] md:min-h-[704px] flex-center bg-black/60 relative home-pad overflow-hidden
+}
+
+.connect-bg {
+  @apply size-full h-[457px] md:min-h-[704px] absolute top-0 left-0 -z-10
+}
+
+.subscribe-form {
+  @apply bg-base-white flex items-center justify-between py-2 px-4 rounded-lg max-w-[534px] mt-6 mx-auto
+}
+
+.subscribe-input {
+  @apply w-[200px] md:w-[264px] ml-2 text-sm md:text-eiteen bg-none border-none outline-none
+}
+
+.subscribe-btn {
+  @apply w-[135px] h-12 md:h-[56px] md:w-[162px] primary-btn
+}
+
+/******************** Testimony ****************/
+.testimony-container {
+  @apply home-pad pt-8 py-10 md:py-[7.5rem] bg-base-white overflow-hidden
+}
+
+.testimonials-display {
+  @apply flex flex-col md:flex-row items-center
+}
+
+.testi-photo {
+  @apply w-full h-[304px] md:w-[409px] md:h-[440px] mt-6 md:mt-0
+}
+
+.testimonies {
+  @apply w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10 order-first md:order-last
+}
+
+.testimony-paragraph {
+  @apply text-eco-neutral-prime text-base md:text-2xl text-center md:text-left
+}
+
+.testimony-data {
+  @apply text-xs md:text-base text-eco-neutral-prime
+}
+
+/* **************** mission *************/
+.mission-container {
+  @apply py-14 lg:py-[7.5rem] bg-eco-green-prime
+}
+
+.mission-desc {
+  @apply !text-base-white text-base md:text-xl lg:text-2xl mt-4
+}
+
+.mission-bottom-text {
+  @apply text-center text-xs md:text-xl lg:text-2xl text-base-white
+}
+
+/************* contribution *************/
+.contribution {
+  @apply min-h-[546px] flex flex-col md:flex-row items-center
+}
+
+.contribution-phone {
+  @apply w-full h-[341px] md:w-1/2 md:h-[546px] border rounded-normal bg-gradient-to-b from-eco-green to-peach
+}
+
+.contribution-pg {
+  @apply md:w-1/2 py-16 md:pl-16 order-first md:order-last
+}
+
+/************ Teem **************/
+.team-board {
+  @apply grid grid-cols-1 md:grid-cols-3 w-full max-w-[1200px] h-96 mt-10 gap-x-7
+}
+
+.team-member {
+  @apply py-3 px-4 bg-white drop-shadow-lg rounded-20
+}
+
+.team-member {
+  filter: drop-shadow()
+}
+
+.team-member-details {
+  @apply mt-4 flex flex-col gap-2
+}
+
+/**************** Alert **********/
+.alert-container {
+  @apply flex items-center justify-between fixed top-5 md:top-20 right-3 md:right-20 shadow-2xl border border-eco-neutral-border p-5 z-[200] rounded-lg bg-white
+}
+
+.alert-stats {
+  @apply rounded-full bg-eco-green-dark size-7 flex-center
 }
 
 /* DIRECTION */
@@ -220,6 +314,7 @@ h2 {
 .header-container {
   @apply hidden md:flex items-center justify-between md:border-2 md:border-eco-green/40 h-[4.75rem] md:rounded-[40px] px-[17px] md:p-2 md:bg-eco-neutral/20 md:backdrop-blur-lg;
 }
+
 /* h-[4.75rem] container height max */
 
 .rider {
@@ -227,7 +322,7 @@ h2 {
 }
 
 .rider-overlay {
-  @apply w-full h-[92px] md:h-[190px] absolute bottom-0 bg-info backdrop-blur-md  pb-2 md:py-5 px-1 md:pl-8 md:pr-2 rounded-b-[20px];
+  @apply w-full h-[92px] md:h-[190px] absolute bottom-0 bg-info backdrop-blur-md pb-2 md:py-5 px-1 md:pl-8 md:pr-2 rounded-b-[20px];
 }
 
 .rider-btn {
@@ -289,9 +384,29 @@ h2 {
 }
 
 /* MODAL */
-.modal {
+.modal-container {
   @apply w-full min-h-screen fixed top-0 left-0 z-50 flex-center bg-black/50 home-pad;
 }
+
+.modal {
+  @apply bg-white rounded-xl relative
+}
+
+.rate-modal {
+  @apply flex-center w-[607px] h-[577px]
+}
+
+.choose-modal {
+  @apply w-full max-w-[478px] min-h-[348px] py-4 px-3
+}
+
+.detail-modal {
+  @apply w-[715px] md:min-h-[80vh] py-5 md:py-10 px-3 md:px-7
+}
+
+.modalContainer {}
+
+
 
 .location-map {
   @apply w-full max-w-[653px] h-[150px] md:h-[247px] bg-gray-500 flex-center rounded-[27px];
@@ -304,9 +419,9 @@ h2 {
 .congrats-board {
   @apply w-full md:w-[25.5rem] h-[16rem] rounded-md mx-auto my-[30px] my-dell:mt-24 flex-center bg-white;
 }
+
 .congrats-board {
-  filter: drop-shadow(0 11px 25px rgba(0, 0, 0, 0.1))
-    drop-shadow(0 45px 45px rgba(0, 0, 0, 0.09));
+  filter: drop-shadow(0 11px 25px rgba(0, 0, 0, 0.1)) drop-shadow(0 45px 45px rgba(0, 0, 0, 0.09));
 }
 
 /* input classes */
@@ -319,4 +434,64 @@ h2 {
 }
 
 /********************** Admin ****************/
+.admin-header {
+  @apply flex items-center justify-between h-[104px] pl-8 pr-[7.75rem]
+}
 
+.admin-icon {
+  @apply size-9 flex-center
+}
+
+.admin-info {
+  @apply w-[150px] p-1 border rounded-full flex items-center justify-between
+}
+
+.overview {
+  @apply pr-[7.75rem] w-full md:w-[calc(100%-300px)]
+}
+
+.overview-info {
+  @apply flex items-center justify-between mt-8
+}
+
+.overview-title {
+  @apply text-4xl font-extrabold text-silver
+}
+
+.export-action {
+  @apply flex-center border rounded-[12px] py-2 px-3 gap-x-2
+}
+
+.export-text {
+  @apply font-inter text-base text-eco-neutral-thick
+}
+
+.admin-sidebar {
+  @apply w-[300px] mt-[77px] min-h-screen pb-20 flex flex-col items-center
+}
+
+.admin_nav {
+  @apply mt-8 flex flex-col gap-2 min-h-[calc(100vh-96px)]
+}
+
+.admin_nav_link {
+  @apply flex items-center gap-2 w-[233px] py-3 pl-5 rounded-[14px] border
+}
+
+.admin-footer {
+  @apply flex flex-col gap-4 min-h-[96px]
+}
+
+.admin-footer-item {
+  @apply flex items-center gap-2 w-full max-w-[233px] py-3 pl-5 rounded-[14px] border
+}
+
+/************ reusable form **************/
+/************* forget tab *************/
+.forget-tab {
+  @apply flex items-center justify-between w-full my-dell:w-[80%] mx-auto mb-[30px] my-dell:mb-10
+}
+
+.switch-login {
+  @apply text-center mt-[30px] my-dell:mt-10 text-eiteen
+}

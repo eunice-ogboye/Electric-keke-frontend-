@@ -43,6 +43,7 @@ export const clientRequest = async ({ ...options }) => {
   };
 
   const onError = async (err) => {
+    console.log(err);
     const originalRequest = err.config;
     const status = err.response.status;
 
@@ -69,7 +70,7 @@ export const clientRequest = async ({ ...options }) => {
       } catch (error) {
         console.log(error);
 
-        clearLs();
+        // clearLs();
 
         return Promise.reject(err);
       }

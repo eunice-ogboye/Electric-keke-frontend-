@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { FilterIcon } from "lucide-react";
 import { cn } from "../lib/utils";
@@ -16,7 +16,7 @@ const FilterTrigger = ({ className, handleTrigger }) => {
   );
 };
 
-const FilterOptions = ({ className, text, handleClick }) => {
+const FilterOptions = ({ className, text, runFilter, runFilterBasedOn }) => {
   return (
     <div
       className={cn(
@@ -24,7 +24,12 @@ const FilterOptions = ({ className, text, handleClick }) => {
         className
       )}
       onClick={() => {
-        handleClick(text === 'Active users' ? 'active' : 'inactive');
+        if (runFilterBasedOn === "User Management") {
+          runFilter(text === "Active users" ? "active" : "inactive");
+        }
+        if (runFilterBasedOn === "Financial Management") {
+          runFilter(text);
+        }
       }}
     >
       <p className="text-sm ">{text}</p>
@@ -41,9 +46,13 @@ const FilterGroup = ({ className, label, children, containerClass }) => {
   );
 };
 
-export const Filter = ({ className, handleClick }) => {
+export const Filter = ({ className, handleClick, filterBasedOn }) => {
   const [show, setShow] = useState(false);
   const toggleShow = () => setShow((prev) => !prev);
+
+  useEffect(() => {
+    console.log(filterBasedOn);
+  }, [handleClick]);
 
   return (
     <div className="relative">
@@ -57,18 +66,55 @@ export const Filter = ({ className, handleClick }) => {
             className={`absolute top-10 right-0 bg-eco-white z-50 border ${className} drop-shadow-2xl`}
             // onClick={handleClick}
           >
-            <FilterGroup label="By Status">
-              <FilterOptions text="Active users" handleClick={handleClick} />
-              <FilterOptions text="Inactive users" handleClick={handleClick} />
-            </FilterGroup>
-            <FilterGroup
-              label="By Date"
-              className="mt-2 flex items-center justify-between"
-              containerClass="mt-2"
-            >
-              <FilterOptions text="From" />
-              <FilterOptions text="To" />
-            </FilterGroup>
+            {filterBasedOn === "User Management" && (
+              <>
+                <FilterGroup label="By Status">
+                  <FilterOptions
+                    text="Active users"
+                    runFilter={handleClick}
+                    runFilterBasedOn={filterBasedOn}
+                  />
+                  <FilterOptions
+                    text="Inactive users"
+                    runFilter={handleClick}
+                    runFilterBasedOn={filterBasedOn}
+                  />
+                </FilterGroup>
+
+                <FilterGroup
+                  label="By Date"
+                  className="mt-2 flex items-center justify-between"
+                  containerClass="mt-2"
+                >
+                  <FilterOptions text="From" />
+                  <FilterOptions text="To" />
+                </FilterGroup>
+              </>
+            )}
+            {filterBasedOn === "Financial Management" && (
+              <>
+                <FilterGroup label="By Completed">
+                  <FilterOptions
+                    text="Complete"
+                    runFilter={handleClick}
+                    runFilterBasedOn={filterBasedOn}
+                  />
+                  <FilterOptions
+                    text="Pending"
+                    runFilter={handleClick}
+                    runFilterBasedOn={filterBasedOn}
+                  />
+                </FilterGroup>
+                {/* <FilterGroup
+                  label="By Date"
+                  className="mt-2 flex items-center justify-between"
+                  containerClass="mt-2"
+                >
+                  <FilterOptions text="From" />
+                  <FilterOptions text="To" />
+                </FilterGroup> */}
+              </>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
