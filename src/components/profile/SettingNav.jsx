@@ -6,7 +6,8 @@ const SettingNav = () => {
   const { openModalWithContent } = dispatchables();
   return (
     <nav>
-      <ul className="space-y-16">
+      <h2 className="setting-title">Settings</h2>
+      <ul className="space-y-16 mt-10">
         {settings.map((item) => {
           return (
             <li
@@ -21,6 +22,12 @@ const SettingNav = () => {
             </li>
           );
         })}
+        <li
+          className="setting-opts text-error !font-semibold"
+          onClick={() => openModalWithContent("Logout of your account")}
+        >
+          Logout
+        </li>
       </ul>
     </nav>
   );

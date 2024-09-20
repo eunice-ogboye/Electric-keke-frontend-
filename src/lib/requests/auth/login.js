@@ -1,6 +1,6 @@
 import { addItemToLs } from "../../ls";
 import { showMe } from "./showMe";
-import { axiosCustomizedRequest } from "../axiosCustomized";
+import { clientRequest } from "../client";
 
 const loginUser = async (formData, showAlert) => {
   const { username, password, checkPass } = formData;
@@ -12,7 +12,7 @@ const loginUser = async (formData, showAlert) => {
   }
 
   try {
-    const { data } = await axiosCustomizedRequest({
+    const { data } = await clientRequest({
       url: "/auth/token/",
       method: "post",
       data: {

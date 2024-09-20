@@ -1,9 +1,9 @@
-import { axiosCustomizedRequest } from "../axiosCustomized";
+import { clientRequest } from "../client";
 
 const verifyOtp = async ({ ...otpDetails }) => {
   console.log(otpDetails)
   try {
-    const { data } = await axiosCustomizedRequest({
+    const { data } = await clientRequest({
       url: "/auth/otp-verification/",
       method: "post",
       data: otpDetails,

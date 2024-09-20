@@ -1,10 +1,12 @@
+import SettingHeader from "../../components/profile/SettingHeader";
 import SettingNav from "../../components/profile/SettingNav";
 import React from "react";
 
 const Settings = () => {
   return (
     <section className="setting">
-      <h2 className="setting-title">Settings</h2>
+      <SettingHeader />
+      
 
       <div className="setting-container">
         <SettingNav />

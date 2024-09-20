@@ -1,10 +1,10 @@
 import { addItemToLs } from "../../../lib/ls";
-import { axiosCustomizedRequest } from "../axiosCustomized";
+import { clientRequest } from "../client";
 
 const requestOtp = async ({ ...otpData }) => {
   console.log(otpData);
   try {
-    const { data } = await axiosCustomizedRequest({
+    const { data } = await clientRequest({
       url: "/auth/request-new-otp/",
       method: "post",
       data: otpData,

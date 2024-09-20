@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FormRow from "../shared/FormRow";
 import Btn from "../shared/Btn";
+import { Label } from "recharts";
 
 const ProfileModal = () => {
   const [title, setTitle] = useState("Profile Management");
@@ -45,37 +46,31 @@ const ProfileModal = () => {
 
         {title !== "Profile Management" && (
           <form className="profile-opt-box pb-2">
-            <FormRow formRowContainer="profile-options">
-              <input
-                type="text"
-                name={
-                  title === "Personal Information" ? "name" : "old-password"
-                }
-                placeholder={
-                  title === "Personal Information" ? "name" : "old-password"
-                }
-                className="border-none outline-none"
-              />
-            </FormRow>
+            <FormRow
+              type={title === "Personal Information" ? "text" : "password"}
+              name={title === "Personal Information" ? "name" : "old-password"}
+              placeholder={
+                title === "Personal Information" ? "name" : "old-password"
+              }
+              inputclass="profile-modal-inputs"
+            />
 
-            <FormRow formRowContainer="profile-options">
-              <input
-                type={title === 'Personal Information' ? 'email' : 'password'}
-                name={title === 'Personal Information' ? 'email' : 'new-password'}
-                placeholder={title === 'Personal Information' ? 'Email' : 'New password'}
-               className="border-none outline-none"
-              />
-            </FormRow>
+            <FormRow
+              type={title === "Personal Information" ? "email" : "password"}
+              name={title === "Personal Information" ? "email" : "new-password"}
+              placeholder={
+                title === "Personal Information" ? "Email" : "New password"
+              }
+              inputclass="profile-modal-inputs"
+            />
 
             {title === "Change Password" && (
-              <FormRow formRowContainer="profile-options">
-                <input
-                  type="password"
-                  name="confirm"
-                  placeholder="Confirm Password"
-                  className="border-none outline-none"
-                />
-              </FormRow>
+              <FormRow
+                type="password"
+                name="confirm"
+                placeholder="Confirm Password"
+                inputclass="profile-modal-inputs"
+              />
             )}
 
             <div className="px-7">

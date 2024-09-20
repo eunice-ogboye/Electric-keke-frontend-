@@ -1,4 +1,4 @@
-import { axiosCustomizedRequest } from "../axiosCustomized";
+import { clientRequest } from "../client";
 
 const activateUser = async ({ ...otpDetails }) => {
   console.log(otpDetails)

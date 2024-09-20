@@ -1,5 +1,6 @@
 import { addItemToLs, deletItemFromLs, getItemFromLs } from "../../../lib/ls";
-import { axiosCustomizedRequest } from "../axiosCustomized";
+import { clientRequest } from "../client";
+
 
 const registerUser = async (formData) => {
   const role = getItemFromLs("registeringAs");
@@ -15,7 +16,7 @@ const registerUser = async (formData) => {
   } = formData;
 
   try {
-    const { data } = await axiosCustomizedRequest({
+    const { data } = await clientRequest({
       url: "/auth/register-user/",
       method: "post",
       data: {

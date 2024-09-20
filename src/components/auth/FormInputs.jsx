@@ -54,7 +54,7 @@ const FormInputs = ({ type, formData }) => {
           name="fullname"
           value={formData.fullname}
           handleChange={changeAuthFormData}
-          auth
+          inputclass="auth-input"
         />
       )}
       {type === "register" && (
@@ -64,7 +64,7 @@ const FormInputs = ({ type, formData }) => {
           name="email"
           value={formData.email}
           handleChange={changeAuthFormData}
-          auth
+          inputclass="auth-input"
         />
       )}
       {type === "complete" && (
@@ -75,7 +75,7 @@ const FormInputs = ({ type, formData }) => {
             name="phone"
             value={formData.phone}
             handleChange={changeAuthFormData}
-            auth
+            inputclass="auth-input"
           />
           <FormRow
             type="text"
@@ -83,7 +83,7 @@ const FormInputs = ({ type, formData }) => {
             name="state"
             value={formData.state}
             handleChange={changeAuthFormData}
-            auth
+            inputclass="auth-input"
           />
           <FormRow
             type="text"
@@ -91,7 +91,7 @@ const FormInputs = ({ type, formData }) => {
             name="address"
             value={formData.address}
             handleChange={changeAuthFormData}
-            auth
+            inputclass="auth-input"
           />
         </>
       )}
@@ -102,7 +102,7 @@ const FormInputs = ({ type, formData }) => {
           name="username"
           value={formData.username}
           handleChange={changeAuthFormData}
-          auth
+          inputclass="auth-input"
         />
       )}
       {type === "forget" && (
@@ -112,7 +112,7 @@ const FormInputs = ({ type, formData }) => {
           name="username"
           value={formData.username}
           handleChange={changeAuthFormData}
-          auth
+          inputclass="auth-input"
         />
       )}
 
@@ -124,7 +124,7 @@ const FormInputs = ({ type, formData }) => {
             name="password"
             value={formData.password}
             handleChange={changeAuthFormData}
-            auth
+            inputclass="auth-input"
           />
           <FormRow
             type="password"
@@ -132,7 +132,7 @@ const FormInputs = ({ type, formData }) => {
             name="checkPass"
             value={formData.checkPass}
             handleChange={changeAuthFormData}
-            auth
+            inputclass="auth-input"
           />
         </>
       )}

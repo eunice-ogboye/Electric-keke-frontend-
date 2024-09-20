@@ -9,24 +9,14 @@ import { motion } from "framer-motion";
 import { getItemFromLs } from "../../lib/ls";
 import bookRide from "../../lib/requests/booking/bookRide";
 import dispatchables from "../../utils/dispatchables";
-
-// const fetchAcceptance = (order, time, cancel) => {
-//   return new Promise((resolve) => {
-//     const timing = setTimeout(() => {
-//       resolve(order());
-//     }, time);
-//     cancel = () => {
-//       clearTimeout(timing);
-//     };
-//   });
-// };
+import Reviews from "../../components/xp/Reviews";
 
 const RiderInfo = () => {
   const { showAlert } = dispatchables();
 
   const [waiting, setWaiting] = useState(false);
   const [rider, setRider] = useState(getItemFromLs("rider") || null);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const parentVariant = {
     out: {
@@ -56,48 +46,25 @@ const RiderInfo = () => {
       },
     },
   };
-  const reviewContainer = {
-    out: { opacity: 0 },
-    enter: {
-      opacity: 1,
-      transition: {
-        duration: 0.75,
-        delayChildren: 0.2,
-        staggerChildren: 0.65,
-      },
-    },
-  };
-  const reviewContainerChildren = {
-    out: { opacity: 0, y: 200 },
-    enter: (custom) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1,
-        delay: custom * 0.35,
-      },
-    }),
-  };
-
-  // const acceptance = async () => {
-  //   setWaiting(true);
-  //   fetchAcceptance(() => {
-  //     setWaiting(false);
-  //     navigate("/tracking");
-  //   }, 5000);
-  // };
+  
 
   const submitBooking = async () => {
-    setWaiting(true);
+    // setWaiting(true);
     const bookData = getItemFromLs("book-data");
-    // console.log(bookData, "from submit");
     try {
       const { data } = await bookRide(bookData);
       showAlert("Ride Booking Succefull, Wait a moment");
-      // console.log(data);
+      setWaiting(false);
+      setTimeout(() => {
+        navigate('/tracking')
+      }, 3000);
     } catch (error) {
-      // console.log(error);
       showAlert(`Error Booking Ride with Rider ${rider.name}`);
+    } finally {
+      setWaiting(false);
+      setTimeout(() => {
+        navigate('/tracking')
+      }, 3000);
     }
   };
 
@@ -176,50 +143,9 @@ const RiderInfo = () => {
           </motion.div>
 
           <motion.div className="mt-5 md:mt-10">
-            <motion.h2 className="font-bold">Review</motion.h2>
+            <Reviews />
 
-            <motion.div
-              initial="out"
-              animate="enter"
-              variants={reviewContainer}
-              className="space-y-2 mt-2 md:mt-6"
-            >
-              {reviews.map((item, index) => (
-                <motion.div
-                  initial="out"
-                  animate="enter"
-                  variants={reviewContainerChildren}
-                  key={item.name}
-                  custom={index}
-                  className="p-[15px] space-y-1"
-                >
-                  <div className="flex items-center gap-[10px]">
-                    <div className="size-[40px] rounded-full">
-                      <img src={item.photo} alt={item.name} />
-                    </div>
-                    <div>
-                      <p className="text-eiteen text-eco-green font-bold font-montserrat">
-                        {item.name}
-                      </p>
-                      <p className="text-base text-eco-neutral-prime font-montserrat">
-                        {item.email}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-eco-neutral-prime font-montserrat">
-                    {item.review}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <button className="text-xs text-eco-neutral-prime border-b border-eco-neutral-ptext-eco-neutral-prime">
-                      Show original
-                    </button>
-                    <p className="text-xs text-eco-neutral-prime">
-                      {item.createdAt}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+            
 
             <div className="mt-4 md:hidden">
               <Btn

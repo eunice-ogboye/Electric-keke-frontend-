@@ -75,6 +75,14 @@
   }
 }
 
+/*****************************************/
+/**** SHADOWS**********/
+
+.board-shadow {
+  filter: drop-shadow(6px 0px 20px rgba(0, 0, 0, 0.3));
+}
+
+
 ::-ms-reveal {
   display: none
 }
@@ -92,12 +100,10 @@ h2 {
 }
 
 .board {
-  @apply hidden md:block w-1/2 min-h-screen rounded-e-20 overflow-hidden relative;
+  @apply hidden md:block w-1/2 min-h-screen rounded-e-20 overflow-hidden relative board-shadow;
 }
 
-.board {
-  filter: drop-shadow(6px 5px 20px rgba(0, 0, 0, 0.3));
-}
+
 
 .board-pad {
   @apply my-dell:py-[2.1875rem] px-4 py-2 md:px-20 my-dell:px-[7.5rem];
@@ -393,7 +399,7 @@ h2 {
 }
 
 .rate-modal {
-  @apply flex-center w-[607px] h-[577px]
+  @apply flex-center flex-col w-full max-w-[600px] h-[483px]
 }
 
 .choose-modal {
@@ -404,7 +410,7 @@ h2 {
   @apply w-[715px] md:min-h-[80vh] py-5 md:py-10 px-3 md:px-7
 }
 
-.modalContainer {}
+/* .modalContainer {} */
 
 
 
@@ -431,6 +437,10 @@ h2 {
 
 .auth-input {
   @apply border border-eco-neutral-input px-5 rounded-[6px] h-[54px] w-full;
+}
+
+.profile-modal-inputs {
+  @apply py-5 px-4 border border-eco-neutral-prime h-16 rounded-[14px] w-full max-w-[410px]
 }
 
 /********************** Admin ****************/
@@ -498,11 +508,15 @@ h2 {
 
 /********************* settings ************/
 .setting {
-  @apply pt-10 md:pt-[7.5rem] pb-20 md:pb-[109px] home-pad
+  @apply pb-20 md:pb-[109px] home-pad
+}
+
+.setting-header {
+  @apply max-w-[1200px] mx-auto pt-14
 }
 
 .setting-title {
-  @apply text-5xl font-bold text-center
+  @apply text-[40px] font-bold
 }
 
 .setting-container {
@@ -551,4 +565,150 @@ h2 {
 
 .card-number {
   @apply font-semibold text-white text-base text-justify
+}
+
+.option-card-form-content {
+  @apply flex flex-col gap-y-4
+}
+
+.card-content-group {
+  @apply grid grid-cols-3 gap-4
+}
+
+.dialog-modal {
+  @apply border border-modal w-full max-w-[600px] rounded-[16px] bg-white flex-center p-8
+}
+
+/************ Reviews *************/
+.review {
+  @apply p-[15px] space-y-1
+}
+
+.review-head {
+  @apply flex items-center gap-[10px]
+}
+
+.passenger-photo {
+  @apply size-[40px] rounded-full
+}
+
+.passenger-name {
+  @apply text-eiteen text-eco-green font-bold font-montserrat
+}
+
+.passenger-email {
+  @apply text-base text-eco-neutral-prime font-montserrat
+}
+
+.passenger-review {
+  @apply text-sm text-eco-neutral-prime font-montserrat
+}
+
+.passenger-review-details {
+  @apply flex items-center justify-between
+}
+
+.review-btn {
+  @apply text-xs text-eco-neutral-prime border-b border-eco-neutral-prime text-eco-neutral-prime
+}
+
+.review-cat {
+  @apply text-xs text-eco-neutral-prime
+}
+
+/********************* tracking *************/
+
+.tracking-info-board {
+  @apply mt-4 md:mt-[31px] md:flex gap-6 items-start;
+}
+
+.tracking-map {
+  @apply w-full md:w-1/2 h-[603px] md:h-[881.32px]
+}
+
+.track-details {
+  @apply w-full max-w-[586px] mt-3 md:mt-0
+}
+
+.rider-details {
+  @apply flex items-center py-2 px-0 md:px-4 justify-between bg-eco-green-faint
+}
+
+.rider-photo-container {
+  @apply size-[74px] md:size-[103px] rounded-full
+}
+
+.rider-photo {
+  @apply size-full object-cover object-center rounded-full
+}
+
+.rider-status {
+  @apply text-sm md:text-eiteen text-eco-neutral-prime
+}
+
+.ride-cta {
+  @apply w-[88px] lg:w-[123px] flex items-center justify-between
+}
+
+.ride-cta-icon {
+  @apply size-[35px] lg:size-[50px] flex-center cursor-pointer
+}
+
+.ride-location {
+  @apply h-[70px] max-w-[586px] rounded-[14px] location-shadow flex items-center py-6 px-7
+}
+
+.ride-fare {
+  @apply bg-eco-green-faint flex-center h-[56px] w-[179px] text-eiteen font-bold rounded-[10px]
+}
+
+/**************** shadows *************/
+.location-shadow {
+  filter: drop-shadow(0 2px 12px rgb(0, 0, 0, 0.25))
+}
+
+
+/******************* transaction ***********/
+.transaction-board {
+  @apply pt-5 md:pt-10 pb-20 md:pb-40
+}
+
+.payment-for-board {
+  @apply px-5 md:pl-[7.5rem] md:pr-10 w-full md:w-[55vw] bg-white board-shadow transaction-board
+}
+
+.payment-method {
+  @apply transaction-board px-5 md:pl-10 w-full md:w-[45vw]
+}
+
+.payment-form {
+  @apply mt-10
+}
+
+.pay-form-rows {
+  @apply flex flex-col gap-2 md:gap-y-8
+}
+
+.payment-input {
+  @apply w-full rounded-[6px] h-14 border border-modal px-5 mt-2
+}
+
+.transaction-head {
+  @apply flex items-center gap-3
+}
+
+.ride-trip {
+  @apply md:grid md:grid-cols-12 items-center border
+}
+
+.ride-trip-label {
+  @apply md:col-span-2
+}
+
+.trip-detail {
+  @apply my-5 md:my-10 space-y-3 md:space-y-0
+}
+
+.ride-location {
+  @apply location-shadow bg-white rounded-[14px] h-14 md:h-[70px] px-5 flex items-center ml-2 w-auto md:col-span-10
 }

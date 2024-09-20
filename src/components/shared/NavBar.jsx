@@ -10,7 +10,6 @@ const NavBar = ({ dark }) => {
   return (
     <nav className="flex items-center gap-2 md:gap-3 lg:gap-8 list-none">
       {nav_links.map((item) => {
-        console.log(item.title) 
         const isActive = item.href === pathname
         const iAmEarn = item.href === '/earn-with-us' && isDriverinTheUrl
         return (

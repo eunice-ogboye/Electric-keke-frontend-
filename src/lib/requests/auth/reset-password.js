@@ -1,8 +1,8 @@
-import { axiosCustomizedRequest } from "../axiosCustomized";
+import { clientRequest } from "../client";
 
 const resetPassword = async ({ ...resetData }) => {
   try {
-    const { data } = await axiosCustomizedRequest({
+    const { data } = await clientRequest({
       url: "/auth/reset-password/",
       method: "post",
       data: resetData,

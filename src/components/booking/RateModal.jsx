@@ -2,8 +2,10 @@ import React from "react";
 import Rate from "../xp/Rate";
 import Heading from "../shared/Heading";
 import Btn from "../shared/Btn";
+import dispatchables from "../../utils/dispatchables";
 
 const RateModal = ({ comment, rateValue, rateTheDriver }) => {
+  const { flipModal } = dispatchables();
   return (
     <div className="modal rate-modal">
       {!comment && (
@@ -15,24 +17,30 @@ const RateModal = ({ comment, rateValue, rateTheDriver }) => {
           />
         </div>
       )}
-      <div className="w-fit mt-6">
-        <Rate
-          rate={rateValue}
-          big
-          handleClick={rateTheDriver}
-          statik={comment}
-          className="mx-auto space-x-3"
-        />
+      <div className="w-full max-w-[432px] mt-6 px-5">
+        {comment && (
+          <Rate rate={rateValue} big statik className="mx-auto space-x-3" />
+        )}
         <Heading
           className="text-nowrap mt-6 text-center"
           title={comment ? "Great!" : "Rate Your Experience"}
-          tclass="text-[40px]"
+          tclass="text-xl md:text-[40px]"
           description={comment && "Tell us a bit more about your ride"}
+          dclass="text-xs md:text-3xl"
         />
+        {!comment && (
+          <Rate
+            // rate={rateValue}
+            big
+            handleClick={rateTheDriver}
+            // statik={comment}
+            className="mx-auto space-x-3"
+          />
+        )}
       </div>
 
       {comment && (
-        <form className="w-full">
+        <form className="w-full px-5">
           <label className="w-full">
             <span className="block text-base font-semibold">Comment</span>
             <textarea
@@ -43,7 +51,7 @@ const RateModal = ({ comment, rateValue, rateTheDriver }) => {
               className="px-3 py-2 w-full resize-none"
             ></textarea>
           </label>
-          <Btn text="Send" size="md-full" />
+          <Btn to="/riders" text="Send" size="full" handleClick={() => flipModal(false)}/>
         </form>
       )}
     </div>

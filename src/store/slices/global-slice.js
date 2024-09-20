@@ -8,7 +8,7 @@ const initialState = {
   driverAuthProcess: "Identity",
   modal: false,
   modalContent: "ride",
-  riders: getItemFromLs('riders') || [],
+  ridersList: getItemFromLs('ridersList') || [],
   rider: null,
   support: "faq",
   supportOption: "General",
@@ -20,12 +20,12 @@ const globalSlice = createSlice({
   name: "global",
   initialState,
   reducers: {
-    ridersListing(state, action) {
-      const riders = action.payload;
-      addItemToLs('riders', riders);
-      return { ...state, riders };
+    storeListOfRiders(state, action) {
+      const ridersList = action.payload;
+      addItemToLs('ridersList', ridersList);
+      return { ...state, ridersList };
     },
-    riderSelection(state, action) {
+    selectARider(state, action) {
       const rider = action.payload;
       addItemToLs("rider", rider);
       return { ...state, rider };
@@ -80,7 +80,7 @@ const globalSlice = createSlice({
 });
 
 export const {
-  ridersListing,
+  storeListOfRiders,
   hideAlert,
   alertUser,
   changeAuthPage,
@@ -89,7 +89,7 @@ export const {
   chooseSupport,
   changeRegistryMethod,
   driveAuth,
-  riderSelection,
+  selectARider,
   changeVerificationType,
 } = globalSlice.actions;
 
