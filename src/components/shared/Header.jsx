@@ -3,12 +3,11 @@ import Logo from "./Logo";
 import Btn from "./Btn";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { changeAuthPage } from "../../store/slices/global-slice";
 import { getItemFromLs } from "../../lib/ls";
+import dispatchables from "../../utils/dispatchables";
 
 const Header = ({ darkLogo }) => {
-  const dispatch = useDispatch();
+  const { changeAuthenticationPage } = dispatchables();
 
   const [user, setUser] = useState(getItemFromLs("user") || null);
 
@@ -18,9 +17,9 @@ const Header = ({ darkLogo }) => {
         <Logo main dark={darkLogo} />
         <NavBar dark={darkLogo} />
 
-        <Link to="/settings" className="text-sm text-red-500">
+        {/* <Link to="/settings" className="text-sm text-red-500">
           Settings
-        </Link>
+        </Link> */}
 
         {user ? (
           <div className="flex items-center gap-3">
@@ -41,10 +40,8 @@ const Header = ({ darkLogo }) => {
         ) : (
           <Btn
             text="Sign Up"
-            to="/authentication/register-as"
-            handleClick={() => {
-              dispatch(changeAuthPage("start"));
-            }}
+            to="/authentication"
+            handleClick={() => changeAuthenticationPage("start")}
           />
         )}
       </div>

@@ -11,8 +11,10 @@ const client = axios.create({
 client.interceptors.request.use(
   async (req) => {
     const accessToken = getItemFromLs("accessToken");
-    const tokenValidity = isTokenValid(accessToken);
-    console.log(tokenValidity);
+    if (accessToken) {
+      const tokenValidity = isTokenValid(accessToken);
+      console.log(tokenValidity);
+    }
     return req;
   },
   (err) => Promise.reject(err)
@@ -21,11 +23,13 @@ client.interceptors.request.use(
 export const clientRequest = async ({ ...options }) => {
   console.log(options);
 
+  // console.log("i reached here");
   const accessToken = getItemFromLs("accessToken");
   if (accessToken) {
-    console.log('we have access token')
+    console.log("we have access token");
     client.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
   }
+  // console.log("after the access");
 
   const onSuccess = (res) => {
     return res;

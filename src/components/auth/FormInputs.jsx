@@ -3,6 +3,7 @@ import FormRow from "../shared/FormRow";
 import { otp_choice } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import dispatchables from "../../utils/dispatchables";
+import { RegisterUser } from "../../lib/requests/auth";
 
 const FormInputs = ({ type, formData }) => {
   const { chooseOtpMethod, showAlert, changeAuthFormData } = dispatchables();
@@ -26,7 +27,7 @@ const FormInputs = ({ type, formData }) => {
                 onClick={async () => {
                   // console.log(formData);
                   try {
-                    await registerUser(formData);
+                    await RegisterUser(formData);
                     showAlert("Otp Sent for verification");
                     navigate("/authentication/verification");
                   } catch (error) {

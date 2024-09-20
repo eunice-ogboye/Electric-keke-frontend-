@@ -3,7 +3,7 @@ import { DatePicker } from "../../components/shared/DatePicker";
 import { SelectInput } from "../../components/shared/SelectInput";
 import Btn from "../../components/shared/Btn";
 import FormRow from "../../components/shared/FormRow";
-import logoutUser from "../../lib/requests/auth/logout";
+import { Logout } from "../../lib/requests/auth";
 import { Button } from "../../components/ui/button";
 import { LogOutIcon } from "lucide-react";
 import { useGlobalAuthContext } from "../../contexts/AuthContext";
@@ -15,8 +15,7 @@ const Profile = () => {
   const { AuthenticateLogout } = useGlobalAuthContext();
   const { user } = useOutletContext;
 
-  const {showAlert} = dispatchables();
-
+  const { showAlert } = dispatchables();
 
   const [profileFormData, setProfileFormData] = useState({
     firstname: "",
@@ -49,7 +48,7 @@ const Profile = () => {
             className="size-10 p-0 rounded-full flex-center absolute top-0 left-0 bg-emerald-900"
             onClick={async () => {
               try {
-                await logoutUser(showAlert);
+                await Logout(showAlert);
                 showAlert("Logout Succesfull");
                 AuthenticateLogout();
               } catch (error) {

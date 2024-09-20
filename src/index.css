@@ -75,6 +75,14 @@
   }
 }
 
+/********************** Btn ********************/
+.btn-clear {
+  @apply bg-clear
+}
+
+.btn-danger {
+  @apply bg-error
+}
 /*****************************************/
 /**** SHADOWS**********/
 
@@ -453,7 +461,7 @@ h2 {
 }
 
 .admin-info {
-  @apply w-[150px] p-1 border rounded-full flex items-center justify-between
+  @apply min-w-[150px] p-1 border rounded-full flex items-center justify-between
 }
 
 .overview {

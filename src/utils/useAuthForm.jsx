@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalAuthContext } from "../contexts/AuthContext";
 import { addItemToLs } from "../lib/ls";
-import loginUser from "../lib/requests/auth/login";
-import requestOtp from "../lib/requests/auth/otp-request";
+import { Login, RequestOtp } from "../lib/requests/auth";
 
 const useAuthFormDefault = () => {
   const { AuthenticateLogin } = useGlobalAuthContext();
@@ -14,7 +13,7 @@ const useAuthFormDefault = () => {
 
   const authenticationPage = useSelector((state) => state.global.authPage);
 
-  const { showAlert, changeAuthenticationPage } = dispatchables();
+  const { showAlert, changeAuthenticationPage, switchVerificationType } = dispatchables();
 
   const [disabled, setDisabled] = useState(false);
 
@@ -82,11 +81,12 @@ const useAuthFormDefault = () => {
         return goToNextPage("/authentication/choose-otp-method", "otpMethod");
 
       case "forget":
-        dispatch(changeVerificationType("update-password"));
         addItemToLs("user-email", username);
         try {
           const { detail } = await requestOtp({ username });
           showAlert(detail);
+          switchVerificationType('update-password')
+          changeAuthenticationPage('update-password');
           return navigate("/authentication/verification");
         } catch (error) {
           showAlert("error fetching otp");
@@ -111,11 +111,13 @@ const useAuthFormDefault = () => {
 
       case "login":
         try {
-          const data = await loginUser(formData, showAlert);
+          const data = await Login(formData);
           AuthenticateLogin();
+          showAlert('Login Success')
           return goToNextPage(data, null);
         } catch (error) {
           console.log(error);
+          showAlert(error.message)
           return;
         }
       // return;

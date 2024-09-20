@@ -15,7 +15,7 @@ const SmallInfo = ({ admin }) => {
           />
         </div>
         <div>
-          <p className="font-bold text-sm">{user.fullname}</p>
+          <p className="font-bold text-sm line-clamp-1">{user.fullname}</p>
           <p className="text-sm">
             {admin ? "Admin" : `@${user?.nickname || "susu"}`}
           </p>

@@ -3,12 +3,11 @@ import Logo from "./Logo";
 import Btn from "./Btn";
 import MobileNav from "./MobileNav";
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { changeAuthPage } from "../../store/slices/global-slice";
 import { getItemFromLs } from "../../lib/ls";
+import dispatchables from "../../utils/dispatchables";
 
 const MobileHeader = () => {
-  const dispatch = useDispatch();
+  const {changeAuthenticationPage} = dispatchables()
 
   const [user, setUser] = useState(getItemFromLs("user") || null);
   const { pathname } = useLocation();
@@ -44,10 +43,8 @@ const MobileHeader = () => {
             <Btn
               text="Sign Up"
               size="sm"
-              to="/authentication/register"
-              handleClick={() => {
-                dispatch(changeAuthPage("register"));
-              }}
+              to="/authentication"
+              handleClick={() => changeAuthenticationPage('start')}
             />
           )}
         </>

@@ -64,7 +64,7 @@ function App() {
           <Route path="/support" element={<Support />} />
           {/* auth pages */}
           <Route path="/authentication" element={<AuthPage />}>
-            <Route path="register-as" element={<RegisterAs />} />
+            <Route index element={<RegisterAs />} />
             <Route
               path="verification"
               element={

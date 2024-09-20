@@ -12,6 +12,7 @@ const AuthPage = () => {
   useTitle("Authentication");
   // redux globals
   const { authPage } = useSelector((state) => state.global);
+  console.log(authPage)
 
   return (
     <section className="flex">

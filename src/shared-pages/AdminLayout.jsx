@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import OverviewInfo from "../components/admin/OverviewInfo";
 import dispatchables from "../utils/dispatchables";
-import logoutUser from "../lib/requests/auth/logout";
+import { Logout } from "../lib/requests/auth";
 import AdminHeader from "../components/admin/AdminHeader";
 
 const AdminLayout = () => {
@@ -15,7 +15,6 @@ const AdminLayout = () => {
 
   const [currentAdminPage, setCurrentAdminPage] = useState("Overview");
   const [contentsToDisplay, setContentsToDisplay] = useState("All");
-  
 
   const { pathname } = useLocation();
   const activeLink = pathname.slice(7);
@@ -49,7 +48,7 @@ const AdminLayout = () => {
                 variant="ghost"
                 onClick={async () => {
                   try {
-                    await logoutUser(showAlert);
+                    await Logout(showAlert);
                     navigate("/");
                   } catch (error) {
                     showAlert(error.message);
