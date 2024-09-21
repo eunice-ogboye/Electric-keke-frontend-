@@ -7,10 +7,11 @@ import ChooseModal from "../booking/ChooseModal";
 import DetailsModal from "../booking/DetailsModal";
 import { modalContainer } from "../../constants/variants";
 import dispatchables from "../../utils/dispatchables";
-import ProfileModal from "../profile/ProfileModal";
 import PaymentModal from "../profile/PaymentModal";
 import Dialog from "../profile/Dialog";
 import TransactionModal from "../transaction/TransactionModal";
+import MapModal from "./MapModal";
+import ProfileContactModal from "./ProfileContactModal";
 
 const Modal = () => {
   // const dispatch = useDispatch();
@@ -51,21 +52,27 @@ const Modal = () => {
       )}
 
       {(modalContent === "ride" || modalContent === "delivery") && (
-        <ChooseModal
-          modalContent={modalContent}
-          handleClick={handleClick}
-        />
+        <ChooseModal modalContent={modalContent} handleClick={handleClick} />
       )}
 
-      {modalContent === "details" && <DetailsModal />}
+      {modalContent === "details" ||
+        (modalContent === "request-ride" && (
+          <MapModal modalContent={modalContent} />
+        ))}
 
-      {modalContent === "Profile Management" && <ProfileModal />}
+      {modalContent === "Profile Management" ||
+        (modalContent === "contact passenger" && (
+          <ProfileContactModal modalContent={modalContent} />
+        ))}
 
       {modalContent === "Payment Method" && <PaymentModal />}
 
-      {(modalContent === "Delete Account" || modalContent === 'Logout of your account') && <Dialog title={modalContent} />}
+      {(modalContent === "Delete Account" ||
+        modalContent === "Logout of your account") && (
+        <Dialog title={modalContent} />
+      )}
 
-      {modalContent === 'Pay for ride' && <TransactionModal />}
+      {modalContent === "Pay for ride" && <TransactionModal />}
     </motion.section>
   );
 };

@@ -83,11 +83,20 @@
 .btn-danger {
   @apply bg-error
 }
+
+.default-msg-btn {
+  @apply border border-eco-green rounded-full bg-transparent text-eco-neutral-prime
+}
+
 /*****************************************/
 /**** SHADOWS**********/
 
 .board-shadow {
   filter: drop-shadow(6px 0px 20px rgba(0, 0, 0, 0.3));
+}
+
+.send-shadow {
+  filter: drop-shadow(0 1px 3px rgb(0, 0, 0, 0.1)) drop-shadow(0 12px 7px rgb(0, 0, 0, 0.05))
 }
 
 
@@ -358,7 +367,7 @@ h2 {
 }
 
 .driver {
-  @apply border border-eco-neutral-prime min-h-[693px] px-[9px] md:px-0 md:pl-10 lg:pl-10 py-10 rounded-[40px] bg-eco-neutral-driver overflow-hidden;
+  @apply border border-eco-neutral-prime min-h-[693px] px-[9px] md:px-0 md:pl-10 lg:pl-10 py-0 rounded-[40px] bg-eco-neutral-driver overflow-hidden mt-8 pb-10;
 }
 
 .statistics {
@@ -397,6 +406,14 @@ h2 {
   @apply h-[338px] bg-white mt-5 rounded-20 flex-center;
 }
 
+.driver-online-btn {
+  @apply bg-eco-green text-white
+}
+
+.driver-offline-btn {
+  @apply bg-white text-black
+}
+
 /* MODAL */
 .modal-container {
   @apply w-full min-h-screen fixed top-0 left-0 z-50 flex-center bg-black/50 home-pad;
@@ -416,6 +433,10 @@ h2 {
 
 .detail-modal {
   @apply w-[715px] md:min-h-[80vh] py-5 md:py-10 px-3 md:px-7
+}
+
+.ride-request-modal {
+  @apply w-full max-w-[600px] rounded-[16px] bg-white p-5
 }
 
 /* .modalContainer {} */
@@ -636,19 +657,31 @@ h2 {
 }
 
 .track-details {
-  @apply w-full max-w-[586px] mt-3 md:mt-0
+  @apply w-full md:max-w-[586px] mt-3 md:mt-0 border
 }
 
-.rider-details {
-  @apply flex items-center py-2 px-0 md:px-4 justify-between bg-eco-green-faint
+.tracking-header {
+  @apply flex items-center gap-2
 }
 
-.rider-photo-container {
+.person-details {
+  @apply flex items-center py-2 px-0 sm:px-2 md:px-4 justify-between bg-eco-green-faint
+}
+
+.person-photo-container {
   @apply size-[74px] md:size-[103px] rounded-full
 }
 
-.rider-photo {
+.person-photo {
   @apply size-full object-cover object-center rounded-full
+}
+
+.person-credentials {
+  @apply flex items-center justify-between  mt-2 md:mt-0 w-[72%]
+}
+
+.person-name {
+  @apply text-xl md:text-[28px] font-bold
 }
 
 .rider-status {
@@ -722,6 +755,7 @@ h2 {
   @apply location-shadow bg-white rounded-[14px] h-14 md:h-[70px] px-5 flex items-center ml-2 w-auto md:col-span-10
 }
 
+/************************ EXPERIMENTING EXPERIMENTAL ***************/
 .gradient {
   width: 200px;
   height: 200px;

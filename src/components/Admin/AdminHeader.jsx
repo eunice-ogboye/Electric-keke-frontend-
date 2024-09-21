@@ -1,5 +1,4 @@
-import React from "react";
-import Logo from "../Logo";
+import Logo from "../shared/Logo";
 import SearchIcon from "../../assets/svg/SearchIcon";
 import Bell from "../../assets/svg/Bell";
 import SmallInfo from "../shared/SmallInfo";
