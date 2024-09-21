@@ -9,20 +9,17 @@ import {
   chooseSupport,
 } from "../../store/slices/global-slice";
 import { updateBookingData } from "../../store/slices/bookride-slice";
+import dispatchables from "../../utils/dispatchables";
 
 const HeroCta = ({ type }) => {
-  const navigate = useNavigate();
-  // redux dispatch and globals
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const {openModalWithContent} = dispatchables();
+  // redux dispatch and globals
   const { support, supportOption } = useSelector((state) => state.global);
 
   const chooseHowToRide = (key, value) => {
     dispatch(updateBookingData({ key, value }));
-  };
-
-  // change modal content
-  const alterModalContent = (content) => {
-    dispatch(changeModalContent(content));
   };
 
   // what kind of support
@@ -41,7 +38,7 @@ const HeroCta = ({ type }) => {
                 dispatch(changeAuthPage("driver-auth"));
                 return navigate("/authentication/driver-auth");
               }
-              alterModalContent("ride");
+              openModalWithContent("ride");
               chooseHowToRide("booking_type", "ride");
             }}
           />
@@ -50,7 +47,7 @@ const HeroCta = ({ type }) => {
               text="Request For Delivery"
               type="secondary"
               handleClick={() => {
-                alterModalContent("delivery");
+                openModalWithContent("delivery");
                 chooseHowToRide("booking_type", "delivery");
               }}
             />

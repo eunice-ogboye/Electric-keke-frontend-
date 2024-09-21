@@ -1,5 +1,6 @@
 import { contribution } from "../../constants";
 import { motion } from "framer-motion";
+import AnimateText from "../animate/AnimateText";
 
 const Contribution = () => {
   return (
@@ -8,7 +9,7 @@ const Contribution = () => {
         <motion.div
           initial={{ x: -200 }}
           whileInView={{ x: 0 }}
-          className="contibution-phone"
+          className="contribution-phone"
         >
           <img
             src="/hand-phone.svg"
@@ -17,10 +18,11 @@ const Contribution = () => {
           />
         </motion.div>
 
+
         <motion.div
           initial={{ x: 200 }}
           whileInView={{ x: 0 }}
-          className="contibution-pg"
+          className="contribution-pg"
         >
           <h2 className="font-bold text-[2rem] font-josefin">
             {contribution.title}

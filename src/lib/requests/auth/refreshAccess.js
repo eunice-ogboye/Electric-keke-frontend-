@@ -1,12 +1,15 @@
-import axios from "axios";
+// import axios from "axios";
 import { getItemFromLs } from "../../ls";
+import { clientRequest } from "../client";
 
 const refreshAccess = async () => {
   const oldRefreshToken = getItemFromLs("refreshToken");
   console.log(oldRefreshToken);
   try {
-    const { data } = await axios.post("/api/auth/token/refresh/", {
-      refresh: oldRefreshToken,
+    const { data } = await clientRequest({
+      url: "/auth/token/refresh/",
+      method: "post",
+      data: { refresh: oldRefreshToken },
     });
     console.log(data);
     return data;

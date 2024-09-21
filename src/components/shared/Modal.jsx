@@ -1,26 +1,25 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import closeModalOnBodyClick from "../../utils/closeModalOnBodyClick";
 import RateModal from "../booking/RateModal";
 import ChooseModal from "../booking/ChooseModal";
 import DetailsModal from "../booking/DetailsModal";
 import { modalContainer } from "../../constants/variants";
 import dispatchables from "../../utils/dispatchables";
+import ProfileModal from "../profile/ProfileModal";
+import PaymentModal from "../profile/PaymentModal";
+import Dialog from "../profile/Dialog";
+import TransactionModal from "../transaction/TransactionModal";
 
 const Modal = () => {
   // const dispatch = useDispatch();
-  const { flipModal } = dispatchables();
+  const { flipModal, openModalWithContent } = dispatchables();
 
-  const {
-    bookData,
-    global: { modal, modalContent },
-  } = useSelector((state) => state);
+  // const bookData = useSelector(state => state.bookData)
+  const { modal, modalContent } = useSelector((state) => state.global);
   //
-  const navigate = useNavigate();
   //states
-  const [content, setContent] = useState("choose-how-to-ride");
   const [rate, setRate] = useState(0);
   const [comment, setComment] = useState(false);
 
@@ -30,7 +29,7 @@ const Modal = () => {
       setComment(true);
       return;
     }
-    setContent("details-of-ride");
+    openModalWithContent("details");
   };
 
   return (
@@ -48,19 +47,25 @@ const Modal = () => {
           comment={comment}
           rateValue={rate}
           rateTheDriver={handleClick}
-          ref={modalContainer}
         />
       )}
 
-      {content === "choose-how-to-ride" && (
+      {(modalContent === "ride" || modalContent === "delivery") && (
         <ChooseModal
           modalContent={modalContent}
           handleClick={handleClick}
-          ref={modalContainer}
         />
       )}
 
-      {content === "details-of-ride" && <DetailsModal />}
+      {modalContent === "details" && <DetailsModal />}
+
+      {modalContent === "Profile Management" && <ProfileModal />}
+
+      {modalContent === "Payment Method" && <PaymentModal />}
+
+      {(modalContent === "Delete Account" || modalContent === 'Logout of your account') && <Dialog title={modalContent} />}
+
+      {modalContent === 'Pay for ride' && <TransactionModal />}
     </motion.section>
   );
 };

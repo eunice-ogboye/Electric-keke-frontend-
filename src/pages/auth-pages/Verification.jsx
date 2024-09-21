@@ -1,26 +1,25 @@
 import { useNavigate } from "react-router-dom";
 import Logo from "../../components/shared/Logo";
 import OtpInput from "../../components/OtpInput";
-import {
-  alertUser,
-  changeAuthPage,
-  hideAlert,
-} from "../../store/slices/global-slice";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Btn from "../../components/shared/Btn";
 import Heading from "../../components/shared/Heading";
 import { useTitle } from "../../lib/hooks";
-import verifyOtp from "../../lib/requests/auth/otp-verification";
 import { deletItemFromLs, getItemFromLs } from "../../lib/ls";
-import requestOtp from "../../lib/requests/auth/otp-request";
-import activateUser from "../../lib/requests/auth/activate-user";
+import {
+  ActivateUser,
+  RequestOtp,
+  OtpVerification,
+} from "../../lib/requests/auth";
+
+import dispatchables from "../../utils/dispatchables";
 
 const Verification = () => {
   useTitle("Verification");
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const { showAlert, changeAuthenticationPage } = dispatchables();
 
   const { verificationType } = useSelector((state) => state.global);
   console.log(verificationType);
@@ -38,13 +37,6 @@ const Verification = () => {
     }
   }, [otpValue]);
 
-  const showAlert = (msg) => {
-    dispatch(alertUser(msg));
-    setTimeout(() => {
-      dispatch(hideAlert());
-    }, 3000);
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const registeringAs = getItemFromLs("registeringAs");
@@ -57,23 +49,24 @@ const Verification = () => {
       };
 
       if (verificationType === "activate") {
-        const { detail } = await activateUser(otpDetails);
+        const { detail } = await ActivateUser(otpDetails);
         showAlert(detail);
         registeringAs === "User"
           ? (navigate("/authentication/congrats"),
-            dispatch(changeAuthPage("congrats")))
+            changeAuthenticationPage("congrats"))
           : (navigate("/authentication/driver-auth"),
-            dispatch(changeAuthPage("driver-auth")));
+            changeAuthenticationPage("driver-auth"));
         // the following no more needed
         deletItemFromLs("userId");
         deletItemFromLs("registeringAs");
+        return;
       }
 
       if (verificationType === "update-password") {
-        const { detail } = await verifyOtp(otpDetails);
+        const { detail } = await OtpVerification(otpDetails);
         showAlert(detail);
         navigate("/authentication/new");
-        dispatch(changeAuthPage("new"));
+        changeAuthenticationPage("new");
       }
     } catch (error) {
       console.log(error);
@@ -93,11 +86,7 @@ const Verification = () => {
   return (
     <form className="my-dell:mt-32 board-pad md:w-1/2" onSubmit={handleSubmit}>
       <Logo className="w-[122px] h-[81px] mx-auto" />
-      <Heading
-        title="Enter Code"
-        className="text-center mt-2 my-dell:mt-10"
-        // description={getDescription(type)}
-      />
+      <Heading title="Enter Code" className="text-center mt-2 my-dell:mt-10" />
       <div className="r-form-body">
         <div>
           <p className="text-center text-eiteen font-josefin">
@@ -120,17 +109,18 @@ const Verification = () => {
                   if (verificationType === "activate") {
                     console.log(verificationType);
 
-                    const { detail } = await requestOtp({
+                    const { detail } = await RequestOtp({
                       message_type: "email",
                       username: getItemFromLs("user-email"),
                     });
                     showAlert(detail);
+                    return;
                   }
 
                   if (verificationType === "update-password") {
                     console.log(verificationType);
 
-                    const { detail } = await requestOtp({
+                    const { detail } = await RequestOtp({
                       username: getItemFromLs("user-email"),
                     });
                     showAlert(detail);

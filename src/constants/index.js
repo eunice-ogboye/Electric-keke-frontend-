@@ -207,12 +207,11 @@ const footer_note =
 
 const settings = [
   "Profile Management",
-  "Driver's License & Document",
-  "Availability & Scheduling",
-  "Notifications & Alerts",
-  "Earnings & Payment",
+  "Payment Method",
+  "Notifications",
   "Security & Privacy",
   "Support & Feedback",
+  "Delete Account",
 ];
 
 const hero_descriptions = {

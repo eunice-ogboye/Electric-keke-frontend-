@@ -9,6 +9,7 @@ import useAuthFormDefault from "../../utils/useAuthForm";
 import Google from "../../assets/svg/Google";
 import ForgetTab from "./ForgetTab";
 import Congrats from "./Congrats";
+import dispatchables from "../../utils/dispatchables";
 
 const getDescription = (type) => {
   return type === "verification"
@@ -31,6 +32,7 @@ const formClassName = (type) => {
 };
 
 const ReusableForm = ({ type = "register" }) => {
+  const {switchVerificationType} = dispatchables();
   const { handleSubmit, formData, disabled, changeAuthenticationPage } =
     useAuthFormDefault();
 

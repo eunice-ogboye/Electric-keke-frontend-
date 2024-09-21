@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const Mission = () => {
   return (
-    <section id="mission" className="">
+    <section id="mission" className="bg-eco-green py-10">
       <div className="home-pad">
         <Heading
           introTitle="Our Vision"

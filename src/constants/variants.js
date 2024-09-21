@@ -18,4 +18,27 @@ const modalParent = {
   leave: { opacity: 0, scale: 0, transition: { duration: 2, type: "spring" } },
 };
 
-export { modalParent, modalContainer };
+const reviewContainer = {
+  out: { opacity: 0 },
+  enter: {
+    opacity: 1,
+    transition: {
+      duration: 0.75,
+      delayChildren: 0.2,
+      staggerChildren: 0.65,
+    },
+  },
+};
+const reviewContainerChildren = {
+  out: { opacity: 0, y: 200 },
+  enter: (custom) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      delay: custom * 0.35,
+    },
+  }),
+};
+
+export { modalParent, modalContainer, reviewContainer, reviewContainerChildren };

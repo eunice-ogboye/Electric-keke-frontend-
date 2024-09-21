@@ -3,6 +3,7 @@ import FormRow from "../shared/FormRow";
 import { otp_choice } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import dispatchables from "../../utils/dispatchables";
+import { RegisterUser } from "../../lib/requests/auth";
 
 const FormInputs = ({ type, formData }) => {
   const { chooseOtpMethod, showAlert, changeAuthFormData } = dispatchables();
@@ -26,7 +27,7 @@ const FormInputs = ({ type, formData }) => {
                 onClick={async () => {
                   // console.log(formData);
                   try {
-                    await registerUser(formData);
+                    await RegisterUser(formData);
                     showAlert("Otp Sent for verification");
                     navigate("/authentication/verification");
                   } catch (error) {
@@ -54,7 +55,7 @@ const FormInputs = ({ type, formData }) => {
           name="fullname"
           value={formData.fullname}
           handleChange={changeAuthFormData}
-          auth
+          inputclass="auth-input"
         />
       )}
       {type === "register" && (
@@ -64,7 +65,7 @@ const FormInputs = ({ type, formData }) => {
           name="email"
           value={formData.email}
           handleChange={changeAuthFormData}
-          auth
+          inputclass="auth-input"
         />
       )}
       {type === "complete" && (
@@ -75,7 +76,7 @@ const FormInputs = ({ type, formData }) => {
             name="phone"
             value={formData.phone}
             handleChange={changeAuthFormData}
-            auth
+            inputclass="auth-input"
           />
           <FormRow
             type="text"
@@ -83,7 +84,7 @@ const FormInputs = ({ type, formData }) => {
             name="state"
             value={formData.state}
             handleChange={changeAuthFormData}
-            auth
+            inputclass="auth-input"
           />
           <FormRow
             type="text"
@@ -91,7 +92,7 @@ const FormInputs = ({ type, formData }) => {
             name="address"
             value={formData.address}
             handleChange={changeAuthFormData}
-            auth
+            inputclass="auth-input"
           />
         </>
       )}
@@ -102,7 +103,7 @@ const FormInputs = ({ type, formData }) => {
           name="username"
           value={formData.username}
           handleChange={changeAuthFormData}
-          auth
+          inputclass="auth-input"
         />
       )}
       {type === "forget" && (
@@ -112,7 +113,7 @@ const FormInputs = ({ type, formData }) => {
           name="username"
           value={formData.username}
           handleChange={changeAuthFormData}
-          auth
+          inputclass="auth-input"
         />
       )}
 
@@ -124,7 +125,7 @@ const FormInputs = ({ type, formData }) => {
             name="password"
             value={formData.password}
             handleChange={changeAuthFormData}
-            auth
+            inputclass="auth-input"
           />
           <FormRow
             type="password"
@@ -132,7 +133,7 @@ const FormInputs = ({ type, formData }) => {
             name="checkPass"
             value={formData.checkPass}
             handleChange={changeAuthFormData}
-            auth
+            inputclass="auth-input"
           />
         </>
       )}

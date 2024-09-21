@@ -36,10 +36,12 @@ import CustomerCare from "./pages/xp-pages/CustomerCare";
 import RiderIndex from "./pages/xp-pages/RiderIndex";
 import Riders from "./pages/xp-pages/Riders";
 import Tracking from "./pages/xp-pages/Tracking";
-
 //admin
 import UserManagement from "./pages/admin/UserManagement";
 import FinancialManagement from "./pages/admin/FinancialManagement";
+// error
+import InternalServer from "./pages/error-pages/InternalServer";
+import Transaction from "./pages/transaction/Transaction";
 
 function App() {
   const {
@@ -62,7 +64,7 @@ function App() {
           <Route path="/support" element={<Support />} />
           {/* auth pages */}
           <Route path="/authentication" element={<AuthPage />}>
-            <Route path="register-as" element={<RegisterAs />} />
+            <Route index element={<RegisterAs />} />
             <Route
               path="verification"
               element={
@@ -79,17 +81,6 @@ function App() {
 
           {/* protected routes */}
           <Route element={<ProtectedRoute />}>
-            <Route path="/driver/:id" element={<Driver />} />
-            <Route path="/schedule-ride" element={<Schedule />} />
-            <Route path="/riders" element={<Riders />}>
-              <Route index element={<RiderIndex />} />
-              <Route path=":id" element={<RiderInfo />} />
-            </Route>
-            <Route path="/notification" element={<Notification />} />
-            <Route path="/tracking" element={<Tracking />} />
-            <Route path="/profile/:id" element={<Profile />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/customer-care" element={<CustomerCare />} />
             <Route path="/admin" element={<AdminLayout />}>
               <Route path="user-management" element={<UserManagement />} />
               <Route
@@ -103,9 +94,22 @@ function App() {
                 }
               />
             </Route>
+            <Route path="/driver/:id" element={<Driver />} />
+            <Route path="/schedule-ride" element={<Schedule />} />
+            <Route path="/riders" element={<Riders />}>
+              <Route index element={<RiderIndex />} />
+              <Route path=":id" element={<RiderInfo />} />
+            </Route>
+            <Route path="/notification" element={<Notification />} />
+            <Route path="/tracking" element={<Tracking />} />
+            <Route path="/profile/:id" element={<Profile />} />
+            <Route path="/settings" element={<Settings />} />
+            <Route path="/customer-care" element={<CustomerCare />} />
+            <Route path="/transaction" element={<Transaction />} />
           </Route>
           {/* protected routes */}
 
+          <Route path="/ie/:id" element={<InternalServer />} />
           <Route
             path="*"
             element={

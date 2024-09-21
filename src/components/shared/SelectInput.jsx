@@ -9,14 +9,24 @@ import {
   SelectValue,
 } from "../ui/select";
 
-export function SelectInput({ placeholder = "select", label, children }) {
+export function SelectInput({
+  placeholder = "select",
+  label,
+  children,
+  className,
+}) {
   return (
     <Select
       onValueChange={(value) => {
         console.log(value);
       }}
     >
-      <SelectTrigger className="border border-pgreen rounded-[6px] h-[64px] w-full max-w-96">
+      <SelectTrigger
+        className={
+          className ||
+          "border border-pgreen rounded-[6px] h-[64px] w-full max-w-96"
+        }
+      >
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>
@@ -34,3 +44,5 @@ export function SelectInput({ placeholder = "select", label, children }) {
     </Select>
   );
 }
+
+export default SelectInput;
