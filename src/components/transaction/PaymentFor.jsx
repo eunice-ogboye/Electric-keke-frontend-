@@ -1,6 +1,6 @@
 import Spear from "../../assets/svg/Spear";
 import React, { useState } from "react";
-import Logo from "../Logo";
+import Logo from "../shared/Logo";
 import Heading from "../shared/Heading";
 import Trip from "./Trip";
 import { getItemFromLs } from "../../lib/ls";

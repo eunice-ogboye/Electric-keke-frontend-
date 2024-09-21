@@ -1,6 +1,5 @@
 import { footer_note, socials } from "../../constants";
-import React from "react";
-import Logo from "../Logo";
+import Logo from "../shared/Logo";
 import { motion } from "framer-motion";
 import { HashLink as Link } from "react-router-hash-link";
 

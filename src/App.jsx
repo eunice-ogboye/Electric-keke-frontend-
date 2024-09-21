@@ -28,20 +28,23 @@ import ProtectedRoute from "./shared-pages/Private";
 import Profile from "./pages/profile-pages/Profile";
 import Settings from "./pages/profile-pages/Settings";
 // xp experience
-import Driver from "./pages/xp-pages/Driver";
 import Schedule from "./pages/xp-pages/Schedule";
 import Notification from "./pages/xp-pages/Notification";
 import RiderInfo from "./pages/xp-pages/RiderInfo";
 import CustomerCare from "./pages/xp-pages/CustomerCare";
 import RiderIndex from "./pages/xp-pages/RiderIndex";
 import Riders from "./pages/xp-pages/Riders";
-import Tracking from "./pages/xp-pages/Tracking";
+import Tracking from "./pages/tracking/Tracking";
 //admin
 import UserManagement from "./pages/admin/UserManagement";
 import FinancialManagement from "./pages/admin/FinancialManagement";
+// driver pages
+import Driver from "./pages/driver/Driver";
 // error
 import InternalServer from "./pages/error-pages/InternalServer";
 import Transaction from "./pages/transaction/Transaction";
+// message
+import ChatConnect from "./pages/chat/ChatConnect";
 
 function App() {
   const {
@@ -106,6 +109,7 @@ function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/customer-care" element={<CustomerCare />} />
             <Route path="/transaction" element={<Transaction />} />
+            <Route path="/chat" element={<ChatConnect />} />
           </Route>
           {/* protected routes */}
 
