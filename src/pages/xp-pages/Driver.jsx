@@ -2,8 +2,11 @@ import ReBarCharts from "../../components/xp/ReBarCharts";
 import ToggleStats from "../../components/shared/ToggleStats";
 import DoughnutChart from "../../components/xp/DoughnutChart";
 import Section from "../../shared-pages/Section";
+import Choose from "../../components/shared/Choose";
+import { useState } from "react";
 
 const Driver = () => {
+  const [online, setOnline] = useState(false);
   const data = [
     {
       title: "Cash",
@@ -31,7 +34,18 @@ const Driver = () => {
     <Section darkLogo>
       <div className="driver-board">
         <div className="driver">
-          <ToggleStats />
+          {/* <ToggleStats /> */}
+          <Choose
+            containerClass="w-[225px] md:w[310px] h-11 md:h-16 rounded-[2rem] bg-white flex-center mt-6 md:mt-10 py-1 px-2  ml-auto md:mr-5"
+            choice1txt={online ? 'Online' : 'Go Online'}
+            choice2txt={online ? 'Go Offline' : 'Offline'}
+            btnClass="rounded-full w-1/2 md:h-14 md:w-[171px]"
+            addedClass1={online ? "driver-online-btn" : "driver-offline-btn"}
+            addedClass2={online ? "driver-offline-btn" : "driver-online-btn"}
+            condition={online}
+            handleChoice1={() => setOnline(true)}
+            handleChoice2={() => setOnline(false)}
+          />
           <h2 className="font-bold font-josefin">Earnings</h2>
 
           <div className="mt-5 md:flex items-center justify-between">

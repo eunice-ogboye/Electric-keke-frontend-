@@ -83,6 +83,7 @@
 .btn-danger {
   @apply bg-error
 }
+
 /*****************************************/
 /**** SHADOWS**********/
 
@@ -358,7 +359,7 @@ h2 {
 }
 
 .driver {
-  @apply border border-eco-neutral-prime min-h-[693px] px-[9px] md:px-0 md:pl-10 lg:pl-10 py-10 rounded-[40px] bg-eco-neutral-driver overflow-hidden;
+  @apply border border-eco-neutral-prime min-h-[693px] px-[9px] md:px-0 md:pl-10 lg:pl-10 py-0 rounded-[40px] bg-eco-neutral-driver overflow-hidden mt-8 pb-10;
 }
 
 .statistics {
@@ -395,6 +396,14 @@ h2 {
 
 .performance-board {
   @apply h-[338px] bg-white mt-5 rounded-20 flex-center;
+}
+
+.driver-online-btn {
+  @apply bg-eco-green text-white
+}
+
+.driver-offline-btn {
+  @apply bg-white text-black
 }
 
 /* MODAL */
@@ -722,6 +731,7 @@ h2 {
   @apply location-shadow bg-white rounded-[14px] h-14 md:h-[70px] px-5 flex items-center ml-2 w-auto md:col-span-10
 }
 
+/************************ EXPERIMENTING EXPERIMENTAL ***************/
 .gradient {
   width: 200px;
   height: 200px;

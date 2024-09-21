@@ -10,7 +10,9 @@ const Choose = ({
   addedClass2,
   handleChoice1,
   handleChoice2,
+  condition
 }) => {
+  
   return (
     <div className={containerClass}>
       <CustomizedBtn
