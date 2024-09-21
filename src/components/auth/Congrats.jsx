@@ -1,5 +1,4 @@
-import React from 'react'
-import Logo from '../Logo'
+import Logo from "../shared/Logo";
 import Heading from '../shared/Heading'
 import Btn from '../shared/Btn'
 

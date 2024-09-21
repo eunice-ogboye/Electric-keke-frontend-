@@ -6,13 +6,17 @@ import { cn } from "../../lib/utils";
 const NavBar = ({ dark }) => {
   const { pathname } = useLocation();
   const regex = /driver/i;
+  /**w
+   * we want to take out the earn nav from the
+   * header, is driver present in the url
+   */
   const isDriverinTheUrl = regex.test(pathname);
   return (
     <nav className="flex items-center gap-2 md:gap-3 lg:gap-8 list-none">
       {nav_links.map((item) => {
-        const isActive = item.href === pathname
-        const iAmEarn = item.href === '/earn-with-us' && isDriverinTheUrl
-        return (
+        const isActive = item.href === pathname;
+        const iAmEarn = item.href === "/earn-with-us" && isDriverinTheUrl;
+        return iAmEarn ? null : (
           <Link to={item.href} key={item.title}>
             <li
               className={cn(
@@ -21,7 +25,7 @@ const NavBar = ({ dark }) => {
                 } `,
                 {
                   "text-eco-green font-bold": isActive,
-                  "hidden": iAmEarn
+                  hidden: iAmEarn,
                 }
               )}
             >

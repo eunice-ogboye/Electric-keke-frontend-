@@ -1,6 +1,7 @@
 // import { toggleModal } from "../store/slices/global-slice";
 
 const closeModalOnBodyClick = (e, flipModal) => {
+  console.log(e.target.scrollHeight);
   const child = e.currentTarget.children[0];
   const childW = child.clientWidth;
   const childH = child.clientHeight;
@@ -11,10 +12,9 @@ const closeModalOnBodyClick = (e, flipModal) => {
   const endX = startX + childW;
   const endY = startY + childH + windowScrollY;
 
-  console.log(endX, endY);
+  // console.log(endX, endY);
   const clickedPositionX = e.pageX;
   const clickedPositionY = e.pageY;
-
 
   if (
     clickedPositionX > startX &&
@@ -22,10 +22,10 @@ const closeModalOnBodyClick = (e, flipModal) => {
     clickedPositionY > startY &&
     clickedPositionY < endY
   ) {
-    console.log("yes click is within the modalref");
+    // console.log("yes click is within the modalref");
     return;
   }
-  flipModal(false)
+  flipModal(false);
 };
 
 export default closeModalOnBodyClick;
