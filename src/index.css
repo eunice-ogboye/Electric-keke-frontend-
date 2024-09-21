@@ -438,6 +438,7 @@ h2 {
   filter: drop-shadow(0 11px 25px rgba(0, 0, 0, 0.1)) drop-shadow(0 45px 45px rgba(0, 0, 0, 0.09));
 }
 
+
 /* input classes */
 .schedule-input {
   @apply border border-eco-green px-5 rounded-[6px] h-[64px] w-full max-w-96;
@@ -719,4 +720,19 @@ h2 {
 
 .ride-location {
   @apply location-shadow bg-white rounded-[14px] h-14 md:h-[70px] px-5 flex items-center ml-2 w-auto md:col-span-10
+}
+
+.gradient {
+  width: 200px;
+  height: 200px;
+  background: conic-gradient(from 0deg, red, yellow, green, blue, red);
+  animation: rotate 5s linear infinite;
+  border-radius: 50%;
+}
+
+/* Define the animation */
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
 }

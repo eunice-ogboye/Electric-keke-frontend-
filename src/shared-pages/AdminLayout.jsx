@@ -9,6 +9,7 @@ import OverviewInfo from "../components/admin/OverviewInfo";
 import dispatchables from "../utils/dispatchables";
 import { Logout } from "../lib/requests/auth";
 import AdminHeader from "../components/admin/AdminHeader";
+import Experimental from "../components/shared/experimental/Experimental";
 
 const AdminLayout = () => {
   const { showAlert } = dispatchables();
@@ -74,6 +75,12 @@ const AdminLayout = () => {
 
           {(currentAdminPage === "Overview" ||
             currentAdminPage === "Financial Management") && <Analytics />}
+
+          {/* <div className="flex items-center">
+            <div className="gradient"></div>
+
+            <Experimental /> 
+          </div>*/}
 
           <Outlet context={{ contentsToDisplay }} />
         </div>

@@ -77,6 +77,7 @@ const Schedule = () => {
             formRowContainer="font-inter"
             value={scheduleFormData.origin}
             handleChange={handleChange}
+            inputclass="schedule-input"
           />
           <FormRow
             name="destination"
@@ -84,11 +85,13 @@ const Schedule = () => {
             formRowContainer="font-inter"
             value={scheduleFormData.destination}
             handleChange={handleChange}
+            inputclass="schedule-input"
           />
           <FormRow
             label="Select Date"
             children={<DatePicker />}
             formRowContainer="font-inter"
+            inputclass="schedule-input"
           />
           <FormRow
             label="Select Time"
@@ -99,7 +102,9 @@ const Schedule = () => {
                 formRowContainer="font-inter"
                 children={<CustomSelectItem items={generateTime()} />}
               />
+              
             }
+            inputclass="schedule-input"
           />
           <FormRow
             label={
@@ -117,6 +122,7 @@ const Schedule = () => {
               />
             }
             formRowContainer="font-inter"
+            inputclass="schedule-input"
           />
           {scheduleType === "ride" ? (
             <FormRow
@@ -128,6 +134,7 @@ const Schedule = () => {
                 </div>
               }
               formRowContainer="font-inter"
+              inputclass="schedule-input"
             />
           ) : (
             <FormRow
@@ -138,8 +145,9 @@ const Schedule = () => {
                   label="Goods Category"
                 />
               }
-              labelTextSize="text-xs my-dell:text-xs"
+              labelClass="text-xs my-dell:text-xs"
               formRowContainer="font-inter"
+              inputclass="schedule-input"
             />
           )}
         </form>
@@ -147,7 +155,7 @@ const Schedule = () => {
         <div className="mt-14">
           <p className="text-2xl font-medium font-inter">Details</p>
           <div className="px-2 py-5 border-eco-green md:flex gap-5">
-            <div className="max-w-[635px]">
+            <div className="w-8/12 ">
               <div className="md:flex items-start justify-between">
                 <div className="space-y-[21px] w-full md:w-5/12 h-[183px]">
                   <div>
