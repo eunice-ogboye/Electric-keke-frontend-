@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
 
 const AuthProcess = () => {
-  const { driverAuthProcess } = useSelector((state) => state.global);
+  const { driverAuthProcessStage } = useSelector((state) => state.global);
 
   const process = [
     "Identity",
@@ -11,13 +11,15 @@ const AuthProcess = () => {
     "Processing",
   ];
   const processesCompleted =
-    driverAuthProcess === process[0]
+    driverAuthProcessStage === process[0]
       ? 0
-      : driverAuthProcess === process[1]
+      : driverAuthProcessStage === process[1]
       ? 1
-      : driverAuthProcess === process[2]
+      : driverAuthProcessStage === process[2]
       ? 2
       : 3;
+
+      console.log(processesCompleted, process)
 
   const [percentage, setPercentage] = useState(0);
 

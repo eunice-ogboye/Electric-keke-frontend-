@@ -5,8 +5,11 @@ import {
   changeAuthPage,
   changeModalContent,
   changeVerificationType,
+  finishLoad,
   hideAlert,
+  moveToNextDriveAuthStage,
   selectARider,
+  startLoad,
   storeListOfRiders,
   toggleModal,
 } from "../store/slices/global-slice";
@@ -15,11 +18,10 @@ import { useDispatch } from "react-redux";
 const dispatchables = () => {
   const dispatch = useDispatch();
 
-  
   const changeAuthenticationPage = (page) => {
     dispatch(changeAuthPage(page));
   };
-  
+
   const chooseOtpMethod = (method) => {
     console.log(method);
     dispatch(changeInputValue({ key: "message_type", value: method }));
@@ -34,15 +36,21 @@ const dispatchables = () => {
 
   const chooseRider = (item) => {
     dispatch(selectARider(item));
-  }
-  
+  };
+
   const flipModal = (bool) => {
     dispatch(toggleModal(bool));
   };
 
   const inputDataForBookingRequest = (key, value) => {
-    dispatch(updateBookingData({key, value}))
-  }
+    dispatch(updateBookingData({ key, value }));
+  };
+
+  const loading = () => {
+    dispatch(startLoad());
+  };
+
+  const unloading = () => dispatch(finishLoad());
 
   const openModalWithContent = (content) => {
     dispatch(changeModalContent(content));
@@ -63,6 +71,9 @@ const dispatchables = () => {
     dispatch(storeListOfRiders(data));
   };
 
+  const nextDriverAuthStage = (stage) => {
+    dispatch(moveToNextDriveAuthStage(stage));
+  };
 
   return {
     chooseOtpMethod,
@@ -71,10 +82,13 @@ const dispatchables = () => {
     chooseRider,
     flipModal,
     inputDataForBookingRequest,
+    nextDriverAuthStage,
     openModalWithContent,
     showAlert,
     switchVerificationType,
     updateDriversList,
+    loading,
+    unloading,
   };
 };
 

@@ -12,7 +12,7 @@ const Services = ({ type = "main" }) => {
         dclass="mt-3 md:mt-7 text-center text-base md:text-eiteen service-desc"
         introClass="mx-auto text-eco-green service-heading"
         type="about"
-        initial={{ y: -200, opacity: 0 }}
+        initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         initialp={{ opacity: 0, x: -200 }}
         animatep={{ opacity: 1, x: 0 }}

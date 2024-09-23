@@ -10,6 +10,7 @@ import { getItemFromLs } from "../../lib/ls";
 import bookRide from "../../lib/requests/booking/bookRide";
 import dispatchables from "../../utils/dispatchables";
 import Reviews from "../../components/xp/Reviews";
+import Loader from "../../components/loaders/Loader";
 
 const RiderInfo = () => {
   const { showAlert } = dispatchables();
@@ -46,7 +47,6 @@ const RiderInfo = () => {
       },
     },
   };
-  
 
   const submitBooking = async () => {
     // setWaiting(true);
@@ -56,15 +56,15 @@ const RiderInfo = () => {
       showAlert("Ride Booking Succefull, Wait a moment");
       setWaiting(false);
       setTimeout(() => {
-        navigate('/tracking')
+        navigate("/tracking");
       }, 3000);
     } catch (error) {
       showAlert(`Error Booking Ride with Rider ${rider.name}`);
     } finally {
       setWaiting(false);
-      setTimeout(() => {
-        navigate('/tracking')
-      }, 3000);
+      // setTimeout(() => {
+      //   navigate('/tracking')
+      // }, 3000);
     }
   };
 
@@ -76,10 +76,7 @@ const RiderInfo = () => {
       className="bg-white w-full py-20 z-50 h-[calc(100vh-20vh)]"
     >
       <div>
-        <div className="w-fit h-fit mx-auto">
-          {/* <Loader size={153} /> */}
-          <img src="/loaders/loading.gif" />
-        </div>
+        <Loader type="blub" className="w-fit h-fit mx-auto" />
 
         <Heading
           className="text-center w-full max-w-[840px] mx-auto"
@@ -144,8 +141,6 @@ const RiderInfo = () => {
 
           <motion.div className="mt-5 md:mt-10">
             <Reviews />
-
-            
 
             <div className="mt-4 md:hidden">
               <Btn

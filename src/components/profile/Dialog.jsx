@@ -5,7 +5,7 @@ import dispatchables from "../../utils/dispatchables";
 import { useNavigate } from "react-router-dom";
 
 const Dialog = ({ title }) => {
-  const { showAlert, flipModal } = dispatchables();
+  const { showAlert, flipModal, changeAuthenticationPage } = dispatchables();
   const navigate = useNavigate();
 
   const handleChoice1 = () => {
@@ -20,6 +20,8 @@ const Dialog = ({ title }) => {
       if (logout) {
         // continue to logout
         await Logout(showAlert);
+        changeAuthenticationPage("login");
+        navigate("/authentication/login");
         flipModal(false);
         return;
       }

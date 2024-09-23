@@ -331,8 +331,11 @@ h2 {
 }
 
 .mobile-header {
-  @apply flex items-center justify-between px-[17px] py-3 md:hidden absolute z-50 w-full bg-white/[6%] backdrop-blur-2xl;
+  @apply flex items-center justify-between px-[17px] py-3 md:hidden w-full bg-white/[6%] backdrop-blur-2xl;
 }
+/* .mobile-header {
+  @apply flex items-center justify-between px-[17px] py-3 md:hidden absolute z-50 w-full bg-white/[6%] backdrop-blur-2xl;
+} */
 
 .header-container {
   @apply hidden md:flex items-center justify-between md:border-2 md:border-eco-green/40 h-[4.75rem] md:rounded-[40px] px-[17px] md:p-2 md:bg-eco-neutral/20 md:backdrop-blur-lg;
@@ -416,7 +419,7 @@ h2 {
 
 /* MODAL */
 .modal-container {
-  @apply w-full min-h-screen fixed top-0 left-0 z-50 flex-center bg-black/50 home-pad;
+  @apply w-full min-h-screen fixed top-0 left-0 z-50 flex-center bg-black/50 home-pad overflow-y-scroll;
 }
 
 .modal {
@@ -463,6 +466,10 @@ h2 {
 /* input classes */
 .schedule-input {
   @apply border border-eco-green px-5 rounded-[6px] h-[64px] w-full max-w-96;
+}
+
+.profile-management-input {
+  @apply border px-5 rounded-[6px] h-[64px] w-full max-w-96;
 }
 
 .auth-input {
@@ -677,7 +684,7 @@ h2 {
 }
 
 .person-credentials {
-  @apply flex items-center justify-between  mt-2 md:mt-0 w-[72%]
+  @apply flex items-center justify-between mt-2 md:mt-0 w-[72%]
 }
 
 .person-name {
@@ -753,6 +760,31 @@ h2 {
 
 .ride-location {
   @apply location-shadow bg-white rounded-[14px] h-14 md:h-[70px] px-5 flex items-center ml-2 w-auto md:col-span-10
+}
+
+/******************** personal info ***************/
+.profile-section {
+  @apply home-pad pt-5 md:pt-[122px] pb-20 relative overflow-hidden
+}
+
+.profile-glow {
+  @apply size-[300px] lg:size-[609px] bg-eco-green/20 absolute -top-10 md:-top-32 -left-20 md:-left-[8rem] rounded-full -z-20
+}
+
+.profile-sub-header {
+  @apply border-b border-b-eco-neutral-prime flex items-center justify-between
+}
+
+.prof-photo {
+  @apply size-[162px] rounded-full border mt-5 mb-12 relative
+}
+
+.prof-photo-main {
+  @apply size-full object-cover object-center rounded-full
+}
+
+.prof-form-body {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-9 gap-x-[50px]
 }
 
 /************************ EXPERIMENTING EXPERIMENTAL ***************/

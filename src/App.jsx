@@ -45,11 +45,13 @@ import InternalServer from "./pages/error-pages/InternalServer";
 import Transaction from "./pages/transaction/Transaction";
 // message
 import ChatConnect from "./pages/chat/ChatConnect";
+import Loader from "./components/loaders/Loader";
 
 function App() {
   const {
     alert: { show },
     modal,
+    loading,
   } = useSelector((state) => state.global);
 
   return (
@@ -58,6 +60,13 @@ function App() {
         <AnimatePresence>
           {modal && <Modal />}
           {show && <Alert />}
+          {loading && (
+            <Loader
+              className="fixed top-5 right-20 text-white z-50 border"
+              type="spin2"
+              size={50}
+            />
+          )}
         </AnimatePresence>
         <Routes>
           {/* homepages */}

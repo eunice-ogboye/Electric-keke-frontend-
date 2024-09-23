@@ -76,12 +76,6 @@ const AdminLayout = () => {
           {(currentAdminPage === "Overview" ||
             currentAdminPage === "Financial Management") && <Analytics />}
 
-          {/* <div className="flex items-center">
-            <div className="gradient"></div>
-
-            <Experimental /> 
-          </div>*/}
-
           <Outlet context={{ contentsToDisplay }} />
         </div>
       </div>

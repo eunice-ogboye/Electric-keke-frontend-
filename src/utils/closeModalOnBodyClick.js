@@ -1,20 +1,49 @@
-// import { toggleModal } from "../store/slices/global-slice";
+// // import { toggleModal } from "../store/slices/global-slice";
+
+// const closeModalOnBodyClick = (e, flipModal) => {
+//   console.log(e.target.scrollHeight);
+//   const immediateChild = e.currentTarget.children[0];
+//   const width = immediateChild.clientWidth;
+//   const height = immediateChild.clientHeight;
+//   const windowScrollY = window.scrollY;
+//   const startX = immediateChild.offsetLeft;
+//   const startY = immediateChild.offsetTop + windowScrollY;
+//   console.log(startX, startY);
+//   const endX = startX + width;
+//   const endY = startY + height + windowScrollY;
+
+//   // console.log(endX, endY);
+//   const clickedPositionX = e.pageX;
+//   const clickedPositionY = e.pageY;
+
+//   if (
+//     clickedPositionX > startX &&
+//     clickedPositionX < endX &&
+//     clickedPositionY > startY &&
+//     clickedPositionY < endY
+//   ) {
+//     // console.log("yes click is within the modalref");
+//     return;
+//   }
+//   flipModal(false);
+// };
+
+// export default closeModalOnBodyClick;
 
 const closeModalOnBodyClick = (e, flipModal) => {
-  console.log(e.target.scrollHeight);
-  const child = e.currentTarget.children[0];
-  const childW = child.clientWidth;
-  const childH = child.clientHeight;
+  const immediateChild = e.currentTarget.children[0];
+  const {
+    clientWidth: width,
+    clientHeight: height,
+    offsetLeft: startX,
+    offsetTop,
+  } = immediateChild;
   const windowScrollY = window.scrollY;
-  const startX = child.offsetLeft;
-  const startY = child.offsetTop + windowScrollY;
-  console.log(startX, startY);
-  const endX = startX + childW;
-  const endY = startY + childH + windowScrollY;
+  const startY = offsetTop + windowScrollY;
+  const endX = startX + width;
+  const endY = startY + height;
 
-  // console.log(endX, endY);
-  const clickedPositionX = e.pageX;
-  const clickedPositionY = e.pageY;
+  const { pageX: clickedPositionX, pageY: clickedPositionY } = e;
 
   if (
     clickedPositionX > startX &&
@@ -22,7 +51,6 @@ const closeModalOnBodyClick = (e, flipModal) => {
     clickedPositionY > startY &&
     clickedPositionY < endY
   ) {
-    // console.log("yes click is within the modalref");
     return;
   }
   flipModal(false);

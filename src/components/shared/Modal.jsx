@@ -25,6 +25,7 @@ const Modal = () => {
   const [comment, setComment] = useState(false);
 
   const handleClick = (item) => {
+    console.log(item);
     if (modalContent === "rate") {
       setRate(item);
       setComment(true);
@@ -55,10 +56,9 @@ const Modal = () => {
         <ChooseModal modalContent={modalContent} handleClick={handleClick} />
       )}
 
-      {modalContent === "details" ||
-        (modalContent === "request-ride" && (
-          <MapModal modalContent={modalContent} />
-        ))}
+      {(modalContent === "details" || modalContent === "request-ride") && (
+        <MapModal modalContent={modalContent} />
+      )}
 
       {modalContent === "Profile Management" ||
         (modalContent === "contact passenger" && (

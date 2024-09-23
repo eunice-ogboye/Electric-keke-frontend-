@@ -1,5 +1,5 @@
-import { SelectInput } from "../../components/shared/SelectInput";
-import { DatePicker } from "../../components/shared/DatePicker";
+import SelectInput from "../../components/shared/SelectInput";
+import DatePicker from "../../components/shared/DatePicker";
 import FormRow from "../../components/shared/FormRow";
 import SearchBar from "../../components/shared/SearchBar";
 import Togglers from "../../components/shared/Togglers";

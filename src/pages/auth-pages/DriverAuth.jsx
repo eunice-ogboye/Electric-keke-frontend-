@@ -4,32 +4,9 @@ import React, { useEffect } from "react";
 import Btn from "../../components/shared/Btn";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { changeAuthPage, driveAuth } from "../../store/slices/global-slice";
-
-const getDriverAuthImageAndTitle = (process) => {
-  return process === "Identity"
-    ? {
-        img: "/selfie.svg",
-        title: "Take A Selfie of Yourself",
-        desc: "your face has to be well lit and well positioned, make sure you don't have any background light.",
-      }
-    : process === "Driver License Front"
-    ? {
-        img: "/license-card.svg",
-        title: "Driver's License",
-        desc: "Upload a clear front picture of your drivers license, showing all corners of the drivers license.",
-      }
-    : process === "Driver License Back"
-    ? {
-        img: "/license-card.svg",
-        title: "Driver's License",
-        desc: "Upload a clear back picture of your drivers license, showing all corners of the drivers license.",
-      }
-    : {
-        title: "Processing",
-        desc: "We are reviewing the information you provide to verify your identity. verification process takes 24 hours, a notification will be sent to your email.",
-      };
-};
+import dispatchables from "../../utils/dispatchables";
+import DriverAuthBoard from "../../components/auth/DriverAuthBoard";
+import getDriverAuthImageAndTitle from "../../components/auth/headings";
 
 const checkDetails = (order) => {
   return new Promise((resolve) => {
@@ -41,14 +18,35 @@ const checkDetails = (order) => {
 
 const DriverAuth = () => {
   const navigate = useNavigate();
+  const { driverAuthProcessStage } = useSelector((state) => state.global);
+  const { changeAuthenticationPage, nextDriverAuthStage } = dispatchables();
   const dispatch = useDispatch();
-  const { driverAuthProcess } = useSelector((state) => state.global);
 
   useEffect(() => {
-    dispatch(changeAuthPage("driver-auth"));
+    changeAuthenticationPage("driver-auth");
   }, []);
 
-  const titleAndText = getDriverAuthImageAndTitle(driverAuthProcess);
+  const titleAndText = getDriverAuthImageAndTitle(driverAuthProcessStage);
+
+  const handleUpdateFiles = () => {
+    switch (driverAuthProcessStage) {
+      case "Identity":
+        return nextDriverAuthStage("Driver License Front");
+
+      case "Driver License Front":
+        return nextDriverAuthStage("Driver License Back");
+
+      case "Driver License Back":
+        nextDriverAuthStage("Processing");
+        setTimeout(() => {
+          changeAuthenticationPage("login");
+          navigate("/authentication/login");
+        }, 3000);
+        return;
+      default:
+        console.log("I am here");
+    }
+  };
 
   return (
     <section className="home-pad py-11 w-full">
@@ -58,28 +56,12 @@ const DriverAuth = () => {
             className="text-center"
             title="Driver's license & Document"
           />
-          <AuthProcess />
+          {/* <AuthProcess /> */}
         </div>
 
         <div className="mt-5 md:mt-20 w-full md:w-[686px] mx-auto">
           <div>
-            {driverAuthProcess === "Processing" ? null : (
-              <div
-                className={`border ${
-                  driverAuthProcess === "identity"
-                    ? "w-full md:w-[392px] h-[450px]"
-                    : "w-full md:w-[635px] h-[394px]"
-                } mx-auto overflow-hidden`}
-              >
-                <div className="size-full">
-                  <img
-                    src={titleAndText.img}
-                    alt="selfie"
-                    className="size-full"
-                  />
-                </div>
-              </div>
-            )}
+            <DriverAuthBoard titleAndText={titleAndText} driverAuthProcessStage={driverAuthProcessStage} />
             <Heading
               title={titleAndText.title}
               tclass="text-center"
@@ -87,34 +69,16 @@ const DriverAuth = () => {
               dclass="text-center text-2xl text-neutral"
               type="about"
             />
-            {driverAuthProcess === "Processing" ? null : (
+            {driverAuthProcessStage === "Processing" ? null : (
               <div className="w-[343px] mx-auto mt-10">
                 <Btn
                   text={
-                    driverAuthProcess === "Identity"
+                    driverAuthProcessStage === "Identity"
                       ? "Upload Selfie"
                       : "Upload License"
                   }
                   size="full"
-                  handleClick={async () => {
-                    switch (driverAuthProcess) {
-                      case "Identity":
-                        return dispatch(driveAuth("Driver License Front"));
-
-                      case "Driver License Front":
-                        return dispatch(driveAuth("Driver License Back"));
-
-                      case "Driver License Back":
-                        dispatch(driveAuth("Processing"));
-                        setTimeout(() => {
-                          navigate("/authentication/login");
-                          dispatch(changeAuthPage("login"));
-                        }, 3000);
-                        return;
-                      default:
-                        console.log("I am here");
-                    }
-                  }}
+                  handleClick={handleUpdateFiles}
                 />
               </div>
             )}
