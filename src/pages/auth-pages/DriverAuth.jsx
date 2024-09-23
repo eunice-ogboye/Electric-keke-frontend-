@@ -64,7 +64,7 @@ const DriverAuth = () => {
             <DriverAuthBoard titleAndText={titleAndText} driverAuthProcessStage={driverAuthProcessStage} />
             <Heading
               title={titleAndText.title}
-              tclass="text-center"
+            tclass="text-center"
               description={titleAndText.desc}
               dclass="text-center text-2xl text-neutral"
               type="about"

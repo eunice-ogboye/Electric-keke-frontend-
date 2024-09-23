@@ -1,7 +1,7 @@
 # Eco-Ride
 
 # Description
-**Eco-Ride** is a powerful app, created with logistic initiative leveraging electric tri-cycles. It allows *users* be a part of a system that enables them to book rides or deliveries, either immediately or *Scheduling*. Also allows users to earn as a rider for **Eco-Ride** 
+**Eco-Ride** is a powerful app, created with logistic initiative leveraging electric tri-cycles. It allows *users* be a part of a system that enables them to book rides or deliveries, either immediately or *Scheduling*. Additionally allows users to earn as a rider for **Eco-Ride** 
 
 # Installation
 For Installation, use these steps:

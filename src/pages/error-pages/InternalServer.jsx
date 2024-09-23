@@ -14,16 +14,27 @@
 import { getItemFromLs } from "../../lib/ls";
 import Btn from "../../components/shared/Btn";
 import React from "react";
+import Logo from "../../components/shared/Logo";
+import Heading from "../../components/shared/Heading";
 
 const InternalServer = () => {
   const previous_page = getItemFromLs("prev_page");
+  console.log(previous_page)
 
   return (
     <section className="h-screen w-full flex-center">
       <div>
-        <h2>Internal Server Error</h2>
-        <p>Check Internet Connection and Try Again</p>
-        <Btn text="Try Again" to={previous_page} />
+        <Logo className="text-center w-20 mx-auto" />
+        <Heading
+          title="500"
+          tclass="text-9xl text-center text-eco-green-prime"
+          description="Internal Server Error, Check Connection and Try again"
+          dclass="text-center text-2xl"
+        />
+
+        <div className="mt-6 flex-center">
+          <Btn text="Try Again" to={previous_page} className="mx-auto block" />
+        </div>
       </div>
     </section>
   );

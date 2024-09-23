@@ -48,6 +48,8 @@ const Verification = () => {
         otp: otpValue,
       };
 
+      console.log(otpDetails)
+
       if (verificationType === "activate") {
         const { detail } = await ActivateUser(otpDetails);
         showAlert(detail);
@@ -82,6 +84,8 @@ const Verification = () => {
       // }
     }
   };
+
+
 
   return (
     <form className="my-dell:mt-32 board-pad md:w-1/2" onSubmit={handleSubmit}>

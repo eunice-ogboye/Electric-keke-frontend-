@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobalAuthContext } from "../contexts/AuthContext";
 import { addItemToLs } from "../lib/ls";
-import { Login, RequestOtp } from "../lib/requests/auth";
+import { Login, RequestOtp, ResetPassword } from "../lib/requests/auth";
 
 const useAuthFormDefault = () => {
   const { AuthenticateLogin } = useGlobalAuthContext();
@@ -13,7 +13,7 @@ const useAuthFormDefault = () => {
 
   const authenticationPage = useSelector((state) => state.global.authPage);
 
-  const { showAlert, changeAuthenticationPage, switchVerificationType } = dispatchables();
+  const { showAlert, changeAuthenticationPage, switchVerificationType, loading, unloading } = dispatchables();
 
   const [disabled, setDisabled] = useState(false);
 
@@ -83,7 +83,7 @@ const useAuthFormDefault = () => {
       case "forget":
         addItemToLs("user-email", username);
         try {
-          const { detail } = await requestOtp({ username });
+          const { detail } = await RequestOtp({ username });
           showAlert(detail);
           switchVerificationType('update-password')
           changeAuthenticationPage('update-password');
@@ -96,7 +96,7 @@ const useAuthFormDefault = () => {
       case "new":
         // console.log(username);
         try {
-          const { detail } = await resetPassword({
+          const { detail } = await ResetPassword({
             username,
             password,
             re_password: checkPass,
@@ -110,13 +110,16 @@ const useAuthFormDefault = () => {
         return;
 
       case "login":
+        loading();
         try {
           const data = await Login(formData);
+          unloading();
           AuthenticateLogin();
           showAlert('Login Success')
           return goToNextPage(data, null);
         } catch (error) {
           console.log(error);
+          unloading();
           showAlert(error.message)
           return;
         }

@@ -39,7 +39,7 @@ const ReusableForm = ({ type = "register" }) => {
   return (
     <>
       {type === "congrats" ? (
-        <Congrats />
+        <Congrats title={formTitle[type]} changeAuthenticationPage={changeAuthenticationPage} />
       ) : (
         <form onSubmit={handleSubmit} className={formClassName(type)}>
           <Logo className="w-[122px] h-[81px] mx-auto" />

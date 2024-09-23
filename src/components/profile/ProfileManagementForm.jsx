@@ -6,10 +6,10 @@ import DatePicker from '../shared/DatePicker'
 import SelectInput from '../shared/SelectInput'
 import Btn from '../shared/Btn'
 
-const ProfileManagementForm = () => {
+const ProfileManagementForm = ({cancelEdit}) => {
   const { user } = useOutletContext;
 
-  const { showAlert } = dispatchables();
+  const { showAlert, openModalWithContent } = dispatchables();
 
   const [profileFormData, setProfileFormData] = useState({
     firstname: "",
@@ -22,6 +22,11 @@ const ProfileManagementForm = () => {
     address: user?.address,
     password: "",
   });
+
+  const handleSave = () => {
+    // logic to update profile
+    openModalWithContent('update-profile')
+  }
 
   return (
     <form className="mt-14 " onSubmit={(e) => e.preventDefault()}>
@@ -90,8 +95,8 @@ const ProfileManagementForm = () => {
       </div>
 
       <div className="flex items-end gap-4 mt-[51px]">
-        <Btn text="Save" />
-        <Btn text="Cancel" type="secondary" />
+        <Btn text="Save" handleClick={handleSave} />
+        <Btn text="Cancel" type="secondary" handleClick={cancelEdit} />
       </div>
     </form>
   );

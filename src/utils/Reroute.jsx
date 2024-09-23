@@ -7,7 +7,7 @@ const useReroute = () => {
 
   const rerouting = (errCode) => {
     if (errCode === 500) {
-      showAlert("Error Connecting");
+      showAlert("Error in Connection");
       navigate("/ie/kadkjakda");
     }
   };

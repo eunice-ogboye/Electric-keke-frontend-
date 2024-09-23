@@ -20,9 +20,9 @@ const BankForm = () => {
           inputclass="profile-modal-inputs"
         />
       </div>
-      <div className="w-full max-w-[343px] mx-auto flex-center mt-10">
+      {/* <div className="w-full max-w-[343px] mx-auto flex-center mt-10">
         <Btn text="Confirm" size="full" />
-      </div>
+      </div> */}
     </div>
   );
 };

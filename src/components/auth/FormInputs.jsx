@@ -6,7 +6,7 @@ import dispatchables from "../../utils/dispatchables";
 import { RegisterUser } from "../../lib/requests/auth";
 
 const FormInputs = ({ type, formData }) => {
-  const { chooseOtpMethod, showAlert, changeAuthFormData } = dispatchables();
+  const { chooseOtpMethod, showAlert, changeAuthFormData, switchVerificationType } = dispatchables();
 
   const navigate = useNavigate();
 
@@ -26,6 +26,7 @@ const FormInputs = ({ type, formData }) => {
                 }}
                 onClick={async () => {
                   // console.log(formData);
+                  switchVerificationType('activate')
                   try {
                     await RegisterUser(formData);
                     showAlert("Otp Sent for verification");

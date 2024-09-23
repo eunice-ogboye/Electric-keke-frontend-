@@ -1,11 +1,12 @@
 import CustomError from "../../../lib/error-handler/CustomError";
 import { addItemToLs, clearLs, getItemFromLs } from "../../../lib/ls";
 import { clientRequest } from "../client";
+import makePlainRequest from "../plainRequest";
 
 
 export const ResetPassword = async ({ ...resetData }) => {
   try {
-    const { data } = await clientRequest({
+    const { data } = await makePlainRequest({
       url: "/auth/reset-password/",
       method: "post",
       data: resetData,
@@ -18,7 +19,7 @@ export const ResetPassword = async ({ ...resetData }) => {
 
 export const OtpVerification = async ({ ...otpData }) => {
   try {
-    const { data } = await clientRequest({
+    const { data } = await makePlainRequest({
       url: "/auth/otp-verification/",
       method: "post",
       data: otpData,
@@ -31,11 +32,12 @@ export const OtpVerification = async ({ ...otpData }) => {
 
 export const RequestOtp = async ({ ...otpData }) => {
   try {
-    const { data } = await clientRequest({
+    const { data } = await makePlainRequest({
       url: "/auth/request-new-otp/",
       method: "post",
       data: otpData,
     });
+    console.log(data)
     addItemToLs("userId", data.user_id);
     return data;
   } catch (error) {
@@ -45,7 +47,7 @@ export const RequestOtp = async ({ ...otpData }) => {
 
 export const ActivateUser = async ({ ...otpDetails }) => {
   try {
-    const { data } = await clientRequest({
+    const { data } = await makePlainRequest({
       url: "/auth/activate-user/",
       method: "post",
       data: otpDetails,
@@ -104,7 +106,7 @@ export const RegisterUser = async ({
   const role = getItemFromLs("registeringAs");
 
   try {
-    const { data } = await clientRequest({
+    const { data } = await makePlainRequest({
       url: "/auth/register-user/",
       method: "post",
       data: {
@@ -126,8 +128,8 @@ export const RegisterUser = async ({
      */
     addItemToLs("userId", data.id);
   } catch (error) {
-    const { data } = error.response;
-    const dataValues = Object.keys(values);
+    // const { data } = error.response;
+    // const dataValues = Object.keys(values);
     throw new CustomError("Error Registering User");
   }
 };

@@ -9,6 +9,7 @@ import Spear from "../../assets/svg/Spear";
 
 const Profile = () => {
   const [editProfile, setEditProfile] = useState(false);
+
   return (
     <Section darkLogo={true}>
       <div className="profile-section">
@@ -48,7 +49,15 @@ const Profile = () => {
           />
         </div>
 
-        {editProfile ? <ProfileManagementForm /> : <MyProfile />}
+        {editProfile ? (
+          <ProfileManagementForm
+            cancelEdit={() => {
+              setEditProfile(false);
+            }}
+          />
+        ) : (
+          <MyProfile />
+        )}
         <div className="absolute right-0 -bottom-36 md:-bottom-64 -z-20">
           <img src="/profile-tree.png" alt="profile-tree" />
         </div>

@@ -47,7 +47,7 @@ const Tracking = () => {
 
       <div className="tracking-info-board">
         <div className="tracking-map">
-          <Map className="size-full" />
+          {/* <Map className="size-full" /> */}
         </div>
 
         <div className="track-details">

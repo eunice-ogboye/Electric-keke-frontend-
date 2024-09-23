@@ -3,9 +3,10 @@ import Choose from "../shared/Choose";
 import { DeleteAccount, Logout } from "../../lib/requests/auth";
 import dispatchables from "../../utils/dispatchables";
 import { useNavigate } from "react-router-dom";
+import ModalTemplate from "../shared/ModalTemplate";
 
 const Dialog = ({ title }) => {
-  const { showAlert, flipModal, changeAuthenticationPage } = dispatchables();
+  const { showAlert, flipModal, changeAuthenticationPage, loading, unloading } = dispatchables();
   const navigate = useNavigate();
 
   const handleChoice1 = () => {
@@ -14,6 +15,7 @@ const Dialog = ({ title }) => {
   };
 
   const handleChoice2 = async () => {
+    loading();
     // continue with deleting account or logging out account
     const logout = title === "Logout of your account" ? true : false;
     try {
@@ -22,24 +24,26 @@ const Dialog = ({ title }) => {
         await Logout(showAlert);
         changeAuthenticationPage("login");
         navigate("/authentication/login");
-        flipModal(false);
         return;
       }
 
       if (!logout) {
         // continue deltion of account
         await DeleteAccount();
+        unloading();
         showAlert("Deleted Account Succesfully");
         navigate("/");
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      flipModal(false);
     }
   };
 
   return (
-    <div className="dialog-modal">
-      <div>
+    <ModalTemplate
+      top={
         <div className="text-center">
           <h2 className="font-josefin font-bold">{title}?</h2>
           <p className="text-eiteen">
@@ -50,7 +54,8 @@ const Dialog = ({ title }) => {
             ?
           </p>
         </div>
-
+      }
+      bottom={
         <Choose
           choice1txt={title === "Logout of your account" && "No"}
           choice2txt={title === "Logout of your account" && "Yes"}
@@ -61,8 +66,8 @@ const Dialog = ({ title }) => {
           handleChoice1={handleChoice1}
           handleChoice2={handleChoice2}
         />
-      </div>
-    </div>
+      }
+    />
   );
 };
 

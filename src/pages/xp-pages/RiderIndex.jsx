@@ -12,16 +12,15 @@ import useReroute from "../../utils/Reroute";
 
 const RiderIndex = () => {
   useTitle("Riders");
-  
-  const {
-    inputDataForBookingRequest,
-    updateDriversList,
-    chooseRider,
-  } = dispatchables();
 
+  const { inputDataForBookingRequest, updateDriversList, chooseRider } =
+    dispatchables();
+
+  /**reroute for internal server error
+   * to the error page
+   */
   const { rerouting } = useReroute();
   const { riders } = useSelector((state) => state.global);
-  
 
   const [loading, setLoading] = useState(true);
   const [availableRidersList, setAvailableRidersList] = useState(riders || []);
@@ -70,19 +69,27 @@ const RiderIndex = () => {
         transition={{ duration: 0.65, type: "just" }}
         className="grid grid-cols-2 md:grid-cols-3 gap-x-2 md:gap-x-6 gap-y-2 mt-7 relative rider-index"
       >
-        {availableRidersList.map((item) => {
-          return (
-            <Rider
-              key={item.id}
-              {...item}
-              photo="/persons/rider1.png"
-              rating={2}
-              color="white"
-              plate_number="LKJ-12346"
-              handleClick={() => selectRider(item)}
-            />
-          );
-        })}
+        {availableRidersList.length <1 ? (
+          <div className="border col-span-3">
+            <h2>No availble riders at the moment</h2>
+          </div>
+        ) : (
+          <>
+            {availableRidersList.map((item) => {
+              return (
+                <Rider
+                  key={item.id}
+                  {...item}
+                  photo="/persons/rider1.png"
+                  rating={2}
+                  color="white"
+                  plate_number="LKJ-12346"
+                  handleClick={() => selectRider(item)}
+                />
+              );
+            })}
+          </>
+        )}
       </motion.div>
     </AnimatePresence>
   );

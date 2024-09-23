@@ -206,12 +206,12 @@ const footer_note =
   "Eco-Ride is more than just a service—it's a movement towards a more sustainable and efficient future.Whether you're booking a ride, sending a package, or planning ahead, Eco-Ride is here to meet your needs while caring for the planet";
 
 const settings = [
-  "Profile Management",
-  "Payment Method",
-  "Notifications",
-  "Security & Privacy",
-  "Support & Feedback",
-  "Delete Account",
+  { title: "Profile Management" },
+  { title: "Payment Method" },
+  { title: "Notification", href: "/notification" },
+  { title: "Security & Privacy" },
+  { title: "Support & Feedback" },
+  { title: "Delete Account" },
 ];
 
 const hero_descriptions = {

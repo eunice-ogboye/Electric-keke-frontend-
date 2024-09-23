@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
-import closeModalOnBodyClick from "../../utils/closeModalOnBodyClick";
 import RateModal from "../booking/RateModal";
 import ChooseModal from "../booking/ChooseModal";
-import DetailsModal from "../booking/DetailsModal";
 import { modalContainer } from "../../constants/variants";
 import dispatchables from "../../utils/dispatchables";
 import PaymentModal from "../profile/PaymentModal";
@@ -12,6 +10,7 @@ import Dialog from "../profile/Dialog";
 import TransactionModal from "../transaction/TransactionModal";
 import MapModal from "./MapModal";
 import ProfileContactModal from "./ProfileContactModal";
+import SaveModal from "../profile/SaveModal";
 
 const Modal = () => {
   // const dispatch = useDispatch();
@@ -41,7 +40,7 @@ const Modal = () => {
       variants={modalContainer}
       exit="leave"
       className="modal-container"
-      onClick={(e) => closeModalOnBodyClick(e, flipModal)}
+      onClick={() => flipModal(false)}
       style={{ pointerEvents: modal ? "auto" : "none" }}
     >
       {modalContent === "rate" && (
@@ -60,10 +59,10 @@ const Modal = () => {
         <MapModal modalContent={modalContent} />
       )}
 
-      {modalContent === "Profile Management" ||
-        (modalContent === "contact passenger" && (
-          <ProfileContactModal modalContent={modalContent} />
-        ))}
+      {(modalContent === "Profile Management" ||
+        modalContent === "contact passenger") && (
+        <ProfileContactModal modalContent={modalContent} />
+      )}
 
       {modalContent === "Payment Method" && <PaymentModal />}
 
@@ -73,6 +72,8 @@ const Modal = () => {
       )}
 
       {modalContent === "Pay for ride" && <TransactionModal />}
+
+      {modalContent === "update-profile" && <SaveModal />}
     </motion.section>
   );
 };

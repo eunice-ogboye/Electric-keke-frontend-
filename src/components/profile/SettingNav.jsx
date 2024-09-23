@@ -1,6 +1,7 @@
 import dispatchables from "../../utils/dispatchables";
 import { settings } from "../../constants";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SettingNav = () => {
   const { openModalWithContent } = dispatchables();
@@ -9,13 +10,19 @@ const SettingNav = () => {
       <h2 className="setting-title">Settings</h2>
       <ul className="space-y-16 mt-10">
         {settings.map((item) => {
-          return (
+          return item.href ? (
+            <Link
+              to={item.href}
+              key={item.title}
+              className="setting-opts"
+            >{item.title}</Link>
+          ) : (
             <li
               className="setting-opts"
               key={item}
-              onClick={() => openModalWithContent(item)}
+              onClick={() => openModalWithContent(item.title)}
             >
-              {item}
+              {item.title}
               <div>
                 <img src="/setting-arr.svg" alt="arrow" />
               </div>
