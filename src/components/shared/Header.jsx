@@ -23,7 +23,7 @@ const Header = ({ darkLogo }) => {
 
         {user ? (
           <div className="flex items-center gap-3">
-            <Link to="/notification">
+            <Link to="/protect/notification">
               <div>
                 <img src="/bell.svg" alt="notification" />
               </div>

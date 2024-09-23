@@ -69,59 +69,12 @@ function App() {
           )}
         </AnimatePresence>
         <Routes>
-          {/* homepages */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/earn-with-us" element={<Earn />} />
           <Route path="/support" element={<Support />} />
-          {/* auth pages */}
-          <Route path="/authentication" element={<AuthPage />}>
-            <Route index element={<RegisterAs />} />
-            <Route
-              path="verification"
-              element={
-                <ErrorBoundary
-                  fallback={<div className="flex-center">Some erro</div>}
-                >
-                  <Verification />
-                </ErrorBoundary>
-              }
-            />
-            <Route path=":id" element={<Template />} />
-            <Route path="driver-auth" element={<DriverAuth />} />
-          </Route>
-
-          {/* protected routes */}
-          <Route element={<ProtectedRoute />}>
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route path="user-management" element={<UserManagement />} />
-              <Route
-                path="financial-management"
-                element={<FinancialManagement />}
-              />
-              <Route
-                path="settings"
-                element={
-                  <div className="flex-center">Will You be working on this</div>
-                }
-              />
-            </Route>
-            <Route path="/driver/:id" element={<Driver />} />
-            <Route path="/schedule-ride" element={<Schedule />} />
-            <Route path="/riders" element={<Riders />}>
-              <Route index element={<RiderIndex />} />
-              <Route path=":id" element={<RiderInfo />} />
-            </Route>
-            <Route path="/notification" element={<Notification />} />
-            <Route path="/tracking" element={<Tracking />} />
-            <Route path="/profile/:id" element={<Profile />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/customer-care" element={<CustomerCare />} />
-            <Route path="/transaction" element={<Transaction />} />
-            <Route path="/chat" element={<ChatConnect />} />
-          </Route>
-          {/* protected routes */}
-
+          <Route path="/authentication/*" element={<AuthPage />} />
+          <Route path="/*" element={<ProtectedRoute />} />
           <Route path="/ie/:id" element={<InternalServer />} />
           <Route
             path="*"

@@ -1,18 +1,23 @@
 import { briefs, onboardingImages } from "../constants";
 import Overlay from "../components/auth/Overlay";
-import { Outlet } from "react-router-dom";
+import { Outlet, Routes, Route } from "react-router-dom";
 import { useTitle } from "../lib/hooks";
 import CustomBg from "../components/auth/CustomBg";
 import { clearLs } from "../lib/ls";
 import { useSelector } from "react-redux";
 import { XIcon } from "lucide-react";
 import Btn from "../components/shared/Btn";
+import RegisterAs from "../pages/auth-pages/RegisterAs";
+import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
+import Verification from "../pages/auth-pages/Verification";
+import Template from "../pages/auth-pages/Template";
+import DriverAuth from "../pages/auth-pages/DriverAuth";
 
 const AuthPage = () => {
   useTitle("Authentication");
   // redux globals
   const { authPage } = useSelector((state) => state.global);
-  console.log(authPage)
+  console.log(authPage);
 
   return (
     <section className="flex">
@@ -50,7 +55,22 @@ const AuthPage = () => {
           )}
         </div>
       )}
-      <Outlet />
+      <Routes>
+        <Route index element={<RegisterAs />} />
+        <Route
+          path="verification"
+          element={
+            <ErrorBoundary
+              fallback={<div className="flex-center">Some erro</div>}
+            >
+              <Verification />
+            </ErrorBoundary>
+          }
+        />
+        <Route path=":id" element={<Template />} />
+        <Route path="driver-auth" element={<DriverAuth />} />
+      </Routes>
+      {/* <Outlet /> */}
     </section>
   );
 };
