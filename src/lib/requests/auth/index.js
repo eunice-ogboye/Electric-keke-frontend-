@@ -3,7 +3,6 @@ import { addItemToLs, clearLs, getItemFromLs } from "../../../lib/ls";
 import { clientRequest } from "../client";
 import makePlainRequest from "../plainRequest";
 
-
 export const ResetPassword = async ({ ...resetData }) => {
   try {
     const { data } = await makePlainRequest({
@@ -37,7 +36,7 @@ export const RequestOtp = async ({ ...otpData }) => {
       method: "post",
       data: otpData,
     });
-    console.log(data)
+    console.log(data);
     addItemToLs("userId", data.user_id);
     return data;
   } catch (error) {
@@ -134,18 +133,11 @@ export const RegisterUser = async ({
   }
 };
 
-export const Login = async ({ username, password, checkPass }) => {
-  console.log(username)
-  //login logic
-  const isPasswordMatched = password === checkPass;
-
-  if (!isPasswordMatched) {
-    throw new Error("Password doesnt match");
-  }
-
+export const LoginUser = async ({ username, password, checkPass }) => {
+  console.log(username);
   try {
     console.log("start");
-    const { data } = await clientRequest({
+    const { data } = await makePlainRequest({
       url: "/auth/token/",
       method: "post",
       data: {
@@ -153,29 +145,25 @@ export const Login = async ({ username, password, checkPass }) => {
         password,
       },
     });
-console.log("i reached here")
+    console.log(data);
+    console.log("i reached here");
     const direction = await StoreAndDirectUser(data);
     return direction;
   } catch (error) {
-
-    console.log(error);
-    const {
-      data: { detail },
-    } = error.response;
-    // showAlert(detail || "something");
-    throw new Error("Credentials have issue");
+    throw new Error(error.message);
   }
 };
 
-export const Logout = async (showAlert) => {
+export const Logout = () => {
+  clearLs();
+  // showAlert("Log out sucessfull");
   // logout logic
-  try {
-    await clientRequest({ url: "/auth/logout/", method: "post" });
-    showAlert("Log out succesful");
-    clearLs();
-  } catch (err) {
-    throw new Error("Error Logging Out");
-  }
+  // try {
+  //   await clientRequest({ url: "/auth/logout/", method: "post" });
+  //   showAlert("Log out succesful");
+  // } catch (err) {
+  //   throw new Error("Error Logging Out");
+  // }
 };
 
 export const DeleteAccount = async () => {

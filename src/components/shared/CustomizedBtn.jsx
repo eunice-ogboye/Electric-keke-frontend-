@@ -9,10 +9,11 @@ const CustomizedBtn = ({
   handleClick,
   position = "left",
   href,
+  disabled,
 }) => {
   const ButtonMain = () => {
     return (
-      <Button className={className} onClick={handleClick}>
+      <Button className={className} onClick={handleClick} disabled={disabled}>
         {position === "left" && icon}
         {text}
         {position === "right" && icon}
@@ -22,14 +23,12 @@ const CustomizedBtn = ({
 
   const LinkAsButton = () => {
     return (
-      <Link
-        to={href}
-        className={`${className} inline-block`}
-        onClick={handleClick}
-      >
-        {position === "left" && icon}
-        {text}
-        {position === "right" && icon}
+      <Link to={href}>
+        <Button className={className} onClick={handleClick} disabled={disabled}>
+          {position === "left" && icon}
+          {text}
+          {position === "right" && icon}
+        </Button>
       </Link>
     );
   };

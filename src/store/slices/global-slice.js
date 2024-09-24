@@ -11,7 +11,7 @@ const initialState = {
   rider: null,
   support: "faq",
   supportOption: "General",
-  registerAs: "",
+  registerAs: "User",
   verificationType: "activate",
   loading: false,
 };
@@ -80,6 +80,7 @@ const globalSlice = createSlice({
     },
     changeVerificationType(state, action) {
       const verificationType = action.payload;
+      console.log(verificationType)
       return { ...state, verificationType };
     },
   },

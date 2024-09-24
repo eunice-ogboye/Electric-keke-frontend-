@@ -2,18 +2,16 @@ import { useNavigate } from "react-router-dom";
 import Logo from "../../components/shared/Logo";
 import OtpInput from "../../components/OtpInput";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Btn from "../../components/shared/Btn";
+import { useSelector } from "react-redux";
 import Heading from "../../components/shared/Heading";
 import { useTitle } from "../../lib/hooks";
 import { deletItemFromLs, getItemFromLs } from "../../lib/ls";
-import {
-  ActivateUser,
-  RequestOtp,
-  OtpVerification,
-} from "../../lib/requests/auth";
+import { ActivateUser, OtpVerification } from "../../lib/requests/auth";
 
 import dispatchables from "../../utils/dispatchables";
+import ResendOtpTab from "../../components/auth/ResendOtpTab";
+import Assurance from "../../components/auth/Assurance";
+import CustomizedBtn from "../../components/shared/CustomizedBtn";
 
 const Verification = () => {
   useTitle("Verification");
@@ -48,8 +46,6 @@ const Verification = () => {
         otp: otpValue,
       };
 
-      console.log(otpDetails)
-
       if (verificationType === "activate") {
         const { detail } = await ActivateUser(otpDetails);
         showAlert(detail);
@@ -82,74 +78,53 @@ const Verification = () => {
       //   : (navigate("/authentication/driver-auth"),
       //     dispatch(changeAuthPage("driver-auth")));
       // }
+
+      // if (verificationType === "update-password") {
+      //   showAlert("goin");
+      //   navigate("/authentication/new");
+      //   // changeAuthenticationPage("new");
+      // }
     }
   };
 
-
-
   return (
-    <form className="my-dell:mt-32 board-pad md:w-1/2" onSubmit={handleSubmit}>
-      <Logo className="w-[122px] h-[81px] mx-auto" />
-      <Heading title="Enter Code" className="text-center mt-2 my-dell:mt-10" />
-      <div className="r-form-body">
-        <div>
-          <p className="text-center text-eiteen font-josefin">
-            Please enter the one time password sent (OTP)
-          </p>
-          <OtpInput
-            value={otpValue}
-            handleChange={(value) => {
-              setOtpValue(value);
-            }}
+    <div className="auth-page-right">
+      <div className="w-full">
+        <div className="auth-head">
+          <Logo className="flex-center" logoClassName="w-[122px]" />
+          <Heading
+            title="Complete Your Profile"
+            description="Please enter the one time password sent (OTP)"
+            tclass="auth-title"
+            dclass="text-center text-sm text-eiteen font-josefin"
           />
         </div>
-        <div className="flex items-center justify-between">
-          <p className="text-eiteen">
-            Didn't receive an OTP?{" "}
-            <span
-              className="text-eco-green cursor-pointer font-nunito"
-              onClick={async () => {
-                try {
-                  if (verificationType === "activate") {
-                    console.log(verificationType);
 
-                    const { detail } = await RequestOtp({
-                      message_type: "email",
-                      username: getItemFromLs("user-email"),
-                    });
-                    showAlert(detail);
-                    return;
-                  }
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <div className="max-w-[438px] mx-auto space-y-4">
+            <div>
+              <OtpInput
+                value={otpValue}
+                handleChange={(value) => {
+                  setOtpValue(value);
+                }}
+              />
+            </div>
 
-                  if (verificationType === "update-password") {
-                    console.log(verificationType);
+            <ResendOtpTab verificationType={verificationType} />
+          </div>
 
-                    const { detail } = await RequestOtp({
-                      username: getItemFromLs("user-email"),
-                    });
-                    showAlert(detail);
-                  }
-                } catch (error) {
-                  console.log(error);
-                }
-              }}
-            >
-              Resend
-            </span>
-          </p>
-          <p className="text-sm">00:30</p>
-        </div>
+          <div className="max-w-[343px] mx-auto space-y-4 mt-6 lg:mt-14">
+            <CustomizedBtn
+              text="Continue"
+              className="h-14 w-full rounded-full bg-eco-green"
+              disabled={disable}
+            />
+            <Assurance />
+          </div>
+        </form>
       </div>
-
-      <div className="max-w-[343px] mx-auto">
-        <Btn text="Continue" size="full" disabled={disable} />
-      </div>
-
-      <div className="text-sm flex-center gap-1  mt-[30px] my-dell:mt-5">
-        <img src="/small-lock.svg" alt="lock" />
-        Your info is safely secure
-      </div>
-    </form>
+    </div>
   );
 };
 

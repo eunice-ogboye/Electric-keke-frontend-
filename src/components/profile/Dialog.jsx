@@ -21,8 +21,10 @@ const Dialog = ({ title }) => {
     try {
       if (logout) {
         // continue to logout
-        await Logout(showAlert);
+        Logout();
         changeAuthenticationPage("login");
+        unloading();
+        showAlert('Logged Out')
         navigate("/authentication/login");
         return;
       }

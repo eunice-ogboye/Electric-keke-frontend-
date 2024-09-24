@@ -1,6 +1,16 @@
+const getHeroImage = (type) => {
+  return type === "main"
+    ? "/hero_bg1.png"
+    : type === "about"
+    ? "/hero/about_hero.png"
+    : type === "earn"
+    ? "/earn_hero_bg.png"
+    : "/support_bg.png";
+};
+
 const account_types = [
-  { title: "Passenger", icon: "/avatars/passenger.svg" },
-  { title: "Rider", icon: "/avatars/rider.svg" },
+  { title: "Passenger", icon: "/avatars/passenger.svg", role: 'User' },
+  { title: "Rider", icon: "/avatars/rider.svg", role: 'Rider' },
 ];
 
 const onboardingImages = {
@@ -351,6 +361,7 @@ export {
   flexibility_text,
   footer_note,
   formTitle,
+  getHeroImage,
   hero_descriptions,
   mission,
   nav_links,

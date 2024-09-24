@@ -88,6 +88,14 @@
   @apply border border-eco-green rounded-full bg-transparent text-eco-neutral-prime
 }
 
+.registerAs-opt {
+  @apply flex items-center justify-between w-full lg:w-[26.625rem] h-28 rounded-md px-7 py-6 cursor-pointer
+}
+
+.chosen-role {
+  @apply bg-eco-green-faint border border-eco-green
+}
+
 /*****************************************/
 /**** SHADOWS**********/
 
@@ -116,11 +124,51 @@ h2 {
   @apply w-full h-[331px] md:w-[33rem] md:h-[454px] mt-6 md:mt-0;
 }
 
+/*********************** Auth Pages ************/
+
 .board {
-  @apply hidden md:block w-1/2 min-h-screen rounded-e-20 overflow-hidden relative board-shadow;
+  @apply hidden min-h-screen md:block md:w-5/12 lg:w-1/2 rounded-e-20 overflow-hidden board-shadow sticky top-0;
 }
 
+.custom-bg {
+  @apply h-full w-full overflow-hidden bg-eco-green isolate flex-center px-24 sticky top-0
+}
 
+.custom-bg-circle {
+  @apply w-[498px] h-[524px] rounded-full bg-[#61B236] absolute -top-[96px] left-[299px] -z-10
+}
+
+.custom-bg-parallelogram {
+  @apply absolute hidden
+}
+
+.custom-bg-ellipse {
+  @apply absolute h-[568px] w-[769px] -top-[76px] -left-[88px] -z-50
+}
+
+.auth-page-right {
+  @apply w-full sm:w-[1024px] md:w-7/12 lg:w-1/2 flex-center px-4
+}
+
+.auth-title {
+  @apply text-center text-2xl mt-2 lg:mt-10
+}
+
+.auth-desc {
+  @apply text-center text-sm lg:text-eiteen mt-3
+}
+
+.auth-form {
+  @apply w-full md:w-[468px] border-red-500 mt-5 md:mt-14 mx-auto
+}
+
+.auth-head {
+  @apply w-full mx-auto border max-w-[515px]
+}
+
+.otp-opt {
+  @apply px-4 py-2 flex items-center border-2 h-[66px] rounded-[6px] cursor-pointer
+}
 
 .board-pad {
   @apply my-dell:py-[2.1875rem] px-4 py-2 md:px-20 my-dell:px-[7.5rem];
@@ -132,6 +180,10 @@ h2 {
 
 .overlay {
   @apply bg-black/70 size-full absolute top-0 left-0 flex-center;
+}
+
+.overlay-img {
+  @apply size-full object-cover object-center rounded-xl
 }
 
 .briefing {
@@ -330,12 +382,13 @@ h2 {
   @apply md:absolute z-20 w-full top-[5vh] md:px-5 lg:px-20 xl:px-[7.5rem];
 }
 
-.mobile-header {
-  @apply flex items-center justify-between px-[17px] py-3 md:hidden w-full bg-white/[6%] backdrop-blur-2xl;
-}
 /* .mobile-header {
-  @apply flex items-center justify-between px-[17px] py-3 md:hidden absolute z-50 w-full bg-white/[6%] backdrop-blur-2xl;
+  @apply flex items-center justify-between px-[17px] py-3 md:hidden w-full bg-white/[6%] backdrop-blur-2xl;
 } */
+
+.mobile-header {
+  @apply flex items-center justify-between px-[15px] py-3 md:hidden absolute z-50 w-full bg-eco-white/[6%] backdrop-blur-3xl
+}
 
 .header-container {
   @apply hidden md:flex items-center justify-between md:border-2 md:border-eco-green/40 h-[4.75rem] md:rounded-[40px] px-[17px] md:p-2 md:bg-eco-neutral/20 md:backdrop-blur-lg;
@@ -536,7 +589,7 @@ h2 {
 /************ reusable form **************/
 /************* forget tab *************/
 .forget-tab {
-  @apply flex items-center justify-between w-full my-dell:w-[80%] mx-auto mb-[30px] my-dell:mb-10
+  @apply flex items-center justify-between w-full md:w-[446px] mx-auto mb-[30px] my-dell:mb-10
 }
 
 .switch-login {
