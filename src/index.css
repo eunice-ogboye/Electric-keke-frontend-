@@ -139,7 +139,7 @@ h2 {
 }
 
 .custom-bg-parallelogram {
-  @apply absolute hidden
+  @apply absolute top-[516px] left-0 h-[506px] md:w-[659px] -z-20 w-full
 }
 
 .custom-bg-ellipse {
