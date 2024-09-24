@@ -1,8 +1,6 @@
-import { hero_descriptions } from "../../constants";
-import React from "react";
+import { hero_descriptions, getHeroImage } from "../../constants";
 import HeroCta from "./HeroCta";
 import HeroTitle from "./HeroTitle";
-import { getHeroImage } from "../../constants";
 
 const Hero = ({ type = "main" }) => {
   return (

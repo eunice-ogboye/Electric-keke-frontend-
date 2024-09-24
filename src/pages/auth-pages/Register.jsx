@@ -11,19 +11,20 @@ import { useSelector } from "react-redux";
 
 const Register = () => {
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
-  const { showAlert } = dispatchables();
+  const [isDisabled, setIsDisabled] = useState(true);
+  const { showAlert, changeAuthenticationPage } = dispatchables();
   const { fullname, email, password, re_password } = useSelector(
     (state) => state.formData
   );
 
   useEffect(() => {
     if (fullname && email && password && re_password) {
-      setIsLoading(false);
+      setIsDisabled(false);
     }else {
-      setIsLoading(true);
+      setIsDisabled(true);
     }
   }, [fullname, email, password, re_password]);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,6 +34,7 @@ const Register = () => {
       return
     }
     navigate('/authentication/complete')
+    changeAuthenticationPage('complete')
   };
 
   return (
@@ -63,7 +65,7 @@ const Register = () => {
             <CustomizedBtn
               text="Continue"
               className="primary-btn h-14 w-full rounded-full"
-              disabled={isLoading}
+              disabled={isDisabled}
             />
 
             <div className="mt-5">

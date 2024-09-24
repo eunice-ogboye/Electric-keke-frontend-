@@ -163,7 +163,7 @@ h2 {
 }
 
 .auth-head {
-  @apply w-full mx-auto border max-w-[515px]
+  @apply w-full mx-auto max-w-[515px]
 }
 
 .otp-opt {
@@ -270,6 +270,7 @@ h2 {
   @apply text-xl md:text-[2rem] text-eco-green-dark leading-[24px] lg:leading-[38px] font-bold font-josefin;
 }
 
+
 /********************* conect ***************/
 .connect {
   @apply h-[457px] md:min-h-[704px] flex-center bg-black/60 relative home-pad overflow-hidden
@@ -278,6 +279,20 @@ h2 {
 .connect-bg {
   @apply size-full h-[457px] md:min-h-[704px] absolute top-0 left-0 -z-10
 }
+
+/***************************** support ****************/
+.support-intersect {
+  @apply home-pad min-h-[617px] bg-base-white flex items-center flex-col justify-center relative
+}
+
+.support-search-bar {
+  @apply w-full max-w-[865px] border-2 border-white bg-white rounded-[40px] p-1 flex items-center justify-between mx-auto absolute -top-8 h-16 shadow-lg
+}
+
+.faq-img {
+  @apply w-9/12 md:w-[403px] rounded-20 absolute  h-[295px] overflow-hidden
+}
+
 
 .subscribe-form {
   @apply bg-base-white flex items-center justify-between py-2 px-4 rounded-lg max-w-[534px] mt-6 mx-auto

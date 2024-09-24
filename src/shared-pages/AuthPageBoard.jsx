@@ -1,6 +1,5 @@
 import { XIcon } from "lucide-react";
 import CustomBg from "../components/auth/CustomBg";
-import { briefs, onboardingImages } from "../constants";
 import React from "react";
 import Overlay from "../components/auth/Overlay";
 import Btn from "../components/shared/Btn";
@@ -23,17 +22,13 @@ const AuthPageBoard = ({ authPage }) => {
             <>
               <Overlay className="overlay sticky top-0" />
               <img
-                src={onboardingImages[authPage]}
-                alt={`onboarding ${authPage}`}
+                src="/hero/registerAs.png"
+                alt="register as"
                 className="overlay-img"
               />
             </>
           ) : (
-            <CustomBg>
-              <div className="w-[320px] lg:w-[501px] mx-auto">
-                <h1 className="briefing">{briefs[authPage]}</h1>
-              </div>
-            </CustomBg>
+            <CustomBg />
           )}
         </div>
       )}

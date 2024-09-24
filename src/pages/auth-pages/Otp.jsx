@@ -12,17 +12,21 @@ import { useNavigate } from "react-router-dom";
 const Otp = () => {
   const navigate = useNavigate();
   const formData = useSelector((state) => state.formData);
-  const { switchVerificationType, chooseOtpMethod, showAlert } =
-    dispatchables();
+  const {
+    switchVerificationType,
+    chooseOtpMethod,
+    showAlert,
+    changeAuthenticationPage,
+  } = dispatchables();
 
   const handleSubmit = async () => {
     switchVerificationType("activate");
-    console.log(formData)
+    console.log(formData);
     try {
       await RegisterUser(formData);
-      // showAlert("Otp Sent for verification");
-      // changeAuthenticationPage("verification");
-      // navigate("/authentication/verification");
+      showAlert("Otp Sent for verification");
+      changeAuthenticationPage("verification");
+      navigate("/authentication/verification");
     } catch (error) {
       showAlert(error.message);
       // showAlert("Problem")

@@ -1,35 +1,8 @@
 import Heading from "../../components/shared/Heading";
-import { testimonial_title, testimonies } from "../../constants";
-import { useEffect, useState } from "react";
+import { testimonial_title } from "../../constants";
 import TestimonialDisplay from "./TestimonialDisplay";
 
 const Testimonial = ({ type = "main" }) => {
-  const [currentTestimony, setCurrentTestimony] = useState(0);
-
-  useEffect(() => {
-    const lastTestimony = testimonies[type].length - 1;
-    if (currentTestimony > lastTestimony) {
-      setCurrentTestimony(0);
-    }
-    if (currentTestimony < 0) {
-      setCurrentTestimony(lastTestimony);
-    }
-  }, [currentTestimony]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimony((prev) => prev + 1);
-    }, 8000);
-    return () => {
-      clearTimeout(interval);
-    };
-  }, []);
-
-  const nextTestimony = (type) => {
-    type === "increment"
-      ? setCurrentTestimony((prev) => prev + 1)
-      : setCurrentTestimony((prev) => prev - 1);
-  };
 
   return (
     <section className="testimony-container">

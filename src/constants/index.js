@@ -9,13 +9,10 @@ const getHeroImage = (type) => {
 };
 
 const account_types = [
-  { title: "Passenger", icon: "/avatars/passenger.svg", role: 'User' },
-  { title: "Rider", icon: "/avatars/rider.svg", role: 'Rider' },
+  { title: "Passenger", icon: "/avatars/passenger.svg", role: "User" },
+  { title: "Rider", icon: "/avatars/rider.svg", role: "Rider" },
 ];
 
-const onboardingImages = {
-  start: "/onboarding-people.png",
-};
 
 const briefs = {
   register:
@@ -347,6 +344,9 @@ const overview_descriptions = {
 const flexibility_text =
   "At EcoRide, we understand the importance of work-life balance. That is why we offer flexible working hours, allowing you to choose your own schedule. whether you prefer to drive during the day, night, or just weekends, the choice is entirely yours.";
 
+const stand_out_text =
+  "Our mission is simple, to revolutionize urban transportation by providing electric, zero-emission rides and deliveries that are accessible to everyone. We envision a future where eco-friendly transport is the standard, not the exception. By expanding our services and fleet, we hope to play a pivotal role in promoting greener cities and healthier communities for generations to come.";
+
 export {
   about_titles,
   about_descriptions,
@@ -365,13 +365,13 @@ export {
   hero_descriptions,
   mission,
   nav_links,
-  onboardingImages,
   otp_choice,
   overview_titles,
   overview_descriptions,
   services,
   settings,
   socials,
+  stand_out_text,
   support_links,
   testimonial_title,
   testimonies,

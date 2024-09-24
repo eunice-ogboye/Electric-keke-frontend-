@@ -14,7 +14,7 @@ import dispatchables from "../../utils/dispatchables";
 const HeroCta = ({ type }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const {openModalWithContent} = dispatchables();
+  const { openModalWithContent } = dispatchables();
   // redux dispatch and globals
   const { support, supportOption } = useSelector((state) => state.global);
 
@@ -63,19 +63,6 @@ const HeroCta = ({ type }) => {
             handleClick2={() => whatSupport("contact")}
             color="color1"
           />
-
-          <div className="grid grid-cols-2 md:grid-cols-4 justify-items-center gap-3 mt-6">
-            {support_links.map((item) => {
-              return (
-                <Btn
-                  key={item}
-                  text={item}
-                  size="sm"
-                  type={supportOption === item ? "default" : "rider"}
-                />
-              );
-            })}
-          </div>
         </div>
       )}
     </div>

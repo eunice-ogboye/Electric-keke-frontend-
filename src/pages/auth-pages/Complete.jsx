@@ -6,11 +6,13 @@ import Assurance from "../../components/auth/Assurance";
 import Heading from "../../components/shared/Heading";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import dispatchables from "../../utils/dispatchables";
 
 const Complete = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
   const { phone, state, address } = useSelector((state) => state.formData);
+  const {changeAuthenticationPage} = dispatchables();
 
   useEffect(() => {
     if (phone && state && address) {
@@ -22,6 +24,7 @@ const Complete = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    changeAuthenticationPage('otpMethod')
     navigate('/authentication/otp')
   };
 

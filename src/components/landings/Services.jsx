@@ -3,13 +3,13 @@ import Heading from "../shared/Heading";
 
 const Services = ({ type = "main" }) => {
   return (
-    <div className="py-20 overflow-hidden home-pad" id="services">
+    <div className="py-20 overflow-hidden home-pad bg-eco-white" id="services">
       <Heading
         introTitle={type === "main" && "Service"}
         title={type === "main" ? about_titles.two : "What We Offer"}
         tclass="max-w-[623px] mx-auto text-center service-heading font-josefin"
         description={type === "main" && about_descriptions.two}
-        dclass="mt-3 md:mt-7 text-center text-base md:text-eiteen service-desc"
+        dclass="mt-3 md:mt-7 text-center text-base md:text-xl lg:text-2xl service-desc"
         introClass="mx-auto text-eco-green service-heading"
         type="about"
         initial={{ y: -100, opacity: 0 }}
@@ -20,7 +20,7 @@ const Services = ({ type = "main" }) => {
 
       <div className="service-board">
         {services.map((item) => (
-          <div key={item.title} className="service">
+          <div key={item.title} className="service border border-eco-neutral-thick">
             <div className="flex flex-col items-center text-center">
               <div className="size-[43px] md:size-[65px] flex-center bg-eco-green-faint rounded-full">
                 <img src={item.icon} alt={item.title} />

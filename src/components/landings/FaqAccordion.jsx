@@ -16,6 +16,7 @@ const FaqAccordion = () => {
           Yes. It adheres to the WAI-ARIA design pattern.
         </AccordionContent>
       </AccordionItem>
+
       <AccordionItem value="item-2">
         <AccordionTrigger className="text-sm md:text-2xl">Is it styled?</AccordionTrigger>
         <AccordionContent className="text-eiteen">
@@ -23,6 +24,7 @@ const FaqAccordion = () => {
           components&apos; aesthetic.
         </AccordionContent>
       </AccordionItem>
+
       <AccordionItem value="item-3">
         <AccordionTrigger className="text-sm md:text-2xl">
           Is it animated?
@@ -31,6 +33,7 @@ const FaqAccordion = () => {
           Yes. It's animated by default, but you can disable it if you prefer.
         </AccordionContent>
       </AccordionItem>
+
       <AccordionItem value="item-4">
         <AccordionTrigger className="text-sm md:text-2xl">
           How do i manage my notifications?

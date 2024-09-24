@@ -33,7 +33,7 @@ const TestimonialDisplay = ({ type }) => {
   };
 
   return (
-    <div className="testimonials-display">
+    <div className="testimonials-display border-4">
       <AnimatePresence>
         {testimonies[type].map((item, index) => {
           const initial = { x: -150, opacity: 0 };
