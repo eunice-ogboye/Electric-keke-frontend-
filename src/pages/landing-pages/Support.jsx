@@ -15,8 +15,8 @@ const Support = () => {
   return (
     <Section>
       <Hero type="support" />
-      <div className="home-pad min-h-[617px] bg-base-white flex items-center flex-col justify-center relative">
-        <SearchBar className="w-full max-w-[865px] border-2 border-white bg-white rounded-[40px] p-1 flex items-center justify-between mx-auto absolute -top-8 h-16" />
+      <div className="support-intersect">
+        <SearchBar className="support-search-bar" />
         {support === "faq" ? <Faq /> : <ContactSupport />}
       </div>
       <Footer />

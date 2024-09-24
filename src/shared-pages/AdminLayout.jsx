@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import BoardManagement from "../components/admin/BoardManagement";
 import Analytics from "../components/admin/Analytics";
 import AdminNav from "../components/admin/AdminNav";
@@ -12,6 +12,7 @@ import AdminHeader from "../components/admin/AdminHeader";
 import Experimental from "../components/shared/experimental/Experimental";
 
 const AdminLayout = () => {
+  const navigate = useNavigate();
   const { showAlert } = dispatchables();
 
   const [currentAdminPage, setCurrentAdminPage] = useState("Overview");
@@ -49,7 +50,8 @@ const AdminLayout = () => {
                 variant="ghost"
                 onClick={async () => {
                   try {
-                    await Logout(showAlert);
+                    Logout();
+                    showAlert("Logged Out")
                     navigate("/");
                   } catch (error) {
                     showAlert(error.message);
@@ -75,12 +77,6 @@ const AdminLayout = () => {
 
           {(currentAdminPage === "Overview" ||
             currentAdminPage === "Financial Management") && <Analytics />}
-
-          {/* <div className="flex items-center">
-            <div className="gradient"></div>
-
-            <Experimental /> 
-          </div>*/}
 
           <Outlet context={{ contentsToDisplay }} />
         </div>

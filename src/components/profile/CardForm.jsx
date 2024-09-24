@@ -40,10 +40,10 @@ const CardForm = ({ formData }) => {
         </div>
       </div>
 
-      <div className="px-9 pt-8 pb-12 grid grid-cols-2 border-4 gap-x-4">
+      {/* <div className="px-9 pt-8 pb-12 grid grid-cols-2 border-4 gap-x-4">
         <Btn text="Confirm" size="full" />
         <Btn text="Cancel" type="secondary" size="full" />
-      </div>
+      </div> */}
     </>
   );
 };

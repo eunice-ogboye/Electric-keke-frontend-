@@ -20,7 +20,7 @@ const RegisterAs = () => {
   };
 
   return (
-    <div className="board-pad w-full md:w-1/2">
+    <div className="board-pad w-full lg:w-1/2 h-screen">
       <p className="text-right font-josefin text-base">
         Already have an account?{" "}
         <Link
@@ -44,20 +44,16 @@ const RegisterAs = () => {
               to="/authentication/register"
               key={item.title}
               onClick={() => {
-                const registeringAs =
-                  item.title === "Passenger" ? "User" : "Rider";
+                const registeringAs = item.role;
                 registrationMethod(registeringAs);
                 dispatch(changeAuthPage("register"));
               }}
             >
               <div
-                className={cn(
-                  `flex items-center justify-between max-w-[26.625rem] h-28 rounded-md px-7 py-6 cursor-pointer`,
-                  {
-                    "bg-pgreenfade border border-pgreen":
-                      item.title === registerAs,
-                  }
-                )}
+                className={`registerAs-opt ${
+                  item.role === registerAs && "chosen-role"
+                }`}
+                onMouseEnter={() => registrationMethod(item.role)}
               >
                 <div className="flex items-center gap-5">
                   <div>

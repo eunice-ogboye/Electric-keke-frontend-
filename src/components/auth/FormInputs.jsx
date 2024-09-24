@@ -6,7 +6,13 @@ import dispatchables from "../../utils/dispatchables";
 import { RegisterUser } from "../../lib/requests/auth";
 
 const FormInputs = ({ type, formData }) => {
-  const { chooseOtpMethod, showAlert, changeAuthFormData } = dispatchables();
+  const {
+    chooseOtpMethod,
+    showAlert,
+    changeAuthFormData,
+    switchVerificationType,
+    changeAuthenticationPage
+  } = dispatchables();
 
   const navigate = useNavigate();
 
@@ -19,22 +25,20 @@ const FormInputs = ({ type, formData }) => {
             return (
               <div
                 key={item.title}
-                className="px-4 py-2 flex items-center border-2"
-                onMouseOver={() => {
-                  console.log(item.title);
-                  chooseOtpMethod(item.title.toLowerCase());
-                }}
+                className="px-4 py-2 flex items-center border-2 h-[66px] rounded-[6px]"
+                onMouseOver={() => chooseOtpMethod(item.title.toLowerCase())}
                 onClick={async () => {
-                  // console.log(formData);
+                  switchVerificationType("activate");
                   try {
                     await RegisterUser(formData);
                     showAlert("Otp Sent for verification");
+                    changeAuthenticationPage('verification')
                     navigate("/authentication/verification");
                   } catch (error) {
                     showAlert(error.message);
                     // showAlert("Something dae wrong")
                     // this is here for development purpos
-                    // navigate("/authentication/verification");
+                    navigate("/authentication/verification");
                   }
                 }}
               >

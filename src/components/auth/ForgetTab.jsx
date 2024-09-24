@@ -10,7 +10,7 @@ const ForgetTab = ({ changeAuthenticationPage }) => {
       </div>
       <Link
         to="/authentication/forgot-password"
-        onClick={() => changeAuthenticationPage("forget")}
+        // onClick={() => changeAuthenticationPage("forget")}
       >
         <p className="font-semibold">Forgot Password?</p>
       </Link>

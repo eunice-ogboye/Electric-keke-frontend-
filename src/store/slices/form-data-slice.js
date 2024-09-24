@@ -6,7 +6,7 @@ const initialState = {
   fullname: "",
   email: "",
   password: "",
-  checkPass: "",
+  re_password: "",
   phone: "",
   state: "",
   address: "",

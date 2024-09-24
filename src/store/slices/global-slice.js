@@ -1,28 +1,34 @@
-import { add } from "date-fns";
 import { addItemToLs, getItemFromLs } from "../../lib/ls";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   alert: { show: false, msg: "alert" },
   authPage: getItemFromLs("authPage") || "",
-  driverAuthProcess: "Identity",
+  driverAuthProcessStage: "Identity",
   modal: false,
   modalContent: "ride",
-  ridersList: getItemFromLs('ridersList') || [],
+  ridersList: getItemFromLs("ridersList") || [],
   rider: null,
   support: "faq",
   supportOption: "General",
-  registerAs: "",
+  registerAs: "User",
   verificationType: "activate",
+  loading: false,
 };
 
 const globalSlice = createSlice({
   name: "global",
   initialState,
   reducers: {
+    startLoad(state) {
+      return { ...state, loading: true };
+    },
+    finishLoad(state) {
+      return { ...state, loading: false };
+    },
     storeListOfRiders(state, action) {
       const ridersList = action.payload;
-      addItemToLs('ridersList', ridersList);
+      addItemToLs("ridersList", ridersList);
       return { ...state, ridersList };
     },
     selectARider(state, action) {
@@ -68,12 +74,13 @@ const globalSlice = createSlice({
       addItemToLs("registeringAs", registerAs);
       return { ...state, registerAs };
     },
-    driveAuth(state, action) {
-      const driverAuthProcess = action.payload;
-      return { ...state, driverAuthProcess };
+    moveToNextDriveAuthStage(state, action) {
+      const driverAuthProcessStage = action.payload;
+      return { ...state, driverAuthProcessStage };
     },
     changeVerificationType(state, action) {
       const verificationType = action.payload;
+      console.log(verificationType)
       return { ...state, verificationType };
     },
   },
@@ -88,9 +95,11 @@ export const {
   changeModalContent,
   chooseSupport,
   changeRegistryMethod,
-  driveAuth,
+  moveToNextDriveAuthStage,
   selectARider,
   changeVerificationType,
+  startLoad,
+  finishLoad,
 } = globalSlice.actions;
 
 export default globalSlice.reducer;

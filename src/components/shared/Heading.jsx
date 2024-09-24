@@ -29,7 +29,7 @@ const Heading = ({
         className={`font-bold ${
           type === "about"
             ? "text-[2rem] md:text-[40px] lg:text-5xl"
-            : "text-[2rem]"
+            : "md:text-[2rem]"
         } ${tclass}`}
       >
         {title}

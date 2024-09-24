@@ -88,6 +88,14 @@
   @apply border border-eco-green rounded-full bg-transparent text-eco-neutral-prime
 }
 
+.registerAs-opt {
+  @apply flex items-center justify-between w-full lg:w-[26.625rem] h-28 rounded-md px-7 py-6 cursor-pointer
+}
+
+.chosen-role {
+  @apply bg-eco-green-faint border border-eco-green
+}
+
 /*****************************************/
 /**** SHADOWS**********/
 
@@ -116,11 +124,51 @@ h2 {
   @apply w-full h-[331px] md:w-[33rem] md:h-[454px] mt-6 md:mt-0;
 }
 
+/*********************** Auth Pages ************/
+
 .board {
-  @apply hidden md:block w-1/2 min-h-screen rounded-e-20 overflow-hidden relative board-shadow;
+  @apply hidden min-h-screen md:block md:w-5/12 lg:w-1/2 rounded-e-20 overflow-hidden board-shadow sticky top-0;
 }
 
+.custom-bg {
+  @apply h-full w-full overflow-hidden bg-eco-green isolate flex-center px-24 sticky top-0
+}
 
+.custom-bg-circle {
+  @apply w-[498px] h-[524px] rounded-full bg-[#61B236] absolute -top-[96px] left-[299px] -z-10
+}
+
+.custom-bg-parallelogram {
+  @apply absolute top-[516px] left-0 h-[506px] md:w-[659px] -z-20 w-full
+}
+
+.custom-bg-ellipse {
+  @apply absolute h-[568px] w-[769px] -top-[76px] -left-[88px] -z-50
+}
+
+.auth-page-right {
+  @apply w-full sm:w-[1024px] md:w-7/12 lg:w-1/2 flex-center px-4
+}
+
+.auth-title {
+  @apply text-center text-2xl mt-2 lg:mt-10
+}
+
+.auth-desc {
+  @apply text-center text-sm lg:text-eiteen mt-3
+}
+
+.auth-form {
+  @apply w-full md:w-[468px] border-red-500 mt-5 md:mt-14 mx-auto
+}
+
+.auth-head {
+  @apply w-full mx-auto max-w-[515px]
+}
+
+.otp-opt {
+  @apply px-4 py-2 flex items-center border-2 h-[66px] rounded-[6px] cursor-pointer
+}
 
 .board-pad {
   @apply my-dell:py-[2.1875rem] px-4 py-2 md:px-20 my-dell:px-[7.5rem];
@@ -132,6 +180,10 @@ h2 {
 
 .overlay {
   @apply bg-black/70 size-full absolute top-0 left-0 flex-center;
+}
+
+.overlay-img {
+  @apply size-full object-cover object-center rounded-xl
 }
 
 .briefing {
@@ -218,6 +270,7 @@ h2 {
   @apply text-xl md:text-[2rem] text-eco-green-dark leading-[24px] lg:leading-[38px] font-bold font-josefin;
 }
 
+
 /********************* conect ***************/
 .connect {
   @apply h-[457px] md:min-h-[704px] flex-center bg-black/60 relative home-pad overflow-hidden
@@ -226,6 +279,20 @@ h2 {
 .connect-bg {
   @apply size-full h-[457px] md:min-h-[704px] absolute top-0 left-0 -z-10
 }
+
+/***************************** support ****************/
+.support-intersect {
+  @apply home-pad min-h-[617px] bg-base-white flex items-center flex-col justify-center relative
+}
+
+.support-search-bar {
+  @apply w-full max-w-[865px] border-2 border-white bg-white rounded-[40px] p-1 flex items-center justify-between mx-auto absolute -top-8 h-16 shadow-lg
+}
+
+.faq-img {
+  @apply w-9/12 md:w-[403px] rounded-20 absolute  h-[295px] overflow-hidden
+}
+
 
 .subscribe-form {
   @apply bg-base-white flex items-center justify-between py-2 px-4 rounded-lg max-w-[534px] mt-6 mx-auto
@@ -330,8 +397,12 @@ h2 {
   @apply md:absolute z-20 w-full top-[5vh] md:px-5 lg:px-20 xl:px-[7.5rem];
 }
 
+/* .mobile-header {
+  @apply flex items-center justify-between px-[17px] py-3 md:hidden w-full bg-white/[6%] backdrop-blur-2xl;
+} */
+
 .mobile-header {
-  @apply flex items-center justify-between px-[17px] py-3 md:hidden absolute z-50 w-full bg-white/[6%] backdrop-blur-2xl;
+  @apply flex items-center justify-between px-[15px] py-3 md:hidden absolute z-50 w-full bg-eco-white/[6%] backdrop-blur-3xl
 }
 
 .header-container {
@@ -416,7 +487,7 @@ h2 {
 
 /* MODAL */
 .modal-container {
-  @apply w-full min-h-screen fixed top-0 left-0 z-50 flex-center bg-black/50 home-pad;
+  @apply w-full h-screen fixed top-0 left-0 z-50 flex-center bg-black/50 home-pad overflow-y-scroll;
 }
 
 .modal {
@@ -452,7 +523,7 @@ h2 {
 } */
 /* REUSABLE FORM */
 .congrats-board {
-  @apply w-full md:w-[25.5rem] h-[16rem] rounded-md mx-auto my-[30px] my-dell:mt-24 flex-center bg-white;
+  @apply w-full lg:w-[25.5rem] h-[16rem] rounded-md mx-auto my-[30px] my-dell:mt-24 flex-center bg-white;
 }
 
 .congrats-board {
@@ -465,12 +536,16 @@ h2 {
   @apply border border-eco-green px-5 rounded-[6px] h-[64px] w-full max-w-96;
 }
 
+.profile-management-input {
+  @apply border px-5 rounded-[6px] h-[64px] w-full max-w-96;
+}
+
 .auth-input {
   @apply border border-eco-neutral-input px-5 rounded-[6px] h-[54px] w-full;
 }
 
 .profile-modal-inputs {
-  @apply py-5 px-4 border border-eco-neutral-prime h-16 rounded-[14px] w-full max-w-[410px]
+  @apply py-5 px-4 border border-eco-neutral-prime h-16 rounded-[14px] w-full
 }
 
 /********************** Admin ****************/
@@ -529,7 +604,7 @@ h2 {
 /************ reusable form **************/
 /************* forget tab *************/
 .forget-tab {
-  @apply flex items-center justify-between w-full my-dell:w-[80%] mx-auto mb-[30px] my-dell:mb-10
+  @apply flex items-center justify-between w-full md:w-[446px] mx-auto mb-[30px] my-dell:mb-10
 }
 
 .switch-login {
@@ -570,7 +645,7 @@ h2 {
 }
 
 .profile-options {
-  @apply py-5 px-4 border border-eco-neutral-prime h-16 rounded-[14px] w-[410px] text-base flex items-center justify-between cursor-pointer font-bold
+  @apply py-5 px-4 border border-eco-neutral-prime h-16 rounded-[14px] w-full text-base flex items-center justify-between cursor-pointer font-bold
 }
 
 .payment-modal {
@@ -677,7 +752,7 @@ h2 {
 }
 
 .person-credentials {
-  @apply flex items-center justify-between  mt-2 md:mt-0 w-[72%]
+  @apply flex items-center justify-between mt-2 md:mt-0 w-[72%]
 }
 
 .person-name {
@@ -753,6 +828,31 @@ h2 {
 
 .ride-location {
   @apply location-shadow bg-white rounded-[14px] h-14 md:h-[70px] px-5 flex items-center ml-2 w-auto md:col-span-10
+}
+
+/******************** personal info ***************/
+.profile-section {
+  @apply home-pad pt-5 md:pt-[122px] pb-20 relative overflow-hidden
+}
+
+.profile-glow {
+  @apply size-[300px] lg:size-[609px] bg-eco-green/20 absolute -top-10 md:-top-32 -left-20 md:-left-[8rem] rounded-full -z-20
+}
+
+.profile-sub-header {
+  @apply border-b border-b-eco-neutral-prime flex items-center justify-between
+}
+
+.prof-photo {
+  @apply size-[162px] rounded-full border mt-5 mb-12 relative
+}
+
+.prof-photo-main {
+  @apply size-full object-cover object-center rounded-full
+}
+
+.prof-form-body {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-9 gap-x-[50px]
 }
 
 /************************ EXPERIMENTING EXPERIMENTAL ***************/

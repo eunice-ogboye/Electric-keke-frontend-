@@ -7,7 +7,7 @@ import { Calendar } from "../ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { useState } from "react";
 
-export function DatePicker() {
+function DatePicker() {
   const [date, setDate] = useState();
 
   return (
@@ -35,3 +35,5 @@ export function DatePicker() {
     </Popover>
   );
 }
+
+export default DatePicker

@@ -1,20 +1,28 @@
-import React from "react";
+import { useSelector } from "react-redux";
+import { briefs } from "../../constants";
 
-const CustomBg = ({ children }) => {
+const CustomBg = () => {
+  const { authPage } = useSelector((state) => state.global);
+
   return (
-    <div className="custom-bg relative h-full w-full overflow-hidden bg-eco-green isolate flex-center px-24">
-      <div className="w-[498px] h-[524px] rounded-full bg-[#61B236] absolute -top-[96px] left-[299px] -z-10" />
-      <div className="absolute h-[568px] w-[769px] -top-[76px] -left-[88px] -z-50">
+    <div className="custom-bg">
+      <div className="custom-bg-circle" />
+
+      <div className="custom-bg-ellipse">
         <img src="/custom-bg/ellipse2.svg" alt="ellipse" />
       </div>
-      <div className="absolute top-[516px] h-[506px] md:w-[659px] -z-20 w-full">
+
+      <div className="custom-bg-parallelogram">
         <img
           src="/custom-bg/parallelogram.svg"
           alt="parallelogram"
           className="size-full object-cover object-center"
         />
       </div>
-      {children}
+
+      <div className="w-[320px] lg:w-[501px] mx-auto">
+        <h1 className="briefing">{briefs[authPage]}</h1>
+      </div>
     </div>
   );
 };

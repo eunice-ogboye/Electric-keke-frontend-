@@ -1,17 +1,6 @@
-import { hero_descriptions } from "../../constants";
-import React from "react";
+import { hero_descriptions, getHeroImage } from "../../constants";
 import HeroCta from "./HeroCta";
 import HeroTitle from "./HeroTitle";
-
-const getHeroImage = (type) => {
-  return type === "main"
-    ? "/hero_bg1.png"
-    : type === "about"
-    ? "/hero/about_hero.png"
-    : type === "earn"
-    ? "/earn_hero_bg.png"
-    : "/support_bg.png";
-};
 
 const Hero = ({ type = "main" }) => {
   return (

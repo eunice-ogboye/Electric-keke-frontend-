@@ -1,11 +1,18 @@
+const getHeroImage = (type) => {
+  return type === "main"
+    ? "/hero_bg1.png"
+    : type === "about"
+    ? "/hero/about_hero.png"
+    : type === "earn"
+    ? "/earn_hero_bg.png"
+    : "/support_bg.png";
+};
+
 const account_types = [
-  { title: "Passenger", icon: "/avatars/passenger.svg" },
-  { title: "Rider", icon: "/avatars/rider.svg" },
+  { title: "Passenger", icon: "/avatars/passenger.svg", role: "User" },
+  { title: "Rider", icon: "/avatars/rider.svg", role: "Rider" },
 ];
 
-const onboardingImages = {
-  start: "/onboarding-people.png",
-};
 
 const briefs = {
   register:
@@ -206,12 +213,12 @@ const footer_note =
   "Eco-Ride is more than just a service—it's a movement towards a more sustainable and efficient future.Whether you're booking a ride, sending a package, or planning ahead, Eco-Ride is here to meet your needs while caring for the planet";
 
 const settings = [
-  "Profile Management",
-  "Payment Method",
-  "Notifications",
-  "Security & Privacy",
-  "Support & Feedback",
-  "Delete Account",
+  { title: "Profile Management" },
+  { title: "Payment Method" },
+  { title: "Notification", href: "/notification" },
+  { title: "Security & Privacy" },
+  { title: "Support & Feedback" },
+  { title: "Delete Account" },
 ];
 
 const hero_descriptions = {
@@ -337,6 +344,9 @@ const overview_descriptions = {
 const flexibility_text =
   "At EcoRide, we understand the importance of work-life balance. That is why we offer flexible working hours, allowing you to choose your own schedule. whether you prefer to drive during the day, night, or just weekends, the choice is entirely yours.";
 
+const stand_out_text =
+  "Our mission is simple, to revolutionize urban transportation by providing electric, zero-emission rides and deliveries that are accessible to everyone. We envision a future where eco-friendly transport is the standard, not the exception. By expanding our services and fleet, we hope to play a pivotal role in promoting greener cities and healthier communities for generations to come.";
+
 export {
   about_titles,
   about_descriptions,
@@ -351,16 +361,17 @@ export {
   flexibility_text,
   footer_note,
   formTitle,
+  getHeroImage,
   hero_descriptions,
   mission,
   nav_links,
-  onboardingImages,
   otp_choice,
   overview_titles,
   overview_descriptions,
   services,
   settings,
   socials,
+  stand_out_text,
   support_links,
   testimonial_title,
   testimonies,

@@ -5,6 +5,7 @@ import MobileNav from "./MobileNav";
 import { Link, useLocation } from "react-router-dom";
 import { getItemFromLs } from "../../lib/ls";
 import dispatchables from "../../utils/dispatchables";
+import CustomizedBtn from "./CustomizedBtn";
 
 const MobileHeader = () => {
   const {changeAuthenticationPage} = dispatchables()
@@ -16,7 +17,7 @@ const MobileHeader = () => {
     <header className="mobile-header h-16">
       {pathname !== "/schedule-ride" && <MobileNav />}
 
-      <Logo dark main />
+      <Logo logoClassName="w-11"/>
       {pathname === "/schedule-ride" && (
         <h2 className="font-bold text-xl">Eco Schedule</h2>
       )}
@@ -40,10 +41,10 @@ const MobileHeader = () => {
               </Link>
             </div>
           ) : (
-            <Btn
+            <CustomizedBtn
               text="Sign Up"
-              size="sm"
-              to="/authentication"
+              href="/authentication"
+              className="w-[134px] h-12 rounded-full bg-eco-green"
               handleClick={() => changeAuthenticationPage('start')}
             />
           )}

@@ -15,6 +15,7 @@ const MapModal = ({ modalContent }) => {
       variants={modalParent}
       exit="leave"
       className="detail-modal modal"
+      onClick={(e) => e.stopPropagation()}
     >
       <div className="location-container">
         <div className="location-map">
