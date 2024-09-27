@@ -11,6 +11,7 @@ const NavBar = ({ dark }) => {
    * header, is driver present in the url
    */
   const isDriverinTheUrl = regex.test(pathname);
+  
   return (
     <nav className="flex items-center gap-2 md:gap-3 lg:gap-8 list-none">
       {nav_links.map((item) => {
@@ -19,15 +20,9 @@ const NavBar = ({ dark }) => {
         return iAmEarn ? null : (
           <Link to={item.href} key={item.title}>
             <li
-              className={cn(
-                `text-eiteen font-montserrat ${
-                  dark ? "text-eco-neutral-prime" : "text-eco-white"
-                } `,
-                {
-                  "text-eco-green font-bold": isActive,
-                  hidden: iAmEarn,
-                }
-              )}
+              className={`text-eiteen ${
+                dark ? "text-eco-neutral-prime" : "text-eco-white"
+              } ${isActive && "!text-eco-green font-bold"}`}
             >
               {item.title}
             </li>

@@ -406,7 +406,15 @@ h2 {
 }
 
 .header-container {
-  @apply hidden md:flex items-center justify-between md:border-2 md:border-eco-green/40 h-[4.75rem] md:rounded-[40px] px-[17px] md:p-2 md:bg-eco-neutral/20 md:backdrop-blur-lg;
+  @apply hidden md:flex items-center justify-between border-2 border-eco-green/40 h-[4.75rem] rounded-[40px] px-[17px] p-2
+}
+
+.header-con-blur {
+  @apply bg-eco-neutral/20 backdrop-blur-lg;
+}
+
+.header-user-circle {
+  @apply size-8 md:size-12 flex-center text-3xl font-bold rounded-full bg-eco-green-dark text-white font-josefin
 }
 
 /* h-[4.75rem] container height max */

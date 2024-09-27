@@ -12,7 +12,7 @@ const Home = () => {
   useTitle("Home");
 
   return (
-    <Section>
+    <Section blurHeader={true}>
       <Hero />
       <PageBriefing />
       <Services />

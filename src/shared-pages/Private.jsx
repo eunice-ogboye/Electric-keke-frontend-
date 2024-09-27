@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { getItemFromLs } from "../lib/ls";
 import { useGlobalAuthContext } from "../contexts/AuthContext";
 import AdminLayout from "./AdminLayout";
-import UserManagement from "../pages/admin/UserManagement";
-import FinancialManagement from "../pages/admin/FinancialManagement";
+import ChatConnect from "../pages/chat/ChatConnect";
+import CustomerCare from "../pages/xp-pages/CustomerCare";
 import Driver from "../pages/driver/Driver";
-import Schedule from "../pages/xp-pages/Schedule";
+import FinancialManagement from "../pages/admin/FinancialManagement";
+import Notification from "../pages/xp-pages/Notification";
+import Profile from "../pages/profile-pages/Profile";
 import Riders from "../pages/xp-pages/Riders";
 import RiderIndex from "../pages/xp-pages/RiderIndex";
 import RiderInfo from "../pages/xp-pages/RiderInfo";
-import Tracking from "../pages/tracking/Tracking";
-import Profile from "../pages/profile-pages/Profile";
-import CustomerCare from "../pages/xp-pages/CustomerCare";
-import Transaction from "../pages/transaction/Transaction";
-import ChatConnect from "../pages/chat/ChatConnect";
+import Schedule from "../pages/xp-pages/Schedule";
 import Settings from "../pages/profile-pages/Settings";
+import Tracking from "../pages/tracking/Tracking";
+import Transaction from "../pages/transaction/Transaction";
+import UserManagement from "../pages/admin/UserManagement";
 
 const ProtectedRoute = () => {
-  // const [user, setUser] = useState(getItemFromLs("user") || null);
   const { isAuthenticated } = useGlobalAuthContext();
   
   return isAuthenticated ? (

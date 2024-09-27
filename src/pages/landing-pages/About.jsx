@@ -9,7 +9,7 @@ import Footer from "../../components/shared/Footer";
 
 const About = () => {
   return (
-    <Section>
+    <Section blurHeader={true}>
       <Hero type="about" />
       <PageBriefing type="about" />
       <StandOut />

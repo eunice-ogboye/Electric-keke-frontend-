@@ -13,7 +13,7 @@ const Support = () => {
   const { support } = useSelector((state) => state.global);
 
   return (
-    <Section>
+    <Section blurHeader={true}>
       <Hero type="support" />
       <div className="support-intersect">
         <SearchBar className="support-search-bar" />

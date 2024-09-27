@@ -11,7 +11,7 @@ const Earn = () => {
   useTitle("Earn");
 
   return (
-    <Section>
+    <Section blurHeader={true}>
       <Hero type="earn" />
       <PageBriefing type="earn" />
       <Contribution />
