@@ -3,14 +3,16 @@ import React, { useEffect, useState } from "react";
 import Btn from "../../components/shared/Btn";
 import { useNavigate } from "react-router-dom";
 import Heading from "../../components/shared/Heading";
-import reviews from "../../mock-data/reviews";
 import { motion } from "framer-motion";
-// import Loader from "../assets/svg/Loader";
-import { getItemFromLs } from "../../lib/ls";
-import bookRide from "../../lib/requests/booking/bookRide";
+import { addItemToLs, deletItemFromLs, getItemFromLs } from "../../lib/ls";
 import dispatchables from "../../utils/dispatchables";
 import Reviews from "../../components/xp/Reviews";
 import Loader from "../../components/loaders/Loader";
+import { BookRide, GetListOfBookings } from "../../lib/requests/booking";
+import {
+  riderParentVariant,
+  riderPictureContainer,
+} from "../../constants/variants";
 
 const RiderInfo = () => {
   const { showAlert } = dispatchables();
@@ -19,52 +21,25 @@ const RiderInfo = () => {
   const [rider, setRider] = useState(getItemFromLs("rider") || null);
   const navigate = useNavigate();
 
-  const parentVariant = {
-    out: {
-      x: 200,
-      opacity: 0,
-    },
-    enter: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        when: "beforeChildren",
-        duration: 2,
-        stagerChildren: 3,
-      },
-    },
-    leave: { x: -200, opacity: 0 },
-  };
-
-  const pictureContainer = {
-    out: { scale: 0, opacity: 0 },
-    enter: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.75,
-        delay: 0.2,
-      },
-    },
-  };
-
   const submitBooking = async () => {
-    // setWaiting(true);
+    setWaiting(true);
     const bookData = getItemFromLs("book-data");
     try {
-      const { data } = await bookRide(bookData);
+      await BookRide(bookData);
+      const bookingList = await GetListOfBookings();
+      console.log(bookingList);
+
+      const lastestBooking = bookingList.length - 1;
+      addItemToLs("current-ride", bookingList[lastestBooking]);
+
+      // deletItemFromLs("book-data");
       showAlert("Ride Booking Succefull, Wait a moment");
-      setWaiting(false);
-      setTimeout(() => {
-        navigate("/tracking");
-      }, 3000);
+      navigate("/tracking");
     } catch (error) {
-      showAlert(`Error Booking Ride with Rider ${rider.name}`);
+      console.log(rider);
+      showAlert(`Error Booking Ride with Rider ${rider.fullname}`);
     } finally {
       setWaiting(false);
-      // setTimeout(() => {
-      //   navigate('/tracking')
-      // }, 3000);
     }
   };
 
@@ -97,14 +72,14 @@ const RiderInfo = () => {
       animate="enter"
       exit="leave"
       transition={{ duration: 0.65, type: "just" }}
-      variants={parentVariant}
+      variants={riderParentVariant}
       className="relative"
     >
       <motion.div className="md:flex mt-7 rider-info">
         <motion.div
           initial="out"
           animate="enter"
-          variants={pictureContainer}
+          variants={riderPictureContainer}
           className="w-full max-w-[510px] justify-between"
         >
           <div className="w-full h-[440px] md:h-[630px]">

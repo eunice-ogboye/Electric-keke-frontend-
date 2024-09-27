@@ -4,9 +4,9 @@ import TeamBoard from "./TeamBoard";
 
 const Meet = () => {
   return (
-    <section className="h-[668px] border home-pad flex-center">
+    <section className="min-h-[668px] border home-pad flex-center py-10">
       <div className="w-full max-w-[1200px]">
-        <Heading title="Meet The Team" tclass="text-center" />
+        <Heading title="Meet The Team" type="about" tclass="text-center" />
         <TeamBoard />
       </div>
     </section>

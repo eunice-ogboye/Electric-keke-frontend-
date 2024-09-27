@@ -1,15 +1,9 @@
 import { useState } from "react";
 import Btn from "../shared/Btn";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  alertUser,
-  changeAuthPage,
-  hideAlert,
-  toggleModal,
-} from "../../store/slices/global-slice";
-import { updateBookingData } from "../../store/slices/bookride-slice";
+import { useSelector } from "react-redux";
 import { getItemFromLs } from "../../lib/ls";
+import dispatchables from "../../utils/dispatchables";
 
 const getPrice = async (action, time) => {
   return new Promise((resolve) => {
@@ -27,14 +21,14 @@ const ModalFormInput = ({
   showTarget,
 }) => {
   return (
-    <div className="h-[59px] border border-neutral py-4 px-5 rounded-md bg-white flex items-center justify-between">
+    <div className="map-modal-input">
       <input
         type="text"
         placeholder={placeholder}
         name={name}
         value={value}
         onChange={handleChange}
-        className="text-eiteen w-10/12 font-montserrat"
+        className="text-eiteen w-10/12"
       />
       {showTarget && (
         <div>
@@ -46,38 +40,27 @@ const ModalFormInput = ({
 };
 
 const ModalForm = () => {
-  const dispatch = useDispatch();
+  const { showAlert, inputDataForBookingRequest, flipModal, inputBookingData } =
+    dispatchables();
   const { origin, destination, price } = useSelector((state) => state.bookData);
-
-  const showAlert = (msg) => {
-    dispatch(alertUser(msg));
-    setTimeout(() => {
-      dispatch(hideAlert())
-    }, 5000);
-  };
 
   const navigate = useNavigate();
   const [showPrice, setShowPrice] = useState(false);
-
-  const handleChange = (e) => {
-    const key = e.target.name;
-    const value = e.target.value;
-    dispatch(updateBookingData({ key, value }));
-  };
 
   const isDisabled = !origin || !destination;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!showPrice) {
-      showAlert('Getting price estimate')
+      showAlert("Getting price estimate");
       await getPrice(() => {
         let price = `${Math.floor(Math.random() * 3000)}`;
-        dispatch(updateBookingData({ key: "price", value: price }));
+        inputDataForBookingRequest("price", price);
         setShowPrice(true);
       }, 5000);
       return;
     }
+
     try {
       const user = getItemFromLs("user");
       if (!user) {
@@ -87,32 +70,29 @@ const ModalForm = () => {
     } catch (error) {
       showAlert("Login to book a ride");
     } finally {
-      console.log("me");
-      dispatch(toggleModal(false));
+      // console.log("me");
+      flipModal(false);
     }
   };
 
   return (
-    <form
-      className="max-w-[520px] mx-auto mt-6 flex flex-col gap-[13px]"
-      onSubmit={handleSubmit}
-    >
+    <form className="modal-form" onSubmit={handleSubmit}>
       <ModalFormInput
         placeholder="Input Pick up address"
         name="origin"
         value={origin}
-        handleChange={handleChange}
+        handleChange={inputBookingData}
         showTarget
       />
       <ModalFormInput
         placeholder="Drop off location"
         name="destination"
         value={destination}
-        handleChange={handleChange}
+        handleChange={inputBookingData}
       />
 
       {showPrice && (
-        <div className="h-10 md:h-[59px] py-4 px-5 rounded-md bg-eco-green-faint flex items-center justify-between">
+        <div className="estimate-price">
           <p>#{price}</p>
         </div>
       )}

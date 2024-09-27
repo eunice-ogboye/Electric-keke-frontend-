@@ -3,6 +3,7 @@ import CustomBg from "../components/auth/CustomBg";
 import React from "react";
 import Overlay from "../components/auth/Overlay";
 import Btn from "../components/shared/Btn";
+import { clearLs } from "../lib/ls";
 
 const AuthPageBoard = ({ authPage }) => {
   return (
@@ -12,9 +13,7 @@ const AuthPageBoard = ({ authPage }) => {
           <Btn
             to="/"
             icon={<XIcon />}
-            handleClick={() => {
-              clearLs();
-            }}
+            handleClick={() => clearLs()}
             className="cancel-btn"
           />
 

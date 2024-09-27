@@ -13,7 +13,7 @@ const PaymentMethod = () => {
             text="Payment with cash"
             type="secondary"
             size="full"
-            handleClick={() => openModalWithContent("Pay for ride")}
+            handleClick={() => openModalWithContent("rate")}
           />
           <p className="mt-8 text-center">or pay with card</p>
         </div>

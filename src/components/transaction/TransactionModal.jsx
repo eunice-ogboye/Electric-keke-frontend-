@@ -15,7 +15,7 @@ const TransactionModal = () => {
   });
 
   return (
-    <div className="w-full max-w-[600px] rounded-[16px] p-5 bg-white min-h-[400px]">
+    <div className="w-full max-w-[600px] rounded-[16px] p-5 bg-white min-h-[400px]" onClick={e => e.stopPropagation()}>
       <div className="text-center mt-12">
         <div className="size-20 mx-auto">
           {paySuccessful ? <Congrats /> : <Loader size={80} />}

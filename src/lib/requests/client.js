@@ -36,7 +36,7 @@ export const clientRequest = async ({ ...options }) => {
   };
 
   const onError = async (err) => {
-    console.log(err);
+    // console.log(err);
     const originalRequest = err.config;
     const status = err.response.status;
 
@@ -82,7 +82,7 @@ export const clientRequest = async ({ ...options }) => {
       });
     }
 
-    throw new Error("request error");
+    throw new CustomError("request error", { ...err });
   };
   return client(options).then(onSuccess).catch(onError);
 };

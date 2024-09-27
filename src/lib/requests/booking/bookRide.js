@@ -1,7 +1,7 @@
 import { clientRequest } from "../client";
 
 const bookRide = async ({ ...bookingData }) => {
-  console.log(bookingData)
+  console.log(bookingData, 'The booking data')
   try {
     const { data } = await clientRequest({
       url: "/bookings/new-booking/",

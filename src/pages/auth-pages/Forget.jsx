@@ -24,14 +24,14 @@ const Forget = () => {
   }, [username]);
 
   const handleSubmit = async (e) => {
-    console.log(username)
+    console.log(username);
     e.preventDefault();
     addItemToLs("user-email", username);
     try {
       const { detail } = await RequestOtp({ username });
       showAlert(detail);
-      switchVerificationType('update-password');
-      navigate('/authentication/verification')
+      switchVerificationType("update-password");
+      navigate("/authentication/verification");
     } catch (error) {
       console.log(error);
     }
@@ -54,16 +54,12 @@ const Forget = () => {
           <div className="space-y-7">
             <ReusableFormRows type="forget" />
           </div>
-          <div className="w-[343px] mx-auto border mt-10">
+          
+          <div className="w-full max-w-[343px] mx-auto border mt-10">
             <CustomizedBtn
-              // href="/authentication/verification"
               text="Send Code"
               className="h-14 w-full rounded-full bg-eco-green"
               disabled={isLoading}
-              handleClick={() => {
-                // console.log("jose")
-                switchVerificationType("update-password");
-              }}
             />
           </div>
         </form>

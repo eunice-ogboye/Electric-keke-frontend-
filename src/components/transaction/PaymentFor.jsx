@@ -7,7 +7,8 @@ import { getItemFromLs } from "../../lib/ls";
 import ProgressLine from "../shared/ProgressLine";
 
 const PaymentFor = () => {
-  const [bookinfo, setbookinfo] = useState(getItemFromLs("book-data"));
+  const [currentRide, setCurrentRide] = useState(getItemFromLs("current-ride"));
+  
   return (
     <div className="payment-for-board">
       <div>
@@ -27,14 +28,16 @@ const PaymentFor = () => {
           />
 
           <div className="trip-detail">
-            <Trip label="Pick up" location={bookinfo.origin} />
+            <Trip label="Pick up" location={currentRide.origin} />
             <ProgressLine className="hidden md:block md:h-[80px]" />
-            <Trip label="Drop off" location={bookinfo.destination} />
+            <Trip label="Drop off" location={currentRide.destination} />
           </div>
 
           <div className="flex items-center justify-between md:justify-start gap-2">
-            <p className="font-semibold text-xs md:text-base">Total Cost of ride</p>
-            <div className="ride-fare">#{bookinfo.price}</div>
+            <p className="font-semibold text-xs md:text-base">
+              Total Cost of ride
+            </p>
+            <div className="ride-fare">#{currentRide.price}</div>
           </div>
         </div>
       </div>

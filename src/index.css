@@ -73,6 +73,10 @@
   .flex-center {
     @apply flex items-center justify-center;
   }
+
+  .board-shadow {
+    filter: drop-shadow(6px 0px 20px rgba(0, 0, 0, 0.3));
+  }
 }
 
 /********************** Btn ********************/
@@ -99,9 +103,8 @@
 /*****************************************/
 /**** SHADOWS**********/
 
-.board-shadow {
-  filter: drop-shadow(6px 0px 20px rgba(0, 0, 0, 0.3));
-}
+
+
 
 .send-shadow {
   filter: drop-shadow(0 1px 3px rgb(0, 0, 0, 0.1)) drop-shadow(0 12px 7px rgb(0, 0, 0, 0.05))
@@ -147,7 +150,7 @@ h2 {
 }
 
 .auth-page-right {
-  @apply w-full sm:w-[1024px] md:w-7/12 lg:w-1/2 flex-center px-4
+  @apply w-full sm:w-[1024px] md:w-7/12 lg:w-1/2 flex-center px-4 pb-10
 }
 
 .auth-title {
@@ -204,7 +207,7 @@ h2 {
 
 /******** HOME HERO ******/
 .hero {
-  @apply relative min-h-[696px];
+  @apply relative;
 }
 
 .hero-board {
@@ -282,7 +285,7 @@ h2 {
 
 /***************************** support ****************/
 .support-intersect {
-  @apply home-pad min-h-[617px] bg-base-white flex items-center flex-col justify-center relative
+  @apply home-pad min-h-[617px] bg-base-white flex items-center flex-col justify-center relative pb-20
 }
 
 .support-search-bar {
@@ -290,7 +293,7 @@ h2 {
 }
 
 .faq-img {
-  @apply w-9/12 md:w-[403px] rounded-20 absolute  h-[295px] overflow-hidden
+  @apply w-9/12 md:w-[403px] rounded-20 absolute h-[295px] overflow-hidden
 }
 
 
@@ -359,16 +362,13 @@ h2 {
 
 /************ Teem **************/
 .team-board {
-  @apply grid grid-cols-1 md:grid-cols-3 w-full max-w-[1200px] h-96 mt-10 gap-x-7
+  @apply grid grid-cols-1 lg:grid-cols-3 w-full max-w-[1200px] min-h-96 mt-10 gap-7
 }
 
 .team-member {
   @apply py-3 px-4 bg-white drop-shadow-lg rounded-20
 }
 
-.team-member {
-  filter: drop-shadow()
-}
 
 .team-member-details {
   @apply mt-4 flex flex-col gap-2
@@ -508,6 +508,18 @@ h2 {
 
 .ride-request-modal {
   @apply w-full max-w-[600px] rounded-[16px] bg-white p-5
+}
+
+.modal-form {
+  @apply max-w-[520px] mx-auto mt-6 flex flex-col gap-[13px]
+}
+
+.map-modal-input {
+  @apply h-[59px] border border-eco-neutral-prime py-4 px-5 rounded-md bg-white flex items-center justify-between
+}
+
+.estimate-price {
+  @apply h-10 md:h-[59px] py-4 px-5 rounded-md bg-eco-green-faint flex items-center justify-between
 }
 
 /* .modalContainer {} */
@@ -791,7 +803,7 @@ h2 {
 }
 
 .payment-for-board {
-  @apply px-5 md:pl-[7.5rem] md:pr-10 w-full md:w-[55vw] bg-white board-shadow transaction-board
+  @apply px-5 md:pl-[7.5rem] md:pr-10 w-full md:w-[55vw] bg-white md:board-shadow transaction-board
 }
 
 .payment-method {
@@ -832,7 +844,7 @@ h2 {
 
 /******************** personal info ***************/
 .profile-section {
-  @apply home-pad pt-5 md:pt-[122px] pb-20 relative overflow-hidden
+  @apply home-pad pt-[100px] md:pt-[122px] pb-20 relative overflow-hidden
 }
 
 .profile-glow {

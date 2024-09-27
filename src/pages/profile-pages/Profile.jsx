@@ -25,7 +25,7 @@ const Profile = () => {
               />
             )}
 
-            <h2 className="font-bold font-josefin">Personal Information</h2>
+            <h2 className="font-bold font-josefin text-xl">Personal Information</h2>
           </div>
           <div>
             <CustomizedBtn

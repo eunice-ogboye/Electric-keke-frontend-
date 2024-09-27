@@ -18,11 +18,9 @@ import ChatConnect from "../pages/chat/ChatConnect";
 import Settings from "../pages/profile-pages/Settings";
 
 const ProtectedRoute = () => {
-  const [user, setUser] = useState(getItemFromLs("user") || null);
+  // const [user, setUser] = useState(getItemFromLs("user") || null);
   const { isAuthenticated } = useGlobalAuthContext();
-  // console.log(user, "from private route");
-
-  // return isAuthenticated ? <Outlet context={user} /> : <Navigate to="/" />;
+  
   return isAuthenticated ? (
     <Routes>
       <Route path="/admin" element={<AdminLayout />}>

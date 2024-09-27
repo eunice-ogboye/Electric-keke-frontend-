@@ -45,6 +45,11 @@ const dispatchables = () => {
     dispatch(updateBookingData({ key, value }));
   };
 
+  const inputBookingData = e => {
+    const {name: key, value} = e.target;
+    dispatch(updateBookingData({key, value}))
+  }
+
   const loading = () => {
     dispatch(startLoad());
   };
@@ -65,6 +70,7 @@ const dispatchables = () => {
       dispatch(hideAlert());
     }, time);
   };
+  
 
   const updateDriversList = (data) => {
     dispatch(storeListOfRiders(data));
@@ -81,6 +87,7 @@ const dispatchables = () => {
     chooseRider,
     flipModal,
     inputDataForBookingRequest,
+    inputBookingData,
     nextDriverAuthStage,
     openModalWithContent,
     showAlert,

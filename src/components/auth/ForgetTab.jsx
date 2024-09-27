@@ -1,7 +1,10 @@
+import dispatchables from "../../utils/dispatchables";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ForgetTab = ({ changeAuthenticationPage }) => {
+const ForgetTab = () => {
+  const {changeAuthenticationPage} = dispatchables();
+  
   return (
     <div className="forget-tab">
       <div className="flex gap-2">
@@ -10,7 +13,7 @@ const ForgetTab = ({ changeAuthenticationPage }) => {
       </div>
       <Link
         to="/authentication/forgot-password"
-        // onClick={() => changeAuthenticationPage("forget")}
+        onClick={() => changeAuthenticationPage("forget")}
       >
         <p className="font-semibold">Forgot Password?</p>
       </Link>

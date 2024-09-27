@@ -96,7 +96,7 @@ export const RegisterUser = async ({
   fullname,
   email,
   password,
-  checkPass,
+  re_password,
   phone,
   state,
   address,
@@ -116,7 +116,7 @@ export const RegisterUser = async ({
         email,
         phone,
         password,
-        re_password: checkPass,
+        re_password,
         message_type,
       },
     });

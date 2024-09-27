@@ -5,13 +5,11 @@ import Heading from "./Heading";
 import CustomizedBtn from "./CustomizedBtn";
 import Call from "../../assets/svg/Call";
 import dispatchables from "../../utils/dispatchables";
-import { useNavigate } from "react-router-dom";
 import ModalTemplate from "./ModalTemplate";
 import ProfileModalTop from "../profile/ProfileModalTop";
 
 const ProfileContactModal = ({ modalContent }) => {
   const { flipModal, showAlert } = dispatchables();
-  const navigate = useNavigate();
 
   const [title, setTitle] = useState("Profile Management");
   const [isLoading, setIsLoading] = useState(false);
@@ -33,16 +31,15 @@ const ProfileContactModal = ({ modalContent }) => {
   }, []);
 
   const handleInAppCall = async () => {
-    showAlert('In app call')
+    showAlert("In app call");
     // logic to call in app
-    navigate("/chat");
+
     flipModal(false);
   };
 
   const handleCallPhone = async () => {
-    showAlert('calling number')
+    showAlert("calling number");
     // logic to call the line outside the app
-    navigate("/chat");
     flipModal(false);
   };
 
@@ -59,7 +56,8 @@ const ProfileContactModal = ({ modalContent }) => {
           />
         }
         bottom={
-          (title === "Profile Management" || title === 'Choose Your Preferred Call Option') ? null : (
+          title === "Profile Management" ||
+          title === "Choose Your Preferred Call Option" ? null : (
             <Btn text="Confirm" size="full" disabled={isLoading} />
           )
         }

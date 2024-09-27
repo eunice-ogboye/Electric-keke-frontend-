@@ -3,22 +3,25 @@ import Choose from "../../components/shared/Choose";
 import { useEffect, useState } from "react";
 import Statistics from "../../components/driver/Statistics";
 import dispatchables from "../../utils/dispatchables";
-
-const createRideRequest = (order) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(order());
-    }, 3000);
-  });
-};
+import { GetListOfBookings } from "../../lib/requests/booking";
+import { addItemToLs } from "../../lib/ls";
 
 const Driver = () => {
   const { openModalWithContent } = dispatchables();
   const [online, setOnline] = useState(false);
 
   useEffect(() => {
-    createRideRequest(() => openModalWithContent('request-ride'))
-  }, [])
+    (async () => {
+      try {
+        const bookings = await GetListOfBookings();
+        const latest = bookings.length - 1;
+        addItemToLs('current-ride', bookings[latest]);
+        openModalWithContent('request-ride');
+      } catch (error) {
+        console.log(error);
+      }
+    })()
+  }, []);
 
   return (
     <Section darkLogo>

@@ -2,10 +2,15 @@ import React from "react";
 import Choose from "./Choose";
 import dispatchables from "../../utils/dispatchables";
 import { useNavigate } from "react-router-dom";
-import { addItemToLs } from "../../lib/ls";
+import { addItemToLs, getItemFromLs } from "../../lib/ls";
+import { UpdateBooking } from "../../lib/requests/booking";
+import {
+  rideStatusLsUpdate,
+  rideStatusUpdateRequest,
+} from "../../lib/requests/booking/abstracts";
 
 const ModalActionBoard = ({ modalContent }) => {
-  const { flipModal } = dispatchables();
+  const { flipModal, showAlert } = dispatchables();
   const navigate = useNavigate();
 
   /**
@@ -14,31 +19,33 @@ const ModalActionBoard = ({ modalContent }) => {
    */
 
   const handleClick1 = async () => {
+    const rideToUpdateData = rideStatusUpdateRequest("accepted");
+
     try {
-      if (modalContent === "request-ride") {
-        // accept ride and navigate to tracking page
-        console.log("ride accepted");
-        addItemToLs("passenger", {
-          fullname: "Testing",
-        });
-        addItemToLs("book-data", {
-          origin: "Orile",
-          destination: "Okoko",
-          price: "3000",
-        });
-        navigate("/tracking");
-      }
+      // accept ride and navigate to tracking page
+      const data = await UpdateBooking(rideToUpdateData);
+      // get passenger details
+      addItemToLs("passenger", {
+        fullname: "Passenger",
+      });
+      rideStatusLsUpdate("accepted");
+
+      navigate("/tracking");
       flipModal(false);
     } catch (error) {
       // catch error
+      showAlert(error.message);
     }
   };
 
   const handleClick2 = async () => {
+    const rideToUpdateData = rideStatusUpdateRequest("cancelled");
     try {
       if (modalContent === "request-ride") {
-        // cancle rider
-        console.log("ride declined");
+        // cancle ride
+        const data = await UpdateBooking(rideToUpdateData);
+        rideStatusLsUpdate("cancelled");
+        console.log(data);
       }
       flipModal(false);
     } catch (error) {}

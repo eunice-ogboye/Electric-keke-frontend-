@@ -20,7 +20,7 @@ const RegisterAs = () => {
   };
 
   return (
-    <div className="board-pad w-full lg:w-1/2 h-screen">
+    <div className="board-pad w-full md:w-7/12 lg:w-1/2 h-screen">
       <p className="text-right font-josefin text-base">
         Already have an account?{" "}
         <Link

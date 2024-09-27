@@ -41,4 +41,40 @@ const reviewContainerChildren = {
   }),
 };
 
-export { modalParent, modalContainer, reviewContainer, reviewContainerChildren };
+const riderParentVariant = {
+  out: {
+    x: 200,
+    opacity: 0,
+  },
+  enter: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      when: "beforeChildren",
+      duration: 2,
+      stagerChildren: 3,
+    },
+  },
+  leave: { x: -200, opacity: 0 },
+};
+
+const riderPictureContainer = {
+  out: { scale: 0, opacity: 0 },
+  enter: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.75,
+      delay: 0.2,
+    },
+  },
+};
+
+export {
+  modalParent,
+  modalContainer,
+  reviewContainer,
+  reviewContainerChildren,
+  riderParentVariant,
+  riderPictureContainer
+};

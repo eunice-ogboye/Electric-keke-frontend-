@@ -15,6 +15,7 @@ const ChooseModal = ({ modalContent, handleClick }) => {
       variants={modalParent}
       exit="leave"
       className="modal choose-modal"
+      onClick={(e) => e.stopPropagation()}
     >
       <motion.div className="h-20 border">
         <Avatars modalContent={modalContent} />
