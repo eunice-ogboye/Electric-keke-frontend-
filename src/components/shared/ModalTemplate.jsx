@@ -7,7 +7,7 @@ const ModalTemplate = ({ top, bottom }) => {
       onClick={(e) => e.stopPropagation()}
     >
       {top}
-      <div className="pt-8 px-9 pb-12">{bottom}</div>
+      <div className="pt-8 px-9 pb-12 flex-center gap-x-10">{bottom}</div>
     </div>
   );
 };

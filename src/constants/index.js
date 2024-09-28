@@ -347,8 +347,30 @@ const stand_out_text =
 const onboarding_descs = {
   register:
     "Sign up to start your eco-friendly journey with EcoRide. Join us in making transportation greener and more efficient. Your adventure towards a sustainable future begins here!",
-    complete: "", otp: "", 
+  complete: "",
+  otp: "",
 };
+
+const states = [
+  "Abia",
+  "Adamawa",
+  "Akwa-ibom",
+  "Anambra",
+  "Bauchi",
+  "Bayelsa",
+  "Cross-river",
+  "Delta",
+  "Ebonyi",
+  "Edo",
+  "Ekiti",
+  "Imo",
+  "Jigawa",
+  "Enugu",
+  "Plateus",
+  "Kogi",
+  "Ondo",
+  "Osun",
+];
 
 export {
   about_titles,
@@ -376,6 +398,7 @@ export {
   settings,
   socials,
   stand_out_text,
+  states,
   support_links,
   testimonial_title,
   testimonies,

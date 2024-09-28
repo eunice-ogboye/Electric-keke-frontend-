@@ -1,4 +1,5 @@
 import { clientRequest } from "../client";
+import CustomError from "../custom-error/CustomError";
 
 export const BookRide = async ({ ...bookingData }) => {
   console.log(bookingData, "The booking data");
@@ -48,6 +49,7 @@ export const GetAvailableRiders = async () => {
     console.log(data);
     return data;
   } catch (error) {
+    // console.log(error, 'getavailable')
     throw new CustomError("Internal Server Error", {
       status: error.data.status,
     });

@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import dispatchables from "../../utils/dispatchables";
 import FormRow from "../shared/FormRow";
-import DatePicker from '../shared/DatePicker'
-import SelectInput from '../shared/SelectInput'
-import Btn from '../shared/Btn'
+import DatePicker from "../shared/DatePicker";
+import SelectInput from "../shared/SelectInput";
+import Btn from "../shared/Btn";
+import { states } from "../../constants";
+import CustomSelectItem from "../shared/CustomSelectItem";
 
-const ProfileManagementForm = ({cancelEdit}) => {
+const ProfileManagementForm = ({ cancelEdit }) => {
   const { user } = useOutletContext;
 
   const { showAlert, openModalWithContent } = dispatchables();
@@ -25,8 +27,8 @@ const ProfileManagementForm = ({cancelEdit}) => {
 
   const handleSave = () => {
     // logic to update profile
-    openModalWithContent('update-profile')
-  }
+    openModalWithContent("update-profile");
+  };
 
   return (
     <form className="mt-14" onSubmit={(e) => e.preventDefault()}>
@@ -75,7 +77,9 @@ const ProfileManagementForm = ({cancelEdit}) => {
         />
         <FormRow
           label="State"
-          children={<SelectInput />}
+          children={
+            <SelectInput children={<CustomSelectItem items={states} />} handleFunc={value => console.log(value)} />
+          }
           formRowContainer="font-inter"
           inputclass="profile-management-input"
         />

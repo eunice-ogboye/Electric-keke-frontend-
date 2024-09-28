@@ -161,8 +161,7 @@ h2 {
 }
 
 .auth-page-right {
-  @apply w-full sm:w-[1024px] md:w-6/12 lg:w-1/2 flex-center px-4 pb-10
-  relative
+  @apply w-full sm:w-[1024px] md:w-6/12 lg:w-1/2 flex-center px-4 pb-10 relative
 }
 
 .auth-title {
@@ -327,11 +326,11 @@ h2 {
 
 
 .subscribe-form {
-  @apply bg-base-white flex items-center justify-between py-2 px-4 rounded-lg max-w-[534px] mt-6 mx-auto
+  @apply bg-base-white flex items-center justify-between py-2 px-4 rounded-lg w-full max-w-[534px] mt-6 mx-auto
 }
 
 .subscribe-input {
-  @apply w-[200px] md:w-[264px] ml-2 text-sm md:text-eiteen bg-none border-none outline-none
+  @apply w-8/12 md:w-[200px] md:w-[264px] ml-2 text-sm md:text-eiteen bg-none border-none outline-none
 }
 
 .subscribe-btn {
@@ -443,10 +442,18 @@ h2 {
 }
 
 .header-user-circle {
-  @apply size-8 md:size-12 flex-center text-3xl font-bold rounded-full bg-eco-green-dark text-white font-josefin
+  @apply size-8 md:size-12 flex-center text-xl md:text-3xl font-bold rounded-full bg-eco-green-dark text-white font-josefin
 }
 
 /* h-[4.75rem] container height max */
+
+.rider-container {
+  @apply px-1 py-20 md:pt-48 md:pb-10 home-pad
+}
+
+.rider-sub-header {
+  @apply flex items-center justify-between
+}
 
 .rider {
   @apply h-[15rem] md:h-[498px] relative rounded-[9px] md:rounded-[20px] overflow-hidden;
@@ -540,7 +547,7 @@ h2 {
 }
 
 .modal {
-  @apply bg-white rounded-xl relative
+  @apply bg-white rounded-xl relative mx-auto
 }
 
 .rate-modal {
@@ -548,7 +555,7 @@ h2 {
 }
 
 .choose-modal {
-  @apply w-full max-w-[478px] min-h-[348px] py-4 px-3
+  @apply w-full max-w-[478px] min-h-[348px] py-4 px-3 mx-auto
 }
 
 .detail-modal {
@@ -557,6 +564,10 @@ h2 {
 
 .ride-request-modal {
   @apply w-full max-w-[600px] rounded-[16px] bg-white p-5
+}
+
+.transcation-modal {
+  @apply w-full max-w-[600px] rounded-[16px] p-5 bg-white min-h-[400px] mx-auto
 }
 
 .modal-form {

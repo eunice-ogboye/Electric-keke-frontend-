@@ -21,8 +21,9 @@ const Header = ({ darkLogo, blur }) => {
         {user ? (
           <div className="flex items-center gap-3">
             <Link to="/notification">
-              <div>
-                <Bell />
+              <div className="relative">
+                <span className="absolute top-0 right-0 bg-red-500 size-2 rounded-full" />
+                <Bell color={blur && "white"} />
               </div>
             </Link>
 

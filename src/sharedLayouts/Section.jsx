@@ -4,7 +4,7 @@ import Header from "../components/shared/Header";
 const Section = ({ children, darkLogo, blurHeader }) => {
   return (
     <>
-      <MobileHeader />
+      <MobileHeader blur={blurHeader} />
       <Header darkLogo={darkLogo} blur={blurHeader} />
       <section>{children}</section>
     </>

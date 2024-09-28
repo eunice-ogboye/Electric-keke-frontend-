@@ -8,15 +8,15 @@ import dispatchables from "../../utils/dispatchables";
 import CustomizedBtn from "./CustomizedBtn";
 import Bell from "../../assets/svg/Bell";
 
-const MobileHeader = () => {
-  const { changeAuthenticationPage } = dispatchables();
+const MobileHeader = ({ blur }) => {
+  // const { changeAuthenticationPage } = dispatchables();
 
   const [user, setUser] = useState(getItemFromLs("user") || null);
   const { pathname } = useLocation();
 
   return (
     <header className="mobile-header h-16">
-      {pathname !== "/schedule-ride" && <MobileNav />}
+      {pathname !== "/schedule-ride" && <MobileNav blur={blur} />}
 
       <Logo logoClassName="w-11" />
       {pathname === "/schedule-ride" && (
@@ -28,8 +28,9 @@ const MobileHeader = () => {
           {user ? (
             <div className="flex items-center gap-[0.65rem]">
               <Link to="/notification">
-                <div className="size-5">
-                  <Bell />
+                <div className="size-5 flex-center relative">
+                <span className="absolute top-0 right-0 bg-red-500 size-2 rounded-full" />
+                  <Bell color={blur && 'white'} />
                 </div>
               </Link>
 
@@ -42,7 +43,7 @@ const MobileHeader = () => {
               text="Sign Up"
               href="/onboarding"
               className="w-[134px] h-12 rounded-full bg-eco-green"
-              handleClick={() => changeAuthenticationPage("start")}
+              // handleClick={() => changeAuthenticationPage("start")}
             />
           )}
         </>

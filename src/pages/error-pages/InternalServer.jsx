@@ -18,8 +18,7 @@ import Logo from "../../components/shared/Logo";
 import Heading from "../../components/shared/Heading";
 
 const InternalServer = () => {
-  const previous_page = getItemFromLs("prev_page");
-  console.log(previous_page);
+  const prev_page = getItemFromLs("prev_page");
 
   return (
     <section className="h-screen w-full flex-center">
@@ -33,7 +32,7 @@ const InternalServer = () => {
         />
 
         <div className="mt-6 flex-center">
-          <Btn text="Try Again" to={previous_page} className="mx-auto block" />
+          <Btn text="Try Again" to={prev_page} />
         </div>
       </div>
     </section>

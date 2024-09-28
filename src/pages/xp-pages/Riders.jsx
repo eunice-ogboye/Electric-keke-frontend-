@@ -15,19 +15,19 @@ const Riders = () => {
 
   return (
     <Section darkLogo={true}>
-      <div className="px-1 py-20 md:pt-48 md:pb-10 home-pad">
+      <div className="rider-container">
         <div className="relative">
-          <div className="flex items-center justify-between rider-info">
+          <div className="rider-sub-header">
             <h2 className="font-bold">Available Riders</h2>
             <Btn
               type="cancel"
-              // handleClick={goBackToRiderIndex}
               fixed
             />
           </div>
-          <AnimatePresence>
-            <Outlet context={{ ridersTitle, switchRiderTitle }} />
-          </AnimatePresence>
+
+          {/* <AnimatePresence> */}
+          <Outlet context={{ ridersTitle, switchRiderTitle }} />
+          {/* </AnimatePresence> */}
         </div>
       </div>
     </Section>

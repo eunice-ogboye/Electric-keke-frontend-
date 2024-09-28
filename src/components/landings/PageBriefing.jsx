@@ -70,7 +70,7 @@ const PageBriefing = ({ type = "main" }) => {
               transition={{ duration: 0.85 }}
               viewport={{ once: true, amount: 0.5 }}
               id="about-image"
-              className="w-[542px] h-[454px] rounded-[40px] overflow-hidden"
+              className="w-full md:w-[542px] h-[250px] md:h-[454px] rounded-[40px] overflow-hidden"
             >
               <img
                 src="/briefings/about-clip.gif"

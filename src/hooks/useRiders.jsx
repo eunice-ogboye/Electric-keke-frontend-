@@ -1,28 +1,28 @@
 import { GetAvailableRiders } from "../services/bookings";
 import { getItemFromLs } from "../utils/ls";
 import { useEffect, useState } from "react";
+import useReroute from "./useReroute";
 
 export const useRiders = (key) => {
   const [isLoading, setIsLoading] = useState(true);
   const [riders, setRiders] = useState(getItemFromLs(key) || null);
-
+  const rerouting = useReroute();
 
   useEffect(() => {
-    console.log("whats popping")
     if (!riders) {
-      (async() => {
+      (async () => {
         setIsLoading(true);
         try {
           const data = await GetAvailableRiders();
           setRiders(data);
-          // console.log(data)
-          setIsLoading(false)
+          setIsLoading(false);
         } catch (error) {
-          console.log(error);
+          const { status } = error.data;
+          rerouting(status);
         }
-      })()
+      })();
     }
-  }, [])
+  }, []);
 
-  return {isLoading, riders}
-}
+  return { isLoading, riders };
+};

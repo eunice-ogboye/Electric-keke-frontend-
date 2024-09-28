@@ -3,7 +3,7 @@ import Heading from "../shared/Heading";
 
 const StandOut = () => {
   return (
-    <section className="home-pad flex-center h-[495px]" style={{
+    <section className="home-pad flex-center min-h-[495px] py-10 " style={{
       backgroundImage: "url('/hero/trees.png')"
     }}>
       <div className="text-center">

@@ -14,7 +14,7 @@ import Menu from "../../assets/svg/Menu";
 import { useDispatch } from "react-redux";
 import { changeAuthPage } from "../../store/slices/global-slice";
 
-const MobileNav = () => {
+const MobileNav = ({ blur }) => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const regex = /driver/i;
@@ -28,8 +28,7 @@ const MobileNav = () => {
     <section>
       <Sheet>
         <SheetTrigger>
-          <Menu isDriverinTheUrl={isDriverinTheUrl} />
-          {/* <img src="/menu.svg" alt="menu" /> */}
+          <Menu blur={blur} isDriverinTheUrl={isDriverinTheUrl} />
         </SheetTrigger>
         <SheetContent side="left" className="border-none bg-white">
           <Link to="/" className="cursor-pointer">

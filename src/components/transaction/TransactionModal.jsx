@@ -8,14 +8,14 @@ import dispatchables from "../../utils/dispatchables";
 
 const TransactionModal = () => {
   const [paySuccessful, setPaySuccessful] = useState(false);
-  const {openModalWithContent} = dispatchables();
+  const { openModalWithContent } = dispatchables();
 
   useEffect(() => {
-    make_payment(() => setPaySuccessful(true))
+    make_payment(() => setPaySuccessful(true));
   });
 
   return (
-    <div className="w-full max-w-[600px] rounded-[16px] p-5 bg-white min-h-[400px]" onClick={e => e.stopPropagation()}>
+    <div className="transaction-modal" onClick={(e) => e.stopPropagation()}>
       <div className="text-center mt-12">
         <div className="size-20 mx-auto">
           {paySuccessful ? <Congrats /> : <Loader size={80} />}
@@ -29,9 +29,14 @@ const TransactionModal = () => {
           dclass="mt-6"
         />
       </div>
+
       {paySuccessful && (
         <div className="w-full max-w-[488px] mt-10 mx-auto">
-          <Btn text="Proceed" size="full" handleClick={() => openModalWithContent('rate')} />
+          <Btn
+            text="Proceed"
+            size="full"
+            handleClick={() => openModalWithContent("rate")}
+          />
         </div>
       )}
     </div>
