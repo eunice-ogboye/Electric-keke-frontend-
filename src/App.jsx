@@ -14,6 +14,8 @@ import ProtectedRoute from "./shared-pages/Private";
 import InternalServer from "./pages/error-pages/InternalServer";
 import Loader from "./components/loaders/Loader";
 import NotFound from "./pages/not-found/NotFound";
+import Onboarding from "./pages/onboarding";
+import Testing from "./pages/testing";
 
 function App() {
   const {
@@ -42,8 +44,10 @@ function App() {
           <Route path="/earn-with-us" element={<Earn />} />
           <Route path="/support" element={<Support />} />
           <Route path="/authentication/*" element={<AuthPage />} />
+          <Route path="/onboarding/*" element={<Onboarding />} />
           <Route path="/*" element={<ProtectedRoute />} />
           <Route path="/ie/:id" element={<InternalServer />} />
+          <Route path="/testing" element={<Testing />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

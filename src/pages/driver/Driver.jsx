@@ -3,8 +3,8 @@ import Choose from "../../components/shared/Choose";
 import { useEffect, useState } from "react";
 import Statistics from "../../components/driver/Statistics";
 import dispatchables from "../../utils/dispatchables";
-import { GetListOfBookings } from "../../lib/requests/booking";
-import { addItemToLs } from "../../lib/ls";
+import { GetListOfBookings } from "../../services/bookings";
+import { addItemToLs } from "../../utils/ls";
 
 const Driver = () => {
   const { openModalWithContent } = dispatchables();
@@ -15,12 +15,12 @@ const Driver = () => {
       try {
         const bookings = await GetListOfBookings();
         const latest = bookings.length - 1;
-        addItemToLs('current-ride', bookings[latest]);
-        openModalWithContent('request-ride');
+        addItemToLs("current-ride", bookings[latest]);
+        openModalWithContent("request-ride");
       } catch (error) {
         console.log(error);
       }
-    })()
+    })();
   }, []);
 
   return (

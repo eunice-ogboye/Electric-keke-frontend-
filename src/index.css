@@ -127,7 +127,18 @@ h2 {
   @apply w-full h-[331px] md:w-[33rem] md:h-[454px] mt-6 md:mt-0;
 }
 
+
+/****** onbaord ********/
+.onboard-board {
+  @apply hidden h-screen md:block md:w-6/12 lg:w-1/2 rounded-e-20 overflow-hidden board-shadow sticky top-0
+}
+
+.onboard-register-as {
+  @apply board-pad w-full md:w-7/12 lg:w-1/2 h-screen
+}
+
 /*********************** Auth Pages ************/
+
 
 .board {
   @apply hidden min-h-screen md:block md:w-5/12 lg:w-1/2 rounded-e-20 overflow-hidden board-shadow sticky top-0;
@@ -150,7 +161,7 @@ h2 {
 }
 
 .auth-page-right {
-  @apply w-full sm:w-[1024px] md:w-7/12 lg:w-1/2 flex-center px-4 pb-10
+  @apply w-full sm:w-[1024px] md:w-6/12 lg:w-1/2 flex-center px-4 pb-10
 }
 
 .auth-title {
@@ -162,7 +173,7 @@ h2 {
 }
 
 .auth-form {
-  @apply w-full md:w-[468px] border-red-500 mt-5 md:mt-14 mx-auto
+  @apply w-full max-w-[468px] mt-5 md:mt-14 mx-auto
 }
 
 .auth-head {
@@ -261,16 +272,28 @@ h2 {
   @apply mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5;
 }
 
-.service {
-  @apply rounded-[2rem] flex items-start px-[9px] py-[27px] md:px-[10px] md:py-[25px] lg:px-[14px] lg:py-12 bg-white drop-shadow-service;
+.single-service-container {
+  @apply rounded-[2rem] flex items-start px-[9px] py-[27px] md:px-[10px] md:py-[25px] lg:px-[14px] lg:py-12 bg-white drop-shadow-service border border-eco-neutral-thick;
 }
 
-.service {
+.service-shadow {
   filter: drop-shadow(0 79px 32px rgba(0, 0, 0, 0.01)) drop-shadow(0 44px 26px rgba(0, 0, 0, 0.05));
+}
+
+.single-service {
+  @apply flex flex-col items-center text-center
+}
+
+.service-icon {
+  @apply size-[43px] md:size-[65px] flex-center bg-eco-green-faint rounded-full
 }
 
 .service-title {
   @apply text-xl md:text-[2rem] text-eco-green-dark leading-[24px] lg:leading-[38px] font-bold font-josefin;
+}
+
+.service-desc {
+  @apply text-xs md:text-base mt-[5px] lg:mt-2 text-eco-neutral-prime
 }
 
 
@@ -281,6 +304,11 @@ h2 {
 
 .connect-bg {
   @apply size-full h-[457px] md:min-h-[704px] absolute top-0 left-0 -z-10
+}
+
+/************** footer ************/
+.footer {
+  @apply home-pad py-10 md:py-[5.9rem] bg-eco-neutral overflow-hidden
 }
 
 /***************************** support ****************/
@@ -439,6 +467,18 @@ h2 {
   @apply r-form-body-margin space-y-[15px] my-dell:space-y-5 flex flex-col;
 }
 
+.rider-name {
+  @apply font-bold text-eco-white !text-base md:!text-[2rem]
+}
+
+.rider-info {
+  @apply flex flex-col justify-between h-full
+}
+
+.rider-plate {
+  @apply text-[0.625rem] md:text-eiteen text-eco-white
+}
+
 /* DRIVER */
 
 .driver-board {
@@ -557,7 +597,7 @@ h2 {
 }
 
 .profile-management-input {
-  @apply border px-5 rounded-[6px] h-[64px] w-full max-w-96;
+  @apply border px-5 rounded-[6px] h-[64px] w-full;
 }
 
 .auth-input {
@@ -852,7 +892,7 @@ h2 {
 
 /******************** personal info ***************/
 .profile-section {
-  @apply home-pad pt-[100px] md:pt-[122px] pb-20 relative overflow-hidden
+  @apply px-3 md:px-[7.5rem] pt-[100px] md:pt-[152px] pb-20 relative overflow-hidden
 }
 
 .profile-glow {

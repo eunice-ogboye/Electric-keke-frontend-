@@ -1,4 +1,4 @@
-import { useTitle } from "../../lib/hooks";
+import useTitle from "../../hooks/useTitle";;
 import Section from "../../shared-pages/Section";
 import Hero from "../../components/landings/Hero";
 import PageBriefing from "../../components/landings/PageBriefing";

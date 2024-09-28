@@ -1,4 +1,4 @@
-import { addItemToLs, getItemFromLs } from "../../lib/ls";
+import { addItemToLs, getItemFromLs } from "../../utils/ls";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -80,7 +80,7 @@ const globalSlice = createSlice({
     },
     changeVerificationType(state, action) {
       const verificationType = action.payload;
-      console.log(verificationType)
+      console.log(verificationType);
       return { ...state, verificationType };
     },
   },

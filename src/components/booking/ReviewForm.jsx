@@ -1,4 +1,4 @@
-import { deletItemFromLs } from "../../lib/ls";
+import { deletItemFromLs } from "../../utils/ls";
 import dispatchables from "../../utils/dispatchables";
 import CustomizedBtn from "../shared/CustomizedBtn";
 

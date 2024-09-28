@@ -30,14 +30,10 @@ const Mission = () => {
       <motion.div
         initial={{ y: 200, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        viewport={{once: true}}
+        viewport={{ once: true }}
         className="mt-14 max-w-[933px] mx-auto"
       >
-        <p className="mission-bottom-text">
-          By expanding our fleet of electric Kekes, we aim to make every journey
-          a step towards a greener future, reducing emissions and improving air
-          quality in our cities
-        </p>
+        <p className="mission-bottom-text">{mission.statement}</p>
       </motion.div>
     </section>
   );

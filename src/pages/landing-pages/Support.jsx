@@ -1,4 +1,4 @@
-import { useTitle } from "../../lib/hooks";
+import useTitle from "../../hooks/useTitle";;
 import Section from "../../shared-pages/Section";
 import SearchBar from "../../components/shared/SearchBar";
 import { useSelector } from "react-redux";

@@ -3,8 +3,8 @@ import Btn from "../../components/shared/Btn";
 import {
   rideStatusLsUpdate,
   rideStatusUpdateRequest,
-} from "../../lib/requests/booking/abstracts";
-import { UpdateBooking } from "../../lib/requests/booking";
+} from "../../services/bookings/abstracts";
+import { UpdateBooking } from "../../services/bookings";
 
 const TrackDetails = ({ role, origin, destination, price, status }) => {
   const navigate = useNavigate();

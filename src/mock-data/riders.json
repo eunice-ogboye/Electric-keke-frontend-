@@ -1,7 +1,7 @@
 [
   {
-    "_id": "0",
-    "name": "Josemaria",
+    "id": "0",
+    "fullname": "Josemaria",
     "email": "Joseysafekeep@gmail.com",
     "rating": 2,
     "plate_number": "IKJ-479XA",
@@ -9,8 +9,8 @@
     "photo": "/persons/rider1.png"
   },
   {
-    "_id": "1",
-    "name": "Olumide Daniel",
+    "id": "1",
+    "fullname": "Olumide Daniel",
     "email": "rider@mail.com",
     "rating": 4,
     "plate_number": "IKJ-479XA",
@@ -18,8 +18,8 @@
     "photo": "/persons/rider2.png"
   },
   {
-    "_id": "2",
-    "name": "John Okafor",
+    "id": "2",
+    "fullname": "John Okafor",
     "email": "rider@mail.com",
     "rating": 3,
     "plate_number": "IKJ-479XA",
@@ -27,8 +27,8 @@
     "photo": "/persons/rider3.png"
   },
   {
-    "_id": "3",
-    "name": "Tariq",
+    "id": "3",
+    "fullname": "Tariq",
     "email": "rider@mail.com",
     "rating": 3,
     "plate_number": "IKJ-479XA",
@@ -36,8 +36,8 @@
     "photo": "/persons/rider4.jpeg"
   },
   {
-    "_id": "4",
-    "name": "JohnBull MySon",
+    "id": "4",
+    "fullname": "JohnBull MySon",
     "email": "rider@mail.com",
     "rating": 2,
     "plate_number": "VIC-479TK",
@@ -45,8 +45,8 @@
     "photo": "/persons/rider5.jpeg"
   },
   {
-    "_id": "5",
-    "name": "Clark Kent",
+    "id": "5",
+    "fullname": "Clark Kent",
     "email": "rider@mail.com",
     "rating": 4,
     "plate_number": "VIC-479TK",

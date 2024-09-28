@@ -4,7 +4,7 @@ import DeliveryProcess, {
   DeliveryProcessLine,
 } from "../../components/xp/DeliveryProcess";
 import React, { useEffect, useState } from "react";
-import { addItemToLs, getItemFromLs } from "../../lib/ls";
+import { addItemToLs, getItemFromLs } from "../../utils/ls";
 import { useNavigate } from "react-router-dom";
 import Person from "../../components/tracking/Person";
 import TrackDetails from "./TrackDetails";
@@ -12,9 +12,9 @@ import Logo from "../../components/shared/Logo";
 import Accept from "../../assets/svg/Accept";
 import Way from "../../assets/svg/Way";
 import Dropped from "../../assets/svg/Dropped";
-import { GetListOfBookings, UpdateBooking } from "../../lib/requests/booking";
-import { useUpdateBooking } from "../../lib/hooks";
-import { rideStatusUpdateRequest } from "../../lib/requests/booking/abstracts";
+import { GetListOfBookings, UpdateBooking } from "../../services/bookings";
+import { useUpdateBooking } from "../../hooks/useUpdateBooking";
+import { rideStatusUpdateRequest } from "../../services/bookings/abstracts";
 
 const Tracking = () => {
   const [user] = useState(getItemFromLs("user") || null);
@@ -39,7 +39,7 @@ const Tracking = () => {
             if (user.role === "User") {
               navigate("/transaction");
             } else {
-              console.log("i am a rider")
+              console.log("i am a rider");
             }
           } catch (error) {
             console.log(error);

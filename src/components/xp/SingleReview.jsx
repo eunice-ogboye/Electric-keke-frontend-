@@ -2,8 +2,6 @@ import React from "react";
 import { reviewContainerChildren } from "../../constants/variants";
 import { motion } from "framer-motion";
 
-
-
 const SingleReview = ({ photo, name, review, createdAt, email, index }) => {
   return (
     <motion.div

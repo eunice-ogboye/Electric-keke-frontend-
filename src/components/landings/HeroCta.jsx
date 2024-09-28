@@ -10,8 +10,11 @@ import {
 } from "../../store/slices/global-slice";
 import { updateBookingData } from "../../store/slices/bookride-slice";
 import dispatchables from "../../utils/dispatchables";
+import { useCurrentUser } from "../../hooks/useCurrentUser";
 
 const HeroCta = ({ type }) => {
+  const user = useCurrentUser();
+  console.log(user)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { openModalWithContent } = dispatchables();
@@ -27,21 +30,31 @@ const HeroCta = ({ type }) => {
     dispatch(chooseSupport(key));
   };
 
+
   return (
     <div className="flex-center gap-2 mt-6">
       {type === "main" || type === "earn" ? (
         <>
-          <Btn
-            text={type === "main" ? "Book a Ride" : "Register"}
-            handleClick={() => {
-              if (type === "earn") {
+          {type === "main" && (
+            <Btn
+              text="Book a Ride"
+              handleClick={() => {
+                openModalWithContent("ride");
+                chooseHowToRide("booking_type", "ride");
+              }}
+            />
+          )}
+
+          {(type === "earn" && !user) && (
+            <Btn
+              text="Register"
+              handleClick={() => {
                 dispatch(changeAuthPage("driver-auth"));
-                return navigate("/authentication/driver-auth");
-              }
-              openModalWithContent("ride");
-              chooseHowToRide("booking_type", "ride");
-            }}
-          />
+                navigate("/authentication/driver-auth");
+              }}
+            />
+          )}
+
           {type === "main" && (
             <Btn
               text="Request For Delivery"

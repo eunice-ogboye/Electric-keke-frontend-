@@ -1,4 +1,4 @@
-import { useTitle } from "../../lib/hooks";
+import useTitle from "../../hooks/useTitle";;
 import Spear from "../../assets/svg/Spear";
 import Call from "../../assets/svg/Call";
 import ConnectChatBoard from '../../components/chat/ConnectChatBoard'

@@ -1,12 +1,12 @@
 import {
   about_descriptions,
   about_titles,
-  earn_requirements,
 } from "../../constants";
 import Btn from "../shared/Btn";
 import { motion } from "framer-motion";
 import Flexibility from "./Flexibility";
 import Heading from "../shared/Heading";
+import EarnRequirements from "./EarnRequirements";
 
 const PageBriefing = ({ type = "main" }) => {
   return (
@@ -59,21 +59,7 @@ const PageBriefing = ({ type = "main" }) => {
             )}
 
             {type === "earn" && (
-              <>
-                <h2 className="text-[2rem] font-bold text-center md:text-left font-josefin">
-                  Requirements
-                </h2>
-                <ul className="list-disc pl-4 mt-7">
-                  {earn_requirements.map((item, index) => (
-                    <li
-                      key={index}
-                      className="text-base md:text-xl lg:text-2xl text-eco-neutral-prime font-montserrat"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </>
+              <EarnRequirements />
             )}
           </motion.div>
 

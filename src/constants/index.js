@@ -13,7 +13,6 @@ const account_types = [
   { title: "Rider", icon: "/avatars/rider.svg", role: "Rider" },
 ];
 
-
 const briefs = {
   register:
     "Sign up to start your eco-friendly journey with EcoRide. Join us in making transportation greener and more efficient. Your adventure towards a sustainable future begins here!",
@@ -77,6 +76,8 @@ const services = [
 const mission = {
   title: "Our Vision for a Sustainable Future",
   desc: "At Eco-Ride, our mission is clear: to revolutionize urban transportation and logistics with eco-friendly solutions that benefit both people and the planet. We aim to make sustainable transport accessible and affordable for everyone, reducing our carbon footprint while enhancing the quality of life in our communities.",
+  statement:
+    "By expanding our fleet of electric Kekes, we aim to make every journey  a step towards a greener future, reducing missions and improving air quality in our cities",
 };
 
 const testimonial_title = {

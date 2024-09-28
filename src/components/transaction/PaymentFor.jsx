@@ -3,12 +3,12 @@ import React, { useState } from "react";
 import Logo from "../shared/Logo";
 import Heading from "../shared/Heading";
 import Trip from "./Trip";
-import { getItemFromLs } from "../../lib/ls";
+import { getItemFromLs } from "../../utils/ls";
 import ProgressLine from "../shared/ProgressLine";
 
 const PaymentFor = () => {
   const [currentRide, setCurrentRide] = useState(getItemFromLs("current-ride"));
-  
+
   return (
     <div className="payment-for-board">
       <div>
@@ -28,16 +28,16 @@ const PaymentFor = () => {
           />
 
           <div className="trip-detail">
-            <Trip label="Pick up" location={currentRide.origin} />
+            <Trip label="Pick up" location={currentRide?.origin || 'orile'} />
             <ProgressLine className="hidden md:block md:h-[80px]" />
-            <Trip label="Drop off" location={currentRide.destination} />
+            <Trip label="Drop off" location={currentRide?.destination || 'mile 2'} />
           </div>
 
           <div className="flex items-center justify-between md:justify-start gap-2">
             <p className="font-semibold text-xs md:text-base">
               Total Cost of ride
             </p>
-            <div className="ride-fare">#{currentRide.price}</div>
+            <div className="ride-fare">#{currentRide?.price || 300}</div>
           </div>
         </div>
       </div>

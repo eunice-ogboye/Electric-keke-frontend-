@@ -1,12 +1,12 @@
-import { addItemToLs } from "../../lib/ls";
+import { addItemToLs } from "../../utils/ls";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   username: "",
-  fullname: "",
-  email: "",
-  password: "",
-  re_password: "",
+  fullname: "j",
+  email: "j",
+  password: "j",
+  re_password: "j",
   phone: "",
   state: "",
   address: "",
@@ -21,7 +21,7 @@ const formDataSlice = createSlice({
     changeInputValue(state, action) {
       const { key, value } = action.payload;
       const newFormData = { ...state, [key]: value };
-      // console.log(key, value);
+      console.log(key, value);
       addItemToLs("formData", newFormData);
       return newFormData;
     },

@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import Btn from "./Btn";
 import MobileNav from "./MobileNav";
 import { Link, useLocation } from "react-router-dom";
-import { getItemFromLs } from "../../lib/ls";
+import { getItemFromLs } from "../../utils/ls";
 import dispatchables from "../../utils/dispatchables";
 import CustomizedBtn from "./CustomizedBtn";
 import Bell from "../../assets/svg/Bell";
@@ -34,22 +34,20 @@ const MobileHeader = () => {
               </Link>
 
               <Link to={`/profile/${user?.id}`}>
-                <div className="header-user-circle">
-                  {user.fullname[0]}
-                </div>
+                <div className="header-user-circle">{user.fullname[0]}</div>
               </Link>
             </div>
           ) : (
             <CustomizedBtn
               text="Sign Up"
-              href="/authentication"
+              href="/onboarding"
               className="w-[134px] h-12 rounded-full bg-eco-green"
               handleClick={() => changeAuthenticationPage("start")}
             />
           )}
         </>
       )}
-      
+
       {pathname === "/schedule-ride" && (
         <Btn
           text="Search"

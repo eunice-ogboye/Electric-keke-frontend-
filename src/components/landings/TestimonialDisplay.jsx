@@ -2,9 +2,9 @@ import { testimonies } from "../../constants";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import Direction from "../shared/Direction";
+import Testimony from "./Testimony";
 
 const TestimonialDisplay = ({ type }) => {
-
   const [currentTestimony, setCurrentTestimony] = useState(0);
 
   useEffect(() => {
@@ -88,21 +88,14 @@ const TestimonialDisplay = ({ type }) => {
               };
             }
             return (
-              <motion.div
-                initial={initial}
-                whileInView={animate}
-                className={`testimony ${
-                  index !== currentTestimony && "absolute"
-                }`}
+              <Testimony
                 key={item.name}
-              >
-                <p className="testimony-paragraph">{item.testimony}</p>
-
-                <div className="mt-6 text-center md:text-left">
-                  <p className="testimony-data">{item.name}</p>
-                  <p className="testimony-data">{item.location}</p>
-                </div>
-              </motion.div>
+                initial={initial}
+                animate={animate}
+                index={index}
+                currentTestimony={currentTestimony}
+                {...item}
+              />
             );
           })}
         </AnimatePresence>

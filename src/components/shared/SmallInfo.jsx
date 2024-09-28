@@ -1,6 +1,6 @@
 import ArrDown from "../../assets/svg/ArrDown";
 import React, { useState } from "react";
-import { getItemFromLs } from "../../lib/ls";
+import { getItemFromLs } from "../../utils/ls";
 
 const SmallInfo = ({ admin }) => {
   const [user] = useState(getItemFromLs("user"));

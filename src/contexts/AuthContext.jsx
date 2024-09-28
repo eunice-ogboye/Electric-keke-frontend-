@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { addItemToLs, deletItemFromLs, getItemFromLs } from "../lib/ls";
+import { addItemToLs, deletItemFromLs, getItemFromLs } from "../utils/ls";
 import { createContext, useCallback, useContext, useState } from "react";
 
 const AuthContext = createContext(null);
@@ -12,17 +12,17 @@ const AuthProvider = ({ children }) => {
 
   const AuthenticateLogin = () => {
     console.log("login authentication");
-    console.log('........................')
+    console.log("........................");
     addItemToLs("isAuthenticated", true);
     setIsAuthenticated(true);
   };
-  
+
   const AuthenticateLogout = () => {
     deletItemFromLs("isAuthenticated");
     setIsAuthenticated(false);
-    navigate('/')
-    console.log(done)
-    console.log('........................')
+    navigate("/");
+    console.log(done);
+    console.log("........................");
   };
 
   // const AuthProviderValue = useCallback(() => {

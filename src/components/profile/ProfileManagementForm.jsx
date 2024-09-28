@@ -29,7 +29,7 @@ const ProfileManagementForm = ({cancelEdit}) => {
   }
 
   return (
-    <form className="mt-14 " onSubmit={(e) => e.preventDefault()}>
+    <form className="mt-14" onSubmit={(e) => e.preventDefault()}>
       <div className="prof-form-body">
         <FormRow
           name="firstname"

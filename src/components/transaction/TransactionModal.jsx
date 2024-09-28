@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Heading from "../shared/Heading";
 import Loader from "../../assets/svg/Loader";
-import { make_payment } from "../../lib/requests/transaction";
+import { make_payment } from "../../services/transaction";
 import Btn from "../shared/Btn";
 import Congrats from "../../assets/svg/Congrats";
 import dispatchables from "../../utils/dispatchables";

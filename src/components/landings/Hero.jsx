@@ -1,5 +1,6 @@
-import { hero_descriptions, getHeroImage } from "../../constants";
+import { hero_descriptions } from "../../constants";
 import HeroCta from "./HeroCta";
+import HeroImg from "./HeroImg";
 import HeroTitle from "./HeroTitle";
 
 const Hero = ({ type = "main" }) => {
@@ -22,14 +23,7 @@ const Hero = ({ type = "main" }) => {
         </div>
       </div>
 
-      <div className="hero-img">
-        <img
-          src={getHeroImage(type)}
-          alt="hero_background"
-          loading="lazy"
-          className="size-full object-cover object-center"
-        />
-      </div>
+      <HeroImg type={type} />
     </div>
   );
 };

@@ -11,7 +11,7 @@
  * redirecting from so as to go back when needed
  */
 
-import { getItemFromLs } from "../../lib/ls";
+import { getItemFromLs } from "../../utils/ls";
 import Btn from "../../components/shared/Btn";
 import React from "react";
 import Logo from "../../components/shared/Logo";
@@ -19,7 +19,7 @@ import Heading from "../../components/shared/Heading";
 
 const InternalServer = () => {
   const previous_page = getItemFromLs("prev_page");
-  console.log(previous_page)
+  console.log(previous_page);
 
   return (
     <section className="h-screen w-full flex-center">

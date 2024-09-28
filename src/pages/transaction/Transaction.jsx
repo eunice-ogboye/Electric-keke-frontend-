@@ -4,7 +4,7 @@ import React from 'react'
 
 const Transaction = () => {
   return (
-    <section className='md:flex items-stretch'>
+    <section className='md:flex items-start border-8 relative'>
       <PaymentFor />
       <PaymentMethod />
     </section>

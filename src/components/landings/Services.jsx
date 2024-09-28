@@ -1,5 +1,7 @@
 import { about_descriptions, about_titles, services } from "../../constants";
 import Heading from "../shared/Heading";
+import RegularList from "../shared/RegularList";
+import Service from "./Service";
 
 const Services = ({ type = "main" }) => {
   return (
@@ -19,22 +21,11 @@ const Services = ({ type = "main" }) => {
       />
 
       <div className="service-board">
-        {services.map((item) => (
-          <div key={item.title} className="service border border-eco-neutral-thick">
-            <div className="flex flex-col items-center text-center">
-              <div className="size-[43px] md:size-[65px] flex-center bg-eco-green-faint rounded-full">
-                <img src={item.icon} alt={item.title} />
-              </div>
-
-              <div className="mt-[21px] md:mt-[22px] lg:mt-8">
-                <h2 className="service-title">{item.title}</h2>
-                <p className="font-montserrat text-xs md:text-base mt-[5px] lg:mt-2 text-eco-neutral-prime">
-                  {item.desc}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
+        <RegularList
+          itemsToDisplay={services}
+          resourceName="service"
+          itemComponent={Service}
+        />
       </div>
     </div>
   );

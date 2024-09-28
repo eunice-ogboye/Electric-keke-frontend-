@@ -1,5 +1,4 @@
 import { SelectItem } from "../ui/select";
-import React from 'react'
 
 const CustomSelectItem = ({items}) => {
   return (

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import OverviewInfo from "../components/admin/OverviewInfo";
 import dispatchables from "../utils/dispatchables";
-import { Logout } from "../lib/requests/auth";
+import { Logout } from "../services/auth";
 import AdminHeader from "../components/admin/AdminHeader";
 import Experimental from "../components/shared/experimental/Experimental";
 
@@ -51,7 +51,7 @@ const AdminLayout = () => {
                 onClick={async () => {
                   try {
                     Logout();
-                    showAlert("Logged Out")
+                    showAlert("Logged Out");
                     navigate("/");
                   } catch (error) {
                     showAlert(error.message);

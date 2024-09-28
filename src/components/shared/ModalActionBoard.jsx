@@ -2,12 +2,12 @@ import React from "react";
 import Choose from "./Choose";
 import dispatchables from "../../utils/dispatchables";
 import { useNavigate } from "react-router-dom";
-import { addItemToLs, getItemFromLs } from "../../lib/ls";
-import { UpdateBooking } from "../../lib/requests/booking";
+import { addItemToLs, getItemFromLs } from "../../utils/ls";
+import { UpdateBooking } from "../../services/bookings";
 import {
   rideStatusLsUpdate,
   rideStatusUpdateRequest,
-} from "../../lib/requests/booking/abstracts";
+} from "../../services/bookings/abstracts";
 
 const ModalActionBoard = ({ modalContent }) => {
   const { flipModal, showAlert } = dispatchables();

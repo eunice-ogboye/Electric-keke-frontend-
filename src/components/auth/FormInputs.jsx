@@ -3,7 +3,7 @@ import FormRow from "../shared/FormRow";
 import { otp_choice } from "../../constants";
 import { useNavigate } from "react-router-dom";
 import dispatchables from "../../utils/dispatchables";
-import { RegisterUser } from "../../lib/requests/auth";
+import { RegisterUser } from "../../services/auth";
 
 const FormInputs = ({ type, formData }) => {
   const {
@@ -11,7 +11,7 @@ const FormInputs = ({ type, formData }) => {
     showAlert,
     changeAuthFormData,
     switchVerificationType,
-    changeAuthenticationPage
+    changeAuthenticationPage,
   } = dispatchables();
 
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const FormInputs = ({ type, formData }) => {
                   try {
                     await RegisterUser(formData);
                     showAlert("Otp Sent for verification");
-                    changeAuthenticationPage('verification')
+                    changeAuthenticationPage("verification");
                     navigate("/authentication/verification");
                   } catch (error) {
                     showAlert(error.message);

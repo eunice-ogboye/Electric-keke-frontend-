@@ -5,7 +5,7 @@ import { HashLink as Link } from "react-router-hash-link";
 
 const Footer = () => {
   return (
-    <footer className="home-pad py-10 md:py-[5.9rem] bg-eco-neutral overflow-hidden">
+    <footer className="footer">
       <div>
         <motion.div
           initial={{ x: -200, opacity: 0 }}
@@ -24,18 +24,15 @@ const Footer = () => {
               <ul className="mt-6 space-y-4">
                 <li>
                   <Link to="#about">About Us</Link>
-                  {/* <a href="#about">About Us</a> */}
                 </li>
                 <li>
                   <Link to="/earn-with-us">Earn With Us</Link>
                 </li>
                 <li>
                   <Link to="/#mission">Mission</Link>
-                  {/* <a href="#mission">Mission</a> */}
                 </li>
                 <li>
                   <Link to="/#services">Services</Link>
-                  {/* <a href="#services">Services</a> */}
                 </li>
               </ul>
             </div>

@@ -7,7 +7,7 @@ import {
   finance_management_tablehead,
   user_management_tablehead,
 } from "../../constants";
-import fetchContent from "../../lib/requests/admin/fetchContents";
+import fetchContent from "../../services/admin/fetchContents";
 
 const DisplayTable = ({ contentsToDisplay, contentType }) => {
   const [loading, setLoading] = useState(true);

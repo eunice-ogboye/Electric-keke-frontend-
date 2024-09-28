@@ -14,11 +14,13 @@ export function SelectInput({
   label,
   children,
   className,
+  handleFunc
 }) {
   return (
     <Select
       onValueChange={(value) => {
         console.log(value);
+        handleFunc(value)
       }}
     >
       <SelectTrigger

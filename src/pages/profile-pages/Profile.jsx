@@ -25,17 +25,20 @@ const Profile = () => {
               />
             )}
 
-            <h2 className="font-bold font-josefin text-xl">Personal Information</h2>
+            <h2 className="font-bold font-josefin text-xl md:text-[2rem]">
+              Personal Information
+            </h2>
           </div>
-          <div>
+          
+          <div className="flex-center gap-2">
             <CustomizedBtn
               icon={<Edit />}
-              className="bg-transparent"
+              className="bg-transparent size-5 p-0 md:size-10"
               handleClick={() => setEditProfile(true)}
             />
             <CustomizedBtn
               icon={<SettingIcon />}
-              className="bg-transparent"
+              className="bg-transparent size-5 p-0 md:size-10 flex-center"
               href="/settings"
             />
           </div>

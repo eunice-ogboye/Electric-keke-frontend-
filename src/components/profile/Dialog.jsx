@@ -1,12 +1,14 @@
 import React from "react";
 import Choose from "../shared/Choose";
-import { DeleteAccount, Logout } from "../../lib/requests/auth";
+import { DeleteAccount, Logout } from "../../services/auth";
 import dispatchables from "../../utils/dispatchables";
 import { useNavigate } from "react-router-dom";
 import ModalTemplate from "../shared/ModalTemplate";
+import { addItemToLs } from "../../utils/ls";
 
 const Dialog = ({ title }) => {
-  const { showAlert, flipModal, changeAuthenticationPage, loading, unloading } = dispatchables();
+  const { showAlert, flipModal, changeAuthenticationPage, loading, unloading } =
+    dispatchables();
   const navigate = useNavigate();
 
   const handleChoice1 = () => {
@@ -24,8 +26,9 @@ const Dialog = ({ title }) => {
         Logout();
         changeAuthenticationPage("login");
         unloading();
-        showAlert('Logged Out')
-        navigate("/authentication/login");
+        showAlert("Logged Out");
+        addItemToLs('registeringAs', "Login")
+        navigate("/onboarding/registration");
         return;
       }
 

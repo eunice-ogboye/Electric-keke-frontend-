@@ -10,9 +10,12 @@ import Map from "../../components/shared/Map";
 import CustomSelectItem from "../../components/shared/CustomSelectItem";
 import generateTime from "../../utils/generateTime";
 import generateCount from "../../utils/generateCount";
+import dispatchables from "../../utils/dispatchables";
 
 const Schedule = () => {
   const [scheduleType, setScheduleType] = useState("ride");
+
+  const { showAlert } = dispatchables();
 
   const [scheduleFormData, setScheduleFormData] = useState({
     rider: "",
@@ -21,17 +24,31 @@ const Schedule = () => {
     destination: "",
     price: "",
     package_details: "",
+    date: "",
+    time: "",
+    quantity: 0,
+    share: "no",
   });
-
-  const time = useCallback(() => {
-    return generateTime();
-  }, [scheduleType]);
 
   const handleChange = (e) => {
     setScheduleFormData({
       ...scheduleFormData,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleDate = (value) => {
+    const date = value.toDateString();
+    setScheduleFormData({ ...scheduleFormData, date });
+  };
+
+  const setTime = (time) => {
+    setScheduleFormData({ ...scheduleFormData, time });
+  };
+
+  const setQuantity = (quantity) => {
+    console.log(quantity);
+    setScheduleFormData({ ...scheduleFormData, quantity });
   };
 
   return (
@@ -89,20 +106,21 @@ const Schedule = () => {
           />
           <FormRow
             label="Select Date"
-            children={<DatePicker />}
+            children={<DatePicker handleDate={handleDate} />}
             formRowContainer="font-inter"
             inputclass="schedule-input"
           />
           <FormRow
             label="Select Time"
+            // value={scheduleFormData.time}
             children={
               <SelectInput
                 placeholder="00:00"
                 label="Time"
                 formRowContainer="font-inter"
+                handleFunc={setTime}
                 children={<CustomSelectItem items={generateTime()} />}
               />
-              
             }
             inputclass="schedule-input"
           />
@@ -118,6 +136,7 @@ const Schedule = () => {
                 label={
                   scheduleType === "ride" ? "total persons" : "total goods"
                 }
+                handleFunc={setQuantity}
                 children={<CustomSelectItem items={generateCount()} />}
               />
             }
@@ -129,8 +148,20 @@ const Schedule = () => {
               label="Share a Ride"
               children={
                 <div className="flex items-end justify-between gap-4 border">
-                  <Btn text="Yes" type="secondary" />
-                  <Btn text="No" type="secondary" />
+                  <Btn
+                    text="Yes"
+                    type="secondary"
+                    handleClick={() =>
+                      setScheduleFormData((prev) => ({ ...prev, share: "Yes" }))
+                    }
+                  />
+                  <Btn
+                    text="No"
+                    type="secondary"
+                    handleClick={() =>
+                      setScheduleFormData((prev) => ({ ...prev, share: "No" }))
+                    }
+                  />
                 </div>
               }
               formRowContainer="font-inter"
@@ -163,7 +194,7 @@ const Schedule = () => {
                       Your Location
                     </p>
                     <p className="text-eiteen flex flex-col justify-center h-[46px] font-nunito">
-                      {scheduleFormData.origin || "ojodu berger"}
+                      {scheduleFormData.origin}
                     </p>
                   </div>
                   <div>
@@ -171,8 +202,7 @@ const Schedule = () => {
                       Destination
                     </p>
                     <p className="text-eiteen flex flex-col justify-center h-[46px] font-nunito">
-                      {scheduleFormData.destination ||
-                        "Colab innovation hub, barnawa kaduna"}
+                      {scheduleFormData.destination}
                     </p>
                   </div>
                 </div>
@@ -181,7 +211,7 @@ const Schedule = () => {
                   <div>
                     <p className="text-2xl font-medium font-inter">Time:</p>
                     <p className="text-eiteen flex flex-col justify-center h-[46px] font-nunito">
-                      02:30 PM
+                      {scheduleFormData.time} PM
                     </p>
                   </div>
                   <div>
@@ -189,7 +219,7 @@ const Schedule = () => {
                       Passengers
                     </p>
                     <p className="text-eiteen flex flex-col justify-center h-[46px] font-nunito">
-                      01
+                      {scheduleFormData.quantity}
                     </p>
                   </div>
                 </div>
@@ -198,7 +228,7 @@ const Schedule = () => {
                   <div>
                     <p className="text-2xl font-medium font-inter">Date</p>
                     <p className="text-eiteen flex flex-col justify-center h-[46px] font-nunito">
-                      02/Aug/2024
+                      {scheduleFormData.date}
                     </p>
                   </div>
                   <div>
@@ -206,14 +236,23 @@ const Schedule = () => {
                       Ride Sharing
                     </p>
                     <p className="text-eiteen flex flex-col justify-center h-[46px] font-nunito">
-                      No
+                      {scheduleFormData.share}
                     </p>
                   </div>
                 </div>
               </div>
               <div className="flex items-end gap-4 mt-6">
-                <Btn text="Proceed" size="sm" />
-                <Btn text="Cancel" type="secondary" size="sm" />
+                <Btn
+                  text="Proceed"
+                  size="sm"
+                  handleClick={() => showAlert("processing your schedule")}
+                />
+                <Btn
+                  text="Cancel"
+                  type="secondary"
+                  size="sm"
+                  handleClick={() => showAlert("dropping changes")}
+                />
               </div>
             </div>
 

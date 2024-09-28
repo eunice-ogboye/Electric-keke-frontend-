@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import Btn from "./Btn";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
-import { getItemFromLs } from "../../lib/ls";
+import { getItemFromLs } from "../../utils/ls";
 import dispatchables from "../../utils/dispatchables";
 import Bell from "../../assets/svg/Bell";
 
@@ -33,7 +33,7 @@ const Header = ({ darkLogo, blur }) => {
         ) : (
           <Btn
             text="Sign Up"
-            to="/authentication"
+            to="/onboarding"
             handleClick={() => changeAuthenticationPage("start")}
           />
         )}

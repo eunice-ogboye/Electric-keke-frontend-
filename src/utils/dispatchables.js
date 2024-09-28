@@ -4,6 +4,7 @@ import {
   alertUser,
   changeAuthPage,
   changeModalContent,
+  changeRegistryMethod,
   changeVerificationType,
   finishLoad,
   hideAlert,
@@ -33,6 +34,10 @@ const dispatchables = () => {
     dispatch(changeInputValue({ key, value }));
   };
 
+  const chooseRole = (role) => {
+    dispatch(changeRegistryMethod(role));
+  };
+
   const chooseRider = (item) => {
     dispatch(selectARider(item));
   };
@@ -45,10 +50,10 @@ const dispatchables = () => {
     dispatch(updateBookingData({ key, value }));
   };
 
-  const inputBookingData = e => {
-    const {name: key, value} = e.target;
-    dispatch(updateBookingData({key, value}))
-  }
+  const inputBookingData = (e) => {
+    const { name: key, value } = e.target;
+    dispatch(updateBookingData({ key, value }));
+  };
 
   const loading = () => {
     dispatch(startLoad());
@@ -70,7 +75,6 @@ const dispatchables = () => {
       dispatch(hideAlert());
     }, time);
   };
-  
 
   const updateDriversList = (data) => {
     dispatch(storeListOfRiders(data));
@@ -85,6 +89,7 @@ const dispatchables = () => {
     changeAuthenticationPage,
     changeAuthFormData,
     chooseRider,
+    chooseRole,
     flipModal,
     inputDataForBookingRequest,
     inputBookingData,

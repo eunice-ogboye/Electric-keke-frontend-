@@ -2,7 +2,7 @@ import { useState } from "react";
 import Btn from "../shared/Btn";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { getItemFromLs } from "../../lib/ls";
+import { getItemFromLs } from "../../utils/ls";
 import dispatchables from "../../utils/dispatchables";
 
 const getPrice = async (action, time) => {

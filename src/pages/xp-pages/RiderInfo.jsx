@@ -3,16 +3,14 @@ import React, { useEffect, useState } from "react";
 import Btn from "../../components/shared/Btn";
 import { useNavigate } from "react-router-dom";
 import Heading from "../../components/shared/Heading";
-import { motion } from "framer-motion";
-import { addItemToLs, deletItemFromLs, getItemFromLs } from "../../lib/ls";
+import { AnimatePresence, motion } from "framer-motion";
+import { addItemToLs, deletItemFromLs, getItemFromLs } from "../../utils/ls";
 import dispatchables from "../../utils/dispatchables";
 import Reviews from "../../components/xp/Reviews";
-import Loader from "../../components/loaders/Loader";
-import { BookRide, GetListOfBookings } from "../../lib/requests/booking";
-import {
-  riderParentVariant,
-  riderPictureContainer,
-} from "../../constants/variants";
+import { BookRide, GetListOfBookings } from "../../services/bookings";
+import { riderParentVariant } from "../../constants/variants";
+import LoadBooking from "./LoadBooking";
+import RiderPicture from "./RiderPicture";
 
 const RiderInfo = () => {
   const { showAlert } = dispatchables();
@@ -26,6 +24,8 @@ const RiderInfo = () => {
     const bookData = getItemFromLs("book-data");
     try {
       await BookRide(bookData);
+      showAlert("Ride Booking Succefull, Wait a moment");
+      // this code below from here need to be extracted becosuse this showuld be only when driver accepts
       const bookingList = await GetListOfBookings();
       console.log(bookingList);
 
@@ -33,8 +33,8 @@ const RiderInfo = () => {
       addItemToLs("current-ride", bookingList[lastestBooking]);
 
       // deletItemFromLs("book-data");
-      showAlert("Ride Booking Succefull, Wait a moment");
       navigate("/tracking");
+      // from the start this is only when the driver accepts
     } catch (error) {
       console.log(rider);
       showAlert(`Error Booking Ride with Rider ${rider.fullname}`);
@@ -43,91 +43,57 @@ const RiderInfo = () => {
     }
   };
 
-  return waiting ? (
-    <motion.div
-      initial={{ y: 1000, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 3 } }}
-      className="bg-white w-full py-20 z-50 h-[calc(100vh-20vh)]"
-    >
-      <div>
-        <Loader type="blub" className="w-fit h-fit mx-auto" />
-
-        <Heading
-          className="text-center w-full max-w-[840px] mx-auto"
-          type="about"
-          title="Waiting for Rider to Accept Ride"
-          description="If your ride request hasn't been accepted promptly, feel free to cancel and try again."
-          dclass="text-[1.75rem] text-eco-neutral-prime mt-6"
-        />
-
-        <div className="w-full max-w-[540px] mx-auto mt-10">
-          <Btn text="Cancel Request" size="full" />
-        </div>
-      </div>
-    </motion.div>
-  ) : (
-    <motion.div
-      initial="out"
-      animate="enter"
-      exit="leave"
-      transition={{ duration: 0.65, type: "just" }}
-      variants={riderParentVariant}
-      className="relative"
-    >
-      <motion.div className="md:flex mt-7 rider-info">
+  return (
+    <AnimatePresence>
+      {waiting ? (
+        <LoadBooking />
+      ) : (
         <motion.div
           initial="out"
           animate="enter"
-          variants={riderPictureContainer}
-          className="w-full max-w-[510px] justify-between"
+          exit="leave"
+          transition={{ duration: 0.65, type: "just" }}
+          variants={riderParentVariant}
+          className="relative"
         >
-          <div className="w-full h-[440px] md:h-[630px]">
-            <img
-              src={rider?.photo || "/persons/rider1.png"}
-              alt={rider?.fullname}
-              className="size-full rounded-normal object-center object-cover"
-            />
-          </div>
+          <motion.div className="md:flex mt-7 rider-info">
+            <RiderPicture rider={rider} submitBooking={submitBooking} />
 
-          <div className="mt-4 hidden md:block">
-            <Btn size="full" text="Request Ride" handleClick={submitBooking} />
-          </div>
-        </motion.div>
+            <motion.div className="w-full max-w-[588px] md:ml-[102px] pt-3">
+              <motion.div className="w-full max-w-96 h-fit md:h-[174px]">
+                <div>
+                  <p className="text-2xl">
+                    License plate: {rider?.plate_number || "lkj-238"}
+                  </p>
+                  <p className="text-2xl mt-4">
+                    Keke Color: {rider?.color || "yellow"}
+                  </p>
+                </div>
 
-        <motion.div className="w-full max-w-[588px] md:ml-[102px] pt-3">
-          <motion.div className="w-full max-w-96 h-fit md:h-[174px]">
-            <div>
-              <p className="text-2xl font-montserrat">
-                License plate: {rider?.plate_number || "lkj-238"}
-              </p>
-              <p className="text-2xl mt-4 font-montserrat">
-                Keke Color: {rider?.color || "yellow"}
-              </p>
-            </div>
+                <Rate
+                  rate={rider?.rating || 2}
+                  statik
+                  big
+                  className="mt-2 md:mt-10"
+                />
+              </motion.div>
 
-            <Rate
-              rate={rider?.rating || 2}
-              statik
-              big
-              className="mt-2 md:mt-10"
-            />
-          </motion.div>
+              <motion.div className="mt-5 md:mt-10">
+                <Reviews />
 
-          <motion.div className="mt-5 md:mt-10">
-            <Reviews />
-
-            <div className="mt-4 md:hidden">
-              <Btn
-                size="full"
-                text="Request Ride"
-                handleClick={submitBooking}
-              />
-            </div>
+                <div className="mt-4 md:hidden">
+                  <Btn
+                    size="full"
+                    text="Request Ride"
+                    handleClick={submitBooking}
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </motion.div>
-      </motion.div>
-    </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

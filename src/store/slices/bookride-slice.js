@@ -1,4 +1,4 @@
-import { addItemToLs, getItemFromLs } from "../../lib/ls";
+import { addItemToLs, getItemFromLs } from "../../utils/ls";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {

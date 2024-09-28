@@ -1,5 +1,5 @@
-import { getItemFromLs } from "../../lib/ls";
-import { RequestOtp } from "../../lib/requests/auth";
+import { getItemFromLs } from "../../utils/ls";
+import { RequestOtp } from "../../services/auth";
 import dispatchables from "../../utils/dispatchables";
 import React from "react";
 

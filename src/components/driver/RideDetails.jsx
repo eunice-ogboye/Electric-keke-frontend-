@@ -1,4 +1,4 @@
-import { getItemFromLs } from "../../lib/ls";
+import { getItemFromLs } from "../../utils/ls";
 import React from "react";
 
 const RideDetailing = ({ info, price }) => {
@@ -20,7 +20,7 @@ const RideDetailing = ({ info, price }) => {
 
 const RideDetails = () => {
   const currentRide = getItemFromLs("current-ride");
-  console.log(currentRide)
+  console.log(currentRide);
 
   return (
     <div className="max-w-[520px] mx-auto mt-6 flex flex-col gap-[13px]">
