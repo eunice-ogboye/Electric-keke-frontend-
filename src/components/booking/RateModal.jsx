@@ -1,4 +1,3 @@
-import React from "react";
 import Rate from "../xp/Rate";
 import Heading from "../shared/Heading";
 import ModalTemplate from "../shared/ModalTemplate";
@@ -32,10 +31,8 @@ const RateModal = ({ comment, rateValue, rateTheDriver }) => {
             />
             {!comment && (
               <Rate
-                // rate={rateValue}
                 big
                 handleClick={rateTheDriver}
-                // statik={comment}
                 className="mx-auto space-x-3 mt-10"
               />
             )}

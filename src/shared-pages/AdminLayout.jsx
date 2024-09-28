@@ -21,8 +21,14 @@ const AdminLayout = () => {
   const { pathname } = useLocation();
   const activeLink = pathname.slice(7);
 
-  const displayContent = (content) => {
+  const changeContentToDisplay = (content) => {
     setContentsToDisplay((prev) => (prev === content ? "All" : content));
+  };
+
+  const LogoutUser = () => {
+    Logout();
+    showAlert("Logged Out");
+    navigate("/");
   };
 
   return (
@@ -48,15 +54,7 @@ const AdminLayout = () => {
               <Button
                 className="admin-footer-item"
                 variant="ghost"
-                onClick={async () => {
-                  try {
-                    Logout();
-                    showAlert("Logged Out");
-                    navigate("/");
-                  } catch (error) {
-                    showAlert(error.message);
-                  }
-                }}
+                onClick={LogoutUser}
               >
                 <div>
                   <img src="/logout.svg" alt="logout" />
@@ -72,7 +70,7 @@ const AdminLayout = () => {
 
           <OverviewInfo
             currentPage={currentAdminPage}
-            displayContent={displayContent}
+            changeContentToDisplay={changeContentToDisplay}
           />
 
           {(currentAdminPage === "Overview" ||

@@ -255,28 +255,24 @@ const user_dashboard = [
     analysisDigits: 2399,
     percent: 20,
     icon: "/users/users.svg",
-    // iconBg: "bg-red-500",
   },
   {
     title: "Total Rides",
     analysisDigits: "3000",
     percent: 20,
     icon: "/users/rides.svg",
-    // iconBg: "bg-yellow-500",
   },
   {
     title: "Total Deliveries",
     analysisDigits: 298,
     percent: 20,
     icon: "/users/deliveries.svg",
-    // iconBg: "bg-eco-green",
   },
   {
     title: "Disabled Users",
     analysisDigits: 22,
     percent: 20,
     icon: "/users/disabled.svg",
-    // iconBg: "bg-eco-neutral-faint",
   },
 ];
 

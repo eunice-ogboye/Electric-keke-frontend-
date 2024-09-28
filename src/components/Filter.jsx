@@ -16,21 +16,29 @@ const FilterTrigger = ({ className, handleTrigger }) => {
   );
 };
 
-const FilterOptions = ({ className, text, runFilter, runFilterBasedOn }) => {
+const FilterOptions = ({
+  className,
+  text,
+  changeContentToDisplay,
+  runFilterBasedOn,
+}) => {
   return (
     <div
       className={cn(
         "h-8 w-full flex items-center hover:scale-110 transition-transform duration-200 cursor-pointer",
         className
       )}
-      onClick={() => {
-        if (runFilterBasedOn === "User Management") {
-          runFilter(text === "Active users" ? "active" : "inactive");
-        }
-        if (runFilterBasedOn === "Financial Management") {
-          runFilter(text);
-        }
-      }}
+      onClick={changeContentToDisplay}
+      // onClick={() => {
+      //   if (runFilterBasedOn === "User Management") {
+      //     changeContentToDisplay(
+      //       text === "Active users" ? "active" : "inactive"
+      //     );
+      //   }
+      //   if (runFilterBasedOn === "Financial Management") {
+      //     changeContentToDisplay(text);
+      //   }
+      // }}
     >
       <p className="text-sm ">{text}</p>
     </div>
@@ -46,13 +54,17 @@ const FilterGroup = ({ className, label, children, containerClass }) => {
   );
 };
 
-export const Filter = ({ className, handleClick, filterBasedOn }) => {
+export const Filter = ({
+  className,
+  changeContentToDisplay,
+  filterBasedOn,
+}) => {
   const [show, setShow] = useState(false);
   const toggleShow = () => setShow((prev) => !prev);
 
   useEffect(() => {
     console.log(filterBasedOn);
-  }, [handleClick]);
+  }, [changeContentToDisplay]);
 
   return (
     <div className="relative">
@@ -71,13 +83,15 @@ export const Filter = ({ className, handleClick, filterBasedOn }) => {
                 <FilterGroup label="By Status">
                   <FilterOptions
                     text="Active users"
-                    runFilter={handleClick}
-                    runFilterBasedOn={filterBasedOn}
+                    changeContentToDisplay={() => {
+                      changeContentToDisplay("active");
+                    }}
                   />
                   <FilterOptions
                     text="Inactive users"
-                    runFilter={handleClick}
-                    runFilterBasedOn={filterBasedOn}
+                    changeContentToDisplay={() =>
+                      changeContentToDisplay("inactive")
+                    }
                   />
                 </FilterGroup>
 
@@ -96,23 +110,19 @@ export const Filter = ({ className, handleClick, filterBasedOn }) => {
                 <FilterGroup label="By Completed">
                   <FilterOptions
                     text="Complete"
-                    runFilter={handleClick}
-                    runFilterBasedOn={filterBasedOn}
+                    changeContentToDisplay={() =>
+                      changeContentToDisplay("Complete")
+                    }
+                    // runFilterBasedOn={filterBasedOn}
                   />
                   <FilterOptions
                     text="Pending"
-                    runFilter={handleClick}
-                    runFilterBasedOn={filterBasedOn}
+                    changeContentToDisplay={() =>
+                      changeContentToDisplay("Pending")
+                    }
+                    // runFilterBasedOn={filterBasedOn}
                   />
                 </FilterGroup>
-                {/* <FilterGroup
-                  label="By Date"
-                  className="mt-2 flex items-center justify-between"
-                  containerClass="mt-2"
-                >
-                  <FilterOptions text="From" />
-                  <FilterOptions text="To" />
-                </FilterGroup> */}
               </>
             )}
           </motion.div>

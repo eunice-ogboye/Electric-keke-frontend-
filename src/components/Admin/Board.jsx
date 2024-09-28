@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import { getAnalytics } from "../../utils/getAnalytics";
+import { useResource } from "../../hooks/useResource";
+// import React, { useEffect } from "react";
 import CountUp from "react-countup";
 
-const Board = ({ title, icon, analysisDigits, percent, iconBg }) => {
+const Board = ({ title, icon, analysisDigits, percent }) => {
+  const resource = useResource(getAnalytics()) || {};
+
   return (
     <div className="border p-5 rounded-[12px] bg-white">
       <div className="flex items-center justify-between">
@@ -17,14 +21,16 @@ const Board = ({ title, icon, analysisDigits, percent, iconBg }) => {
         </div>
       </div>
 
-      <div className="mt-6">
-        <h2 className="text-5xl font-extrabold">
-          <CountUp end={analysisDigits} start={0} duration={5} />
-        </h2>
-        <p className="text-xs">
-          <span className="text-eco-green">+{percent}%</span> from last month
-        </p>
-      </div>
+      {resource && (
+        <div className="mt-6">
+          <h2 className="text-5xl font-extrabold">
+            <CountUp end={resource.analysisDigits} start={0} duration={5} />
+          </h2>
+          <p className="text-xs">
+            <span className="text-eco-green">+{resource.percent}%</span> from last month
+          </p>
+        </div>
+      )}
     </div>
   );
 };

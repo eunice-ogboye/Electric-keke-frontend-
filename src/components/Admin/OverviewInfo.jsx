@@ -2,7 +2,7 @@ import React from "react";
 import Filter from "../Filter";
 import { overview_titles, overview_descriptions } from "../../constants";
 
-const OverviewInfo = ({currentPage, displayContent}) => {
+const OverviewInfo = ({currentPage, changeContentToDisplay}) => {
   return (
     <div className="overview-info">
       <div className="border">
@@ -22,7 +22,7 @@ const OverviewInfo = ({currentPage, displayContent}) => {
         <Filter
           className="w-[177px] p-3 rounded-[6px]"
           filterBasedOn={currentPage}
-          handleClick={displayContent}
+          changeContentToDisplay={changeContentToDisplay}
         />
       </div>
     </div>
