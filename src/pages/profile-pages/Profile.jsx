@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Section from "../../shared-pages/Section";
+import Section from "../../sharedLayouts/Section";
 import CustomizedBtn from "../../components/shared/CustomizedBtn";
 import Edit from "../../assets/svg/Edit";
 import SettingIcon from "../../assets/svg/SettingIcon";
@@ -29,7 +29,7 @@ const Profile = () => {
               Personal Information
             </h2>
           </div>
-          
+
           <div className="flex-center gap-2">
             <CustomizedBtn
               icon={<Edit />}

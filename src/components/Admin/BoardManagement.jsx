@@ -1,5 +1,3 @@
-import React from "react";
-// import users from "../../mockData/users";
 import { user_dashboard } from "../../constants";
 import Board from "./Board";
 

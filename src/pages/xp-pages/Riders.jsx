@@ -1,6 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import Btn from "../../components/shared/Btn";
-import Section from "../../shared-pages/Section";
+import Section from "../../sharedLayouts/Section";
 import React, { useEffect, useState } from "react";
 
 import { Outlet, useNavigate } from "react-router-dom";

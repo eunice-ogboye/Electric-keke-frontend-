@@ -3,7 +3,7 @@ import DatePicker from "../../components/shared/DatePicker";
 import FormRow from "../../components/shared/FormRow";
 import SearchBar from "../../components/shared/SearchBar";
 import Togglers from "../../components/shared/Togglers";
-import Section from "../../shared-pages/Section";
+import Section from "../../sharedLayouts/Section";
 import React, { useCallback, useState } from "react";
 import Btn from "../../components/shared/Btn";
 import Map from "../../components/shared/Map";

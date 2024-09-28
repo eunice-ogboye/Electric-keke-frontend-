@@ -9,7 +9,7 @@ import OverviewInfo from "../components/admin/OverviewInfo";
 import dispatchables from "../utils/dispatchables";
 import { Logout } from "../services/auth";
 import AdminHeader from "../components/admin/AdminHeader";
-import Experimental from "../components/shared/experimental/Experimental";
+// import Experimental from "../components/shared/experimental/Experimental";
 
 const AdminLayout = () => {
   const navigate = useNavigate();

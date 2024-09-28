@@ -1,5 +1,5 @@
-import useTitle from "../../hooks/useTitle";;
-import Section from "../../shared-pages/Section";
+import useTitle from "../../hooks/useTitle";
+import Section from "../../sharedLayouts/Section";
 import SearchBar from "../../components/shared/SearchBar";
 import { useSelector } from "react-redux";
 import Hero from "../../components/landings/Hero";

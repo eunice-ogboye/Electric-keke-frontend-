@@ -1,4 +1,4 @@
-import Section from "../../shared-pages/Section";
+import Section from "../../sharedLayouts/Section";
 import Choose from "../../components/shared/Choose";
 import { useEffect, useState } from "react";
 import Statistics from "../../components/driver/Statistics";

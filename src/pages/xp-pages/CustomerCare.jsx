@@ -1,6 +1,6 @@
 import Messaging from "../../components/xp/Messaging";
 import ChatBoard from "../../components/xp/ChatBoard";
-import Section from "../../shared-pages/Section";
+import Section from "../../sharedLayouts/Section";
 import React from "react";
 
 const CustomerCare = () => {

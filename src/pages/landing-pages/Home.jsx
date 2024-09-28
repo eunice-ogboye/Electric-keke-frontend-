@@ -1,5 +1,5 @@
-import useTitle from "../../hooks/useTitle";;
-import Section from "../../shared-pages/Section";
+import useTitle from "../../hooks/useTitle";
+import Section from "../../sharedLayouts/Section";
 import Hero from "../../components/landings/Hero";
 import PageBriefing from "../../components/landings/PageBriefing";
 import Services from "../../components/landings/Services";
