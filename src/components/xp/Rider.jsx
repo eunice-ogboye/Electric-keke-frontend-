@@ -4,6 +4,7 @@ import Btn from "../shared/Btn";
 import dispatchables from "../../utils/dispatchables";
 
 const Rider = ({ rider }) => {
+  
   const { inputDataForBookingRequest, chooseRider } = dispatchables();
   const { id, fullname, email, rating, plate_number, color, photo, className } =
     rider;

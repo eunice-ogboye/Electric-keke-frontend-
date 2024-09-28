@@ -77,15 +77,17 @@ const RiderIndex = () => {
         ) : (
           <>
             {riders.map((item) => {
+              console.log(item);
               return (
                 <Rider
                   key={item.id}
-                  {...item}
-                  photo="/persons/rider1.png"
-                  rating={2}
-                  color="white"
-                  plate_number="LKJ-12346"
-                  // handleClick={() => selectRider(item)}
+                  rider={{
+                    ...item,
+                    photo: "/persons/rider1.png",
+                    rating: 2,
+                    color: "white",
+                    plate_number: "LKJ-12346",
+                  }}
                 />
               );
             })}

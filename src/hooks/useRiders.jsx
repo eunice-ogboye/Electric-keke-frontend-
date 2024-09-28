@@ -8,17 +8,19 @@ export const useRiders = (key) => {
 
 
   useEffect(() => {
+    console.log("whats popping")
     if (!riders) {
       (async() => {
         setIsLoading(true);
         try {
           const data = await GetAvailableRiders();
           setRiders(data);
+          // console.log(data)
           setIsLoading(false)
         } catch (error) {
           console.log(error);
         }
-      })
+      })()
     }
   }, [])
 

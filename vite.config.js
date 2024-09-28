@@ -8,9 +8,11 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://electric-keke-backend.vercel.app/api/v1",
+        // target: "https://electric-keke-backend.vercel.app/api/v1",
+        target: "https://electric-keke-backend.vercel.app",
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
+        // rewrite: (path) => path.replace(/^\/api/, ""),
+        rewrite: (path) => path.replace(/^\/api/, "/api/v1"),
       },
     },
   },
