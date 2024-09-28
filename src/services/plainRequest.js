@@ -9,7 +9,7 @@ const makePlainRequest = async ({ ...reqOpts }) => {
   console.log(reqOpts);
   const onSuccess = (res) => res;
   const onError = (err) => {
-    // console.log(err)
+    console.log(err)
     const {
       data: { detail },
     } = err.response;

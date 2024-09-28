@@ -344,6 +344,12 @@ const flexibility_text =
 const stand_out_text =
   "Our mission is simple, to revolutionize urban transportation by providing electric, zero-emission rides and deliveries that are accessible to everyone. We envision a future where eco-friendly transport is the standard, not the exception. By expanding our services and fleet, we hope to play a pivotal role in promoting greener cities and healthier communities for generations to come.";
 
+const onboarding_descs = {
+  register:
+    "Sign up to start your eco-friendly journey with EcoRide. Join us in making transportation greener and more efficient. Your adventure towards a sustainable future begins here!",
+    complete: "", otp: "", 
+};
+
 export {
   about_titles,
   about_descriptions,
@@ -363,6 +369,7 @@ export {
   mission,
   nav_links,
   otp_choice,
+  onboarding_descs,
   overview_titles,
   overview_descriptions,
   services,

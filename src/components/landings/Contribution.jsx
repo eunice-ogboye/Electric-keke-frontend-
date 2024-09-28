@@ -7,8 +7,9 @@ const Contribution = () => {
     <section className="home-pad py-20 bg-base-white">
       <div className="contribution">
         <motion.div
-          initial={{ x: -200 }}
-          whileInView={{ x: 0 }}
+          initial={{ x: -200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1, transition: { duration: 1 } }}
+          viewport={{ margin: "0px 0px -300px 0px" }}
           className="contribution-phone"
         >
           <img
@@ -18,10 +19,9 @@ const Contribution = () => {
           />
         </motion.div>
 
-
         <motion.div
-          initial={{ x: 200 }}
-          whileInView={{ x: 0 }}
+          initial={{ x: 200, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1, transition: { duration: 1 } }}
           className="contribution-pg"
         >
           <h2 className="font-bold text-[2rem] font-josefin">

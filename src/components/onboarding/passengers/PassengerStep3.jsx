@@ -9,8 +9,9 @@ import Heading from "../../shared/Heading";
 import dispatchables from "../../../utils/dispatchables";
 import { getItemFromLs } from "../../../utils/ls";
 import { RegisterUser } from "../../../services/auth";
+import { ArrowLeft } from "lucide-react";
 
-const PassengerStep3 = ({ nextProcess }) => {
+const PassengerStep3 = ({ nextProcess, prevProcess }) => {
   const { showAlert } = dispatchables();
 
   const handleSubmit = async () => {
@@ -33,6 +34,12 @@ const PassengerStep3 = ({ nextProcess }) => {
   return (
     <SharedStepLayout text="Choose where you will like to receive your OTP, via Phone number or Gmail. This step helps secure your EcoRide account.">
       <div className="auth-page-right">
+        <CustomizedBtn
+          icon={<ArrowLeft />}
+          className="absolute top-5 left-5"
+          handleClick={prevProcess}
+        />
+        
         <div className="w-full">
           <div className="auth-head">
             <Logo className="flex-center" logoClassName="w-[122px]" />

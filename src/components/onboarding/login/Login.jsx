@@ -12,6 +12,7 @@ import Google from "../../../assets/svg/Google";
 import dispatchables from "../../../utils/dispatchables";
 import { useGlobalAuthContext } from "../../../contexts/AuthContext";
 import { LoginUser } from "../../../services/auth";
+import { addItemToLs } from "../../../utils/ls";
 
 const Login = ({ nextProcess }) => {
   const navigate = useNavigate();
@@ -38,6 +39,9 @@ const Login = ({ nextProcess }) => {
       unloading();
     }
   };
+
+  const goToRegister = () => addItemToLs("onboarding-process", 0);
+
   return (
     <SharedStepLayout text="Welcome to Eco-Ride join us in making a difference by choosing sustainable transportation. Login to start your eco-friendly journey today!">
       <div className="auth-page-right">
@@ -64,11 +68,7 @@ const Login = ({ nextProcess }) => {
                 <div className="mt-5">
                   <p className="switch-login my-[50px]">
                     Dont have an account?{" "}
-                    <Link
-                      // to="/authentication/register"
-                      // onClick={() => changeAuthenticationPage("register")}
-                      className="text-eco-green"
-                    >
+                    <Link to="/onboarding" className="text-eco-green" onClick={goToRegister}>
                       Sign Up
                     </Link>
                   </p>

@@ -8,8 +8,11 @@ import Heading from "../../shared/Heading";
 import Logo from "../../shared/Logo";
 import { useAreInputsFilled } from "../../../hooks/useAreInputsFilled";
 import { useSelector } from "react-redux";
+import { ArrowLeft } from "lucide-react";
+import { addItemToLs } from "../../../utils/ls";
+import { onboarding_descs } from "../../../constants";
 
-const Step1 = ({ nextProcess }) => {
+const Step1 = ({ nextProcess, prevProcess }) => {
   const { fullname, email, password, re_password } = useSelector(
     (state) => state.formData
   );
@@ -23,9 +26,21 @@ const Step1 = ({ nextProcess }) => {
     nextProcess();
   };
 
+  const goToLogin = () => {
+    addItemToLs("onboarding-process", 0);
+    addItemToLs("registeringAs", "Login");
+    location.reload();
+  };
+
   return (
-    <SharedStepLayout text="Sign up to start your eco-friendly journey with EcoRide. Join us in making transportation greener and more efficient. Your adventure towards a sustainable future begins here!">
-      <div className="auth-page-right">
+    <SharedStepLayout text={onboarding_descs.register}>
+      <div className="auth-page-right relative">
+        <CustomizedBtn
+          icon={<ArrowLeft />}
+          className="absolute top-5 left-5"
+          handleClick={prevProcess}
+        />
+
         <div className="w-full">
           <div className="auth-head">
             <Logo className="flex-center" logoClassName="w-[122px]" />
@@ -40,8 +55,8 @@ const Step1 = ({ nextProcess }) => {
             <p className="switch-login my-[50px]">
               Already have an account?{" "}
               <Link
-                // to="/authentication/login"
-                // onClick={() => changeAuthenticationPage("register")}
+                to="/onboarding/registration"
+                onClick={goToLogin}
                 className="text-eco-green"
               >
                 Login!

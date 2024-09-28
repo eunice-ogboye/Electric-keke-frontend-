@@ -6,14 +6,21 @@ import Logo from "../../shared/Logo";
 import Heading from "../../shared/Heading";
 import { useAreInputsFilled } from "../../../hooks/useAreInputsFilled";
 import { useSelector } from "react-redux";
+import { ArrowLeft } from "lucide-react";
 
-const Step2 = ({ nextProcess }) => {
+const Step2 = ({ nextProcess, prevProcess }) => {
   const { phone, state, address } = useSelector((state) => state.formData);
   const isDisabled = useAreInputsFilled((phone, state, address));
 
   return (
     <SharedStepLayout text="Complete your profile to unlock the full EcoRide experience. Help us personalize your journey and enhance your eco-friendly rides.">
       <div className="auth-page-right">
+        <CustomizedBtn
+          icon={<ArrowLeft />}
+          className="absolute top-5 left-5"
+          handleClick={prevProcess}
+        />
+
         <div className="w-full">
           <div className="auth-head">
             <Logo className="flex-center" logoClassName="w-[122px]" />

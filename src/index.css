@@ -162,6 +162,7 @@ h2 {
 
 .auth-page-right {
   @apply w-full sm:w-[1024px] md:w-6/12 lg:w-1/2 flex-center px-4 pb-10
+  relative
 }
 
 .auth-title {
@@ -535,7 +536,7 @@ h2 {
 
 /* MODAL */
 .modal-container {
-  @apply w-full h-screen fixed top-0 left-0 z-50 flex-center bg-black/50 home-pad overflow-y-scroll;
+  @apply w-full h-screen fixed top-0 left-0 z-50 flex items-start bg-black/50 home-pad overflow-y-scroll py-20;
 }
 
 .modal {
