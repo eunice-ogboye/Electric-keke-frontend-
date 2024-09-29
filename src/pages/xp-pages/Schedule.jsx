@@ -4,7 +4,7 @@ import FormRow from "../../components/shared/FormRow";
 import SearchBar from "../../components/shared/SearchBar";
 import Togglers from "../../components/shared/Togglers";
 import Section from "../../sharedLayouts/Section";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import Btn from "../../components/shared/Btn";
 import Map from "../../components/shared/Map";
 import CustomSelectItem from "../../components/shared/CustomSelectItem";
@@ -54,9 +54,7 @@ const Schedule = () => {
   return (
     <Section darkLogo={true}>
       <div className="home-pad pt-20 md:pt-[132px] pb-10">
-        <h2 className="schedule-title">
-          Eco Schedule
-        </h2>
+        <h2 className="schedule-title">Eco Schedule</h2>
         <Togglers
           text1="Rides"
           text2="Delivery"
@@ -170,7 +168,7 @@ const Schedule = () => {
                   label="Goods Category"
                 />
               }
-              labelClass="text-xs my-dell:text-xs"
+              labelClass="text-xs tablet:text-xs"
               formRowContainer="font-inter"
               inputclass="schedule-input"
             />

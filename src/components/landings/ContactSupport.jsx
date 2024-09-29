@@ -1,29 +1,13 @@
 import { care_socials } from "../../constants";
 import React from "react";
+import CareSocial from "./care-social/CareSocial";
 
 const ContactSupport = () => {
   return (
-    <div className="space-y-[50px] w-full max-w-[1200px]">
-      <div className="flex items-center gap-[21px] py-2 border-b border-black">
-        <div>
-          <img src="/headphone.svg" alt="headphone" />
-        </div>
-
-        <p className="font-bold text-2xl">Customer Services</p>
-      </div>
+    <div className="space-y-[50px] w-full pt-10 tablet:pt-[5.3rem] pb-10 tablet:pb-[6.6rem]">
+      <CareSocial icon="/headphone.svg" title="Customer Services" />
       {care_socials.map((item, index) => {
-        return (
-          <div
-            className="flex items-center gap-[21px] py-2 border-b border-black"
-            key={index}
-          >
-            <div>
-              <img src={item.icon} alt="headphone" />
-            </div>
-
-            <p className="font-bold text-2xl font-montserrat">{item.title}</p>
-          </div>
-        );
+        return <CareSocial key={item.title} {...item} />;
       })}
     </div>
   );

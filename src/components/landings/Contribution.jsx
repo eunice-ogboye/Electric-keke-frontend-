@@ -1,10 +1,11 @@
 import { contribution } from "../../constants";
 import { motion } from "framer-motion";
 import AnimateText from "../animate/AnimateText";
+import Heading from "../shared/Heading";
 
 const Contribution = () => {
   return (
-    <section className="home-pad py-20 bg-base-white">
+    <section className="contribution-section">
       <div className="contribution">
         <motion.div
           initial={{ x: -200, opacity: 0 }}
@@ -24,12 +25,13 @@ const Contribution = () => {
           whileInView={{ x: 0, opacity: 1, transition: { duration: 1 } }}
           className="contribution-pg"
         >
-          <h2 className="font-bold text-[2rem] font-josefin">
-            {contribution.title}
-          </h2>
-          <p className="text-eco-neutral-prime text-base md:text-2xl mt-7">
-            {contribution.desc}
-          </p>
+          <Heading
+            title={contribution.title}
+            tclass="font-josefin !text-[2rem]"
+            description={contribution.desc}
+            type="about"
+            dclass="text-eco-neutral-prime text-base tablet:text-xl laptop:text-2xl mt-7"
+          />
         </motion.div>
       </div>
     </section>

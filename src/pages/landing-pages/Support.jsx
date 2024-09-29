@@ -15,10 +15,13 @@ const Support = () => {
   return (
     <Section blurHeader={true}>
       <Hero type="support" />
+
       <div className="support-intersect">
         <SearchBar className="support-search-bar" />
+        
         {support === "faq" ? <Faq /> : <ContactSupport />}
       </div>
+
       <Footer />
     </Section>
   );

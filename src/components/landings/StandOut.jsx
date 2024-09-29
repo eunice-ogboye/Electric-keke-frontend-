@@ -11,7 +11,7 @@ const StandOut = () => {
           title="Why We Stand Out!"
           tclass="max-w-[623px] mx-auto text-center service-heading font-josefin text-white"
           description={stand_out_text}
-          dclass="mt-3 md:mt-7 text-center text-2xl text-white"
+          dclass="mt-3 md:mt-7 text-center text-base tablet:text-2xl text-white"
           type="about"
           initial={{ y: -200, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

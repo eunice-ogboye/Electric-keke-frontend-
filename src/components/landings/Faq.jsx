@@ -1,32 +1,21 @@
 import React from "react";
 import FaqAccordion from "./FaqAccordion";
 import FaqIcon from "../../assets/svg/FaqIcon";
+import FaqImg from "./faq/FaqImg";
 
 const Faq = () => {
   return (
-    <>
-      <div className="flex items-center flex-col md:flex-row w-full gap-16 mt-20 md:mt-0">
-        <div className="w-full md:w-1/2 flex-center relative">
-          <div className="w-60 h-[363px] border-4 rounded-20 border-eco-green" />
+    <div className="faq">
+      <div className="faq-container">
+        <div className="w-full tablet:w-[56%] flex-center relative h-[300px] tablet:h-[504px]">
+          <div className="w-[37%] h-full border-4 rounded-20 border-eco-green" />
 
-          <div className="faq-img top-0 md:top-5 left-0 z-20">
-            <img
-              src="/hero/support1.png"
-              alt="support1"
-              className="size-full object-cover object-center"
-            />
-          </div>
+          <FaqImg className="faq-img-first" imgSrc="/hero/support1.png" />
 
-          <div className="faq-img right-0 bottom-0 md:bottom-5">
-            <img
-              src="/hero/support2.png"
-              alt="support1"
-              className="size-full object-cover object-center"
-            />
-          </div>
+          <FaqImg className="faq-img-second" imgSrc="/hero/support2.png" />
         </div>
 
-        <div className="w-full md:w-1/2">
+        <div className="w-full tablet:w-[39%]">
           <div>
             <div className="flex items-center gap-x-3">
               <FaqIcon />
@@ -47,7 +36,7 @@ const Faq = () => {
           000
         </p>
       </div>
-    </>
+    </div>
   );
 };
 

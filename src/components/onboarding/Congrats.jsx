@@ -14,7 +14,7 @@ const Congrats = ({ nextProcess }) => {
             <Logo className="w-[122px] h-[81px] mx-auto" />
             <Heading
               title="Continue to Login"
-              className="text-center mt-2 my-dell:mt-10"
+              className="text-center mt-2 tablet:mt-10"
             />
           </div>
 
@@ -25,7 +25,7 @@ const Congrats = ({ nextProcess }) => {
               </div>
             </div>
 
-            <div className="mt-0 my-dell:mt-14 max-w-[343px] mx-auto">
+            <div className="mt-0 tablet:mt-14 max-w-[343px] mx-auto">
               <Btn
                 text="Proceed"
                 size="full"

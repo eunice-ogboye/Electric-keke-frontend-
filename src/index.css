@@ -119,13 +119,6 @@ h2 {
   @apply text-[2rem];
 }
 
-.about-brief {
-  @apply w-full tablet:w-6/12;
-}
-
-.about-image {
-  @apply w-full h-[331px] md:w-[33rem] md:h-[454px] mt-6 md:mt-0;
-}
 
 
 /****** onbaord ********/
@@ -185,7 +178,7 @@ h2 {
 }
 
 .board-pad {
-  @apply my-dell:py-[2.1875rem] px-4 py-2 md:px-20 my-dell:px-[7.5rem];
+  @apply tablet:py-[2.1875rem] px-4 py-2 md:px-20 tablet:px-[7.5rem];
 }
 
 .cancel-btn {
@@ -205,7 +198,7 @@ h2 {
 }
 
 .home-pad {
-  @apply px-[17px] md:px-20 lg:px-[7.5rem];
+  @apply px-[17px] tablet:px-20 laptop:px-[7.5rem];
 }
 
 .primary-btn {
@@ -222,15 +215,15 @@ h2 {
 }
 
 .hero-board {
-  @apply bg-black/65 flex-center w-full h-[533px] md:h-[696px];
+  @apply bg-black/65 flex-center w-full h-[533px] tablet:h-[696px] laptop:h-[696px]
 }
 
 .hero-title {
-  @apply text-base-white text-3xl md:text-[4rem] font-bold text-center md:leading-[76.8px] tracking-tighter font-josefin;
+  @apply text-base-white text-[2rem] tablet:text-[2.8rem] laptop:text-[4rem] font-bold text-center md:leading-[76.8px] tracking-tighter font-josefin;
 }
 
 .hero-description {
-  @apply text-base-white text-center font-normal md:font-semibold text-base md:text-2xl;
+  @apply text-base-white text-center font-normal md:font-semibold text-base tablet:text-xl laptop:text-2xl;
 }
 
 .hero-img {
@@ -238,11 +231,31 @@ h2 {
 }
 
 .page-brief-container {
-  @apply home-pad bg-base-white overflow-hidden
+  @apply laptop:pl-[7.5rem] laptop:pr-[5rem] tablet:px-20 px-4 py-6 tablet:pt-[4.5rem] tablet:pb-[5.6rem] bg-base-white overflow-hidden
+}
+
+.about-brief {
+  @apply w-full tablet:w-[58%];
+}
+
+.page-brief-right {
+  @apply w-full
+}
+
+.main-image {
+  @apply w-full h-[331px] tablet:w-[48%] tablet:h-[353px] laptop:h-[454px] mt-6 md:mt-0
+}
+
+.gif-image {
+  @apply w-full h-[331px] tablet:w-[48%] tablet:h-[353px] laptop:h-[454px] mt-6 md:mt-0 rounded-20 overflow-hidden
+}
+
+.earn-image {
+  @apply w-full tablet:w-[49%] laptop:w-[45%] h-[383px] tablet:h-[353px] laptop:h-[526px]
 }
 
 .flexible {
-  @apply px-9 py-5 rounded-normal text-center mt-8 mb-5 bg-white;
+  @apply px-9 py-5 rounded-normal text-center mb-10 tablet:mb-[88px] laptop:mb-[69px] bg-white;
 }
 
 .flexible {
@@ -273,7 +286,7 @@ h2 {
 }
 
 .single-service-container {
-  @apply rounded-[2rem] flex items-start px-[9px] py-[27px] md:px-[10px] md:py-[25px] lg:px-[14px] lg:py-12 bg-white drop-shadow-service border border-eco-neutral-thick;
+  @apply bg-white drop-shadow-service border border-eco-neutral-thick rounded-[21px] min-w-[191.21px] h-[219px] tablet:min-h-[235.44px] laptop:h-[327px] flex-center p-2;
 }
 
 .service-shadow {
@@ -285,16 +298,18 @@ h2 {
 }
 
 .service-icon {
-  @apply size-[43px] md:size-[65px] flex-center bg-eco-green-faint rounded-full
+  @apply size-[43px] tablet:size-[46px] laptop:size-[65px] flex-center bg-eco-green-faint rounded-full
 }
 
 .service-title {
-  @apply text-xl md:text-2xl lg:text-[2rem] text-eco-green-dark leading-[24px] lg:leading-[38px] font-bold font-josefin;
+  @apply text-xl tablet:text-2xl laptop:text-[2rem] text-eco-green-dark leading-[24px] tablet:leading-7 lg:leading-[38px] font-bold font-josefin;
 }
 
 .service-desc {
-  @apply text-xs lg:text-base mt-[5px] lg:mt-2 text-eco-neutral-prime
+  @apply text-xxs tablet:text-xs laptop:text-base mt-[5px] laptop:mt-2 text-eco-neutral-prime
 }
+
+
 
 
 /********************* conect ***************/
@@ -311,19 +326,67 @@ h2 {
   @apply home-pad py-10 md:py-[5.9rem] bg-eco-neutral overflow-hidden
 }
 
+.footer-main {
+  @apply flex flex-col tablet:flex-row gap-y-14 items-start justify-between border-b px-2 py-6
+}
+
+.footer-brief-container {
+  @apply w-full tablet:w-4/12
+}
+
+.footer-brief {
+  @apply text-base-white text-base tablet:text-sm laptop:text-base mt-6
+}
+
+
+.sub-link-nav {
+  @apply tablet:w-fit
+}
+
+.socials {
+  @apply tablet:w-fit
+}
+
+.social-link {
+  @apply size-11 laptop:size-[50px] bg-eco-green-social flex-center rounded-full
+}
+
+.footer-link-title {
+  @apply font-bold text-eiteen tablet:text-base laptop:text-eiteen text-base-white
+}
+
+.footer-link {
+  @apply text-white text-base tablet:text-sm
+}
+
 /***************************** support ****************/
 .support-intersect {
-  @apply home-pad min-h-[617px] bg-base-white flex items-center flex-col justify-center relative pb-20
+  @apply home-pad bg-base-white justify-center relative
 }
 
 .support-search-bar {
-  @apply w-full max-w-[865px] border-2 border-white bg-white rounded-[40px] p-1 flex items-center justify-between mx-auto absolute -top-8 h-16 shadow-lg
+  @apply w-[90%] tablet:w-[60%]  max-w-[865px] border-2 border-white bg-white rounded-[40px] p-1 flex items-center justify-between absolute -top-8 h-16 left-1/2 -translate-x-1/2 shadow-lg
+}
+
+.faq { 
+  @apply pt-10 tablet:pt-[6rem] pb-5 tablet:pb-20
+}
+
+.faq-container {
+  @apply flex items-center flex-col tablet:flex-row w-full gap-16
 }
 
 .faq-img {
-  @apply w-9/12 md:w-[403px] rounded-20 absolute h-[295px] overflow-hidden
+  @apply w-[59%] rounded-20 absolute h-[80%] overflow-hidden border-4 border-base-white
 }
 
+.faq-img-first {
+  @apply top-5 left-0 z-20
+}
+
+.faq-img-second {
+  @apply right-0 bottom-5
+}
 
 .subscribe-form {
   @apply bg-base-white flex items-center justify-between py-2 px-4 rounded-lg w-full max-w-[534px] mt-6 mx-auto
@@ -382,25 +445,29 @@ h2 {
 }
 
 /************* contribution *************/
+.contribution-section {
+  @apply py-10 tablet:py-20 px-[15px] bg-base-white
+}
+
 .contribution {
-  @apply min-h-[546px] flex flex-col md:flex-row items-center
+  @apply min-h-[546px] flex flex-col tablet:flex-row items-start laptop:items-center gap-y-6 tablet:gap-x-[30px] w-full tablet:w-[80%] max-w-[1200px] mx-auto
 }
 
 .contribution-phone {
-  @apply w-full h-[341px] md:w-1/2 md:h-[546px] border rounded-normal bg-gradient-to-b from-eco-green to-peach
+  @apply w-full h-[341px] tablet:w-1/2 md:h-[546px] border rounded-normal bg-gradient-to-b from-eco-green to-peach
 }
 
 .contribution-pg {
-  @apply md:w-1/2 py-16 md:pl-16 order-first md:order-last
+  @apply tablet:w-1/2 order-first tablet:order-last
 }
 
 /************ Teem **************/
 .team-board {
-  @apply grid grid-cols-1 lg:grid-cols-3 w-full max-w-[1200px] min-h-96 mt-10 gap-7
+  @apply grid grid-cols-1 tablet:grid-cols-3 w-full mt-10 gap-7 mx-auto
 }
 
 .team-member {
-  @apply py-3 px-4 bg-white drop-shadow-lg rounded-20
+  @apply py-3 px-4 bg-white drop-shadow-lg rounded-20 w-[273px] tablet:w-full laptop:w-[379px] laptop:h-[387px] mx-auto
 }
 
 
@@ -474,11 +541,11 @@ h2 {
 }
 
 .r-form-body-margin {
-  @apply mt-[30px] my-dell:mt-[3rem] mb-[30px] my-dell:mb-20;
+  @apply mt-[30px] tablet:mt-[3rem] mb-[30px] tablet:mb-20;
 }
 
 .r-form-body {
-  @apply r-form-body-margin space-y-[15px] my-dell:space-y-5 flex flex-col;
+  @apply r-form-body-margin space-y-[15px] tablet:space-y-5 flex flex-col;
 }
 
 .rider-name {
@@ -520,11 +587,11 @@ h2 {
 }
 
 .statistics {
-  @apply w-full md:w-1/2 my-dell:w-[515px];
+  @apply w-full md:w-1/2 tablet:w-[515px];
 }
 
 .stats {
-  @apply h-[174px] my-dell:h-[200px] flex items-center gap-x-4 w-full;
+  @apply h-[174px] tablet:h-[200px] flex items-center gap-x-4 w-full;
 }
 
 .doughnut-stats {
@@ -544,7 +611,7 @@ h2 {
 }
 
 .trips {
-  @apply w-4/12 my-dell:w-[150px] space-y-2 md:space-y-4 h-full;
+  @apply w-4/12 tablet:w-[150px] space-y-2 md:space-y-4 h-full;
 }
 
 .trip {
@@ -617,7 +684,7 @@ h2 {
 } */
 /* REUSABLE FORM */
 .congrats-board {
-  @apply w-full lg:w-[25.5rem] h-[16rem] rounded-md mx-auto my-[30px] my-dell:mt-24 flex-center bg-white;
+  @apply w-full lg:w-[25.5rem] h-[16rem] rounded-md mx-auto my-[30px] tablet:mt-24 flex-center bg-white;
 }
 
 .congrats-board {
@@ -646,6 +713,7 @@ h2 {
 .schedule-title {
   @apply hidden md:block font-bold text-center font-josefin
 }
+
 .schedule-tags-container {
   @apply flex items-center justify-between mt-12 max-w-[510px] mx-auto
 }
@@ -714,11 +782,11 @@ h2 {
 /************ reusable form **************/
 /************* forget tab *************/
 .forget-tab {
-  @apply flex items-center justify-between w-full md:w-[446px] mx-auto mb-[30px] my-dell:mb-10
+  @apply flex items-center justify-between w-full md:w-[446px] mx-auto mb-[30px] tablet:mb-10
 }
 
 .switch-login {
-  @apply text-center mt-[30px] my-dell:mt-10 text-eiteen
+  @apply text-center mt-[30px] tablet:mt-10 text-eiteen
 }
 
 /********************* settings ************/

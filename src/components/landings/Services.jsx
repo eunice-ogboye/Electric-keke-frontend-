@@ -5,16 +5,19 @@ import Service from "./Service";
 
 const Services = ({ type = "main" }) => {
   return (
-    <div className="py-20 overflow-hidden home-pad bg-eco-white" id="services">
+    <div
+      className="py-10 tablet:py-20 laptop:py-32 overflow-hidden home-pad bg-eco-white"
+      id="services"
+    >
       <Heading
         introTitle={type === "main" && "Service"}
         title={type === "main" ? about_titles.two : "What We Offer"}
         tclass="max-w-[623px] mx-auto text-center service-heading font-josefin"
         description={type === "main" && about_descriptions.two}
-        dclass="mt-3 md:mt-7 text-center text-base md:text-xl lg:text-2xl service-desc"
-        introClass="mx-auto text-eco-green service-heading"
+        dclass="mt-3 md:mt-7 text-center text-base tablet:text-xl laptop:text-2xl"
+        introClass="mx-auto text-eco-green"
         type="about"
-        initial={{ y: -100, opacity: 0 }}
+        initial={{ y: type === "main" ? -100 : -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         initialp={{ opacity: 0, x: -200 }}
         animatep={{ opacity: 1, x: 0 }}

@@ -186,7 +186,7 @@ const earn_requirements = [
 
 const contribution = {
   title: "How our drivers contribute to the greener environment.",
-  desc: "By driving with ecoride, our drivers play a vital role in promoting a greener environment. Through eco-friendly transportation practices, like using electric or hybrid vehicles, carpooling and reducing carbon emission, ecoride drivers actively contribute to sustainable mobility and help reduce ecological footprint on our planet. Joining ecoride not only offers drivers a chance to earn but allows them to be eco-warrior making a positive impact on the environment with everyday ride.",
+  desc: "By driving with ecoride, our drivers play a vital role in promoting a greener environment. Through eco-friendly transportation practices, like using electric or hybrid vehicles, carpooling and reducing carbon emission, ecoride drivers actively contribute to sustainable mobility and help reduce ecological footprint on our planet.",
 };
 
 const nav_links = [

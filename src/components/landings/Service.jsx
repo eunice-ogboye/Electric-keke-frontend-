@@ -9,7 +9,7 @@ const Service = ({ service }) => {
           <img src={icon} alt={title} />
         </div>
 
-        <div className="mt-[21px] md:mt-[22px] lg:mt-8">
+        <div className="mt-[21px] tablet:mt-[22px] laptop:mt-8">
           <h2 className="service-title">{title}</h2>
           <p className="service-desc">{desc}</p>
         </div>

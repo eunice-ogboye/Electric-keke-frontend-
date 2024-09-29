@@ -40,6 +40,7 @@ module.exports = {
       },
       fontSize: {
         eiteen: "1.125rem",
+        xxs: '0.625rem'
       },
       colors: {
         "eco-green": {
