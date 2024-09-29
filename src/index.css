@@ -205,7 +205,7 @@ h2 {
 }
 
 .home-pad {
-  @apply px-[17px] my-dell:px-[7.5rem];
+  @apply px-[17px] md:px-20 lg:px-[7.5rem];
 }
 
 .primary-btn {
@@ -289,11 +289,11 @@ h2 {
 }
 
 .service-title {
-  @apply text-xl md:text-[2rem] text-eco-green-dark leading-[24px] lg:leading-[38px] font-bold font-josefin;
+  @apply text-xl md:text-2xl lg:text-[2rem] text-eco-green-dark leading-[24px] lg:leading-[38px] font-bold font-josefin;
 }
 
 .service-desc {
-  @apply text-xs md:text-base mt-[5px] lg:mt-2 text-eco-neutral-prime
+  @apply text-xs lg:text-base mt-[5px] lg:mt-2 text-eco-neutral-prime
 }
 
 
@@ -346,16 +346,22 @@ h2 {
   @apply flex flex-col md:flex-row items-center
 }
 
+/* .testi-photo {
+  @apply w-full h-[304px] md:w-[327px] md:h-[327px] lg:w-[409px] lg:h-[440px] mt-6 md:mt-0 border-8
+} */
 .testi-photo {
-  @apply w-full h-[304px] md:w-[409px] md:h-[440px] mt-6 md:mt-0
+  @apply w-full h-[304px] md:w-5/12 md:h-[327px] lg:h-[440px] mt-6 md:mt-0
 }
 
+/* .testimonies {
+  @apply w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10 order-first md:order-last border-8
+} */
 .testimonies {
-  @apply w-full tablet:max-w-[639px] laptop:max-w-[739px] mt-6 md:mt-0 md:ml-10 order-first md:order-last
+  @apply w-full md:w-7/12 mt-6 md:mt-0 md:ml-10 order-first md:order-last
 }
 
 .testimony-paragraph {
-  @apply text-eco-neutral-prime text-base md:text-2xl text-center md:text-left
+  @apply text-eco-neutral-prime text-base md:text-xl lg:text-2xl text-center md:text-left
 }
 
 .testimony-data {
@@ -422,7 +428,7 @@ h2 {
 }
 
 .header {
-  @apply md:absolute z-20 w-full top-[5vh] md:px-5 lg:px-20 xl:px-[7.5rem];
+  @apply md:absolute z-20 w-full top-[5vh] home-pad;
 }
 
 /* .mobile-header {
@@ -448,7 +454,7 @@ h2 {
 /* h-[4.75rem] container height max */
 
 .rider-container {
-  @apply px-1 py-20 md:pt-48 md:pb-10 home-pad
+  @apply px-1 py-20 md:pt-[7.6rem] lg:pt-48 md:pb-10 home-pad
 }
 
 .rider-sub-header {
@@ -476,7 +482,7 @@ h2 {
 }
 
 .rider-name {
-  @apply font-bold text-eco-white !text-base md:!text-[2rem]
+  @apply font-bold text-eco-white !text-base
 }
 
 .rider-info {
@@ -485,6 +491,22 @@ h2 {
 
 .rider-plate {
   @apply text-[0.625rem] md:text-eiteen text-eco-white
+}
+
+.rider-picture-container {
+  @apply w-full h-[401px] md:h-[454px] lg:h-[630px]
+}
+
+.rider-picture {
+  @apply size-full rounded-[16px] lg:rounded-normal object-center object-cover
+}
+
+.rider-review-container {
+  @apply space-y-2 mt-2 md:mt-6 h-[412px] md:h-[308px] lg:h-[433px] overflow-y-scroll relative
+}
+
+.rider-review-overlay {
+  @apply absolute inset-0 z-10 h-full bg-gradient-to-b from-white/0 to-white/70 pointer-events-none
 }
 
 /* DRIVER */
@@ -618,6 +640,22 @@ h2 {
 
 .profile-modal-inputs {
   @apply py-5 px-4 border border-eco-neutral-prime h-16 rounded-[14px] w-full
+}
+
+/************ schedule form ************/
+.schedule-title {
+  @apply hidden md:block font-bold text-center font-josefin
+}
+.schedule-tags-container {
+  @apply flex items-center justify-between mt-12 max-w-[510px] mx-auto
+}
+
+.schedule-tags {
+  @apply flex-center h-8 bg-tertiary px-2 rounded-sm text-[0.63rem] md:text-base font-nunito
+}
+
+.schedule-form {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-[71px] gap-y-5 gap-x-12
 }
 
 /********************** Admin ****************/

@@ -6,8 +6,17 @@ const AnimateText = ({ text }) => {
   console.log(words);
   return (
     <div>
-      {words.map((item,index) => {
-        return <motion.p key={index} initial={{x: 200}} whileInView={{x: 0}} transition={{duration: index * 0.035}}>{item}</motion.p>;
+      {words.map((item, index) => {
+        return (
+          <motion.p
+            key={index}
+            initial={{ x: 200 }}
+            whileInView={{ x: 0 }}
+            transition={{ duration: index * 0.035 }}
+          >
+            {item}
+          </motion.p>
+        );
       })}
     </div>
   );

@@ -1,4 +1,4 @@
-import Loader from "../../assets/svg/Loader";
+import Loader from "../../components/loaders/Loader";
 import Btn from "../../components/shared/Btn";
 import Heading from "../../components/shared/Heading";
 import { motion } from "framer-motion";
@@ -11,14 +11,14 @@ const LoadBooking = () => {
   className="bg-white w-full py-20 z-50 h-[calc(100vh-20vh)]"
 >
   <div>
-    <Loader type="blub" className="w-fit h-fit mx-auto" />
+    <Loader type="spin2" className="w-fit h-fit mx-auto" size={200} />
 
     <Heading
       className="text-center w-full max-w-[840px] mx-auto"
-      type="about"
       title="Waiting for Rider to Accept Ride"
       description="If your ride request hasn't been accepted promptly, feel free to cancel and try again."
-      dclass="text-[1.75rem] text-eco-neutral-prime mt-6"
+      dclass="text-base md:text-2xl lg:text-[1.75rem] text-eco-neutral-prime mt-6"
+      tclass="text-2xl md:text-[2rem] lg:text-[48px]"
     />
 
     <div className="w-full max-w-[540px] mx-auto mt-10">

@@ -56,16 +56,16 @@ const RiderInfo = () => {
           variants={riderParentVariant}
           className="relative"
         >
-          <motion.div className="md:flex mt-7 rider-info">
+          <motion.div className="md:flex md:gap-x-6 lg:gap-x-[102px] mt-7">
             <RiderPicture rider={rider} submitBooking={submitBooking} />
 
-            <motion.div className="w-full max-w-[588px] md:ml-[102px] pt-3">
+            <motion.div className="w-full max-w-[588px] pt-3">
               <motion.div className="w-full max-w-96 h-fit md:h-[174px]">
                 <div>
                   <p className="text-2xl">
                     License plate: {rider?.plate_number || "lkj-238"}
                   </p>
-                  <p className="text-2xl mt-4">
+                  <p className="text-2xl mt-3 md:mt-4">
                     Keke Color: {rider?.color || "yellow"}
                   </p>
                 </div>
@@ -74,11 +74,11 @@ const RiderInfo = () => {
                   rate={rider?.rating || 2}
                   statik
                   big
-                  className="mt-2 md:mt-10"
+                  className="mt-2 md:mt-4 lg:mt-10"
                 />
               </motion.div>
 
-              <motion.div className="mt-5 md:mt-10">
+              <motion.div className="md:mt-6 lg:mt-10 ">
                 <Reviews />
 
                 <div className="mt-4 md:hidden">

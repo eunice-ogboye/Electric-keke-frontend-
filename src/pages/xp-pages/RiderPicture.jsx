@@ -10,11 +10,11 @@ const RiderPicture = ({ rider, submitBooking }) => {
       variants={riderPictureContainer}
       className="w-full max-w-[510px] justify-between"
     >
-      <div className="w-full h-[440px] md:h-[630px]">
+      <div className="rider-picture-container">
         <img
           src={rider?.photo || "/persons/rider1.png"}
           alt={rider?.fullname}
-          className="size-full rounded-normal object-center object-cover"
+          className="rider-picture"
         />
       </div>
 

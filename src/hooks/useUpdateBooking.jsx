@@ -1,5 +1,6 @@
 import { addItemToLs, getItemFromLs } from "../utils/ls";
 import { GetListOfBookings } from "../services/bookings";
+import { useEffect } from "react";
 
 export const useUpdateBooking = (status, setCurrentRide) => {
   const currentRide = getItemFromLs("current-ride");

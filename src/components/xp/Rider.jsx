@@ -20,7 +20,7 @@ const Rider = ({ rider }) => {
       </div>
       <div className="rider-overlay">
         <div className="rider-info">
-          <h2 className="rider-name">{fullname}</h2>
+          <h2 className="rider-name  md:!text-[2rem]">{fullname}</h2>
 
           <Rate rate={rating} statik />
 

@@ -30,7 +30,6 @@ module.exports = {
       screens: {
         mobile: "480px",
         tablet: "834px",
-        "my-dell": "1358px",
         laptop: "1440px",
       },
       fontFamily: {

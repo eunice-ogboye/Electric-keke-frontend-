@@ -4,7 +4,7 @@ import FormRow from "../../components/shared/FormRow";
 import SearchBar from "../../components/shared/SearchBar";
 import Togglers from "../../components/shared/Togglers";
 import Section from "../../sharedLayouts/Section";
-import React, { useCallback, useState } from "react";
+import React, {  useState } from "react";
 import Btn from "../../components/shared/Btn";
 import Map from "../../components/shared/Map";
 import CustomSelectItem from "../../components/shared/CustomSelectItem";
@@ -53,8 +53,8 @@ const Schedule = () => {
 
   return (
     <Section darkLogo={true}>
-      <div className="home-pad pt-3 md:pt-[132px] pb-10">
-        <h2 className="hidden md:block font-bold text-center font-josefin">
+      <div className="home-pad pt-20 md:pt-[132px] pb-10">
+        <h2 className="schedule-title">
           Eco Schedule
         </h2>
         <Togglers
@@ -69,14 +69,11 @@ const Schedule = () => {
 
         <SearchBar className="hidden w-full max-w-[865px] border-2 mt-8 rounded-[40px] p-1 md:flex items-center justify-between mx-auto" />
 
-        <div className="flex items-center justify-between mt-12 max-w-[510px] mx-auto">
+        <div className="schedule-tags-container">
           {["Details", "Long distance", "Short Distance", "Rating"].map(
             (item) => {
               return (
-                <div
-                  key={item}
-                  className="text-base flex-center h-8 bg-tertiary px-2 rounded-sm text-[0.63rem] font-nunito"
-                >
+                <div key={item} className="schedule-tags">
                   {item}
                 </div>
               );
@@ -84,10 +81,7 @@ const Schedule = () => {
           )}
         </div>
 
-        <form
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 md:mt-[71px] gap-y-5 gap-x-12"
-          onSubmit={(e) => e.preventDefault()}
-        >
+        <form className="schedule-form" onSubmit={(e) => e.preventDefault()}>
           <FormRow
             name="origin"
             label="Enter Your Location"
