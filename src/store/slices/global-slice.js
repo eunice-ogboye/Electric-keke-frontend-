@@ -1,9 +1,9 @@
 import { addItemToLs, getItemFromLs } from "../../utils/ls";
 import { createSlice } from "@reduxjs/toolkit";
+import { LockScroll, UnlockScroll } from "../../utils/ScrollLock";
 
 const initialState = {
   alert: { show: false, msg: "alert" },
-  authPage: getItemFromLs("authPage") || "",
   driverAuthProcessStage: "Identity",
   modal: false,
   modalContent: "ride",
@@ -49,20 +49,15 @@ const globalSlice = createSlice({
     hideAlert(state, action) {
       return { ...state, alert: { show: false, msg: "" } };
     },
-    changeAuthPage(state, action) {
-      const authPage = action.payload;
-      // console.log(authPage);
-      addItemToLs("authPage", authPage);
-      return { ...state, authPage };
-    },
     toggleModal(state, action) {
       const modal = action.payload;
+      modal ? LockScroll() : UnlockScroll();
       console.log(modal);
       return { ...state, modal };
     },
     changeModalContent(state, action) {
       const modalContent = action.payload;
-      console.log(modalContent);
+      LockScroll();
       return { ...state, modal: true, modalContent };
     },
     chooseSupport(state, action) {

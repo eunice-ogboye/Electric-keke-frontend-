@@ -8,27 +8,9 @@ import SettingListItem from "./SettingListItem";
 const SettingNav = () => {
   const { openModalWithContent } = dispatchables();
   return (
-    <nav>
+    <nav className="w-full tablet:w-[41%]">
       <h2 className="setting-title">Settings</h2>
-      <ul className="space-y-16 mt-10">
-        {/* {settings.map((item) => {
-          return item.href ? (
-            <Link to={item.href} key={item.title} className="setting-opts">
-              {item.title}
-            </Link>
-          ) : (
-            <li
-              className="setting-opts"
-              key={item}
-              onClick={() => openModalWithContent(item.title)}
-            >
-              {item.title}
-              <div>
-                <img src="/setting-arr.svg" alt="arrow" />
-              </div>
-            </li>
-          );
-        })} */}
+      <ul className="space-y-4 tablet:space-y-16 mt-4 tablet:mt-10">
         <RegularList
           itemsToDisplay={settings}
           resourceName="settingLink"

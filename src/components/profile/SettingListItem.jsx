@@ -11,7 +11,9 @@ const SettingListItem = ({ settingLink }) => {
     return (
       <Link to={href} className="setting-opts">
         {title}
-        <ArrowRight />
+        <div className="hidden md:block">
+          <ArrowRight />
+        </div>
       </Link>
     );
   };
@@ -20,7 +22,9 @@ const SettingListItem = ({ settingLink }) => {
     return (
       <li className="setting-opts" onClick={() => openModalWithContent(title)}>
         {title}
-        <ArrowRight />
+        <div className="hidden md:block">
+          <ArrowRight />
+        </div>
       </li>
     );
   };

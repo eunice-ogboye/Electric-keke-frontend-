@@ -20,6 +20,7 @@ const PayModalTop = ({ formData, methodOfPayment, setMethodOfPayment }) => {
           />
         </div>
       )}
+      
       <Togglers
         color="color2"
         isConditionTrue={methodOfPayment === "card"}

@@ -10,19 +10,16 @@ const BankForm = () => {
         <FormRow
           label="Bank"
           children={<SelectInput className="profile-modal-inputs" />}
-          formRowContainer="border w-[411px] mx-auto"
+          formRowContainer="w-full max-w-[411px] mx-auto"
           inputclass="profile-modal-inputs"
         />
         <FormRow
           label="Bank Account"
           placeholder="Enter 10 digit Account number"
-          formRowContainer="border w-[411px] mx-auto"
+          formRowContainer="w-full max-w-[411px] mx-auto"
           inputclass="profile-modal-inputs"
         />
       </div>
-      {/* <div className="w-full max-w-[343px] mx-auto flex-center mt-10">
-        <Btn text="Confirm" size="full" />
-      </div> */}
     </div>
   );
 };

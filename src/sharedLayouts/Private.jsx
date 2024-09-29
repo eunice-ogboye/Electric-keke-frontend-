@@ -11,26 +11,22 @@ import Profile from "../pages/profile-pages/Profile";
 import Riders from "../pages/xp-pages/Riders";
 import RiderIndex from "../pages/xp-pages/RiderIndex";
 import RiderInfo from "../pages/xp-pages/RiderInfo";
-import Schedule from "../pages/xp-pages/Schedule";
+import Schedule from "../pages/schedule/Schedule";
 import Settings from "../pages/profile-pages/Settings";
 import Tracking from "../pages/tracking/Tracking";
 import Transaction from "../pages/transaction/Transaction";
 import UserManagement from "../pages/admin/UserManagement";
+import InProgress from "../pages/not-found/InProgress";
 
 const ProtectedRoute = () => {
   const { isAuthenticated } = useGlobalAuthContext();
-  
+
   return isAuthenticated ? (
     <Routes>
       <Route path="/admin" element={<AdminLayout />}>
         <Route path="user-management" element={<UserManagement />} />
         <Route path="financial-management" element={<FinancialManagement />} />
-        <Route
-          path="settings"
-          element={
-            <div className="flex-center">Will You be working on this</div>
-          }
-        />
+        <Route path="settings" element={<InProgress />} />
       </Route>
       <Route path="/driver/:id" element={<Driver />} />
       <Route path="/schedule-ride" element={<Schedule />} />

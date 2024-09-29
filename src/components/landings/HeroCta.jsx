@@ -1,16 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import { support_links } from "../../constants";
 import Btn from "../shared/Btn";
 import Togglers from "../shared/Togglers";
 import { useDispatch, useSelector } from "react-redux";
 import {
   changeAuthPage,
-  changeModalContent,
   chooseSupport,
 } from "../../store/slices/global-slice";
 import { updateBookingData } from "../../store/slices/bookride-slice";
 import dispatchables from "../../utils/dispatchables";
 import { useCurrentUser } from "../../hooks/useCurrentUser";
+import { memo } from "react";
 
 const HeroCta = ({ type }) => {
   const user = useCurrentUser();
@@ -82,4 +81,4 @@ const HeroCta = ({ type }) => {
   );
 };
 
-export default HeroCta;
+export default memo(HeroCta);

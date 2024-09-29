@@ -19,10 +19,6 @@ import { useDispatch } from "react-redux";
 const dispatchables = () => {
   const dispatch = useDispatch();
 
-  const changeAuthenticationPage = (page) => {
-    dispatch(changeAuthPage(page));
-  };
-
   const chooseOtpMethod = (method) => {
     console.log(method);
     dispatch(changeInputValue({ key: "message_type", value: method }));
@@ -86,7 +82,6 @@ const dispatchables = () => {
 
   return {
     chooseOtpMethod,
-    changeAuthenticationPage,
     changeAuthFormData,
     chooseRider,
     chooseRole,

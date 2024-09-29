@@ -17,8 +17,8 @@ const Notify = ({ title, desc, account }) => {
     <div className="shadow px-4 py-5 rounded-20">
       {account && <NotificationAlert />}
       <div>
-        <p className="text-2xl font-bold">{title}</p>
-        <p className="text-neutral text-2xl font-semibold mt-6">{desc}</p>
+        <p className="text-2xl font-semibold">{title}</p>
+        <p className="text-neutral text-2xl mt-6">{desc}</p>
       </div>
     </div>
   );

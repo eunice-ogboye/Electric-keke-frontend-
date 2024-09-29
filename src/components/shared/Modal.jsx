@@ -11,6 +11,8 @@ import TransactionModal from "../transaction/TransactionModal";
 import MapModal from "./MapModal";
 import ProfileContactModal from "./ProfileContactModal";
 import SaveModal from "../profile/SaveModal";
+import CustomizedBtn from "./CustomizedBtn";
+import { XIcon } from "lucide-react";
 
 const Modal = () => {
   // const dispatch = useDispatch();
@@ -43,37 +45,47 @@ const Modal = () => {
       onClick={() => flipModal(false)}
       style={{ pointerEvents: modal ? "auto" : "none" }}
     >
-      {modalContent === "rate" && (
-        <RateModal
-          comment={comment}
-          rateValue={rate}
-          rateTheDriver={handleClick}
+      <div
+        className="w-full max-w-[600px] relative mx-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <CustomizedBtn
+          icon={<XIcon />}
+          className="absolute top-2 tablet:top-5 right-2 tablet:right-5 rounded-full size-8 p-0 bg-eco-neutral-prime"
         />
-      )}
+        
+        {modalContent === "rate" && (
+          <RateModal
+            comment={comment}
+            rateValue={rate}
+            rateTheDriver={handleClick}
+          />
+        )}
 
-      {(modalContent === "ride" || modalContent === "delivery") && (
-        <ChooseModal modalContent={modalContent} handleClick={handleClick} />
-      )}
+        {(modalContent === "ride" || modalContent === "delivery") && (
+          <ChooseModal modalContent={modalContent} handleClick={handleClick} />
+        )}
 
-      {(modalContent === "details" || modalContent === "request-ride") && (
-        <MapModal modalContent={modalContent} />
-      )}
+        {(modalContent === "details" || modalContent === "request-ride") && (
+          <MapModal modalContent={modalContent} />
+        )}
 
-      {(modalContent === "Profile Management" ||
-        modalContent === "contact passenger") && (
-        <ProfileContactModal modalContent={modalContent} />
-      )}
+        {(modalContent === "Profile Management" ||
+          modalContent === "contact passenger") && (
+          <ProfileContactModal modalContent={modalContent} />
+        )}
 
-      {modalContent === "Payment Method" && <PaymentModal />}
+        {modalContent === "Payment Method" && <PaymentModal />}
 
-      {(modalContent === "Delete Account" ||
-        modalContent === "Logout of your account") && (
-        <Dialog title={modalContent} />
-      )}
+        {(modalContent === "Delete Account" ||
+          modalContent === "Logout of your account") && (
+          <Dialog title={modalContent} />
+        )}
 
-      {modalContent === "Pay for ride" && <TransactionModal />}
+        {modalContent === "Pay for ride" && <TransactionModal />}
 
-      {modalContent === "update-profile" && <SaveModal />}
+        {modalContent === "update-profile" && <SaveModal />}
+      </div>
     </motion.section>
   );
 };
