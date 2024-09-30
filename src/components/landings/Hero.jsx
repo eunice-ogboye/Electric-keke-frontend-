@@ -8,7 +8,7 @@ const Hero = ({ type = "main" }) => {
     <div className="hero">
       <div className="hero-board">
         <div
-          className={`${type === "main" && "max-w-[1160px]"} ${
+          className={`w-full ${type === "main" && "max-w-[1160px]"} ${
             type === "earn" && "max-w-[1193px]"
           } ${type === "support" && "max-w-[1109px]"}`}
         >

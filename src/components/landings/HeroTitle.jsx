@@ -11,7 +11,7 @@ const HeroTitle = ({ type }) => {
           }}
           animate={{ x: 0 }}
           transition={{ duration: 0.75 }}
-          id="title"
+          // id="title"
           className="hero-title title-transform"
         >
           Eco-Friendly{" "}
@@ -37,7 +37,7 @@ const HeroTitle = ({ type }) => {
           animate={{ opacity: 1 }}
           transition={{ ease: "circOut" }}
           id="title"
-          className="hero-title max-w-[1076px] mx-auto title-opacity px-20"
+          className="hero-title max-w-[1076px] mx-auto title-opacity"
         >
           About Eco-Ride: <span className="text-eco-green">Our</span> Mission &{" "}
           <span className="text-eco-green">Vision</span>

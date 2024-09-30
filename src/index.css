@@ -223,11 +223,11 @@ h2 {
 }
 
 .hero-board {
-  @apply bg-black/65 flex-center w-full h-[533px] tablet:h-[696px] laptop:h-[696px]
+  @apply bg-black/65 flex-center w-full h-[533px] tablet:h-[696px] laptop:h-[696px] home-pad
 }
 
 .hero-title {
-  @apply text-base-white text-[2rem] tablet:text-[2.8rem] laptop:text-[4rem] font-bold text-center md:leading-[76.8px] tracking-tighter font-josefin;
+  @apply text-base-white text-[2rem] tablet:text-[2.8rem] laptop:text-[4rem] font-bold text-center tablet:leading-[76.8px] tracking-tighter font-josefin
 }
 
 .hero-description {
@@ -294,7 +294,7 @@ h2 {
 }
 
 .single-service-container {
-  @apply bg-white drop-shadow-service border border-eco-neutral-thick rounded-[21px] min-w-[191.21px] h-[219px] tablet:min-h-[235.44px] laptop:h-[327px] flex-center p-2;
+  @apply bg-white drop-shadow-service border border-eco-neutral-thick rounded-[21px] h-[219px] tablet:min-h-[235.44px] laptop:h-[327px] flex-center p-2;
 }
 
 .service-shadow {
