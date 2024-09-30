@@ -1,5 +1,3 @@
-import React from "react";
-
 const ChatBox = ({ type = "sender", msg = 'Hello Mathew where you dae?' }) => {
   const person = {
     sender: "rounded-s-[40px]",

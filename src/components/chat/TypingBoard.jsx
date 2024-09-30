@@ -1,4 +1,3 @@
-import React from "react";
 import Microphone from "../../assets/svg/Microphone";
 import CustomizedBtn from "../shared/CustomizedBtn";
 import Send from "../../assets/svg/Send";

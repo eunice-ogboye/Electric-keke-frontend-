@@ -656,7 +656,7 @@ h2 {
 }
 
 .detail-modal {
-  @apply w-[715px] md:min-h-[80vh] py-5 md:py-10 px-3 md:px-7
+  @apply w-full tablet:w-[715px] md:min-h-[80vh] py-5 md:py-10 px-3 md:px-7
 }
 
 .ride-request-modal {
