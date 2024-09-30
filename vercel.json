@@ -1,8 +1,6 @@
 {
   "rewrites": [
     {
-      "_main_source_":  "/(.*)",
-      "_main_destination_":  "/index.html",
       "source": "/api/:path*",
       "destination": "https://electric-keke-backend.vercel.app/api/v1/:path*"
     }
