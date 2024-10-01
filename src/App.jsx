@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import Alert from "./components/shared/Alert";
 import Modal from "./components/shared/Modal";
 import "leaflet/dist/leaflet.css";
@@ -9,7 +8,6 @@ import About from "./pages/landing-pages/About";
 import Home from "./pages/landing-pages/Home";
 import Earn from "./pages/landing-pages/Earn";
 import Support from "./pages/landing-pages/Support";
-import AuthPage from "./sharedLayouts/AuthPage";
 import ProtectedRoute from "./sharedLayouts/Private";
 import InternalServer from "./pages/error-pages/InternalServer";
 import Loader from "./components/loaders/Loader";
@@ -43,7 +41,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/earn-with-us" element={<Earn />} />
           <Route path="/support" element={<Support />} />
-          <Route path="/authentication/*" element={<AuthPage />} />
           <Route path="/onboarding/*" element={<Onboarding />} />
           <Route path="/*" element={<ProtectedRoute />} />
           <Route path="/ie/:id" element={<InternalServer />} />
