@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import useReroute from "./useReroute";
 
 export const useRiders = (key) => {
+  console.log(key)
   const [isLoading, setIsLoading] = useState(true);
   const [riders, setRiders] = useState(getItemFromLs(key) || null);
   const rerouting = useReroute();

@@ -7,7 +7,7 @@ import RegisterAs from "./RegisterAs";
 const OnboardStartPage = () => {
   return (
     <section className="flex">
-      <div className="onboard-board">
+      <div className="board__onboarding">
         <CustomizedBtn
           href="/"
           icon={<XIcon color="black" />}

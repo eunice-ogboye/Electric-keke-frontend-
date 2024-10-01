@@ -1,20 +1,19 @@
-// import axios from "axios";
-import { getItemFromLs } from "../../utils/ls";
-import { clientRequest } from "../client";
+import axios from "axios";
+import { clearLs, getItemFromLs } from "../../utils/ls";
 
 const refreshAccess = async () => {
   const oldRefreshToken = getItemFromLs("refreshToken");
   console.log(oldRefreshToken);
   try {
-    const { data } = await clientRequest({
-      url: "/auth/token/refresh/",
-      method: "post",
-      data: { refresh: oldRefreshToken },
+    const { data } = await axios.post("/auth/token/refresh/", {
+      refresh: oldRefreshToken,
     });
-    console.log(data);
+    console.log(data, 'refreshing');
     return data;
   } catch (error) {
     console.log(error);
+    clearLs()
+    window.location = '/'
     throw new Error("error getting refreshing");
   }
 };

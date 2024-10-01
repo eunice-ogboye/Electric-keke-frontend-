@@ -4,9 +4,10 @@ import { LockScroll, UnlockScroll } from "../../utils/ScrollLock";
 
 const initialState = {
   alert: { show: false, msg: "alert" },
-  driverAuthProcessStage: "Identity",
   modal: false,
   modalContent: "ride",
+  modalWidth: "",
+  nextDriverAuth: null,
   ridersList: getItemFromLs("ridersList") || [],
   rider: null,
   support: "faq",
@@ -56,9 +57,15 @@ const globalSlice = createSlice({
       return { ...state, modal };
     },
     changeModalContent(state, action) {
-      const modalContent = action.payload;
+      const { modalContent, modalWidth, nextDriverAuth } = action.payload;
       LockScroll();
-      return { ...state, modal: true, modalContent };
+      return {
+        ...state,
+        modal: true,
+        modalContent,
+        modalWidth,
+        nextDriverAuth,
+      };
     },
     chooseSupport(state, action) {
       const support = action.payload;
@@ -68,10 +75,6 @@ const globalSlice = createSlice({
       const registerAs = action.payload;
       addItemToLs("registeringAs", registerAs);
       return { ...state, registerAs };
-    },
-    moveToNextDriveAuthStage(state, action) {
-      const driverAuthProcessStage = action.payload;
-      return { ...state, driverAuthProcessStage };
     },
     changeVerificationType(state, action) {
       const verificationType = action.payload;

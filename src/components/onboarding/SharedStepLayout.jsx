@@ -7,7 +7,7 @@ import { clearLs } from "../../utils/ls";
 const SharedStepLayout = ({ text, children }) => {
   return (
     <section className="flex items-start h-screen overflow-y-scroll">
-      <div className="onboard-board">
+      <div className="board__onboarding">
         <CustomizedBtn
           href="/"
           icon={<XIcon color="black" />}

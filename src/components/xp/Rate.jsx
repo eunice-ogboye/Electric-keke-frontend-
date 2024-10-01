@@ -1,23 +1,17 @@
+import Star from "../../assets/svg/Star";
 import React, { useState } from "react";
 
-const Rate = ({ rate, handleClick, statik, big, className }) => {
+const Rate = ({ rate, handleClick, statik, className, size = 20 }) => {
   const [indicate, setIndicate] = useState(2);
   const [show, setShow] = useState(false);
 
   const StatikRating = () => {
     return (
-      <div className={`flex items-center gap-x-4 ${className}`}>
+      <div className={`flex items-center justify-between ${className}`}>
         {[1, 2, 3, 4, 5].map((item) => (
-          <span key={item}>
-            {rate >= item ? (
-              <img
-                src={big ? "/big-star-gold.svg" : "/star-gold.svg"}
-                alt="rated"
-              />
-            ) : (
-              <img src={big ? "/big-star.svg" : "/star.svg"} alt="rated" />
-            )}
-          </span>
+          <div>
+            <Star key={item} rated={rate >= item ? true : false} size={size} />
+          </div>
         ))}
       </div>
     );
@@ -32,41 +26,35 @@ const Rate = ({ rate, handleClick, statik, big, className }) => {
             onMouseEnter={() => setShow(true)}
           >
             {[1, 2, 3, 4, 5].map((item) => (
-              <span key={item}>
-                {rate >= item ? (
-                  <img
-                    src={big ? "/big-star-gold.svg" : "/star-gold.svg"}
-                    alt="rated"
-                  />
-                ) : (
-                  <img src={big ? "/big-star.svg" : "/star.svg"} alt="rated" />
-                )}
-              </span>
+              <div className="border">
+                <Star
+                  key={item}
+                  rated={rate >= item ? true : false}
+                  size={size}
+                />
+              </div>
             ))}
           </div>
         )}
         {show && (
           <div
-          className={`flex items-center w-fit ${className}`}
+            className={`flex items-center w-fit ${className}`}
             onMouseLeave={() => setShow(false)}
           >
             {[1, 2, 3, 4, 5].map((item) => (
-              <span
+              <div
                 key={item}
                 onMouseEnter={() => setIndicate(item)}
                 onMouseLeave={() => setIndicate(0)}
                 onClick={() => handleClick(item)}
                 className="hover:scale-150 transition-transform duration-100 cursor-pointer"
               >
-                {indicate >= item ? (
-                  <img
-                    src={big ? "/big-star-gold.svg" : "/star-gold.svg"}
-                    alt="rated"
-                  />
-                ) : (
-                  <img src={big ? "/big-star.svg" : "/star.svg"} alt="rated" />
-                )}
-              </span>
+                <Star
+                  key={item}
+                  rated={rate >= item ? true : false}
+                  size={size}
+                />
+              </div>
             ))}
           </div>
         )}

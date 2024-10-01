@@ -108,7 +108,7 @@ module.exports = {
         error: "#C03744",
         warning: "#EDA145",
         peach: "#EDA14580",
-        info: "#0A0B0A1A",
+        info: "#0A0B0A",
         tertiary: "#F5F5F5",
         silver: "#768EA9",
         modal: '#DEE5ED',

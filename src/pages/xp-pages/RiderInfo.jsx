@@ -11,9 +11,11 @@ import { BookRide, GetListOfBookings } from "../../services/bookings";
 import { riderParentVariant } from "../../constants/variants";
 import LoadBooking from "./LoadBooking";
 import RiderPicture from "./RiderPicture";
+import { useSocket } from "../../hooks/useSocket";
 
 const RiderInfo = () => {
   const { showAlert } = dispatchables();
+  const socket = useSocket();
 
   const [waiting, setWaiting] = useState(false);
   const [rider, setRider] = useState(getItemFromLs("rider") || null);
@@ -22,24 +24,28 @@ const RiderInfo = () => {
   const submitBooking = async () => {
     setWaiting(true);
     const bookData = getItemFromLs("book-data");
+    socket.emit('new-booking')
     try {
-      await BookRide(bookData);
+      const booking = await BookRide(bookData);
+      console.log(booking)
       showAlert("Ride Booking Succefull, Wait a moment");
-      // this code below from here need to be extracted becosuse this showuld be only when driver accepts
-      const bookingList = await GetListOfBookings();
-      console.log(bookingList);
 
-      const lastestBooking = bookingList.length - 1;
-      addItemToLs("current-ride", bookingList[lastestBooking]);
+      // will be emitting an event here
+      socket.emit('request-ride')
+
+      // this code below from here need to be extracted becosuse this showuld be only when driver accepts
+      // const bookingList = await GetListOfBookings();
+      // console.log(bookingList);
+
+      // const lastestBooking = bookingList.length - 1;
+      // addItemToLs("current-ride", bookingList[lastestBooking]);
 
       // deletItemFromLs("book-data");
-      navigate("/tracking");
+      // navigate("/tracking");
       // from the start this is only when the driver accepts
     } catch (error) {
       console.log(rider);
       showAlert(`Error Booking Ride with Rider ${rider.fullname}`);
-    } finally {
-      setWaiting(false);
     }
   };
 
@@ -73,8 +79,8 @@ const RiderInfo = () => {
                 <Rate
                   rate={rider?.rating || 2}
                   statik
-                  big
                   className="mt-2 md:mt-4 lg:mt-10"
+                  size={58}
                 />
               </motion.div>
 

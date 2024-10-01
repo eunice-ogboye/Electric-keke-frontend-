@@ -10,14 +10,20 @@ import Login from "./login/Login";
 import ForgetPassword from "./login/ForgetPassword";
 import VerifyOtp from "./login/VerifyOtp";
 import NewPassword from "./login/NewPassword";
+import RiderStep4 from "./riders/RiderStep4";
+import RiderStep3 from "./riders/RiderStep3";
+import RiderStep5 from "./riders/RiderStep5";
+import Processing from "./riders/Processing";
 
 const OnboardRegister = () => {
   const registeringAs = getItemFromLs("registeringAs");
+
   const runOnFinish = () => {
     addItemToLs("onboarding-process", 0);
     addItemToLs("registeringAs", "Login");
     location.reload();
   };
+
   return (
     <section>
       {registeringAs === "User" && (
@@ -31,9 +37,17 @@ const OnboardRegister = () => {
       )}
 
       {registeringAs === "Rider" && (
-        <OnboardingForm runOnFinish={() => {}}>
+        <OnboardingForm
+          runOnFinish={() => {
+            alert("finished the driver auth");
+          }}
+        >
           <Step1 />
           <Step2 />
+          <RiderStep3 />
+          <RiderStep4 />
+          <RiderStep5 />
+          <Processing />
         </OnboardingForm>
       )}
 

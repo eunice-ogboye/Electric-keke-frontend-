@@ -7,7 +7,7 @@ import ModalTemplate from "../shared/ModalTemplate";
 import { addItemToLs } from "../../utils/ls";
 
 const Dialog = ({ title }) => {
-  const { showAlert, flipModal, changeAuthenticationPage, loading, unloading } =
+  const { showAlert, flipModal, loading, unloading } =
     dispatchables();
   const navigate = useNavigate();
 
@@ -24,7 +24,6 @@ const Dialog = ({ title }) => {
       if (logout) {
         // continue to logout
         Logout();
-        changeAuthenticationPage("login");
         unloading();
         showAlert("Logged Out");
         addItemToLs("registeringAs", "Login");

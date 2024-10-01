@@ -7,10 +7,11 @@ import { addItemToLs } from "../../utils/ls";
 
 const RegisterAs = () => {
   const goToLoginPage = () => {
+    addItemToLs('onboarding-process', 0)
     addItemToLs("registeringAs", "Login");
   };
   return (
-    <div className="onboard-register-as">
+    <div className="board__register">
       <p className="text-right font-josefin text-base">
         Already have an account?{" "}
         <Link

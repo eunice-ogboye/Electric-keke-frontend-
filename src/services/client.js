@@ -1,5 +1,10 @@
 import axios from "axios";
-import { addItemToLs, clearLs, deletItemFromLs, getItemFromLs } from "../utils/ls";
+import {
+  addItemToLs,
+  clearLs,
+  deletItemFromLs,
+  getItemFromLs,
+} from "../utils/ls";
 import isTokenValid from "./auth/checkJwtValidity";
 import refreshAccess from "./auth/refreshAccess";
 import CustomError from "./custom-error/CustomError";
@@ -36,15 +41,12 @@ export const clientRequest = async ({ ...options }) => {
   };
 
   const onError = async (err) => {
-    // console.log(err);
+    console.log(err);
     const originalRequest = err.config;
     const status = err.response.status;
 
     if (status === 401 && !originalRequest._retry) {
-      console.log(
-        "access token expired...............................................................................................................................",
-        err.status
-      );
+      console.log("access token expired");
       originalRequest._retry = true;
 
       try {
@@ -69,7 +71,6 @@ export const clientRequest = async ({ ...options }) => {
           });
       } catch (error) {
         console.log(error);
-
         // clearLs();
 
         return Promise.reject(err);
@@ -77,6 +78,7 @@ export const clientRequest = async ({ ...options }) => {
     }
 
     if (status === 500) {
+      console.log(err, '5000000')
       throw new CustomError("Internal Server Error", {
         status,
       });

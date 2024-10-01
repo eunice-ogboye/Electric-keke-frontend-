@@ -10,6 +10,7 @@ import Notification from "../pages/xp-pages/Notification";
 import Profile from "../pages/profile-pages/Profile";
 import Riders from "../pages/xp-pages/Riders";
 import RiderIndex from "../pages/xp-pages/RiderIndex";
+// import RiderIndexTest from "../pages/xp-pages/RiderIndexTest";
 import RiderInfo from "../pages/xp-pages/RiderInfo";
 import Schedule from "../pages/schedule/Schedule";
 import Settings from "../pages/profile-pages/Settings";
@@ -32,6 +33,7 @@ const ProtectedRoute = () => {
       <Route path="/schedule-ride" element={<Schedule />} />
       <Route path="/riders" element={<Riders />}>
         <Route index element={<RiderIndex />} />
+        {/* <Route index element={<RiderIndexTest />} /> */}
         <Route path=":id" element={<RiderInfo />} />
       </Route>
       <Route path="/notification" element={<Notification />} />

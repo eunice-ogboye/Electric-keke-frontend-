@@ -5,8 +5,10 @@ import Statistics from "../../components/driver/Statistics";
 import dispatchables from "../../utils/dispatchables";
 import { GetListOfBookings } from "../../services/bookings";
 import { addItemToLs } from "../../utils/ls";
+import { useSocket } from "../../hooks/useSocket";
 
 const Driver = () => {
+  const socket = useSocket();
   const { openModalWithContent } = dispatchables();
   const [online, setOnline] = useState(false);
 

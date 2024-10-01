@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import RateModal from "../booking/RateModal";
 import ChooseModal from "../booking/ChooseModal";
-import { modalContainer } from "../../constants/variants";
-import dispatchables from "../../utils/dispatchables";
+import { modalContainer } from "@/constants/variants";
+import dispatchables from "@/utils/dispatchables";
 import PaymentModal from "../profile/PaymentModal";
 import Dialog from "../profile/Dialog";
 import TransactionModal from "../transaction/TransactionModal";
@@ -13,13 +13,12 @@ import ProfileContactModal from "./ProfileContactModal";
 import SaveModal from "../profile/SaveModal";
 import CustomizedBtn from "./CustomizedBtn";
 import { XIcon } from "lucide-react";
+import DriverAuthModal from "../onboarding/DriverAuthModal";
 
 const Modal = () => {
-  // const dispatch = useDispatch();
   const { flipModal, openModalWithContent } = dispatchables();
 
-  // const bookData = useSelector(state => state.bookData)
-  const { modal, modalContent } = useSelector((state) => state.global);
+  const { modal, modalContent, modalWidth } = useSelector((state) => state.global);
   //
   //states
   const [rate, setRate] = useState(0);
@@ -46,14 +45,14 @@ const Modal = () => {
       style={{ pointerEvents: modal ? "auto" : "none" }}
     >
       <div
-        className="w-full max-w-[600px] relative mx-auto"
+        className={`w-full relative mx-auto ${modalWidth || "max-w-[600px] border-8"}`}
         onClick={(e) => e.stopPropagation()}
       >
         <CustomizedBtn
           icon={<XIcon />}
           className="absolute top-2 tablet:top-5 right-2 tablet:right-5 rounded-full size-8 p-0 bg-eco-neutral-prime"
         />
-        
+
         {modalContent === "rate" && (
           <RateModal
             comment={comment}
@@ -85,6 +84,8 @@ const Modal = () => {
         {modalContent === "Pay for ride" && <TransactionModal />}
 
         {modalContent === "update-profile" && <SaveModal />}
+
+        {modalContent === "driver-auth" && <DriverAuthModal />}
       </div>
     </motion.section>
   );

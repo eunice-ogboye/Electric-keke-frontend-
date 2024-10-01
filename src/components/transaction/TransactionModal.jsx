@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Heading from "../shared/Heading";
-import Loader from "../../assets/svg/Loader";
 import { make_payment } from "../../services/transaction";
 import Btn from "../shared/Btn";
 import Congrats from "../../assets/svg/Congrats";
 import dispatchables from "../../utils/dispatchables";
+import Loader from "../loaders/Loader";
 
 const TransactionModal = () => {
   const [paySuccessful, setPaySuccessful] = useState(false);

@@ -10,7 +10,6 @@ import { memo } from "react";
 
 const HeroCta = ({ type }) => {
   const user = useCurrentUser();
-  console.log(user);
   const dispatch = useDispatch();
   // const navigate = useNavigate();
   const { openModalWithContent } = dispatchables();

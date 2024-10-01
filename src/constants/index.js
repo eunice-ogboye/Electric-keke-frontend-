@@ -372,6 +372,28 @@ const states = [
   "Osun",
 ];
 
+const driver_authProcess = [
+  {
+    img: "/selfie.svg",
+    title: "Take A Selfie of Yourself",
+    desc: "your face has to be well lit and well positioned, make sure you don't have any background light.",
+  },
+  {
+    img: "/license-card.svg",
+    title: "Driver's License",
+    desc: "Upload a clear front picture of your drivers license, showing all corners of the drivers license.",
+  },
+  {
+    img: "/license-card.svg",
+    title: "Driver's License",
+    desc: "Upload a clear back picture of your drivers license, showing all corners of the drivers license.",
+  },
+  {
+    title: "Processing",
+    desc: "We are reviewing the information you provide to verify your identity. verification process takes 24 hours, a notification will be sent to your email.",
+  },
+];
+
 export {
   about_titles,
   about_descriptions,
@@ -381,6 +403,7 @@ export {
   care_socials,
   connected,
   contribution,
+  driver_authProcess,
   earn_requirements,
   finance_management_tablehead,
   flexibility_text,

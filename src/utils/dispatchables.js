@@ -57,8 +57,10 @@ const dispatchables = () => {
 
   const unloading = () => dispatch(finishLoad());
 
-  const openModalWithContent = (content) => {
-    dispatch(changeModalContent(content));
+  const openModalWithContent = (content, modalWidth, nextDriverAuth) => {
+    dispatch(
+      changeModalContent({ modalContent: content, modalWidth, nextDriverAuth })
+    );
   };
 
   const switchVerificationType = (v_type) => {

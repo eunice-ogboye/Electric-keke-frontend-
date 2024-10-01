@@ -1,11 +1,12 @@
 // import riders from "../mockData/riders";
-import Rider from "../../components/xp/Rider";
+import Rider from "../../components/riders/Rider";
 import { AnimatePresence, motion } from "framer-motion";
 import dispatchables from "../../utils/dispatchables";
 import useReroute from "../../hooks/useReroute";
-import { GetAvailableRiders } from "../../services/bookings";
+// import { GetAvailableRiders } from "../../services/bookings";
 import useTitle from "../../hooks/useTitle";
 import { useRiders } from "../../hooks/useRiders";
+// import riders from '../../mock-data/riders';
 
 const RiderIndex = () => {
   useTitle("Riders");
@@ -21,7 +22,7 @@ const RiderIndex = () => {
   ) : (
     <AnimatePresence>
       <motion.div
-        initial={{ x: 200, opacity: 0 }}
+        initial={{ x: 200, opacity: 1 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: -200, opacity: 0 }}
         transition={{ duration: 0.65, type: "just" }}
