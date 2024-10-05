@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Logo from "./Logo";
-import Btn from "./Btn";
 import MobileNav from "./MobileNav";
 import { Link, useLocation } from "react-router-dom";
 import { getItemFromLs } from "../../utils/ls";
 import dispatchables from "../../utils/dispatchables";
 import CustomizedBtn from "./CustomizedBtn";
 import Bell from "../../assets/svg/Bell";
+import Btn from "./btn/Btn";
 
 const MobileHeader = ({ blur }) => {
   // const { changeAuthenticationPage } = dispatchables();
@@ -15,22 +15,22 @@ const MobileHeader = ({ blur }) => {
   const { pathname } = useLocation();
 
   return (
-    <header className="mobile-header h-16">
+    <header className="mobile-header">
       {pathname !== "/schedule-ride" && <MobileNav blur={blur} />}
 
       <Logo logoClassName="w-11" />
       {pathname === "/schedule-ride" && (
-        <h2 className="font-bold text-xl">Eco Schedule</h2>
+        <h2 className="mobile-header__title">Eco Schedule</h2>
       )}
 
       {pathname !== "/schedule-ride" && (
         <>
           {user ? (
-            <div className="flex items-center gap-[0.65rem]">
+            <div className="header__profile-nav-board">
               <Link to="/notification">
-                <div className="size-5 flex-center relative">
-                <span className="absolute top-0 right-0 bg-red-500 size-2 rounded-full" />
-                  <Bell color={blur && 'white'} />
+                <div className="profile-nav__icon">
+                  <span className="indicator" />
+                  <Bell color={blur && "white"} />
                 </div>
               </Link>
 
@@ -39,17 +39,16 @@ const MobileHeader = ({ blur }) => {
               </Link>
             </div>
           ) : (
-            <CustomizedBtn
-              text="Sign Up"
+            <Btn
               href="/onboarding"
-              className="w-[134px] h-12 rounded-full bg-eco-green"
-              // handleClick={() => changeAuthenticationPage("start")}
+              text="Sign Up"
+              styling="btn--hero w-[134px]"
             />
           )}
         </>
       )}
 
-      {pathname === "/schedule-ride" && (
+      {/* {pathname === "/schedule-ride" && (
         <Btn
           text="Search"
           size="search"
@@ -59,7 +58,7 @@ const MobileHeader = ({ blur }) => {
             </div>
           }
         />
-      )}
+      )} */}
     </header>
   );
 };

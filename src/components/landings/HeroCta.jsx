@@ -1,5 +1,3 @@
-import { useNavigate } from "react-router-dom";
-import Btn from "../shared/Btn";
 import Togglers from "../shared/Togglers";
 import { useDispatch, useSelector } from "react-redux";
 import { chooseSupport } from "../../store/slices/global-slice";
@@ -7,6 +5,9 @@ import { updateBookingData } from "../../store/slices/bookride-slice";
 import dispatchables from "../../utils/dispatchables";
 import { useCurrentUser } from "../../hooks/useCurrentUser";
 import { memo } from "react";
+import Btn from "../shared/btn/Btn";
+import NewModal from "../shared/NewModal";
+import ChooseModal from "../shared/modals/ChooseModal";
 
 const HeroCta = ({ type }) => {
   const user = useCurrentUser();
@@ -29,30 +30,20 @@ const HeroCta = ({ type }) => {
     <div className="flex-center gap-2 mt-6">
       {type === "main" || type === "earn" ? (
         <>
-          {type === "main" && (
+          {type === "main" && <ChooseModal type="ride" />}
+
+          {type === "earn" && !user && (
             <Btn
-              text="Book a Ride"
-              handleClick={() => {
-                openModalWithContent("ride");
-                chooseHowToRide("booking_type", "ride");
+              text="Register"
+              href="/onboarding/registration"
+              styling="btn--hero btn--primary"
+              onClick={() => {
+                // showuld set the registering as in the ls as rider
               }}
             />
           )}
 
-          {type === "earn" && !user && <Btn text="Register" to="/onboarding/registration" handleClick={() => {
-            // showuld set the registering as in the ls as rider
-          }} />}
-
-          {type === "main" && (
-            <Btn
-              text="Request For Delivery"
-              type="secondary"
-              handleClick={() => {
-                openModalWithContent("delivery");
-                chooseHowToRide("booking_type", "delivery");
-              }}
-            />
-          )}
+          {type === "main" && <ChooseModal type="delivery" />}
         </>
       ) : (
         <Togglers

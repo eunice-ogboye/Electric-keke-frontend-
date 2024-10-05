@@ -394,6 +394,16 @@ const driver_authProcess = [
   },
 ];
 
+const map_booking = {
+  title: "Where Are You Headed?",
+  desc: "Start your eco-friendly journey by entering your pickup location and drop-off destination.",
+};
+
+const map_request = {
+  title: "New Ride Request",
+  desc: "You just received a new ride request",
+};
+
 export {
   about_titles,
   about_descriptions,
@@ -411,6 +421,8 @@ export {
   formTitle,
   getHeroImage,
   hero_descriptions,
+  map_booking,
+  map_request,
   mission,
   nav_links,
   otp_choice,

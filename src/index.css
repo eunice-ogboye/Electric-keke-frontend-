@@ -77,15 +77,27 @@
   .board-shadow {
     filter: drop-shadow(6px 0px 20px rgba(0, 0, 0, 0.3));
   }
+
+  .btn {
+    @apply rounded-full flex-center
+  }
+
+  .btn--lg {
+    @apply h-14
+  }
+
+  .btn--sm {
+    @apply h-12
+  }
+
+  .btn--primary {
+    @apply bg-basic text-white;
+  }
+
+  .btn--secondary {
+    @apply text-basic border border-basic bg-basic/10
+  }
 }
-
-/* ::-webkit-scrollbar {
-  
-} */
-
-/* body {
-  overflow: hidden;
-} */
 
 /********************** Btn ********************/
 .btn-clear {
@@ -97,22 +109,12 @@
 }
 
 .default-msg-btn {
-  @apply border border-eco-green rounded-full bg-transparent text-eco-neutral-prime
+  @apply border border-basic rounded-full bg-basic-100 text-eco-neutral-prime
 }
 
-.registerAs-opt {
-  @apply flex items-center justify-between w-full lg:w-[26.625rem] h-28 rounded-md px-7 py-6 cursor-pointer
-}
-
-.chosen-role {
-  @apply bg-eco-green-faint border border-eco-green
-}
 
 /*****************************************/
 /**** SHADOWS**********/
-
-
-
 
 .send-shadow {
   filter: drop-shadow(0 1px 3px rgb(0, 0, 0, 0.1)) drop-shadow(0 12px 7px rgb(0, 0, 0, 0.05))
@@ -127,21 +129,22 @@ h2 {
   @apply text-[2rem];
 }
 
-.btn {
-  @apply text-white rounded-full
+/* .btn {
+  @apply rounded-full flex-center
+} */
+
+.btn--hero {
+  @apply btn btn--sm md:btn--lg
 }
 
-.btn--primary {
-  @apply bg-eco-green
+.btn--white {
+  @apply bg-white text-black
 }
 
 .btn--error {
   @apply bg-error;
 }
 
-.btn--clear {
-  @apply bg-transparent
-}
 
 .btn--border {
   @apply border
@@ -153,8 +156,21 @@ h2 {
   @apply hidden h-screen md:block md:w-6/12 lg:w-1/2 rounded-e-20 overflow-hidden board-shadow sticky top-0
 }
 
+
 .board__register {
-  @apply board-pad w-full md:w-7/12 lg:w-1/2 h-screen
+  @apply px-5 py-[45px] w-full md:w-7/12 lg:w-1/2 h-screen
+}
+
+.board__text {
+  @apply text-right font-josefin text-base
+}
+
+.register__options {
+  @apply flex items-center justify-between w-full h-28 rounded-md px-7 py-6 cursor-pointer
+}
+
+.chosen-option {
+  @apply bg-basic-100 border border-basic
 }
 
 .driverauth {
@@ -197,6 +213,7 @@ h2 {
 .process--active {
   @apply bg-eco-green
 }
+
 .process__current {
   @apply text-[0.627rem] md:text-[21px] laptop:text-[23.51px] text-white font-bold
 }
@@ -360,45 +377,64 @@ h2 {
   border-color: #fafafa;
 }
 
-.service-board {
-  @apply mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5;
+/******************** Service *******************/
+
+.service {
+  @apply py-10 tablet:py-20 laptop:py-32 overflow-hidden home-pad bg-neutral
 }
 
-.single-service-container {
-  @apply bg-white drop-shadow-service border border-eco-neutral-thick rounded-[21px] h-[219px] tablet:min-h-[235.44px] laptop:h-[327px] flex-center p-2;
+.service__title {
+  @apply max-w-[623px] mx-auto text-center font-josefin
+}
+
+.service__desc {
+  @apply mt-3 md:mt-7 text-center text-base tablet:text-xl laptop:text-2xl
+}
+
+.services {
+  @apply mt-10 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5;
 }
 
 .service-shadow {
   filter: drop-shadow(0 79px 32px rgba(0, 0, 0, 0.01)) drop-shadow(0 44px 26px rgba(0, 0, 0, 0.05));
 }
 
-.single-service {
+.service-card {
+  @apply bg-white drop-shadow-service border border-eco-neutral-thick rounded-[21px] h-[219px] tablet:min-h-[235.44px] laptop:h-[327px] flex-center p-2 service-shadow;
+}
+
+.service-card__content {
   @apply flex flex-col items-center text-center
 }
 
-.service-icon {
+.service__icon {
   @apply size-[43px] tablet:size-[46px] laptop:size-[65px] flex-center bg-eco-green-faint rounded-full
 }
 
-.service-title {
+.service-card__title {
   @apply text-xl tablet:text-2xl laptop:text-[2rem] text-eco-green-dark leading-[24px] tablet:leading-7 lg:leading-[38px] font-bold font-josefin;
 }
 
-.service-desc {
+.service-card__desc {
   @apply text-xxs tablet:text-xs laptop:text-base mt-[5px] laptop:mt-2 text-eco-neutral-prime
 }
 
-
-
+/************************ IMAGE ************/
+.image {
+  @apply size-full object-center object-cover
+}
 
 /********************* conect ***************/
 .connect {
   @apply h-[457px] md:min-h-[704px] flex-center bg-black/60 relative home-pad overflow-hidden
 }
 
-.connect-bg {
+.connect__bg {
   @apply size-full h-[457px] md:min-h-[704px] absolute top-0 left-0 -z-10
 }
+
+
+
 
 /************** footer ************/
 .footer {
@@ -436,6 +472,10 @@ h2 {
 
 .footer-link {
   @apply text-white text-base tablet:text-sm
+}
+
+.footer__copywright-text {
+  @apply text-base text-center mt-6 text-base-white
 }
 
 /***************************** support ****************/
@@ -540,7 +580,11 @@ h2 {
   @apply tablet:w-1/2 order-first tablet:order-last
 }
 
-/************ Teem **************/
+/**************************** meet ***************/
+#meet {
+  @apply home-pad flex-center pb-14 tablet:py-[65px]
+}
+
 .team-board {
   @apply grid grid-cols-1 tablet:grid-cols-3 w-full mt-10 gap-7 mx-auto
 }
@@ -550,9 +594,10 @@ h2 {
 }
 
 
-.team-member-details {
+.team-member__details {
   @apply mt-4 flex flex-col gap-2
 }
+
 
 /**************** Alert **********/
 .alert-container {
@@ -573,27 +618,53 @@ h2 {
   @apply bg-transparent flex-center border border-eco-neutral-prime rounded-full size-10 p-0;
 }
 
+
+/* .mobile-header {
+  @apply flex items-center justify-between px-[17px] py-3 md:hidden w-full bg-white/[6%] backdrop-blur-2xl;
+  } */
+
+.mobile-header {
+  @apply flex items-center justify-between px-[15px] py-3 md:hidden absolute z-50 w-full bg-eco-white/[6%] backdrop-blur-3xl h-16
+}
+
+.mobile-navigation {
+  @apply flex h-full flex-col gap-6 pt-16 text-white
+}
+
+.mobile-navigation__text {
+  @apply text-base font-bold text-eco-green
+}
+
+.mobile-header__title {
+  @apply font-bold text-xl
+}
+
+
+.profile-nav__icon {
+  @apply size-5 flex-center relative
+}
+
+.indicator {
+  @apply absolute top-0 right-0 bg-red-500 size-2 rounded-full
+}
+
 .header {
   @apply md:absolute z-20 w-full top-[5vh] home-pad;
 }
 
-/* .mobile-header {
-  @apply flex items-center justify-between px-[17px] py-3 md:hidden w-full bg-white/[6%] backdrop-blur-2xl;
-} */
-
-.mobile-header {
-  @apply flex items-center justify-between px-[15px] py-3 md:hidden absolute z-50 w-full bg-eco-white/[6%] backdrop-blur-3xl
-}
-
-.header-container {
+.header__content {
   @apply hidden md:flex items-center justify-between border-2 border-eco-green/40 h-[4.75rem] rounded-[40px] px-[17px] p-2
 }
 
-.header-con-blur {
+.header__content--blur {
   @apply bg-eco-neutral/20 backdrop-blur-lg;
 }
 
-.header-user-circle {
+.header__profile-nav-board {
+  @apply flex items-center gap-[0.65rem] md:gap-3
+}
+
+.photo-circle {
   @apply size-8 md:size-12 flex-center text-xl md:text-3xl font-bold rounded-full bg-eco-green-dark text-white font-josefin
 }
 
@@ -716,20 +787,50 @@ h2 {
 
 /* MODAL */
 .modal-container {
-  @apply w-full h-screen fixed top-0 left-0 z-50 flex items-start bg-black/50 home-pad overflow-y-scroll py-20;
+  @apply w-full h-screen fixed top-0 left-0 z-50 flex-center bg-black/50 home-pad overflow-y-scroll py-20;
 }
 
 .modal {
-  @apply bg-white rounded-xl relative mx-auto
+  @apply bg-white relative mx-auto
+}
+
+.modal__choose {
+  @apply w-[94%] min-h-[348px] md:w-[47%] md:max-w-[478px] rounded-[12px]
+}
+
+
+.modal__map {
+  @apply w-full md:w-[617px] md:min-h-[80vh] laptop:w-[715px] py-8 md:py-10 px-5 md:px-7 rounded-[14px] md:mt-[20vh]
+}
+
+.map {
+  @apply w-full max-w-[653px] h-[150px] md:h-[247px] bg-gray-500 flex-center rounded-[27px];
+}
+
+.modal-map__heading {
+  @apply text-center max-w-[520px] mx-auto
+}
+
+.modal-map__title {
+  @apply md:mt-6 font-josefin !text-2xl
+}
+
+.modal-map__desc {
+  @apply text-base md:text-eiteen text-neutral-500
+}
+
+.ride-request__form {
+  @apply max-w-[520px] mx-auto mt-6 flex flex-col gap-[13px]
+}
+
+.modal__map-input-field {
+  @apply h-[59px] border border-eco-neutral-prime py-4 px-5 rounded-md bg-white flex items-center justify-between
 }
 
 .rate-modal {
   @apply flex-center flex-col w-full max-w-[600px] h-[483px]
 }
 
-.choose-modal {
-  @apply w-full max-w-[478px] min-h-[348px] py-4 px-3 mx-auto
-}
 
 .detail-modal {
   @apply w-full tablet:w-[715px] md:min-h-[80vh] py-5 md:py-10 px-3 md:px-7
@@ -759,9 +860,6 @@ h2 {
 
 
 
-.location-map {
-  @apply w-full max-w-[653px] h-[150px] md:h-[247px] bg-gray-500 flex-center rounded-[27px];
-}
 
 /* .location-map .leaflet-container {
   @apply h-full w-full

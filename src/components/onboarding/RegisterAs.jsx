@@ -1,18 +1,18 @@
 import { account_types } from "../../constants";
 import Heading from "../shared/Heading";
 import { Link } from "react-router-dom";
-import RegularList from "../shared/RegularList";
 import RegisterAsLink from "./RegisterAsLink";
 import { addItemToLs } from "../../utils/ls";
+import RegularList from "../shared/_design-pattern/RegularList";
 
 const RegisterAs = () => {
   const goToLoginPage = () => {
-    addItemToLs('onboarding-process', 0)
+    addItemToLs("onboarding-process", 0);
     addItemToLs("registeringAs", "Login");
   };
   return (
     <div className="board__register">
-      <p className="text-right font-josefin text-base">
+      <p className="board__text mr-[120px]">
         Already have an account?{" "}
         <Link
           to="/onboarding/registration"
@@ -23,18 +23,16 @@ const RegisterAs = () => {
         </Link>
       </p>
 
-      <div className="mt-[10.5rem]">
-        <Heading
-          title="Join Us!"
-          description="To begin, select your kind of account"
-        />
-
-        <div className="mt-10 flex flex-col gap-y-6">
-          <RegularList
-            itemsToDisplay={account_types}
-            resourceName="link"
-            itemComponent={RegisterAsLink}
+      <div className="h-[92vh] flex-center">
+        <div className="w-full md:w-[55%]">
+          <Heading
+            title="Join Us!"
+            description="To begin, select your kind of account"
           />
+
+          <div className="mt-10 flex flex-col gap-y-6">
+            <RegularList list={account_types} component={RegisterAsLink} />
+          </div>
         </div>
       </div>
     </div>

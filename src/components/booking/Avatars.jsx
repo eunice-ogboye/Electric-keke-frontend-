@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import React from "react";
 
-const Avatars = ({modalContent}) => {
+const Avatars = ({type}) => {
   return (
     <motion.div
       variants={{
@@ -18,7 +18,7 @@ const Avatars = ({modalContent}) => {
       }}
       className="h-14 w-[7.5rem] relative mx-auto mt-[1.5rem] isolate"
     >
-      {getAvatars(modalContent).map((item, index) => {
+      {getAvatars(type).map((item, index) => {
         return (
           <motion.div
             variants={{

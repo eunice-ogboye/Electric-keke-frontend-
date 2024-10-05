@@ -3,14 +3,13 @@ import dispatchables from "../../utils/dispatchables";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-const RegisterAsLink = ({ link }) => {
-  const { title, icon, role } = link;
+const RegisterAsLink = ({ title, icon, role }) => {
   const { registerAs } = useSelector((state) => state.global);
   const { chooseRole } = dispatchables();
   return (
     <Link to="/onboarding/registration" key={title}>
       <div
-        className={`registerAs-opt ${role === registerAs && "chosen-role"}`}
+        className={`register__options ${role === registerAs && "chosen-option"}`}
         onMouseOver={() => {
           chooseRole(role);
           addItemToLs("onboarding-process", 0);

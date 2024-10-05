@@ -2,6 +2,7 @@ import { footer_note, socials } from "../../constants";
 import Logo from "../shared/Logo";
 import { motion } from "framer-motion";
 import { HashLink as Link } from "react-router-hash-link";
+import RegularList from "./_design-pattern/RegularList";
 
 const Footer = () => {
   return (
@@ -47,23 +48,21 @@ const Footer = () => {
           <div className="socials">
             <h3 className="footer-link-title">social media</h3>
             <ul className="flex items-center gap-5 mt-5">
-              {socials.map((item) => {
-                return (
-                  <div
-                    key={item.title}
-                    className="social-link"
-                  >
-                    <img src={item.icon} alt={item.title} />
+              <RegularList
+                list={socials}
+                component={({ title, icon }) => (
+                  <div className="social-link">
+                    <img src={icon} alt={title} />
                   </div>
-                );
-              })}
+                )}
+              />
             </ul>
           </div>
         </motion.div>
         <motion.p
           initial={{ y: -200 }}
           animate={{ y: 0 }}
-          className="text-base text-center mt-6 text-base-white footer-copywright"
+          className="footer__copywright-text"
         >
           All rights reserved. Copyright © 2024 | Eco-Ride
         </motion.p>

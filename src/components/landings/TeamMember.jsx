@@ -7,8 +7,8 @@ const TeamMember = ({photo, name, location, role}) => {
         <img src={photo} alt={name} className='size-full' />
       </div>
 
-      <div className='team-member-details'>
-        <h4 className='text-base font-semibold'>{name}</h4>
+      <div className='team-member__details'>
+        <h4 className='font-semibold'>{name}</h4>
         <p className='text-xs text-eco-neutral-prime'>{location}</p>
         <p className='text-xs text-eco-green'>{role}</p>
       </div>

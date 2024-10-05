@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Logo from "./Logo";
-import Btn from "./Btn";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
 import { getItemFromLs } from "../../utils/ls";
 import dispatchables from "../../utils/dispatchables";
 import Bell from "../../assets/svg/Bell";
+import Btn from "./btn/Btn";
 
 const Header = ({ darkLogo, blur }) => {
   const { changeAuthenticationPage } = dispatchables();
@@ -14,28 +14,28 @@ const Header = ({ darkLogo, blur }) => {
 
   return (
     <header className="header">
-      <div className={`header-container ${blur && "header-con-blur"}`}>
+      <div className={`header__content ${blur && "header__content--blur"}`}>
         <Logo />
         <NavBar dark={darkLogo} />
 
         {user ? (
-          <div className="flex items-center gap-3">
+          <div className="header__profile-nav-board">
             <Link to="/notification">
               <div className="relative">
-                <span className="absolute top-0 right-0 bg-red-500 size-2 rounded-full" />
+                <span className="indicator" />
                 <Bell color={blur && "white"} />
               </div>
             </Link>
 
             <Link to={`/profile/${user?.id}`}>
-              <div className="header-user-circle">{user.fullname[0]}</div>
+              <div className="photo-circle">{user.fullname[0]}</div>
             </Link>
           </div>
         ) : (
           <Btn
             text="Sign Up"
-            to="/onboarding"
-            handleClick={() => changeAuthenticationPage("start")}
+            href="/onboarding"
+            styling="btn--hero btn--primary w-[171px]"
           />
         )}
       </div>

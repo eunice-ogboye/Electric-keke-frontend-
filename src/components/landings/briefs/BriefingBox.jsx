@@ -2,6 +2,7 @@ import CustomizedBtn from "../../../components/shared/CustomizedBtn";
 import Heading from "../../../components/shared/Heading";
 import { motion } from "framer-motion";
 import EarnRequirements from "../EarnRequirements";
+import Btn from "@/components/shared/btn/Btn";
 
 const BriefingBox = ({ brief, type }) => {
   const {
@@ -39,9 +40,9 @@ const BriefingBox = ({ brief, type }) => {
             />
             {showBtn && (
               <div className="mt-8">
-                <CustomizedBtn
+                <Btn
                   text="Learn More"
-                  className="w-[171px] h-12 tablet:h-14 flex-center rounded-full primary-btn"
+                  styling="btn--hero btn--primary w-[171px]"
                 />
               </div>
             )}

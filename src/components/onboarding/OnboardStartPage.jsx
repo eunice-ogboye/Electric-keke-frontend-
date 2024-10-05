@@ -20,7 +20,7 @@ const OnboardStartPage = () => {
         <img
           src="/hero/registerAs.png"
           alt="register as"
-          className="ovelay-img"
+          className="image"
         />
       </div>
       <RegisterAs />

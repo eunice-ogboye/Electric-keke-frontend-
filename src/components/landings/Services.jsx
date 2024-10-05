@@ -1,20 +1,17 @@
 import { about_descriptions, about_titles, services } from "../../constants";
+import RegularList from "../shared/_design-pattern/RegularList";
 import Heading from "../shared/Heading";
-import RegularList from "../shared/RegularList";
 import Service from "./Service";
 
 const Services = ({ type = "main" }) => {
   return (
-    <div
-      className="py-10 tablet:py-20 laptop:py-32 overflow-hidden home-pad bg-eco-white"
-      id="services"
-    >
+    <section className="service" id="services">
       <Heading
         introTitle={type === "main" && "Service"}
         title={type === "main" ? about_titles.two : "What We Offer"}
-        tclass="max-w-[623px] mx-auto text-center service-heading font-josefin"
+        tclass="service__title"
         description={type === "main" && about_descriptions.two}
-        dclass="mt-3 md:mt-7 text-center text-base tablet:text-xl laptop:text-2xl"
+        dclass="service__desc"
         introClass="mx-auto text-eco-green"
         type="about"
         initial={{ y: type === "main" ? -100 : -50, opacity: 0 }}
@@ -23,14 +20,10 @@ const Services = ({ type = "main" }) => {
         animatep={{ opacity: 1, x: 0 }}
       />
 
-      <div className="service-board">
-        <RegularList
-          itemsToDisplay={services}
-          resourceName="service"
-          itemComponent={Service}
-        />
+      <div className="services">
+        <RegularList list={services} component={Service} />
       </div>
-    </div>
+    </section>
   );
 };
 

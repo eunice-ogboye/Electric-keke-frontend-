@@ -43,7 +43,8 @@ module.exports = {
         xxs: "0.625rem",
       },
       colors: {
-        primary: {
+        basic: {
+          DEFAULT: "#77BB77",
           100: "#E8F4E8",
           200: "#D2E8D2",
           300: "#BBDDBB",
@@ -168,11 +169,16 @@ module.exports = {
         connect: "#F2F4F5",
       },
       borderRadius: {
+        sharp: "0px",
+        xs: "2px",
+        s: "4px",
+        sm: "6px",
+        m: "10px",
+        ml: "16px",
+        lg: "24px",
+        xl: "36px",
         20: "20px",
         normal: "36px",
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
         "accordion-down": {

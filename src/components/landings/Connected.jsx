@@ -7,7 +7,7 @@ const Connected = ({ type = "main" }) => {
   return (
     <section id="connect">
       <div className="connect">
-        <div className="connect-bg">
+        <div className="connect__bg">
           <img
             src={
               type === "main"
@@ -15,7 +15,7 @@ const Connected = ({ type = "main" }) => {
                 : "/earn_connected_bg.png"
             }
             alt="earn_connected"
-            className="size-full object-center object-cover"
+            className="image"
           />
         </div>
         <div className="max-w-[894px]">
