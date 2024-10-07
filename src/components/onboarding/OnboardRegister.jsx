@@ -14,6 +14,7 @@ import RiderStep4 from "./riders/RiderStep4";
 import RiderStep3 from "./riders/RiderStep3";
 import RiderStep5 from "./riders/RiderStep5";
 import Processing from "./riders/Processing";
+import { OnboardingProvider } from "@/contexts/OnboardingContext";
 
 const OnboardRegister = () => {
   const registeringAs = getItemFromLs("registeringAs");
@@ -25,41 +26,43 @@ const OnboardRegister = () => {
   };
 
   return (
-    <section>
-      {registeringAs === "User" && (
-        <OnboardingForm runOnFinish={runOnFinish}>
-          <Step1 />
-          <Step2 />
-          <PassengerStep3 />
-          <PassengerStep4 />
-          <Congrats />
-        </OnboardingForm>
-      )}
+    <OnboardingProvider>
+      <section>
+        {registeringAs === "User" && (
+          <OnboardingForm runOnFinish={runOnFinish}>
+            <Step1 />
+            <Step2 />
+            <PassengerStep3 />
+            <PassengerStep4 />
+            <Congrats />
+          </OnboardingForm>
+        )}
 
-      {registeringAs === "Rider" && (
-        <OnboardingForm
-          runOnFinish={() => {
-            alert("finished the driver auth");
-          }}
-        >
-          <Step1 />
-          <Step2 />
-          <RiderStep3 />
-          <RiderStep4 />
-          <RiderStep5 />
-          <Processing />
-        </OnboardingForm>
-      )}
+        {registeringAs === "Rider" && (
+          <OnboardingForm
+            runOnFinish={() => {
+              alert("finished the driver auth");
+            }}
+          >
+            <Step1 />
+            <Step2 />
+            <RiderStep3 />
+            <RiderStep4 />
+            <RiderStep5 />
+            <Processing />
+          </OnboardingForm>
+        )}
 
-      {registeringAs === "Login" && (
-        <OnboardingForm runOnFinish={runOnFinish}>
-          <Login />
-          <ForgetPassword />
-          <VerifyOtp />
-          <NewPassword />
-        </OnboardingForm>
-      )}
-    </section>
+        {registeringAs === "Login" && (
+          <OnboardingForm runOnFinish={runOnFinish}>
+            <Login />
+            <ForgetPassword />
+            <VerifyOtp />
+            <NewPassword />
+          </OnboardingForm>
+        )}
+      </section>
+    </OnboardingProvider>
   );
 };
 

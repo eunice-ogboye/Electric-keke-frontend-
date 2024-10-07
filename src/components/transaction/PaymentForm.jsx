@@ -1,7 +1,6 @@
-import React from "react";
 import FormRow from "../shared/FormRow";
-import Btn from "../shared/Btn";
 import dispatchables from "../../utils/dispatchables";
+import Btn from "../shared/btn/Btn";
 
 const PaymentForm = () => {
   const { openModalWithContent } = dispatchables();
@@ -50,8 +49,8 @@ const PaymentForm = () => {
 
       <Btn
         text="Pay Now"
-        size="full"
-        handleClick={() => openModalWithContent("Pay for ride")}
+        styling="w-full btn--hero btn--primary"
+        // handleClick={() => openModalWithContent("Pay for ride")}
       />
     </form>
   );

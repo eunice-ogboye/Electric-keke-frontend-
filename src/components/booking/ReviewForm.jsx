@@ -1,20 +1,23 @@
 import { deletItemFromLs } from "../../utils/ls";
 import dispatchables from "../../utils/dispatchables";
-import CustomizedBtn from "../shared/CustomizedBtn";
+import Btn from "../shared/btn/Btn";
+import { useRef } from "react";
 
-const ReviewForm = ({ rateValue }) => {
-  const { flipModal, showAlert } = dispatchables();
+const ReviewForm = ({ rateValue, setRateDriver }) => {
+  const commentRef = useRef()
+  const { showAlert } = dispatchables();
 
-  const handleClick = () => {
-    showAlert(`${rateValue} ride complete`);
-    flipModal(false);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    showAlert(`${rateValue} ${commentRef.current.value} ride complete`);
     deletItemFromLs("book-data");
     deletItemFromLs("rider");
     deletItemFromLs("current-ride");
+    setRateDriver(false);
   };
 
   return (
-    <form className="w-full px-5">
+    <form className="w-full px-5" onSubmit={handleSubmit}>
       <label className="w-full">
         <span className="block text-base font-semibold">Comment</span>
         <textarea
@@ -23,14 +26,11 @@ const ReviewForm = ({ rateValue }) => {
           cols="30"
           rows="3"
           className="px-3 py-2 w-full resize-none"
+          ref={commentRef}
         />
       </label>
-      <CustomizedBtn
-        href="/"
-        text="Send"
-        className="w-full h-14 primary-btn"
-        handleClick={handleClick}
-      />
+
+      <Btn href="/" text="Send" styling="btn btn--primary btn--lg w-full" onClick={handleSubmit} />
     </form>
   );
 };

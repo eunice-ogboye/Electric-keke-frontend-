@@ -11,7 +11,6 @@ const initialState = {
   ridersList: getItemFromLs("ridersList") || [],
   rider: null,
   support: "faq",
-  supportOption: "General",
   registerAs: "User",
   verificationType: "activate",
   loading: false,

@@ -1,22 +1,15 @@
+import Btn from "@/components/shared/btn/Btn";
 import RiderShared from "./RiderShared";
-import CustomizedBtn from "@/components/shared/CustomizedBtn";
 import Heading from "@/components/shared/Heading";
 import { driver_authProcess } from "@/constants";
+import { useGlobalOnboardContext } from "@/contexts/OnboardingContext";
 import dispatchables from "@/utils/dispatchables";
 
 const RiderStep5 = ({ prevProcess, nextProcess }) => {
-  const { openModalWithContent } = dispatchables();
-
-  const handleClick = () => {
-    openModalWithContent(
-      "driver-auth",
-      "md:max-w-[680px] laptop:max-w-[800px]",
-      nextProcess
-    );
-  };
+  const { openUploadModal } = useGlobalOnboardContext();
 
   return (
-    <RiderShared>
+    <RiderShared nextProcess={nextProcess}>
       <div className="driverauth">
         <div className="driverauth__img">
           <div className="size-full">
@@ -37,10 +30,10 @@ const RiderStep5 = ({ prevProcess, nextProcess }) => {
             dclass="driverauth__desc"
           />
 
-          <CustomizedBtn
+          <Btn
             text="Upload Driver's License"
-            className="btn btn--primary btn__driverauth"
-            handleClick={handleClick}
+            styling="btn btn--primary btn__driverauth"
+            onClick={openUploadModal}
           />
         </div>
       </div>

@@ -6,20 +6,15 @@ import dispatchables from "../../utils/dispatchables";
 import { useCurrentUser } from "../../hooks/useCurrentUser";
 import { memo } from "react";
 import Btn from "../shared/btn/Btn";
-import NewModal from "../shared/NewModal";
 import ChooseModal from "../shared/modals/ChooseModal";
 
 const HeroCta = ({ type }) => {
   const user = useCurrentUser();
   const dispatch = useDispatch();
   // const navigate = useNavigate();
-  const { openModalWithContent } = dispatchables();
   // redux dispatch and globals
-  const { support, supportOption } = useSelector((state) => state.global);
-
-  const chooseHowToRide = (key, value) => {
-    dispatch(updateBookingData({ key, value }));
-  };
+  const {} = dispatchables();
+  const { support } = useSelector((state) => state.global);
 
   // what kind of support
   const whatSupport = (key) => {

@@ -4,11 +4,11 @@ import { useAreInputsFilled } from "../../../hooks/useAreInputsFilled";
 import Logo from "../../shared/Logo";
 import Heading from "../../shared/Heading";
 import ReusableFormRows from "../../auth/ReusableFormRows";
-import CustomizedBtn from "../../shared/CustomizedBtn";
 import SharedStepLayout from "../SharedStepLayout";
 import dispatchables from "../../../utils/dispatchables";
 import { ResetPassword } from "../../../services/auth";
 import { getItemFromLs } from "../../../utils/ls";
+import Btn from "@/components/shared/btn/Btn";
 
 const NewPassword = ({ nextProcess }) => {
   const { password, re_password } = useSelector((state) => state.formData);
@@ -47,9 +47,9 @@ const NewPassword = ({ nextProcess }) => {
             </div>
 
             <div className="max-w-[343px] mx-auto mt-14">
-              <CustomizedBtn
+              <Btn
                 text="Continue"
-                className="primary-btn h-14 w-full rounded-full"
+                styling="btn btn--primary btn--lg w-full rounded-full"
                 disabled={isDisbaled}
               />
             </div>

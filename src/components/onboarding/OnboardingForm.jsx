@@ -19,7 +19,7 @@ const OnboardingForm = ({ children, runOnFinish }) => {
 
   const prevProcess = () => {
     const prevProcessIndex = currentProcessIndex - 1;
-    console.log(currentProcessIndex)
+    console.log(currentProcessIndex);
     if (prevProcessIndex >= 0) {
       setCurrentProcessIndex(prevProcessIndex);
       addItemToLs("onboarding-process", prevProcessIndex);
@@ -29,10 +29,16 @@ const OnboardingForm = ({ children, runOnFinish }) => {
     }
   };
 
-  const currentChild = Children.toArray(children)[currentProcessIndex];
+  const testProcess = () => console.log("testing");
 
+  const currentChild = Children.toArray(children)[currentProcessIndex];
+  // will be testing this soon passing it to the shared layout to have one global modal for uploading images
   if (isValidElement(currentChild)) {
-    return cloneElement(currentChild, { nextProcess, prevProcess });
+    return cloneElement(currentChild, {
+      nextProcess,
+      prevProcess,
+      testProcess,
+    });
   }
 
   return currentChild;

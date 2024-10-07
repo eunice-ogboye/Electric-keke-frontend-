@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Btn from "../../components/shared/Btn";
+import Btn from "../../components/shared/btn/Btn";
 import {
   rideStatusLsUpdate,
   rideStatusUpdateRequest,
@@ -9,7 +9,7 @@ import { UpdateBooking } from "../../services/bookings";
 const TrackDetails = ({ role, origin, destination, price, status }) => {
   const navigate = useNavigate();
 
-  const riderHandlClick = async () => {
+  const startTrip = async () => {
     const rideToUpdateData = rideStatusUpdateRequest("in_progress");
 
     try {
@@ -21,7 +21,7 @@ const TrackDetails = ({ role, origin, destination, price, status }) => {
     }
   };
 
-  const passengerHandleClick = async () => {
+  const declineTrip = async () => {
     const rideToUpdateData = rideStatusUpdateRequest("cancelled");
 
     try {
@@ -47,7 +47,8 @@ const TrackDetails = ({ role, origin, destination, price, status }) => {
         <div className="ride-fare">#{price}</div>
         <Btn
           text={role === "User" ? "Cancel Ride" : "Start Trip"}
-          handleClick={role === "User" ? passengerHandleClick : riderHandlClick}
+          styling="btn btn--hero btn--primary w-[244px]"
+          onClick={role === "User" ? declineTrip : startTrip}
           disabled={status}
         />
       </div>

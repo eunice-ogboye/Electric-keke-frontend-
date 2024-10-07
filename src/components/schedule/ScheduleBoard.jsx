@@ -1,5 +1,5 @@
 import dispatchables from "../../utils/dispatchables";
-import Btn from "../shared/Btn";
+import Choose from "../shared/Choose";
 import Map from "../shared/Map";
 
 const ScheduleBoard = ({ scheduleFormData }) => {
@@ -47,7 +47,13 @@ const ScheduleBoard = ({ scheduleFormData }) => {
           </div>
 
           <div className="flex items-end gap-4 mt-6">
-            <Btn
+            <Choose
+              choice1txt="Proceed"
+              choice2txt="Cancel"
+              handleChoice1={() => showAlert("processing your schedule")}
+              handleChoice2={() => showAlert("dropping changes")}
+            />
+            {/* <Btn
               text="Proceed"
               size="sm"
               handleClick={() => showAlert("processing your schedule")}
@@ -57,7 +63,7 @@ const ScheduleBoard = ({ scheduleFormData }) => {
               type="secondary"
               size="sm"
               handleClick={() => showAlert("dropping changes")}
-            />
+            /> */}
           </div>
         </div>
 

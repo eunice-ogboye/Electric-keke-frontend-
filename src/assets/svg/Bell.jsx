@@ -1,10 +1,10 @@
 import React from "react";
 
-const Bell = ({ color }) => {
+const Bell = ({ color, size }) => {
   return (
     <svg
-      width="36"
-      height="36"
+      width={size || 36}
+      height={size || 36}
       viewBox="0 0 30 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Btn = ({
   text,
   icon,
-  position,
+  position = "left",
   styling,
   addedStyles,
   href,

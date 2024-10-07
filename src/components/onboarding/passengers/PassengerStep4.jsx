@@ -1,7 +1,6 @@
 import React from "react";
 import SharedStepLayout from "../SharedStepLayout";
 import Assurance from "../../auth/Assurance";
-import CustomizedBtn from "../../shared/CustomizedBtn";
 import ResendOtpTab from "../../auth/ResendOtpTab";
 import OtpInput from "../../OtpInput";
 import Logo from "../../shared/Logo";
@@ -11,6 +10,7 @@ import { changeInputValue } from "../../../store/slices/form-data-slice";
 import { useAreInputsFilled } from "../../../hooks/useAreInputsFilled";
 import { ActivateUser } from "../../../services/auth";
 import { deletItemFromLs, getItemFromLs } from "../../../utils/ls";
+import Btn from "@/components/shared/btn/Btn";
 
 const PassengerStep4 = ({ nextProcess }) => {
   const { otpValue } = useSelector((state) => state.formData);
@@ -69,9 +69,9 @@ const PassengerStep4 = ({ nextProcess }) => {
             </div>
 
             <div className="max-w-[343px] mx-auto space-y-4 mt-6 lg:mt-14">
-              <CustomizedBtn
+              <Btn
                 text="Continue"
-                className="h-14 w-full rounded-full bg-eco-green"
+                styling="btn--lg btn w-full rounded-full btn--primary"
                 disabled={isDisbaled}
               />
               <Assurance />

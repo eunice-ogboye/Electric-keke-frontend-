@@ -1,6 +1,5 @@
 import React from "react";
 import SharedStepLayout from "../SharedStepLayout";
-import CustomizedBtn from "../../shared/CustomizedBtn";
 import { Link, useNavigate } from "react-router-dom";
 import ForgetTab from "../../auth/ForgetTab";
 import ReusableFormRows from "../../auth/ReusableFormRows";
@@ -13,6 +12,7 @@ import dispatchables from "../../../utils/dispatchables";
 import { useGlobalAuthContext } from "../../../contexts/AuthContext";
 import { LoginUser } from "../../../services/auth";
 import { addItemToLs } from "../../../utils/ls";
+import Btn from "@/components/shared/btn/Btn";
 
 const Login = ({ nextProcess }) => {
   const navigate = useNavigate();
@@ -59,9 +59,9 @@ const Login = ({ nextProcess }) => {
             <div className=" mt-14">
               <ForgetTab nextProcess={nextProcess} />
               <div className="w-[343px] mx-auto border">
-                <CustomizedBtn
+                <Btn
                   text="Login"
-                  className="primary-btn h-14 w-full rounded-full"
+                  styling="btn btn--lg btn--primary w-full rounded-full"
                   disabled={isDisbaled}
                 />
 
@@ -73,9 +73,9 @@ const Login = ({ nextProcess }) => {
                     </Link>
                   </p>
 
-                  <CustomizedBtn
+                  <Btn
                     text="Continue with Google"
-                    className="w-full h-14 rounded-full bg-white shadow-md text-black"
+                    styling="w-full h-14 rounded-full bg-white shadow-md text-black"
                     icon={<Google />}
                   />
                 </div>

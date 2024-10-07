@@ -12,7 +12,7 @@ const RegisterAs = () => {
   };
   return (
     <div className="board__register">
-      <p className="board__text mr-[120px]">
+      <p className="board__text mr-5 laptop:mr-[120px]">
         Already have an account?{" "}
         <Link
           to="/onboarding/registration"

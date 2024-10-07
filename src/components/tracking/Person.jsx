@@ -1,16 +1,11 @@
-import dispatchables from "../../utils/dispatchables";
-import CustomizedBtn from "../shared/CustomizedBtn";
-import Call from "../../assets/svg/Call";
 import Chat from "../../assets/svg/Chat";
 import { useNavigate } from "react-router-dom";
+import ContactModal from "../shared/modals/ContactModal";
+import Btn from "../shared/btn/Btn";
 
 const Person = ({ role, fullname }) => {
   const navigate = useNavigate();
-  const { openModalWithContent } = dispatchables();
 
-  function handleClick() {
-    openModalWithContent("contact passenger");
-  }
 
   return (
     <div className="person-details">
@@ -28,17 +23,13 @@ const Person = ({ role, fullname }) => {
           {role === "User" && <p className="rider-status">On his way...</p>}
         </div>
 
-        <div>
-          <CustomizedBtn
+        <div className="flex items-center">
+          <Btn
             icon={<Chat />}
             className="bg-transparent"
-            handleClick={() => navigate("/chat")}
+            onClick={() => navigate("/chat")}
           />
-          <CustomizedBtn
-            icon={<Call type="rider" />}
-            className="bg-transparent"
-            handleClick={handleClick}
-          />
+          <ContactModal />
         </div>
       </div>
     </div>

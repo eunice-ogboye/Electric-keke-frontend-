@@ -1,6 +1,5 @@
 import Rate from "../../components/xp/Rate";
 import React, { useEffect, useState } from "react";
-import Btn from "../../components/shared/Btn";
 import { useNavigate } from "react-router-dom";
 import Heading from "../../components/shared/Heading";
 import { AnimatePresence, motion } from "framer-motion";
@@ -11,27 +10,27 @@ import { BookRide, GetListOfBookings } from "../../services/bookings";
 import { riderParentVariant } from "../../constants/variants";
 import LoadBooking from "./LoadBooking";
 import RiderPicture from "./RiderPicture";
-import { useSocket } from "../../hooks/useSocket";
+import Btn from "@/components/shared/btn/Btn";
 
 const RiderInfo = () => {
-  const { showAlert } = dispatchables();
-  const socket = useSocket();
+  const { showAlert, loading, unloading } = dispatchables();
 
   const [waiting, setWaiting] = useState(false);
   const [rider, setRider] = useState(getItemFromLs("rider") || null);
   const navigate = useNavigate();
 
   const submitBooking = async () => {
-    setWaiting(true);
+    loading();
     const bookData = getItemFromLs("book-data");
-    socket.emit('new-booking')
+    // socket.emit('new-booking')
     try {
       const booking = await BookRide(bookData);
-      console.log(booking)
+      console.log(booking);
       showAlert("Ride Booking Succefull, Wait a moment");
+      setWaiting(true);
 
       // will be emitting an event here
-      socket.emit('request-ride')
+      // socket.emit('request-ride')
 
       // this code below from here need to be extracted becosuse this showuld be only when driver accepts
       // const bookingList = await GetListOfBookings();
@@ -46,13 +45,15 @@ const RiderInfo = () => {
     } catch (error) {
       console.log(rider);
       showAlert(`Error Booking Ride with Rider ${rider.fullname}`);
+    } finally {
+      unloading();
     }
   };
 
   return (
     <AnimatePresence>
       {waiting ? (
-        <LoadBooking />
+        <LoadBooking setRider={setRider} />
       ) : (
         <motion.div
           initial="out"
@@ -89,9 +90,9 @@ const RiderInfo = () => {
 
                 <div className="mt-4 md:hidden">
                   <Btn
-                    size="full"
+                    styling="w-full btn btn--lg btn--primary"
                     text="Request Ride"
-                    handleClick={submitBooking}
+                    onClick={submitBooking}
                   />
                 </div>
               </motion.div>

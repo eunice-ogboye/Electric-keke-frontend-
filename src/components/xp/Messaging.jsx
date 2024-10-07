@@ -1,5 +1,4 @@
-import React from "react";
-import Btn from "../shared/Btn";
+import Btn from "../shared/btn/Btn";
 
 const Messaging = () => {
   return (
@@ -19,7 +18,7 @@ const Messaging = () => {
           className="w-9/12 pl-4 outline-none border-none"
         />
         <div className="w-3/12">
-          <Btn text="Send" size="full" />
+          <Btn text="Send" styling="w-full btn btn--lg btn--primary" />
         </div>
       </div>
     </div>

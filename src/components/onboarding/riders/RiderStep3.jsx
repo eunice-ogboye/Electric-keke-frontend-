@@ -1,42 +1,48 @@
 import RiderShared from "./RiderShared";
 import Heading from "@/components/shared/Heading";
-import CustomizedBtn from "@/components/shared/CustomizedBtn";
 import { driver_authProcess } from "@/constants";
 import dispatchables from "@/utils/dispatchables";
+import UploadImageModal from "@/components/shared/modals/UploadImageModal";
+import { useState } from "react";
+import Btn from "@/components/shared/btn/Btn";
+import { useGlobalOnboardContext } from "@/contexts/OnboardingContext";
 
 const RiderStep3 = ({ nextProcess, prevProcess }) => {
-  const { openModalWithContent } = dispatchables();
-
-  const handleClick = () => {
-    openModalWithContent("driver-auth", "md:max-w-[680px] laptop:max-w-[800px]", nextProcess);
-  };
+  const { openUploadModal } = useGlobalOnboardContext();
 
   return (
-    <RiderShared>
-      <div className="driverauth">
-        <div className="driverauth__img">
-          <div className="size-full">
-            <img src={driver_authProcess[0].img} alt={driver_authProcess[0].title} className="size-full" />
+    <>
+      {/* {isModalOpen && <UploadImageModal nextProcess={nextProcess} />} */}
+      <RiderShared nextProcess={nextProcess}>
+        <div className="driverauth">
+          <div className="driverauth__img">
+            <div className="size-full">
+              <img
+                src={driver_authProcess[0].img}
+                alt={driver_authProcess[0].title}
+                className="size-full"
+              />
+            </div>
+          </div>
+
+          <div>
+            <Heading
+              className="text-center"
+              tclass="driverauth__title"
+              title={driver_authProcess[0].title}
+              description={driver_authProcess[0].desc}
+              dclass="driverauth__desc"
+            />
+
+            <Btn
+              text="Upload Selfie"
+              className="btn btn--primary btn__driverauth"
+              onClick={openUploadModal}
+            />
           </div>
         </div>
-
-        <div>
-          <Heading
-            className="text-center"
-            tclass="driverauth__title"
-            title={driver_authProcess[0].title}
-            description={driver_authProcess[0].desc}
-            dclass="driverauth__desc"
-          />
-
-          <CustomizedBtn
-            text="Upload Selfie"
-            className="btn btn--primary btn__driverauth"
-            handleClick={handleClick}
-          />
-        </div>
-      </div>
-    </RiderShared>
+      </RiderShared>
+    </>
   );
 };
 

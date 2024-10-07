@@ -21,14 +21,14 @@ const Header = ({ darkLogo, blur }) => {
         {user ? (
           <div className="header__profile-nav-board">
             <Link to="/notification">
-              <div className="relative">
+              <div className="header__icon">
                 <span className="indicator" />
-                <Bell color={blur && "white"} />
+                <Bell size={40} color={blur && "white"} />
               </div>
             </Link>
 
             <Link to={`/profile/${user?.id}`}>
-              <div className="photo-circle">{user.fullname[0]}</div>
+              <div className="header__icon">{user.fullname[0]}</div>
             </Link>
           </div>
         ) : (

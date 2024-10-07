@@ -12,10 +12,9 @@
  */
 
 import { getItemFromLs } from "../../utils/ls";
-import Btn from "../../components/shared/Btn";
-import React from "react";
 import Logo from "../../components/shared/Logo";
 import Heading from "../../components/shared/Heading";
+import Btn from "@/components/shared/btn/Btn";
 
 const InternalServer = () => {
   const prev_page = getItemFromLs("prev_page");
@@ -32,7 +31,11 @@ const InternalServer = () => {
         />
 
         <div className="mt-6 flex-center">
-          <Btn text="Try Again" to={prev_page} />
+          <Btn
+            text="Try Again"
+            styling="btn btn--lg w-[171px] btn--primary"
+            href={prev_page}
+          />
         </div>
       </div>
     </section>

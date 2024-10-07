@@ -3,10 +3,7 @@ import dispatchables from "../../utils/dispatchables";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SettingListItem = ({ settingLink }) => {
-  const { openModalWithContent } = dispatchables();
-  const { href, title } = settingLink;
-
+const SettingListItem = ({ href, title, handleClick }) => {
   const SettingAsLink = () => {
     return (
       <Link to={href} className="setting-opts">
@@ -20,7 +17,7 @@ const SettingListItem = ({ settingLink }) => {
 
   const SettingMain = () => {
     return (
-      <li className="setting-opts" onClick={() => openModalWithContent(title)}>
+      <li className="setting-opts" onClick={() => handleClick(title)}>
         {title}
         <div className="hidden md:block">
           <ArrowRight />

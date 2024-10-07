@@ -1,5 +1,5 @@
 import React from "react";
-import CustomizedBtn from "./CustomizedBtn";
+import Btn from "./btn/Btn";
 
 const Choose = ({
   containerClass,
@@ -10,20 +10,21 @@ const Choose = ({
   addedClass2,
   handleChoice1,
   handleChoice2,
-  condition
+  condition,
 }) => {
-  
   return (
     <div className={containerClass}>
-      <CustomizedBtn
-        text={choice1txt || "No, Cancel"}
-        className={`${btnClass} ${addedClass1}`}
-        handleClick={handleChoice1}
+      <Btn
+        text={choice1txt}
+        styling={btnClass}
+        addedStyles={addedClass1}
+        onClick={handleChoice1}
       />
-      <CustomizedBtn
-        text={choice2txt || "Yes, Delete"}
-        className={`${btnClass} ${addedClass2}`}
-        handleClick={handleChoice2}
+      <Btn
+        text={choice2txt}
+        styling={btnClass}
+        addedStyles={addedClass2}
+        onClick={handleChoice2}
       />
     </div>
   );

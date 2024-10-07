@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { riderPictureContainer } from "../../constants/variants";
-import Btn from "../../components/shared/Btn";
+import Btn from "@/components/shared/btn/Btn";
 
 const RiderPicture = ({ rider, submitBooking }) => {
   return (
@@ -19,7 +19,7 @@ const RiderPicture = ({ rider, submitBooking }) => {
       </div>
 
       <div className="mt-4 hidden md:block">
-        <Btn size="full" text="Request Ride" handleClick={submitBooking} />
+        <Btn styling="w-full btn btn--lg btn--primary" text="Request Ride" onClick={submitBooking} />
       </div>
     </motion.div>
   );

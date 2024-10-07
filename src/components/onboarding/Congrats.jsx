@@ -1,9 +1,9 @@
 import React from "react";
 import SharedStepLayout from "./SharedStepLayout";
-import Btn from "../shared/Btn";
 import Heading from "../shared/Heading";
 import Logo from "../shared/Logo";
 import Assurance from "../auth/Assurance";
+import Btn from "../shared/btn/Btn";
 
 const Congrats = ({ nextProcess }) => {
   return (
@@ -28,8 +28,8 @@ const Congrats = ({ nextProcess }) => {
             <div className="mt-0 tablet:mt-14 max-w-[343px] mx-auto">
               <Btn
                 text="Proceed"
-                size="full"
-                handleClick={() => nextProcess()}
+                styling="w-full btn btn--hero btn--primary"
+                onClick={() => nextProcess()}
               />
               <Assurance />
             </div>

@@ -3,9 +3,9 @@ import FormRow from "../shared/FormRow";
 import DatePicker from "../shared/DatePicker";
 import CustomSelectItem from "../shared/CustomSelectItem";
 import SelectInput from "../shared/SelectInput";
-import Btn from "../shared/Btn";
 import generateTime from "../../utils/generateTime";
 import generateCount from "../../utils/generateCount";
+import Choose from "../shared/Choose";
 
 const ScheduleForm = ({
   scheduleType,
@@ -74,17 +74,13 @@ const ScheduleForm = ({
           label="Share a Ride"
           children={
             <div className="flex items-end justify-between gap-4 border">
-              <Btn
-                text="Yes"
-                type="secondary"
-                handleClick={() =>
+              <Choose
+                choice1txt="Yes"
+                choice2txt="No"
+                handleChoice1={() =>
                   setScheduleFormData((prev) => ({ ...prev, share: "Yes" }))
                 }
-              />
-              <Btn
-                text="No"
-                type="secondary"
-                handleClick={() =>
+                handleChoice2={() =>
                   setScheduleFormData((prev) => ({ ...prev, share: "No" }))
                 }
               />

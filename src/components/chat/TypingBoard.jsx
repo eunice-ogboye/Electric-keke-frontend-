@@ -1,7 +1,7 @@
 import Microphone from "../../assets/svg/Microphone";
-import CustomizedBtn from "../shared/CustomizedBtn";
 import Send from "../../assets/svg/Send";
 import DefaultMsg from "./DefaultMsg";
+import Btn from "../shared/btn/Btn";
 
 const TypingBoard = () => {
   return (
@@ -16,10 +16,10 @@ const TypingBoard = () => {
           />
 
           <div>
-            <CustomizedBtn icon={<Microphone />} className="bg-transparent" />
-            <CustomizedBtn
+            <Btn icon={<Microphone />} className="bg-transparent" />
+            <Btn
               icon={<Send color="#77BB77" />}
-              className="rounded-full size-[50px] -rotate-45 bg-eco-green-faint send-shadow"
+              styling="rounded-full size-[50px] -rotate-45 bg-basic-100 send-shadow"
             />
           </div>
         </div>

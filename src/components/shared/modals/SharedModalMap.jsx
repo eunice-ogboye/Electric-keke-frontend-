@@ -14,18 +14,14 @@ const SharedModalMap = ({ children, type }) => {
 
         <Heading
           className="modal-map__heading"
-          title={type === "booking" ? map_booking.title : map_request.desc}
-          tclass="modal-map__title"
+          title={type === "booking" ? map_booking.title : map_request.title}
+          tclass="modal-map__title md:!text-[28px] laptop:!text-[2rem]"
           description={type === "booking" ? map_booking.desc : map_request.desc}
           dclass="modal-map__desc"
         />
       </div>
 
       {children}
-      {/* {modalContent === "details" ? <ModalForm /> : <RideDetails />} */}
-      {/* {modalContent === "request-ride" && (
-      <ModalActionBoard modalContent={modalContent} />
-    )} */}
     </>
   );
 };

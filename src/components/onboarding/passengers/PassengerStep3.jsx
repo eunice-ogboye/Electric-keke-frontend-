@@ -1,6 +1,5 @@
 import SharedStepLayout from "../SharedStepLayout";
 import Assurance from "../../auth/Assurance";
-import CustomizedBtn from "../../shared/CustomizedBtn";
 import Logo from "../../shared/Logo";
 import { otp_choice } from "../../../constants";
 import RegularList from "../../shared/RegularList";
@@ -10,6 +9,7 @@ import dispatchables from "../../../utils/dispatchables";
 import { getItemFromLs } from "../../../utils/ls";
 import { RegisterUser } from "../../../services/auth";
 import { ArrowLeft } from "lucide-react";
+import Btn from "@/components/shared/btn/Btn";
 
 const PassengerStep3 = ({ nextProcess, prevProcess }) => {
   const { showAlert } = dispatchables();
@@ -34,10 +34,10 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
   return (
     <SharedStepLayout text="Choose where you will like to receive your OTP, via Phone number or Gmail. This step helps secure your EcoRide account.">
       <div className="auth-page-right">
-        <CustomizedBtn
+        <Btn
           icon={<ArrowLeft />}
-          className="absolute top-5 left-5"
-          handleClick={prevProcess}
+          styling="absolute top-5 left-5"
+          onClick={prevProcess}
         />
         
         <div className="w-full">
@@ -56,10 +56,10 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
           </div>
 
           <div className="w-[343px] mx-auto mt-6">
-            <CustomizedBtn
+            <Btn
               text="Continue"
-              className="primary-btn h-14 w-full rounded-full mb-4"
-              handleClick={handleSubmit}
+              styling="primary-btn h-14 w-full rounded-full mb-4"
+              onClick={handleSubmit}
             />
             <Assurance />
           </div>

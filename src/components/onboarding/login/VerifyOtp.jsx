@@ -6,10 +6,10 @@ import Logo from "../../shared/Logo";
 import Heading from "../../shared/Heading";
 import OtpInput from "../../OtpInput";
 import ResendOtpTab from "../../auth/ResendOtpTab";
-import CustomizedBtn from "../../shared/CustomizedBtn";
 import Assurance from "../../auth/Assurance";
 import { getItemFromLs } from "../../../utils/ls";
 import { OtpVerification } from "../../../services/auth";
+import Btn from "@/components/shared/btn/Btn";
 
 const VerifyOtp = ({ nextProcess }) => {
   const { otpValue } = useSelector((state) => state.formData);
@@ -67,9 +67,9 @@ const VerifyOtp = ({ nextProcess }) => {
             </div>
 
             <div className="max-w-[343px] mx-auto space-y-4 mt-6 lg:mt-14">
-              <CustomizedBtn
+              <Btn
                 text="Continue"
-                className="h-14 w-full rounded-full bg-eco-green"
+                styling="btn btn--lg btn--primary w-full rounded-full"
                 disabled={isDisbaled}
               />
               <Assurance />

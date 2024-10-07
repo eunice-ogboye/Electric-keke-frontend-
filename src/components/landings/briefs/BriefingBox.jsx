@@ -1,4 +1,3 @@
-import CustomizedBtn from "../../../components/shared/CustomizedBtn";
 import Heading from "../../../components/shared/Heading";
 import { motion } from "framer-motion";
 import EarnRequirements from "../EarnRequirements";

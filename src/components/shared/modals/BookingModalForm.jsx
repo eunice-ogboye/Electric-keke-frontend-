@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Btn from "../btn/Btn";
 import dispatchables from "@/utils/dispatchables";
+import { getItemFromLs } from "@/utils/ls";
+import { UnlockScroll } from "@/utils/ScrollLock";
 
 const getPrice = async (action, time) => {
   return new Promise((resolve) => {
@@ -70,6 +72,8 @@ const BookingModalForm = () => {
       navigate("/riders");
     } catch (error) {
       showAlert("Login to book a ride");
+    } finally {
+      UnlockScroll();
     }
   };
 

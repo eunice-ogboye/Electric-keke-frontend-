@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
 import Alert from "./components/shared/Alert";
-import Modal from "./components/shared/Modal";
 import "leaflet/dist/leaflet.css";
 import About from "./pages/landing-pages/About";
 import Home from "./pages/landing-pages/Home";
@@ -13,12 +12,10 @@ import InternalServer from "./pages/error-pages/InternalServer";
 import Loader from "./components/loaders/Loader";
 import NotFound from "./pages/not-found/NotFound";
 import Onboarding from "./pages/onboarding";
-import Testing from "./pages/testing";
 
 function App() {
   const {
     alert: { show },
-    modal,
     loading,
   } = useSelector((state) => state.global);
 
@@ -26,7 +23,6 @@ function App() {
     <>
       <div className="App max-w-screen-2xl overflow-hidden mx-auto relative">
         <AnimatePresence>
-          {modal && <Modal />}
           {show && <Alert />}
           {loading && (
             <Loader
@@ -44,7 +40,6 @@ function App() {
           <Route path="/onboarding/*" element={<Onboarding />} />
           <Route path="/*" element={<ProtectedRoute />} />
           <Route path="/ie/:id" element={<InternalServer />} />
-          <Route path="/testing" element={<Testing />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

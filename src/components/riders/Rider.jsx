@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Rate from "../xp/Rate";
 import dispatchables from "../../utils/dispatchables";
-import CustomizedBtn from "../shared/CustomizedBtn";
+import Btn from "../shared/btn/Btn";
 
 const starSize = (mediaSize) => {
   return mediaSize > 0 && mediaSize < 768
@@ -55,11 +55,11 @@ const Rider = ({ rider }) => {
 
           <p className="rider-plain-text">Keke Color: {color}</p>
         </div>
-        <CustomizedBtn
+        <Btn
           text="View Details"
           href={fullname + id}
-          className="rider-btn"
-          handleClick={() => {
+          styling="rider-btn"
+          onClick={() => {
             inputDataForBookingRequest("rider", email);
             chooseRider(rider);
           }}

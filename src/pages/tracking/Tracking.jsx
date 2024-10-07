@@ -1,5 +1,4 @@
 import Map from "../../components/shared/Map";
-import Btn from "../../components/shared/Btn";
 import DeliveryProcess, {
   DeliveryProcessLine,
 } from "../../components/xp/DeliveryProcess";
@@ -24,30 +23,30 @@ const Tracking = () => {
   const [currentRide, setCurrentRide] = useState(getItemFromLs("current-ride"));
   const navigate = useNavigate();
 
-  useUpdateBooking("pending", setCurrentRide);
-  useUpdateBooking("accepted", setCurrentRide);
+  // useUpdateBooking("pending", setCurrentRide);
+  // useUpdateBooking("accepted", setCurrentRide);
 
-  useEffect(() => {
-    if (currentRide.status === "in_progress") {
-      console.log("good to go");
-      setTimeout(() => {
-        (async () => {
-          const rideToUpdateData = rideStatusUpdateRequest("completed");
-          try {
-            const data = await UpdateBooking(rideToUpdateData);
-            console.log(data);
-            if (user.role === "User") {
-              navigate("/transaction");
-            } else {
-              console.log("i am a rider");
-            }
-          } catch (error) {
-            console.log(error);
-          }
-        })();
-      }, 10000);
-    }
-  }, [currentRide]);
+  // useEffect(() => {
+  //   if (currentRide.status === "in_progress") {
+  //     console.log("good to go");
+  //     setTimeout(() => {
+  //       (async () => {
+  //         const rideToUpdateData = rideStatusUpdateRequest("completed");
+  //         try {
+  //           const data = await UpdateBooking(rideToUpdateData);
+  //           console.log(data);
+  //           if (user.role === "User") {
+  //             navigate("/transaction");
+  //           } else {
+  //             console.log("i am a rider");
+  //           }
+  //         } catch (error) {
+  //           console.log(error);
+  //         }
+  //       })();
+  //     }, 10000);
+  //   }
+  // }, [currentRide]);
 
   return (
     <section className="home-pad pt-5 pb-20">
@@ -69,17 +68,18 @@ const Tracking = () => {
 
         <div className="track-details">
           <div>
-            <Person role={user.role} fullname={person.fullname} />
+            <Person role={user.role} fullname={person?.fullname || "airxist"} />
 
             <div className="mt-10">
               <DeliveryProcess
                 title="Driver Accepts Order"
                 icon={
                   <Accept
-                    accept={
-                      currentRide.status === "accepted" ||
-                      currentRide.status === "in_progress"
-                    }
+                    accept={false}
+                    // accept={
+                    //   currentRide.status === "accepted" ||
+                    //   currentRide.status === "in_progress"
+                    // }
                   />
                 }
                 desc="Estimated time: 3secs"
@@ -89,10 +89,11 @@ const Tracking = () => {
                 title="On the way"
                 icon={
                   <Way
-                    way={
-                      currentRide.status === "in_progress" ||
-                      currentRide.status === "completed"
-                    }
+                    way={true}
+                    // way={
+                    //   currentRide.status === "in_progress" ||
+                    //   currentRide.status === "completed"
+                    // }
                   />
                 }
                 desc="Estimated time: 3secs"
@@ -100,7 +101,8 @@ const Tracking = () => {
               <DeliveryProcessLine />
               <DeliveryProcess
                 title="Drop off"
-                icon={<Dropped dropped={currentRide.status === "completed"} />}
+                icon={<Dropped dropped={true} />}
+                // icon={<Dropped dropped={currentRide.status === "completed"} />}
                 desc="Estimated time: 3secs"
               />
             </div>
@@ -108,10 +110,11 @@ const Tracking = () => {
 
           <TrackDetails
             role={user.role}
-            origin={currentRide.origin}
-            destination={currentRide.destination}
-            price={currentRide.price}
-            status={currentRide.status === "in_progress"}
+            origin={currentRide?.origin || 'origin'}
+            destination={currentRide?.destination || 'destination'}
+            price={currentRide?.price || 'price'}
+            // status={currentRide.status === "in_progress"}
+            status={true}
           />
         </div>
       </div>

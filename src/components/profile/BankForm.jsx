@@ -1,7 +1,5 @@
-import React from "react";
 import FormRow from "../shared/FormRow";
 import SelectInput from "../shared/SelectInput";
-import Btn from "../shared/Btn";
 
 const BankForm = () => {
   return (

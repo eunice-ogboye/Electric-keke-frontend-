@@ -1,12 +1,12 @@
 import Assurance from "../../auth/Assurance";
 import SharedStepLayout from "../SharedStepLayout";
-import CustomizedBtn from "../../shared/CustomizedBtn";
 import ReusableFormRows from "../../auth/ReusableFormRows";
 import Logo from "../../shared/Logo";
 import Heading from "../../shared/Heading";
 import { useAreInputsFilled } from "../../../hooks/useAreInputsFilled";
 import { useSelector } from "react-redux";
 import { ArrowLeft } from "lucide-react";
+import Btn from "@/components/shared/btn/Btn";
 
 const Step2 = ({ nextProcess, prevProcess }) => {
   const { phone, state, address } = useSelector((state) => state.formData);
@@ -15,7 +15,7 @@ const Step2 = ({ nextProcess, prevProcess }) => {
   return (
     <SharedStepLayout text="Complete your profile to unlock the full EcoRide experience. Help us personalize your journey and enhance your eco-friendly rides.">
       <div className="auth-page-right">
-        <CustomizedBtn
+        <Btn
           icon={<ArrowLeft />}
           className="absolute top-5 left-5"
           handleClick={prevProcess}
@@ -33,11 +33,11 @@ const Step2 = ({ nextProcess, prevProcess }) => {
             </div>
 
             <div className="w-[343px] mx-auto">
-              <CustomizedBtn
+              <Btn
                 text="Continue"
-                className="primary-btn h-14 w-full rounded-full mb-4"
+                styling="primary-btn h-14 w-full rounded-full mb-4"
                 disabled={isDisabled}
-                handleClick={() => nextProcess()}
+                onClick={() => nextProcess()}
               />
               <Assurance />
             </div>

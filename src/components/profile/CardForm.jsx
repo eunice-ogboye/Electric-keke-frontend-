@@ -1,6 +1,5 @@
 import FormRow from "../shared/FormRow";
 import MasterCircles from "../../assets/svg/MasterCircles";
-import Btn from "../shared/Btn";
 
 const CardForm = ({ formData }) => {
   return (

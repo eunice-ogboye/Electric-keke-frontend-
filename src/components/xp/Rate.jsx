@@ -9,7 +9,7 @@ const Rate = ({ rate, handleClick, statik, className, size = 20 }) => {
     return (
       <div className={`flex items-center justify-between ${className}`}>
         {[1, 2, 3, 4, 5].map((item) => (
-          <div>
+          <div key={item}>
             <Star key={item} rated={rate >= item ? true : false} size={size} />
           </div>
         ))}
@@ -26,7 +26,7 @@ const Rate = ({ rate, handleClick, statik, className, size = 20 }) => {
             onMouseEnter={() => setShow(true)}
           >
             {[1, 2, 3, 4, 5].map((item) => (
-              <div className="border">
+              <div className="border" key={item}>
                 <Star
                   key={item}
                   rated={rate >= item ? true : false}

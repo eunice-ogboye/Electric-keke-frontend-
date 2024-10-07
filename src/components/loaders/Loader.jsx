@@ -8,8 +8,8 @@ const Loader = ({ type = "spin", className, size }) => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 100 100"
           preserveAspectRatio="xMidYMid"
-          width="200"
-          height="200"
+          width={size}
+          height={size}
           style={{
             shapeRendering: "auto",
             display: "block",
@@ -19,10 +19,11 @@ const Loader = ({ type = "spin", className, size }) => {
         >
           <g>
             <path
-              stroke="none"
+              stroke="yellow"
+              strokeWidth={5}
               fill="#e15b64"
               d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50"
-              // strokeLinecap="round"
+              strokeLinecap="round"
             >
               <animateTransform
                 values="0 50 51;360 50 51"
@@ -65,7 +66,7 @@ const Loader = ({ type = "spin", className, size }) => {
               fill="none"
               cy="50"
               cx="50"
-               strokeLinecap="round"
+              strokeLinecap="round"
             >
               <animateTransform
                 keyTimes="0;1"

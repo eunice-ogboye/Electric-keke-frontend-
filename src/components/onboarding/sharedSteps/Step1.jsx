@@ -1,6 +1,5 @@
 import React from "react";
 import SharedStepLayout from "../SharedStepLayout";
-import CustomizedBtn from "../../shared/CustomizedBtn";
 import Google from "../../../assets/svg/Google";
 import { Link } from "react-router-dom";
 import ReusableFormRows from "../../auth/ReusableFormRows";
@@ -11,6 +10,7 @@ import { useSelector } from "react-redux";
 import { ArrowLeft } from "lucide-react";
 import { addItemToLs } from "../../../utils/ls";
 import { onboarding_descs } from "../../../constants";
+import Btn from "@/components/shared/btn/Btn";
 
 const Step1 = ({ nextProcess, prevProcess }) => {
   const { fullname, email, password, re_password } = useSelector(
@@ -35,10 +35,10 @@ const Step1 = ({ nextProcess, prevProcess }) => {
   return (
     <SharedStepLayout text={onboarding_descs.register}>
       <div className="auth-page-right relative">
-        <CustomizedBtn
+        <Btn
           icon={<ArrowLeft />}
-          className="absolute top-5 left-5"
-          handleClick={prevProcess}
+          styling="absolute top-5 left-5"
+          onClick={prevProcess}
         />
 
         <div className="w-full">
@@ -64,17 +64,17 @@ const Step1 = ({ nextProcess, prevProcess }) => {
             </p>
 
             <div className="w-[343px] mx-auto">
-              <CustomizedBtn
+              <Btn
                 text="Continue"
-                className="primary-btn h-14 w-full rounded-full"
+                styling="primary-btn h-14 w-full rounded-full"
                 disabled={isDisabled}
               />
 
               <div className="mt-5">
                 <p className="font-bold text-center">or</p>
-                <CustomizedBtn
+                <Btn
                   text="Register with Google"
-                  className="w-full h-14 rounded-full bg-white shadow-md text-black"
+                  styling="w-full h-14 rounded-full bg-white shadow-md text-black"
                   icon={<Google />}
                 />
               </div>

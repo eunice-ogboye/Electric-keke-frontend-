@@ -1,7 +1,7 @@
 import React from "react";
 import Choose from "../shared/Choose";
-import CustomizedBtn from "../shared/CustomizedBtn";
 import dispatchables from "../../utils/dispatchables";
+import Btn from "../shared/btn/Btn";
 
 const PayModalBottom = ({ methodOfPayment }) => {
   const { showAlert } = dispatchables();
@@ -24,10 +24,10 @@ const PayModalBottom = ({ methodOfPayment }) => {
         />
       )}
       {methodOfPayment === "bank" && (
-        <CustomizedBtn
+        <Btn
           text="Confirm"
-          className="bg-eco-green h-14 w-full rounded-full"
-          handleClick={() => {
+          styling="btn btn--lg btn--primary w-full rounded-full"
+          onClick={() => {
             showAlert("added bank details");
           }}
         />

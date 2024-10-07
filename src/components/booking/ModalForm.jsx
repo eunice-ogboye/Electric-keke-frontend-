@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Btn from "../shared/Btn";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getItemFromLs } from "../../utils/ls";
 import dispatchables from "../../utils/dispatchables";
+import Btn from "../shared/btn/Btn";
 
 const getPrice = async (action, time) => {
   return new Promise((resolve) => {
@@ -99,7 +99,7 @@ const ModalForm = () => {
 
       <Btn
         text={showPrice ? "Proceed" : "Confirm"}
-        size="full"
+        styling="w-full btn btn--hero btn--primary"
         disabled={isDisabled}
       />
     </form>

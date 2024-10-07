@@ -4,10 +4,10 @@ import { useAreInputsFilled } from "../../../hooks/useAreInputsFilled";
 import Logo from "../../shared/Logo";
 import Heading from "../../shared/Heading";
 import ReusableFormRows from "../../auth/ReusableFormRows";
-import CustomizedBtn from "../../shared/CustomizedBtn";
 import SharedStepLayout from "../SharedStepLayout";
 import { addItemToLs } from "../../../utils/ls";
 import { RequestOtp } from "../../../services/auth";
+import Btn from "@/components/shared/btn/Btn";
 
 const ForgetPassword = ({ nextProcess }) => {
   const { username } = useSelector((state) => state.formData);
@@ -46,9 +46,9 @@ const ForgetPassword = ({ nextProcess }) => {
             </div>
 
             <div className="w-full max-w-[343px] mx-auto border mt-10">
-              <CustomizedBtn
+              <Btn
                 text="Send Code"
-                className="h-14 w-full rounded-full bg-eco-green"
+                styling="btn btn--lg btn--primary w-full rounded-full"
                 disabled={isDisbaled}
               />
             </div>

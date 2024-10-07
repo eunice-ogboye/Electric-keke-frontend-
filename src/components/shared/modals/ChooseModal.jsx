@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Btn from "../btn/Btn";
-import NewModal from "../NewModal";
+import NewModal from "../CustomModal";
 import ChooseMain from "./ChooseMain";
 import RideForm from "./RideForm";
+import dispatchables from "@/utils/dispatchables";
 
 const ChooseModal = ({ type }) => {
   const [rideForm, setMap] = useState(false);
+  const { inputDataForBookingRequest } = dispatchables();
 
   const goToInputRideDetails = () => {
     setMap(true);
@@ -20,8 +22,9 @@ const ChooseModal = ({ type }) => {
           type === "ride"
             ? "btn--hero btn--primary"
             : "btn--hero btn--secondary",
+        otherclickfunc:()  => inputDataForBookingRequest('booking_type', type)
       }}
-      modalStylling={rideForm ? "modal__map" : "modal__choose"}
+      modalStylling={rideForm ? "modal-map__booking" : "modal__choose"}
       closeCallBack={() => setMap(false)}
     >
       {rideForm ? (
