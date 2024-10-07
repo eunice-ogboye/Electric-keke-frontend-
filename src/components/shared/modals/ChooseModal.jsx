@@ -22,10 +22,10 @@ const ChooseModal = ({ type }) => {
           type === "ride"
             ? "btn--hero btn--primary"
             : "btn--hero btn--secondary",
-        otherclickfunc:()  => inputDataForBookingRequest('booking_type', type)
       }}
       modalStylling={rideForm ? "modal-map__booking" : "modal__choose"}
       closeCallBack={() => setMap(false)}
+      otherclickfunc={() => inputDataForBookingRequest("booking_type", type)}
     >
       {rideForm ? (
         <RideForm />

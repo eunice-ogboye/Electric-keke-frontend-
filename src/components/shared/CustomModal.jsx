@@ -11,15 +11,11 @@ const CustomModal = ({
   openCallBack,
   definedState,
   customCloseFunc,
+  otherclickfunc
 }) => {
   const [show, setShow] = useState(definedState || false);
 
-  let sieve;
   /** sieving the props since the props otherclikfunc is not needed on the button */
-  if (triggerProps?.otherclickfunc) {
-    const { otherclickfunc, ...restProps } = triggerProps;
-    sieve = { otherclickfunc, ...restProps };
-  }
 
   const closeModal = () => {
     setShow(false);
@@ -39,13 +35,12 @@ const CustomModal = ({
         {Trigger && (
           <Trigger
             onClick={() => {
-              if (sieve?.otherclickfunc) {
-                console.log('sieving')
-                sieve.otherclickfunc();
+              if (otherclickfunc) {
+                otherclickfunc();
               }
               openModal();
             }}
-            {...sieve.restProps}
+            {...triggerProps}
           />
         )}
       </ModalTrigger>

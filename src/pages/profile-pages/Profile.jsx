@@ -8,10 +8,13 @@ import Spear from "../../assets/svg/Spear";
 import GroupedModals from "@/components/shared/modals/GroupedModals";
 import Btn from "@/components/shared/btn/Btn";
 import Choose from "@/components/shared/Choose";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [editProfile, setEditProfile] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -28,32 +31,27 @@ const Profile = () => {
 
           <div className="profile-sub-header">
             <div className="flex items-center gap-x-2">
-              {/* {editProfile && (
+              {editProfile && (
                 <Btn
                   icon={<Spear color="black" />}
                   styling="bg-transparent"
                   onClick={() => setEditProfile(false)}
                 />
-              )} */}
+              )}
 
               <h2 className="font-bold font-josefin text-xl md:text-[2rem]">
                 Personal Information
               </h2>
             </div>
 
-            <div className="flex-center gap-2">
-              <Choose btnClass="bg-transparent size-5 p-0 md:size-10" />
-              {/* <Btn
-                icon={<Edit />}
-                styling="bg-transparent size-5 p-0 md:size-10"
-                onClick={() => setEditProfile(true)}
-              />
-              <Btn
-                icon={<SettingIcon />}
-                styling="bg-transparent size-5 p-0 md:size-10 flex-center"
-                href="/settings"
-              /> */}
-            </div>
+            <Choose
+              containerClass="flex-center gap-2"
+              btnClass="bg-transparent size-5 p-0 md:size-10"
+              icon1={<Edit />}
+              icon2={<SettingIcon />}
+              handleChoice1={() => setEditProfile(true)}
+              handleChoice2={() => navigate("/settings")}
+            />
           </div>
 
           <div className="prof-photo">
