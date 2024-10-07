@@ -8,9 +8,11 @@ import {
 import isTokenValid from "./auth/checkJwtValidity";
 import refreshAccess from "./auth/refreshAccess";
 import CustomError from "./custom-error/CustomError";
+import { base_url } from "@/constants/uri";
 
 const client = axios.create({
-  baseURL: "/api",
+  // baseURL: "/api",
+  baseURL: base_url,
 });
 
 client.interceptors.request.use(
@@ -78,7 +80,7 @@ export const clientRequest = async ({ ...options }) => {
     }
 
     if (status === 500) {
-      console.log(err, '5000000')
+      console.log(err, "5000000");
       throw new CustomError("Internal Server Error", {
         status,
       });

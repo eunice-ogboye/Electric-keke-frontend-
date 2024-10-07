@@ -1,1 +1,1 @@
-export const socket_uri = "http://localhost:5000";
+export const base_url = "https://electric-keke-backend.vercel.app/api/v1";
