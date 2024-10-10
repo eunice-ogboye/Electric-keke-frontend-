@@ -13,7 +13,7 @@ const Alert = () => {
       exit={{ y: -200, opacity: 0 }}
       className="alert-container"
     >
-      <p className="mr-4">{msg}</p>
+      <p className="mr-4 text-xs">{msg}</p>
 
       <div className="alert-stats">
         <img src="/tick.svg" alt="tick" className="size-5" />

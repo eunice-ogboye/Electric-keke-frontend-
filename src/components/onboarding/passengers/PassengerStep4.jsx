@@ -45,7 +45,7 @@ const PassengerStep4 = ({ nextProcess, prevProcess }) => {
       text="Enter the OTP sent to your phone to verify your account. This ensures your Eco-Ride is secure and personalized. your safety is our priority."
       prevProcess={prevProcess}
     >
-      <div className="onboarding__page--right">
+      <div className="onboarding__page--right pt-[72px] md:pt-0">
         <div className="w-full">
           <div className="auth-head">
             <Logo className="flex-center" logoClassName="w-[122px]" />

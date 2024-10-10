@@ -2,7 +2,6 @@ import { updateBookingData } from "../store/slices/bookride-slice";
 import { changeInputValue } from "../store/slices/form-data-slice";
 import {
   alertUser,
-  changeAuthPage,
   changeModalContent,
   changeRegistryMethod,
   changeVerificationType,

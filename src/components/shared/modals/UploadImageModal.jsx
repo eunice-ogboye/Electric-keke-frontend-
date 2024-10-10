@@ -39,19 +39,18 @@ const UploadImageModal = ({ nextProcess, closeUploadModal }) => {
 
             <Btn
               text="Select files"
-              styling="btn w-[79%] md:w-full md:h-14 btn--clear btn--border text-sm md:text-base font-semibold"
-              // onClick={() => nextProcess()}
+              styling="btn w-[79%] btn--outline text-sm md:text-base font-semibold"
             />
           </div>
-
-          <p className="upload__text">JPG, PNG file format accepted</p>
-
-          <Btn
-            text="Upload"
-            styling="btn btn--primary btn--lg mx-auto w-full max-w-[353px] mt-8"
-            onClick={handleUpload}
-          />
         </div>
+
+        <p className="upload__text">JPG, PNG file format accepted</p>
+
+        <Btn
+          text="Upload"
+          styling="btn btn--primary btn--lg mx-auto w-full max-w-[353px] mt-8"
+          onClick={handleUpload}
+        />
       </div>
     </NewModal>
   );

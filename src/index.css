@@ -83,7 +83,7 @@
   }
 
   .btn--lg {
-    @apply h-14
+    @apply h-12
   }
 
   .btn--sm {
@@ -96,6 +96,10 @@
 
   .btn--secondary {
     @apply text-basic border border-basic bg-basic/10
+  }
+
+  .btn--outline {
+    @apply bg-transparent border text-black
   }
 }
 
@@ -601,11 +605,11 @@ h2 {
 
 /**************** Alert **********/
 .alert-container {
-  @apply flex items-center justify-between fixed top-5 md:top-20 right-3 md:right-20 shadow-2xl border border-eco-neutral-border p-5 z-[200] rounded-lg bg-white
+  @apply flex items-center justify-between fixed top-5 md:top-20 right-3 md:right-20 shadow-2xl border border-eco-neutral-border p-2 z-[200] rounded-m bg-white
 }
 
 .alert-stats {
-  @apply rounded-full bg-eco-green-dark size-7 flex-center
+  @apply rounded bg-eco-green-dark size-7 flex-center
 }
 
 /* DIRECTION */
@@ -782,7 +786,7 @@ h2 {
 
 /* MODAL */
 .modal-container {
-  @apply w-full h-screen fixed top-0 left-0 z-[1000] flex-center bg-black/50 overflow-y-scroll py-20;
+  @apply w-full h-screen fixed top-0 left-0 z-[100] flex-center bg-black/50 overflow-y-scroll py-20;
 }
 
 .modal {
@@ -864,7 +868,7 @@ h2 {
 }
 
 .modal__upload {
-  @apply w-full md:w-[66%] laptop:w-[55%] rounded-lg bg-white px-[30px] py-14 md:py-7
+  @apply w-full md:w-[66%] md:max-w-[680px] laptop:w-[55%] laptop:max-w-[800px] absolute bottom-0 left-0 md:static rounded-lg bg-white px-11 md:px-[30px] py-12 md:py-7
 }
 
 .modal__upload-container {
@@ -876,7 +880,7 @@ h2 {
 }
 
 .modal__upload-dropmain {
-  @apply border-8 min-h-[228px] md:min-h-[325px] flex flex-col items-center justify-between
+  @apply min-h-[228px] md:min-h-[325px] flex flex-col items-center justify-between
 }
 
 .modal__upload__title {
