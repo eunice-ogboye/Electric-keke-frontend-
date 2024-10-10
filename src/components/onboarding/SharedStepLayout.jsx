@@ -1,16 +1,14 @@
 import CustomBg from "./CustomBg";
 import { XIcon } from "lucide-react";
-import { clearLs } from "../../utils/ls";
 import Btn from "../shared/btn/Btn";
 
-const SharedStepLayout = ({ text, children }) => {
+const SharedStepLayout = ({ text, children, prevProcess }) => {
   return (
     <section className="flex items-start h-screen overflow-y-scroll">
       <div className="board__onboarding">
         <Btn
-          href="/"
           icon={<XIcon color="black" />}
-          onClick={() => clearLs()}
+          onClick={prevProcess}
           styling="cancel-btn p-0"
         />
         <CustomBg text={text} />

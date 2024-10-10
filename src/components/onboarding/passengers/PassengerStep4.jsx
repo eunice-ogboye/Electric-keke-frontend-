@@ -12,7 +12,7 @@ import { ActivateUser } from "../../../services/auth";
 import { deletItemFromLs, getItemFromLs } from "../../../utils/ls";
 import Btn from "@/components/shared/btn/Btn";
 
-const PassengerStep4 = ({ nextProcess }) => {
+const PassengerStep4 = ({ nextProcess, prevProcess }) => {
   const { otpValue } = useSelector((state) => state.formData);
   const dispatch = useDispatch();
 
@@ -41,8 +41,11 @@ const PassengerStep4 = ({ nextProcess }) => {
   };
 
   return (
-    <SharedStepLayout text="Enter the OTP sent to your phone to verify your account. This ensures your Eco-Ride is secure and personalized. your safety is our priority.">
-      <div className="auth-page-right">
+    <SharedStepLayout
+      text="Enter the OTP sent to your phone to verify your account. This ensures your Eco-Ride is secure and personalized. your safety is our priority."
+      prevProcess={prevProcess}
+    >
+      <div className="onboarding__page--right">
         <div className="w-full">
           <div className="auth-head">
             <Logo className="flex-center" logoClassName="w-[122px]" />

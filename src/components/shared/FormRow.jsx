@@ -14,6 +14,8 @@ const FormRow = ({
   auth,
   inputclass,
   placeholder,
+  showInputAlert,
+  correct,
 }) => {
   const NormalInput = () => {
     return (
@@ -36,37 +38,51 @@ const FormRow = ({
         {children ? (
           children
         ) : (
-          <div className="relative">
-            {icon && (
-              <div className="absolute top-1/2 -translate-y-1/2 left-3">
-                {icon}
-              </div>
-            )}
-            <input
-              type={type}
-              name={name}
-              id={name}
-              onChange={handleChange}
-              value={value}
-              placeholder={placeholder}
-              className={`${inputclass} ${icon && "pl-96"}`}
-              required
-            />
-            {type === "password" && (
-              <div
-                className="size-5 absolute top-1/2 right-5 -translate-y-1/2 cursor-pointer"
-                onClick={(e) => {
-                  const inputAsSibling = e.currentTarget.previousElementSibling;
-                  const checkType = inputAsSibling.type;
-                  checkType === "password"
-                    ? (inputAsSibling.type = "text")
-                    : (inputAsSibling.type = "password");
-                }}
+          <>
+            <div className="relative">
+              {icon && (
+                <div className="absolute top-1/2 -translate-y-1/2 left-3">
+                  {icon}
+                </div>
+              )}
+              <input
+                type={type}
+                name={name}
+                id={name}
+                onChange={handleChange}
+                value={value}
+                placeholder={placeholder}
+                className={`${inputclass} ${icon && "pl-96"}`}
+                required
+              />
+              {type === "password" && (
+                <div
+                  className="size-5 absolute top-1/2 right-5 -translate-y-1/2 cursor-pointer"
+                  onClick={(e) => {
+                    const inputAsSibling =
+                      e.currentTarget.previousElementSibling;
+                    const checkType = inputAsSibling.type;
+                    checkType === "password"
+                      ? (inputAsSibling.type = "text")
+                      : (inputAsSibling.type = "password");
+                  }}
+                >
+                  <EyeIcon />
+                </div>
+              )}
+            </div>
+            {type === "password" && showInputAlert && (
+              <p
+                className={`text-[0.55rem] ${
+                  correct ? "text-basic" : "text-error-100"
+                }`}
               >
-                <EyeIcon />
-              </div>
+                {correct
+                  ? "password met requierement"
+                  : "at least 6 chars, contain 1 uppercase, one special character, one digit"}
+              </p>
             )}
-          </div>
+          </>
         )}
       </div>
     );

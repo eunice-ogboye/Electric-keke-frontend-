@@ -40,7 +40,7 @@ const VerifyOtp = ({ nextProcess }) => {
 
   return (
     <SharedStepLayout text="Enter the code sent to your chosen email or phone number to reset your password. This helps us verify your identity and secure your Eco-Ride account.">
-      <div className="auth-page-right">
+      <div className="onboarding__page--right">
         <div className="w-full">
           <div className="auth-head">
             <Logo className="flex-center" logoClassName="w-[122px]" />

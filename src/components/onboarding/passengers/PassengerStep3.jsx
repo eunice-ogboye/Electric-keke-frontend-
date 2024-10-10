@@ -15,6 +15,7 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
   const { showAlert } = dispatchables();
 
   const handleSubmit = async () => {
+    let lengthOfErrors = 0;
     const formData = getItemFromLs("formData");
 
     console.log(formData);
@@ -24,22 +25,25 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
       showAlert("otp sent for verification");
       nextProcess();
     } catch (error) {
-      console.log(error);
-      showAlert(error.message);
+      const errorArr = error.data;
+      showAlert(errorArr[0]);
       // for sake of development
       // nextProcess();
     }
   };
 
   return (
-    <SharedStepLayout text="Choose where you will like to receive your OTP, via Phone number or Gmail. This step helps secure your EcoRide account.">
-      <div className="auth-page-right">
-        <Btn
+    <SharedStepLayout
+      text="Choose where you will like to receive your OTP, via Phone number or Gmail. This step helps secure your EcoRide account."
+      prevProcess={prevProcess}
+    >
+      <div className="onboarding__page--right">
+        {/* <Btn
           icon={<ArrowLeft />}
           styling="absolute top-5 left-5"
           onClick={prevProcess}
-        />
-        
+        /> */}
+
         <div className="w-full">
           <div className="auth-head">
             <Logo className="flex-center" logoClassName="w-[122px]" />
@@ -55,10 +59,10 @@ const PassengerStep3 = ({ nextProcess, prevProcess }) => {
             />
           </div>
 
-          <div className="w-[343px] mx-auto mt-6">
+          <div className="w-full max-w-[343px] mx-auto mt-6">
             <Btn
               text="Continue"
-              styling="primary-btn h-14 w-full rounded-full mb-4"
+              styling="btn btn--lg btn--primary h-14 w-full rounded-full mb-4"
               onClick={handleSubmit}
             />
             <Assurance />

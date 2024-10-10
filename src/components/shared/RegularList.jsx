@@ -3,7 +3,6 @@ const RegularList = ({
   resourceName,
   itemComponent: ItemComponent,
 }) => {
-  console.log(itemsToDisplay)
   return (
     <>
       {itemsToDisplay.map((item) => {

@@ -15,8 +15,10 @@ import RiderStep3 from "./riders/RiderStep3";
 import RiderStep5 from "./riders/RiderStep5";
 import Processing from "./riders/Processing";
 import { OnboardingProvider } from "@/contexts/OnboardingContext";
+import { useNavigate } from "react-router-dom";
 
 const OnboardRegister = () => {
+  const navigate = useNavigate();
   const registeringAs = getItemFromLs("registeringAs");
 
   const runOnFinish = () => {
@@ -25,11 +27,22 @@ const OnboardRegister = () => {
     location.reload();
   };
 
+  const runOnbordingStart = () => {
+    navigate("/onboarding");
+  };
+
+  const runLoginStart = () => {
+    navigate("/");
+  };
+
   return (
     <OnboardingProvider>
       <section>
         {registeringAs === "User" && (
-          <OnboardingForm runOnFinish={runOnFinish}>
+          <OnboardingForm
+            runOnStart={runOnbordingStart}
+            runOnFinish={runOnFinish}
+          >
             <Step1 />
             <Step2 />
             <PassengerStep3 />
@@ -40,6 +53,7 @@ const OnboardRegister = () => {
 
         {registeringAs === "Rider" && (
           <OnboardingForm
+            runOnStart={runOnbordingStart}
             runOnFinish={() => {
               alert("finished the driver auth");
             }}
@@ -54,7 +68,7 @@ const OnboardRegister = () => {
         )}
 
         {registeringAs === "Login" && (
-          <OnboardingForm runOnFinish={runOnFinish}>
+          <OnboardingForm runOnStart={runLoginStart} runOnFinish={runOnFinish}>
             <Login />
             <ForgetPassword />
             <VerifyOtp />

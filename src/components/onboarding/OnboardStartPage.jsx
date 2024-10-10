@@ -9,7 +9,7 @@ const OnboardStartPage = () => {
     <section className="flex">
       <div className="board__onboarding">
         <Btn
-          icon={<XIcon />}
+          icon={<XIcon color="black" />}
           href="/"
           onClick={clearLs}
           styling="cancel-btn p-0"

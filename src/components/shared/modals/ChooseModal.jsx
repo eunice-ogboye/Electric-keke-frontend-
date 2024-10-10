@@ -17,11 +17,11 @@ const ChooseModal = ({ type }) => {
     <NewModal
       trigger={Btn}
       triggerProps={{
-        text: type === "ride" ? "Book a Ride" : "Request a Booking",
+        text: type === "ride" ? "Book a Ride" : "Request a Delivery",
         styling:
           type === "ride"
-            ? "btn--hero btn--primary"
-            : "btn--hero btn--secondary",
+            ? "btn--hero btn--primary md:w-[166px]  lg:w-[171px]"
+            : "btn--hero btn--secondary md:w-[1]  lg:w-[232px]",
       }}
       modalStylling={rideForm ? "modal-map__booking" : "modal__choose"}
       closeCallBack={() => setMap(false)}

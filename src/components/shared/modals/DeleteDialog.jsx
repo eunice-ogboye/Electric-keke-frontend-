@@ -14,10 +14,12 @@ const DeleteDialog = () => {
   };
 
   const handleChoice2 = async () => {
+    console.log('jose')
     try {
-      await DeleteAccount();
+      const data = await DeleteAccount();
       unloading();
-      showAlert("Deleted Account Succesfully");
+      console.log(data);
+      // showAlert("Deleted Account Succesfully");
       navigate("/");
     } catch (error) {
       console.log(error);

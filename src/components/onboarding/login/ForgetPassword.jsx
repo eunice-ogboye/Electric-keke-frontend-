@@ -28,7 +28,7 @@ const ForgetPassword = ({ nextProcess }) => {
 
   return (
     <SharedStepLayout text="Reset your password to regain access to your Eco-Ride account. We’ll send a code to your registered email oe phone number to help you get back on track.">
-      <div className="auth-page-right">
+      <div className="onboarding__page--right">
         <div className="w-full">
           <div className="auth-head">
             <Logo className="flex-center" logoClassName="w-[122px]" />

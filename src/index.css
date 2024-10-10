@@ -249,7 +249,7 @@ h2 {
   @apply absolute h-[568px] w-[769px] -top-[76px] -left-[88px] -z-50
 }
 
-.auth-page-right {
+.onboarding__page--right {
   @apply w-full sm:w-[1024px] md:w-6/12 lg:w-1/2 flex-center px-4 pb-10 relative
 }
 
@@ -1031,7 +1031,7 @@ h2 {
 /************ reusable form **************/
 /************* forget tab *************/
 .forget-tab {
-  @apply flex items-center justify-between w-full md:w-[446px] mx-auto mb-[30px] tablet:mb-10
+  @apply flex items-center justify-between w-full md:max-w-[446px] mx-auto mb-[30px] tablet:mb-10
 }
 
 .switch-login {

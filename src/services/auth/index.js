@@ -106,7 +106,7 @@ export const RegisterUser = async ({
 
   try {
     addItemToLs("user-email", email);
-    const { data } = await makePlainRequest({
+    const data = await makePlainRequest({
       url: "/auth/register-user/",
       method: "post",
       data: {
@@ -129,10 +129,12 @@ export const RegisterUser = async ({
      */
     addItemToLs("userId", data.id);
   } catch (error) {
-    console.log(error);
-    // const { data } = error.response;
-    // const dataValues = Object.keys(values);
-    throw new CustomError("Error Registering User");
+    const errorRes = error.data.response;
+    const errors_arr = Object.entries(errorRes.data).map(([key, value]) => {
+      return value[0];
+    });
+
+    throw new CustomError("Error Registering User", errors_arr);
   }
 };
 
@@ -159,23 +161,19 @@ export const LoginUser = async ({ username, password, checkPass }) => {
 
 export const Logout = () => {
   clearLs();
-  // showAlert("Log out sucessfull");
-  // logout logic
-  // try {
-  //   await clientRequest({ url: "/auth/logout/", method: "post" });
-  //   showAlert("Log out succesful");
-  // } catch (err) {
-  //   throw new Error("Error Logging Out");
-  // }
 };
 
 export const DeleteAccount = async () => {
   try {
-    const { data } = clientRequest({
+    const data = await clientRequest({
       url: "/auth/delete-account/",
       method: "delete",
     });
-    console.log(data);
+    console.log(
+      data,
+      "llllllllllllllllllllllllllllllllllllllllllllllllllllllllll"
+    );
+
     clearLs();
     return data;
   } catch (error) {

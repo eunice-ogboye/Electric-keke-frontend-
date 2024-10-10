@@ -1,9 +1,12 @@
 import { useSelector } from "react-redux";
 import dispatchables from "../../utils/dispatchables";
 import FormRow from "../shared/FormRow";
+import { useEffect } from "react";
 
-const ReusableFormRows = ({ type }) => {
+const ReusableFormRows = ({ type, standardPassword }) => {
   const { changeAuthFormData } = dispatchables();
+  
+
   const {
     fullname,
     email,
@@ -14,6 +17,8 @@ const ReusableFormRows = ({ type }) => {
     state,
     address,
   } = useSelector((state) => state.formData);
+
+  
 
   return (
     <>
@@ -56,6 +61,8 @@ const ReusableFormRows = ({ type }) => {
             value={password}
             handleChange={changeAuthFormData}
             inputclass="auth-input"
+            showInputAlert={type === "register" && true}
+            correct={standardPassword}
           />
         </>
       )}

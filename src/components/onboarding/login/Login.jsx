@@ -14,7 +14,7 @@ import { LoginUser } from "../../../services/auth";
 import { addItemToLs } from "../../../utils/ls";
 import Btn from "@/components/shared/btn/Btn";
 
-const Login = ({ nextProcess }) => {
+const Login = ({ nextProcess, prevProcess }) => {
   const navigate = useNavigate();
   const { username, password } = useSelector((state) => state.formData);
   const isDisbaled = useAreInputsFilled(username && password);
@@ -43,8 +43,11 @@ const Login = ({ nextProcess }) => {
   const goToRegister = () => addItemToLs("onboarding-process", 0);
 
   return (
-    <SharedStepLayout text="Welcome to Eco-Ride join us in making a difference by choosing sustainable transportation. Login to start your eco-friendly journey today!">
-      <div className="auth-page-right">
+    <SharedStepLayout
+      text="Welcome to Eco-Ride join us in making a difference by choosing sustainable transportation. Login to start your eco-friendly journey today!"
+      prevProcess={prevProcess}
+    >
+      <div className="onboarding__page--right">
         <div className="w-full">
           <div className="auth-head">
             <Logo className="flex-center" logoClassName="w-[122px]" />
@@ -68,7 +71,11 @@ const Login = ({ nextProcess }) => {
                 <div className="mt-5">
                   <p className="switch-login my-[50px]">
                     Dont have an account?{" "}
-                    <Link to="/onboarding" className="text-eco-green" onClick={goToRegister}>
+                    <Link
+                      to="/onboarding"
+                      className="text-eco-green"
+                      onClick={goToRegister}
+                    >
                       Sign Up
                     </Link>
                   </p>

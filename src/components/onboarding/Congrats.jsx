@@ -8,7 +8,7 @@ import Btn from "../shared/btn/Btn";
 const Congrats = ({ nextProcess }) => {
   return (
     <SharedStepLayout text="Congratulations on successfully signing up for EcoRide! please proceed to login and start your eco-friendly journey with us.">
-      <div className="auth-page-right">
+      <div className="onboarding__page--right">
         <div className="w-full">
           <div className="auth-head">
             <Logo className="w-[122px] h-[81px] mx-auto" />

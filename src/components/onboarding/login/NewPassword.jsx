@@ -34,7 +34,7 @@ const NewPassword = ({ nextProcess }) => {
 
   return (
     <SharedStepLayout text="Create a new password for your Eco-Ride account. Ensure it is strong and secure to protect your information.">
-      <div className="auth-page-right">
+      <div className="onboarding__page--right">
         <div className="w-full">
           <div className="auth-head">
             <Logo className="flex-center" logoClassName="w-[122px]" />

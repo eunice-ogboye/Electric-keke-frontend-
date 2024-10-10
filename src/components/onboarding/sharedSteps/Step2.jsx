@@ -13,13 +13,16 @@ const Step2 = ({ nextProcess, prevProcess }) => {
   const isDisabled = useAreInputsFilled((phone, state, address));
 
   return (
-    <SharedStepLayout text="Complete your profile to unlock the full EcoRide experience. Help us personalize your journey and enhance your eco-friendly rides.">
-      <div className="auth-page-right">
-        <Btn
+    <SharedStepLayout
+      text="Complete your profile to unlock the full EcoRide experience. Help us personalize your journey and enhance your eco-friendly rides."
+      prevProcess={prevProcess}
+    >
+      <div className="onboarding__page--right">
+        {/* <Btn
           icon={<ArrowLeft />}
           className="absolute top-5 left-5"
-          handleClick={prevProcess}
-        />
+          onClick={prevProcess}
+        /> */}
 
         <div className="w-full">
           <div className="auth-head">

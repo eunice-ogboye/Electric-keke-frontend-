@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SharedStepLayout from "../SharedStepLayout";
 import Google from "../../../assets/svg/Google";
 import { Link } from "react-router-dom";
@@ -7,22 +7,40 @@ import Heading from "../../shared/Heading";
 import Logo from "../../shared/Logo";
 import { useAreInputsFilled } from "../../../hooks/useAreInputsFilled";
 import { useSelector } from "react-redux";
-import { ArrowLeft } from "lucide-react";
+// import { ArrowLeft } from "lucide-react";
 import { addItemToLs } from "../../../utils/ls";
 import { onboarding_descs } from "../../../constants";
 import Btn from "@/components/shared/btn/Btn";
+import dispatchables from "@/utils/dispatchables";
 
 const Step1 = ({ nextProcess, prevProcess }) => {
+  const { showAlert } = dispatchables();
+  const [standardPassword, setStandard] = useState(false);
   const { fullname, email, password, re_password } = useSelector(
     (state) => state.formData
   );
+
   const isDisabled = useAreInputsFilled(
     fullname && email && password && re_password
   );
 
+  useEffect(() => {
+    const password_regex = /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9]).{6,}$/;
+    const isCorrect = password_regex.test(password);
+    isCorrect ? setStandard(true) : setStandard(false);
+  }, [password]);
+
   const handleSubmit = (e) => {
-    console.log("jose");
     e.preventDefault();
+    if (!standardPassword) {
+      showAlert("password does not meet requirement");
+      return;
+    }
+
+    if (password !== re_password) {
+      showAlert("password unmatched");
+      return;
+    }
     nextProcess();
   };
 
@@ -33,13 +51,16 @@ const Step1 = ({ nextProcess, prevProcess }) => {
   };
 
   return (
-    <SharedStepLayout text={onboarding_descs.register}>
-      <div className="auth-page-right relative">
-        <Btn
+    <SharedStepLayout
+      text={onboarding_descs.register}
+      prevProcess={prevProcess}
+    >
+      <div className="onboarding__page--right relative">
+        {/* <Btn
           icon={<ArrowLeft />}
           styling="absolute top-5 left-5"
           onClick={prevProcess}
-        />
+        /> */}
 
         <div className="w-full">
           <div className="auth-head">
@@ -49,7 +70,10 @@ const Step1 = ({ nextProcess, prevProcess }) => {
 
           <form className="auth-form" onSubmit={handleSubmit}>
             <div className="space-y-7">
-              <ReusableFormRows type="register" />
+              <ReusableFormRows
+                type="register"
+                standardPassword={standardPassword}
+              />
             </div>
 
             <p className="switch-login my-[50px]">
@@ -63,7 +87,7 @@ const Step1 = ({ nextProcess, prevProcess }) => {
               </Link>
             </p>
 
-            <div className="w-[343px] mx-auto">
+            <div className="w-full max-w-[343px] mx-auto">
               <Btn
                 text="Continue"
                 styling="primary-btn h-14 w-full rounded-full"
