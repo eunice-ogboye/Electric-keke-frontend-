@@ -899,6 +899,18 @@ h2 {
   @apply w-full max-w-[600px] rounded-ml py-12
 }
 
+.modal__profile {
+  @apply w-full max-w-[600px] px-[10px] md:px-[95px] py-12 rounded-ml absolute bottom-0 left-0 md:static
+}
+
+.modal__paymethod {
+  @apply w-full max-w-[600px] px-4 md:px-6 md:mt-[30vh] rounded-ml pt-12 absolute bottom-0 left-0 md:static
+}
+
+.modal__dialog {
+  @apply w-full max-w-[600px] py-12 px-9 rounded-ml absolute bottom-0 left-0 md:static
+}
+
 /* .modalContainer {} */
 
 
@@ -1064,7 +1076,7 @@ h2 {
 }
 
 .safe {
-  @apply w-full h-[266px] tablet:w-[45%] absolute top-1/2 -translate-y-1/2 tablet:-translate-y-0 tablet:static opacity-30 tablet:opacity-100 tablet:h-96
+  @apply w-full h-[266px] tablet:w-[45%] absolute top-1/2 -translate-y-1/2 -z-20 tablet:-translate-y-0 tablet:static opacity-30 tablet:opacity-100 tablet:h-96
 }
 
 .profile-modal {
@@ -1088,7 +1100,7 @@ h2 {
 }
 
 .card-container {
-  @apply rounded-[8px] w-full max-w-[528px] h-fit bg-gradient-to-br from-eco-green to-peach mt-2 tablet:mt-10 flex-center p-4
+  @apply rounded-[8px] w-full h-fit bg-gradient-to-br from-eco-green to-peach mt-2 tablet:mt-10 flex-center p-4
 }
 
 .master-card {

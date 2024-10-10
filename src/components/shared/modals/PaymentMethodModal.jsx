@@ -48,7 +48,7 @@ const PaymentMethodModal = () => {
       {methodOfPayment === "card" && <CardForm formData={formData} />}
       {methodOfPayment === "bank" && <BankForm />}
 
-      <div className="my-8">
+      <div className="my-8 max-w-[343px] mx-auto">
         <PayModalBottom methodOfPayment={methodOfPayment} />
       </div>
     </>

@@ -1,9 +1,14 @@
-import dispatchables from "../../utils/dispatchables";
 import { settings } from "../../constants";
 import SettingListItem from "./SettingListItem";
 import RegularList from "../shared/_design-pattern/RegularList";
+import { LockScroll } from "@/utils/ScrollLock";
 
 const SettingNav = ({ setIsModalOpen, setTypeOfModal }) => {
+  const openGroupModal = (title) => {
+    LockScroll();
+    setIsModalOpen(true);
+    setTypeOfModal(title);
+  };
   return (
     <nav className="w-full tablet:w-[41%]">
       <h2 className="setting-title">Settings</h2>
@@ -11,18 +16,12 @@ const SettingNav = ({ setIsModalOpen, setTypeOfModal }) => {
         <RegularList
           list={settings}
           component={SettingListItem}
-          handleClick={(title) => {
-            setIsModalOpen(true);
-            setTypeOfModal(title);
-          }}
+          handleClick={($event, title) => openGroupModal(title)}
         />
 
         <li
           className="setting-opts text-error !font-semibold"
-          onClick={() => {
-            setIsModalOpen(true);
-            setTypeOfModal("Logout");
-          }}
+          onClick={() => openGroupModal("Logout")}
         >
           Logout
         </li>

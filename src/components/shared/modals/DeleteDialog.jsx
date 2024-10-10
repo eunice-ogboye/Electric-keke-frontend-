@@ -14,7 +14,7 @@ const DeleteDialog = () => {
   };
 
   const handleChoice2 = async () => {
-    console.log('jose')
+    console.log("jose");
     try {
       const data = await DeleteAccount();
       unloading();
@@ -29,11 +29,7 @@ const DeleteDialog = () => {
   return (
     <DialogModal
       title="Delete account?"
-      description="Are you sure you want to delete account?"
-      choice1="No, Cancel"
-      choice2="Yes, Delete"
-      handleChoice1={handleChoice1}
-      handleChoice2={handleChoice2}
+      description="Complete this process by clicking the link sent to your email"
     />
   );
 };

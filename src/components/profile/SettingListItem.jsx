@@ -1,9 +1,8 @@
 import { ArrowRight } from "lucide-react";
-import dispatchables from "../../utils/dispatchables";
-import React from "react";
 import { Link } from "react-router-dom";
 
 const SettingListItem = ({ href, title, handleClick }) => {
+
   const SettingAsLink = () => {
     return (
       <Link to={href} className="setting-opts">
@@ -17,7 +16,10 @@ const SettingListItem = ({ href, title, handleClick }) => {
 
   const SettingMain = () => {
     return (
-      <li className="setting-opts" onClick={() => handleClick(title)}>
+      <li
+        className="setting-opts"
+        onClick={(event) => handleClick(event, title)}
+      >
         {title}
         <div className="hidden md:block">
           <ArrowRight />

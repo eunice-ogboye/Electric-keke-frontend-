@@ -71,7 +71,9 @@ const ManageProfileModal = () => {
         </div>
       )}
 
-      {title !== "Profile Management" && (
+      {title === "Profile Management" ? (
+        <div className="h-[88px]"></div>
+      ) : (
         <div className="mt-8">
           <Btn
             text="Confirm"

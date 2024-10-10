@@ -27,6 +27,7 @@ const LogoutDialog = () => {
       choice2="Yes"
       handleChoice1={handleChoice1}
       handleChoice2={handleChoice2}
+      choosing
     />
   );
 };
