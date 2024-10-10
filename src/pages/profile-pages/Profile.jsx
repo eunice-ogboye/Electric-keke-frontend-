@@ -9,6 +9,7 @@ import GroupedModals from "@/components/shared/modals/GroupedModals";
 import Btn from "@/components/shared/btn/Btn";
 import Choose from "@/components/shared/Choose";
 import { useNavigate } from "react-router-dom";
+import { LockScroll, UnlockScroll } from "@/utils/ScrollLock";
 
 const Profile = () => {
   const [editProfile, setEditProfile] = useState(false);
@@ -65,14 +66,20 @@ const Profile = () => {
           {editProfile ? (
             <ProfileManagementForm
               cancelEdit={() => {
+                UnlockScroll();
                 setEditProfile(false);
               }}
-              saveData={() => setSuccess(true)}
+              
+              saveData={() => {
+                LockScroll();
+                setSuccess(true);
+              }}
             />
           ) : (
             <MyProfile />
           )}
-          <div className="absolute right-0 -bottom-36 md:-bottom-64 -z-20">
+
+          <div className="absolute right-0 -bottom-36 md:top-[846px] h-[456px] -z-20">
             <img src="/profile-tree.png" alt="profile-tree" />
           </div>
         </div>

@@ -13,7 +13,7 @@ const groupModalStyling = (type) => {
     "Payment Method": "modal__paymethod",
     Logout: "modal__dialog",
     "Delete Account": "modal__dialog",
-    "edit-profile": "",
+    "edit-profile": "edit-profile__modal",
   };
   return modalStyles[type]
 };

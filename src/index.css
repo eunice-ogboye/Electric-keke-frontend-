@@ -1275,7 +1275,7 @@ h2 {
 
 /******************** personal info ***************/
 .profile-section {
-  @apply px-3 md:px-[7.5rem] pt-[100px] md:pt-[152px] pb-20 relative overflow-hidden
+  @apply px-3 md:px-[7.5rem] pt-[100px] md:pt-[152px] pb-[200px] relative overflow-hidden
 }
 
 .profile-glow {
@@ -1296,6 +1296,10 @@ h2 {
 
 .prof-form-body {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-9 gap-x-[50px]
+}
+
+.edit-profile__modal {
+  @apply w-full max-w-[600px] absolute bottom-0 left-0 md:static rounded-ml
 }
 
 /************************ EXPERIMENTING EXPERIMENTAL ***************/
