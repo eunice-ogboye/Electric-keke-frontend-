@@ -4,7 +4,7 @@ import React from "react";
 const RideDetailing = ({ info, price }) => {
   return (
     <div
-      className={`h-[59px] border border-neutral py-4 px-5 rounded-md ${
+      className={`h-[59px] border border-neutral-500 py-4 px-5 rounded-md ${
         price ? "bg-basic-200" : "bg-white"
       } flex items-center justify-between`}
     >

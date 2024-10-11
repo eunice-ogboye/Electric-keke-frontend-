@@ -14,6 +14,13 @@ import Dropped from "../../assets/svg/Dropped";
 import { GetListOfBookings, UpdateBooking } from "../../services/bookings";
 import { useUpdateBooking } from "../../hooks/useUpdateBooking";
 import { rideStatusUpdateRequest } from "../../services/bookings/abstracts";
+import Btn from "@/components/shared/btn/Btn";
+import ArrLeft from "@/assets/svg/ArrLeft";
+import DeliveryStats from "./DeliveryStats";
+import Arrived from "./Arrived";
+import RiderSummary from "./RiderSummary";
+import ConfirmRideModal from "@/components/shared/modals/ConfirmRideModal";
+import { useModal } from "@/hooks/useModal";
 
 const Tracking = () => {
   const [user] = useState(getItemFromLs("user") || null);
@@ -22,6 +29,8 @@ const Tracking = () => {
   );
   const [currentRide, setCurrentRide] = useState(getItemFromLs("current-ride"));
   const navigate = useNavigate();
+  const [hasArrived, setHasArrived] = useState(true);
+  const { isModalOpen, openModal, closeModal } = useModal();
 
   // useUpdateBooking("pending", setCurrentRide);
   // useUpdateBooking("accepted", setCurrentRide);
@@ -49,76 +58,59 @@ const Tracking = () => {
   // }, [currentRide]);
 
   return (
-    <section className="home-pad pt-5 pb-20">
-      <header className="tracking-header">
-        <div>
-          <img src="/arr-left.svg" alt="arr" />
-        </div>
-        <Logo />
-      </header>
+    <>
+      <ConfirmRideModal
+        openModal={openModal}
+        closeModal={closeModal}
+        isModalOpen={isModalOpen}
+      />
 
-      <h2 className="font-bold text-2xl">
-        {user.role === "User" ? "Ride Tracking" : "Locate passenger"}
-      </h2>
+      <section className="home-pad pt-5 pb-20">
+        <header className="tracking-header">
+          <Btn
+            icon={<ArrLeft color="black" />}
+            styling="bg-transparent"
+            onClick={() => history.back()}
+          />
+          <Logo />
+        </header>
 
-      <div className="tracking-info-board">
-        <div className="tracking-map">
-          <Map className="size-full" />
-        </div>
+        <h2 className="font-bold text-2xl">
+          {user.role === "User" ? "Ride Tracking" : "Locate passenger"}
+        </h2>
 
-        <div className="track-details">
-          <div>
-            <Person role={user.role} fullname={person?.fullname || "airxist"} />
-
-            <div className="mt-10">
-              <DeliveryProcess
-                title="Driver Accepts Order"
-                icon={
-                  <Accept
-                    accept={false}
-                    // accept={
-                    //   currentRide.status === "accepted" ||
-                    //   currentRide.status === "in_progress"
-                    // }
-                  />
-                }
-                desc="Estimated time: 3secs"
-              />
-              <DeliveryProcessLine success />
-              <DeliveryProcess
-                title="On the way"
-                icon={
-                  <Way
-                    way={true}
-                    // way={
-                    //   currentRide.status === "in_progress" ||
-                    //   currentRide.status === "completed"
-                    // }
-                  />
-                }
-                desc="Estimated time: 3secs"
-              />
-              <DeliveryProcessLine />
-              <DeliveryProcess
-                title="Drop off"
-                icon={<Dropped dropped={true} />}
-                // icon={<Dropped dropped={currentRide.status === "completed"} />}
-                desc="Estimated time: 3secs"
-              />
-            </div>
+        <div className="tracking-info-board">
+          <div className="tracking-map">
+            <Map className="size-full" />
           </div>
 
-          <TrackDetails
-            role={user.role}
-            origin={currentRide?.origin || 'origin'}
-            destination={currentRide?.destination || 'destination'}
-            price={currentRide?.price || 'price'}
-            // status={currentRide.status === "in_progress"}
-            status={true}
-          />
+          <div className="track-details">
+            <div>
+              <Person
+                role={user.role}
+                fullname={person?.fullname || "airxist"}
+                hasArrived={hasArrived}
+              />
+
+              {hasArrived ? <Arrived /> : <DeliveryStats role={user.role} />}
+            </div>
+
+            {hasArrived ? (
+              <RiderSummary openModal={openModal} />
+            ) : (
+              <TrackDetails
+                role={user.role}
+                origin={currentRide?.origin || "origin"}
+                destination={currentRide?.destination || "destination"}
+                price={currentRide?.price || "price"}
+                // status={currentRide.status === "in_progress"}
+                status={false}
+              />
+            )}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

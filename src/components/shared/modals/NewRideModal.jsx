@@ -1,5 +1,5 @@
 import React from "react";
-import NewModal from "../CustomModal";
+import CustomModal from "../CustomModal";
 import SharedModalMap from "./SharedModalMap";
 import RideDetails from "@/components/driver/RideDetails";
 import Choose from "../Choose";
@@ -12,9 +12,9 @@ import { UpdateBooking } from "@/services/bookings";
 import { addItemToLs } from "@/utils/ls";
 import { useNavigate } from "react-router-dom";
 
-const NewRideModal = ({ closeModal }) => {
+const NewRideModal = ({ isModalOpen, openModal, closeModal }) => {
   const navigate = useNavigate();
-  const { showAlert, flipModal } = dispatchables();
+  const { showAlert } = dispatchables();
 
   const acceptRide = async () => {
     // const rideToUpdateData = rideStatusUpdateRequest("accepted");
@@ -28,8 +28,8 @@ const NewRideModal = ({ closeModal }) => {
       });
       // rideStatusLsUpdate("accepted");
 
+      await closeModal();
       navigate("/tracking");
-      closeModal();
     } catch (error) {
       // catch error
       showAlert(error.message);
@@ -51,7 +51,13 @@ const NewRideModal = ({ closeModal }) => {
   };
 
   return (
-    <NewModal definedState={true} modalStyling="modal-map__request">
+    <CustomModal
+      isModalOpen={isModalOpen}
+      openModal={openModal}
+      modalStyling="modal-map__request"
+      closeModal={closeModal}
+      showCloseBtn={false}
+    >
       <SharedModalMap>
         <RideDetails />
         <Choose
@@ -65,7 +71,7 @@ const NewRideModal = ({ closeModal }) => {
           handleChoice2={declineRide}
         />
       </SharedModalMap>
-    </NewModal>
+    </CustomModal>
   );
 };
 

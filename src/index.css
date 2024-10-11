@@ -597,7 +597,7 @@ h2 {
 
 /**************** Alert **********/
 .alert-container {
-  @apply flex items-center justify-between fixed top-5 md:top-20 right-3 md:right-20 shadow-2xl border border-neutral-200 p-2 z-[200] rounded-m bg-white
+  @apply flex items-center justify-between fixed top-5 md:top-20 right-3 md:right-20 shadow-2xl border border-neutral-200 p-2 z-[1200] rounded-m bg-white
 }
 
 .alert-stats {
@@ -778,7 +778,7 @@ h2 {
 
 /* MODAL */
 .modal-container {
-  @apply w-full h-screen fixed top-0 left-0 z-[500] flex-center bg-black/50 overflow-y-scroll py-20
+  @apply w-full h-screen fixed top-0 left-0 z-[1000] flex-center bg-black/50 overflow-y-scroll py-20
 }
 
 
@@ -787,8 +787,9 @@ h2 {
 }
 
 .modal-close-btn {
-  @apply bg-neutral-300 rounded-full size-[50px] absolute top-5 right-2
+  @apply bg-neutral-300 rounded-full size-[2rem] p-0 absolute top-4 right-5
 }
+
 .modal__choose {
   @apply w-[94%] min-h-[348px] md:w-[47%] md:max-w-[478px] rounded-[12px]
 }
@@ -856,7 +857,7 @@ h2 {
 }
 
 .modal__contact {
-  @apply w-full max-w-[600px] rounded-ml py-12 px-[9px] md:px-[95px]
+  @apply w-full max-w-[600px] absolute md:relative bottom-0 left-0 rounded-ml pt-12 pb-[95px] md:pb-[168px] px-[9px] md:px-[95px]
 }
 
 .call__opt {
@@ -905,6 +906,10 @@ h2 {
 
 .modal__dialog {
   @apply w-full max-w-[600px] py-12 px-9 rounded-ml absolute bottom-0 left-0 md:relative
+}
+
+.modal__confirm {
+  @apply w-full max-w-[600px] py-12 px-2 md:px-9 absolute bottom-0 left-0 md:relative rounded-ml
 }
 
 /* .modalContainer {} */
@@ -1171,7 +1176,7 @@ h2 {
 }
 
 .track-details {
-  @apply w-full md:max-w-[586px] mt-3 md:mt-0 border
+  @apply w-full md:max-w-[586px] mt-3 md:mt-0
 }
 
 .tracking-header {
@@ -1179,7 +1184,7 @@ h2 {
 }
 
 .person-details {
-  @apply flex items-center py-2 px-0 sm:px-2 md:px-4 justify-between bg-basic-200
+  @apply flex items-center py-2 px-2 md:px-4 justify-between bg-basic-200
 }
 
 .person-photo-container {
@@ -1210,12 +1215,18 @@ h2 {
   @apply size-[35px] lg:size-[50px] flex-center cursor-pointer
 }
 
-.ride-location {
-  @apply h-[70px] max-w-[586px] rounded-[14px] location-shadow flex items-center py-6 px-7
+.ride__location--shadow {
+  filter: drop-shadow(0 16px 35px rgb(0, 0, 0, 0.1)) drop-shadow(0 145px 87px rgb(0, 0, 0, 0.05));
 }
 
+.ride__location {
+  @apply h-[70px] max-w-[586px] rounded-[14px] flex items-center py-6 px-7 bg-white ride__location--shadow
+}
+
+/* location-shadow  */
+
 .ride-fare {
-  @apply bg-basic-200 flex-center h-[56px] w-[179px] text-eiteen font-bold rounded-[10px]
+  @apply bg-basic-200 flex-center h-12 w-[179px] text-eiteen font-bold rounded-[10px]
 }
 
 /**************** shadows *************/
@@ -1265,9 +1276,9 @@ h2 {
   @apply my-5 md:my-10 space-y-3 md:space-y-0
 }
 
-.ride-location {
+/* .ride-location {
   @apply location-shadow bg-white rounded-[14px] h-14 md:h-[70px] px-5 flex items-center ml-2 w-auto md:col-span-10
-}
+} */
 
 /******************** personal info ***************/
 .profile-section {

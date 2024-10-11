@@ -5,11 +5,15 @@ import {
   rideStatusUpdateRequest,
 } from "../../services/bookings/abstracts";
 import { UpdateBooking } from "../../services/bookings";
+import dispatchables from "@/utils/dispatchables";
 
 const TrackDetails = ({ role, origin, destination, price, status }) => {
   const navigate = useNavigate();
+  const {showAlert} = dispatchables();
+  
 
   const startTrip = async () => {
+    showAlert('accepted trip')
     const rideToUpdateData = rideStatusUpdateRequest("in_progress");
 
     try {
@@ -22,6 +26,7 @@ const TrackDetails = ({ role, origin, destination, price, status }) => {
   };
 
   const declineTrip = async () => {
+    showAlert('declined trip')
     const rideToUpdateData = rideStatusUpdateRequest("cancelled");
 
     try {
@@ -36,13 +41,14 @@ const TrackDetails = ({ role, origin, destination, price, status }) => {
   return (
     <div className="mt-14">
       <div className="space-y-4">
-        <div className="ride-location">
+        <div className="ride__location">
           <p className="text-eiteen">{origin}</p>
         </div>
-        <div className="ride-location">
+        <div className="ride__location">
           <p className="text-eiteen">{destination}</p>
         </div>
       </div>
+
       <div className="mt-10 flex items-center gap-x-8">
         <div className="ride-fare">#{price}</div>
         <Btn

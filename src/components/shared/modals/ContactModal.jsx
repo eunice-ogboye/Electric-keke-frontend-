@@ -4,7 +4,7 @@ import Heading from "../Heading";
 import NewModal from "../CustomModal";
 import Call from "@/assets/svg/Call";
 
-const ContactModal = () => {
+const ContactModal = ({ isModalOpen, openModal, closeModal, smallMedia, connect }) => {
   const { showAlert } = dispatchables();
 
   const callInApp = () => {
@@ -18,8 +18,24 @@ const ContactModal = () => {
   return (
     <NewModal
       trigger={Btn}
-      triggerProps={{ icon: <Call type="rider" />, styling: "bg-transparent" }}
+      triggerProps={{
+        icon: (
+          <Call
+            type={connect ? 'connect' : 'rider'}
+            // this below for the tracking
+            width={smallMedia ? 24 : 37}
+            height={smallMedia ? 24 : 37}
+            // this is for the chatting
+            size={smallMedia ? 24 : 50}
+          
+          />
+        ),
+        styling: "bg-transparent p-0",
+      }}
       modalStyling="modal__contact"
+      isModalOpen={isModalOpen}
+      openModal={openModal}
+      closeModal={closeModal}
     >
       <Heading
         className="text-center"

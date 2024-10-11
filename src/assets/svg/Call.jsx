@@ -1,11 +1,11 @@
 import React from "react";
 
-const Call = ({ type = "passenger" }) => {
+const Call = ({ type = "passenger", width, height, size }) => {
   const CallConnect = () => {
     return (
       <svg
-        width="50"
-        height="50"
+        width={size || "50"}
+        height={size || "50"}
         viewBox="0 0 50 50"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -25,8 +25,8 @@ const Call = ({ type = "passenger" }) => {
   const CallPassenger = () => {
     return (
       <svg
-        width="24"
-        height="25"
+        width={width || "24"}
+        height={height || "25"}
         viewBox="0 0 24 25"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -50,8 +50,8 @@ const Call = ({ type = "passenger" }) => {
   const CallRider = () => {
     return (
       <svg
-        width="37"
-        height="38"
+        width={width || "37"}
+        height={height || "37"}
         viewBox="0 0 37 38"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

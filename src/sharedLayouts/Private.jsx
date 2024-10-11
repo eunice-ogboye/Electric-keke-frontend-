@@ -33,7 +33,6 @@ const ProtectedRoute = () => {
       <Route path="/schedule-ride" element={<Schedule />} />
       <Route path="/riders" element={<Riders />}>
         <Route index element={<RiderIndex />} />
-        {/* <Route index element={<RiderIndexTest />} /> */}
         <Route path=":id" element={<RiderInfo />} />
       </Route>
       <Route path="/notification" element={<Notification />} />

@@ -6,17 +6,22 @@ import dispatchables from "../../utils/dispatchables";
 import { GetListOfBookings } from "../../services/bookings";
 import { addItemToLs } from "../../utils/ls";
 import NewRideModal from "@/components/shared/modals/NewRideModal";
+import { useModal } from "@/hooks/useModal";
 // import { useSocket } from "../../hooks/useSocket";
 
 const Driver = () => {
   // const socket = useSocket();
   const [online, setOnline] = useState(false);
-  const [newRideRequest, setNewRideRequest] = useState(false);
-  const closeModal = () => setNewRideRequest(false)
+  const {
+    isModalOpen: isNewRequest,
+    openModal,
+    closeModal,
+    setIsModalOpen,
+  } = useModal();
 
   useEffect(() => {
     let time_out = setTimeout(() => {
-      setNewRideRequest(true);
+      openModal();
       console.log("jose");
     }, 3000);
 
@@ -25,7 +30,11 @@ const Driver = () => {
 
   return (
     <>
-      {newRideRequest && <NewRideModal closeModal={closeModal} />}
+      <NewRideModal
+        isModalOpen={isNewRequest}
+        openModal={openModal}
+        closeModal={closeModal}
+      />
 
       <Section darkLogo>
         <div className="driver-board">

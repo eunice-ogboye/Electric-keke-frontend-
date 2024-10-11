@@ -16,6 +16,7 @@ const FormRow = ({
   placeholder,
   showInputAlert,
   correct,
+  showSecureText = true,
 }) => {
   const NormalInput = () => {
     return (
@@ -94,9 +95,11 @@ const FormRow = ({
         <input type={type} name={name} className="align-baseline" />
         <div>
           <label htmlFor={name}>{label}</label>
-          <p className="text-xs mt-5">
-            Pay faster on flutterwave . and everywhere Link is accepted.
-          </p>
+          {showSecureText && (
+            <p className="text-xs mt-5">
+              Pay faster on flutterwave . and everywhere Link is accepted.
+            </p>
+          )}
         </div>
       </div>
     );
