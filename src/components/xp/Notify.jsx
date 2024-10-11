@@ -18,7 +18,7 @@ const Notify = ({ title, desc, account }) => {
       {account && <NotificationAlert />}
       <div>
         <p className="text-2xl font-semibold">{title}</p>
-        <p className="text-neutral text-2xl mt-6">{desc}</p>
+        <p className="text-neutral-500 text-2xl mt-6">{desc}</p>
       </div>
     </div>
   );

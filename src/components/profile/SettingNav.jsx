@@ -1,14 +1,14 @@
 import { settings } from "../../constants";
 import SettingListItem from "./SettingListItem";
 import RegularList from "../shared/_design-pattern/RegularList";
-import { LockScroll } from "@/utils/ScrollLock";
+// import { LockScroll } from "@/utils/ScrollLock";
 
-const SettingNav = ({ setIsModalOpen, setTypeOfModal }) => {
+const SettingNav = ({  openModal, setTypeOfModal }) => {
   const openGroupModal = (title) => {
-    LockScroll();
-    setIsModalOpen(true);
+    openModal();
     setTypeOfModal(title);
   };
+
   return (
     <nav className="w-full tablet:w-[41%]">
       <h2 className="setting-title">Settings</h2>

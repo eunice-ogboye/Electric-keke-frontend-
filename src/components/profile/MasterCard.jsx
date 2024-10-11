@@ -5,8 +5,8 @@ const MasterCard = ({ name, expiry, number, cvv }) => {
   return (
     <div className="master-card">
       <div className="flex items-center justify-between">
-        <p className="text-base font-semibold text-white">Untitled</p>
-        <PayPass />
+        <p className="text-xs md:text-base font-semibold text-white">Untitled</p>
+        <PayPass width={16} height={20} />
       </div>
 
       <div className="flex items-end justify-between">

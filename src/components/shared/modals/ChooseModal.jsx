@@ -23,7 +23,7 @@ const ChooseModal = ({ type }) => {
             ? "btn--hero btn--primary md:w-[166px]  lg:w-[171px]"
             : "btn--hero btn--secondary md:w-[1]  lg:w-[232px]",
       }}
-      modalStylling={rideForm ? "modal-map__booking" : "modal__choose"}
+      modalStyling={rideForm ? "modal-map__booking" : "modal__choose"}
       isModalOpen={isModalOpen}
       openModal={() => {
         openModal();
@@ -33,6 +33,7 @@ const ChooseModal = ({ type }) => {
         setMap(false);
         closeModal();
       }}
+      showCloseBtn={false}
     >
       {rideForm ? (
         <RideForm />

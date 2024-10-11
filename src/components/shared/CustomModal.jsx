@@ -1,54 +1,36 @@
-import { useEffect, useState } from "react";
+import { XIcon } from "lucide-react";
 import { Modal, ModalSheet, ModalTrigger } from "./_custom-ui/Modal";
-import { LockScroll, UnlockScroll } from "@/utils/ScrollLock";
+import Btn from "./btn/Btn";
 
 const CustomModal = ({
   children,
   trigger: Trigger,
   triggerProps,
-  modalStylling,
+  modalStyling,
   isModalOpen,
   openModal,
   closeModal,
+  showCloseBtn = true,
 }) => {
-
-  useEffect(() => {
-    console.log("lakdladkaldkakjdlkadlkjakljl")
-    console.log(isModalOpen)
-    if (isModalOpen) {
-      LockScroll();
-      console.log('locked')
-    } else {
-      UnlockScroll();
-      console.log('unlocked')
-    }
-  }, [isModalOpen]);
-
   return (
     <>
       <ModalTrigger>
-        {Trigger && (
-          <Trigger
-            onClick={() => {
-              // if (otherclickfunc) {
-              //   otherclickfunc();
-              // }
-              openModal();
-            }}
-            {...triggerProps}
-          />
-        )}
+        {Trigger && <Trigger onClick={() => openModal()} {...triggerProps} />}
       </ModalTrigger>
 
       {isModalOpen && (
-        <Modal
-          styling="modal-container"
-          onClick={() => {
-            closeModal();
-            // customCloseFunc ? customCloseFunc() : closeModal();
-          }}
-        >
-          <ModalSheet styling={`modal ${modalStylling}`}>{children}</ModalSheet>
+        <Modal styling="modal-container" onClick={() => closeModal()}>
+          <ModalSheet styling={modalStyling + " " + "modal"}>
+            {showCloseBtn && (
+              <Btn
+                icon={<XIcon />}
+                styling="modal-close-btn"
+                onClick={closeModal}
+              />
+            )}
+
+            {children}
+          </ModalSheet>
         </Modal>
       )}
     </>

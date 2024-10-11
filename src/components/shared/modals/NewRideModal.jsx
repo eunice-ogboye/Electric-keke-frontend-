@@ -51,7 +51,7 @@ const NewRideModal = ({ closeModal }) => {
   };
 
   return (
-    <NewModal definedState={true} modalStylling="modal-map__request">
+    <NewModal definedState={true} modalStyling="modal-map__request">
       <SharedModalMap>
         <RideDetails />
         <Choose

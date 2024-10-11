@@ -5,7 +5,7 @@ export const ModalTrigger = ({ ...props }) => {
 export const Modal = ({ styling, ...props }) => {
   return (
     <section
-      className={`fixed top-0 left-0 w-full h-screen overflow-y-scroll ${styling}`}
+      className={styling}
       {...props}
     />
   );

@@ -26,12 +26,13 @@ function App() {
           {show && <Alert />}
           {loading && (
             <Loader
-              className="fixed top-5 right-5 text-white z-50 border"
+              className="fixed top-5 right-5 z-50"
               type="spin2"
               size={30}
             />
           )}
         </AnimatePresence>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

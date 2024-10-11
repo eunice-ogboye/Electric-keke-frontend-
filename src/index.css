@@ -778,13 +778,17 @@ h2 {
 
 /* MODAL */
 .modal-container {
-  @apply w-full h-screen fixed top-0 left-0 z-[100] flex-center bg-black/50 overflow-y-scroll py-20;
+  @apply w-full h-screen fixed top-0 left-0 z-[500] flex-center bg-black/50 overflow-y-scroll py-20
 }
+
 
 .modal {
-  @apply bg-white relative mx-auto
+  @apply bg-white mx-auto
 }
 
+.modal-close-btn {
+  @apply bg-neutral-300 rounded-full size-[50px] absolute top-5 right-2
+}
 .modal__choose {
   @apply w-[94%] min-h-[348px] md:w-[47%] md:max-w-[478px] rounded-[12px]
 }
@@ -892,15 +896,15 @@ h2 {
 }
 
 .modal__profile {
-  @apply w-full max-w-[600px] px-[10px] md:px-[95px] py-12 rounded-ml absolute bottom-0 left-0 md:static
+  @apply w-full max-w-[600px] px-[10px] md:px-[95px] py-12 rounded-ml absolute bottom-0 left-0 md:relative
 }
 
 .modal__paymethod {
-  @apply w-full max-w-[600px] px-4 md:px-6 md:mt-[30vh] rounded-ml pt-12 absolute bottom-0 left-0 md:static
+  @apply w-full max-w-[600px] px-4 md:px-6 md:mt-[30vh] rounded-ml pt-12 absolute bottom-0 left-0 md:relative
 }
 
 .modal__dialog {
-  @apply w-full max-w-[600px] py-12 px-9 rounded-ml absolute bottom-0 left-0 md:static
+  @apply w-full max-w-[600px] py-12 px-9 rounded-ml absolute bottom-0 left-0 md:relative
 }
 
 /* .modalContainer {} */
@@ -935,7 +939,7 @@ h2 {
 }
 
 .profile-modal-inputs {
-  @apply py-5 px-4 border border-neutral-500 h-16 rounded-[14px] w-full
+  @apply py-5 px-4 border border-neutral-500 h-12 md:h-16 rounded-[14px] w-full
 }
 
 /************ schedule form ************/
@@ -1083,24 +1087,24 @@ h2 {
   @apply py-5 px-4 border border-neutral-500 h-16 rounded-[14px] w-full text-base flex items-center justify-between cursor-pointer font-bold
 }
 
-.payment-modal {
+/* .payment-modal {
   @apply w-full max-w-[600px] bg-white pt-12 px-9 pb-8 rounded-20
-}
+} */
 
 .payment-modal-title {
   @apply font-bold font-josefin text-xl tablet:text-3xl
 }
 
 .card-container {
-  @apply rounded-[8px] w-full h-fit bg-gradient-to-br from-basic to-peach mt-2 tablet:mt-10 flex-center p-4
+  @apply rounded-[8px] w-full h-fit bg-gradient-to-br from-basic to-peach mt-2 tablet:mt-10 flex-center p-4 hidden
 }
 
 .master-card {
-  @apply w-full max-w-[316px] rounded-20 h-[190px] p-5 bg-gradient-to-br from-white/50 to-white/0 flex flex-col justify-between border-r-lime-200 border-t-lime-100 border
+  @apply w-full max-w-[316px] rounded-20 h-[120px] md:h-[190px] p-3 md:p-5 bg-gradient-to-br from-white/50 to-white/0 flex flex-col justify-between border-r-lime-200 border-t-lime-100 border
 }
 
 .user-name-expiry {
-  @apply flex items-center justify-between text-white font-semibold text-xs
+  @apply flex items-center justify-between text-white font-semibold text-[7px] md:text-xs max-w-[80%]
 }
 
 .card-number {

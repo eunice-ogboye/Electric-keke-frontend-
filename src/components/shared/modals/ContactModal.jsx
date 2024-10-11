@@ -19,7 +19,7 @@ const ContactModal = () => {
     <NewModal
       trigger={Btn}
       triggerProps={{ icon: <Call type="rider" />, styling: "bg-transparent" }}
-      modalStylling="modal__contact"
+      modalStyling="modal__contact"
     >
       <Heading
         className="text-center"

@@ -3,6 +3,7 @@ import Heading from "../Heading";
 import RegularList from "../_design-pattern/RegularList";
 import FormRow from "../FormRow";
 import Btn from "../btn/Btn";
+import dispatchables from "@/utils/dispatchables";
 
 const ProfileOption = ({ title, handleClick }) => {
   return (
@@ -17,6 +18,13 @@ const ProfileOption = ({ title, handleClick }) => {
 
 const ManageProfileModal = () => {
   const [title, setTitle] = useState("Profile Management");
+  const { showAlert } = dispatchables();
+
+  const updateProfile = () => {
+    showAlert("updated profile sucessfully");
+  };
+
+  const changePassword = () => showAlert("password updated");
 
   return (
     <>
@@ -78,6 +86,9 @@ const ManageProfileModal = () => {
           <Btn
             text="Confirm"
             styling="btn btn--hero btn--primary w-full max-w-[343px] mx-auto"
+            onClick={() =>
+              title === "Personal Information" ? updateProfile() : changePassword()
+            }
           />
         </div>
       )}

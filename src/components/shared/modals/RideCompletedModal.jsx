@@ -7,7 +7,7 @@ const RideCompletedModal = () => {
   const [rateDriver, setRateDriver] = useState(false);
 
   return (
-    <NewModal definedState={true} modalStylling="modal__transaction">
+    <NewModal definedState={true} modalStyling="modal__transaction">
       {rateDriver ? (
         <RateRiderModal setRateDriver={setRateDriver} />
       ) : (

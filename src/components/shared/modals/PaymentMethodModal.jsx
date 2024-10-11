@@ -41,7 +41,7 @@ const PaymentMethodModal = () => {
         text2="Bank Account"
         handleClick1={() => setMethodOfPayment("card")}
         handleClick2={() => setMethodOfPayment("bank")}
-        className="mt-10 flex items-center justify-between gap-10 max-w-[309px] mx-auto"
+        className="mt-5 md:mt-10 flex items-center justify-between gap-10 max-w-[309px] mx-auto"
         btnClassName="!pb-0 min-w-[114px] text-base font-semibold border-b-4"
       />
 

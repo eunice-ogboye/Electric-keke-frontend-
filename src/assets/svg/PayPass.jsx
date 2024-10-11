@@ -1,10 +1,10 @@
 import React from "react";
 
-const PayPass = () => {
+const PayPass = ({ width, height }) => {
   return (
     <svg
-      width="20"
-      height="24"
+      width={width || "20"}
+      height={height || "24"}
       viewBox="0 0 20 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

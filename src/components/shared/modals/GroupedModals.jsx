@@ -1,5 +1,5 @@
 import React from "react";
-import NewModal from "../CustomModal";
+import CustomModal from "../CustomModal";
 import ManageProfileModal from "./ManageProfileModal";
 import PaymentMethodModal from "./PaymentMethodModal";
 import LogoutDialog from "./LogoutDialog";
@@ -15,25 +15,22 @@ const groupModalStyling = (type) => {
     "Delete Account": "modal__dialog",
     "edit-profile": "edit-profile__modal",
   };
-  return modalStyles[type]
+  return modalStyles[type];
 };
 
-const GroupedModals = ({ type, customClose }) => {
+const GroupedModals = ({ type, isModalOpen, closeModal }) => {
   return (
-    <NewModal
-      definedState={true}
-      modalStylling={groupModalStyling(type)}
-      customCloseFunc={() => {
-        customClose();
-        UnlockScroll();
-      }}
+    <CustomModal
+      isModalOpen={isModalOpen}
+      modalStyling={groupModalStyling(type)}
+      closeModal={closeModal}
     >
       {type === "Profile Management" && <ManageProfileModal />}
       {type === "Payment Method" && <PaymentMethodModal />}
       {type === "Logout" && <LogoutDialog />}
       {type === "Delete Account" && <DeleteDialog />}
       {type === "edit-profile" && <Welldone closeModal={customClose} />}
-    </NewModal>
+    </CustomModal>
   );
 };
 

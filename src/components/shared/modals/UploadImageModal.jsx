@@ -27,7 +27,7 @@ const UploadImageModal = ({ nextProcess }) => {
 
   return (
     <CustomModal
-      modalStylling="modal__upload"
+      modalStyling="modal__upload"
       // customCloseFunc={closeUploadModal}
       isModalOpen={isUploadModalOpen}
       openModal={openUploadModal}
