@@ -61,7 +61,7 @@ const Login = ({ nextProcess, prevProcess }) => {
 
             <div className=" mt-14">
               <ForgetTab nextProcess={nextProcess} />
-              <div className="w-[343px] mx-auto border">
+              <div className="w-[343px] mx-auto">
                 <Btn
                   text="Login"
                   styling="btn btn--lg btn--primary w-full rounded-full"
@@ -73,7 +73,7 @@ const Login = ({ nextProcess, prevProcess }) => {
                     Dont have an account?{" "}
                     <Link
                       to="/onboarding"
-                      className="text-eco-green"
+                      className="text-basic"
                       onClick={goToRegister}
                     >
                       Sign Up

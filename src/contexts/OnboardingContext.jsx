@@ -6,9 +6,15 @@ const OnboardingContext = createContext();
 export const OnboardingProvider = ({ children }) => {
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
 
-  const openUploadModal = () => setIsUploadModalOpen(true);
+  const openUploadModal = () => {
+    console.log(isUploadModalOpen);
+    setIsUploadModalOpen(true);
+  };
 
-  const closeUploadModal = () => setIsUploadModalOpen(false);
+  const closeUploadModal = () => {
+    console.log(isUploadModalOpen)
+    setIsUploadModalOpen(false);
+  };
 
   return (
     <OnboardingContext.Provider

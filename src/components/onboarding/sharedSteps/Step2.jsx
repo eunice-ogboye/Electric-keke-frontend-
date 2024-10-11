@@ -38,7 +38,7 @@ const Step2 = ({ nextProcess, prevProcess }) => {
             <div className="w-[343px] mx-auto">
               <Btn
                 text="Continue"
-                styling="primary-btn h-14 w-full rounded-full mb-4"
+                styling="btn btn--lg btn--primary w-full rounded-full mb-4"
                 disabled={isDisabled}
                 onClick={() => nextProcess()}
               />

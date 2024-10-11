@@ -25,7 +25,7 @@ const FormRow = ({
             htmlFor={name}
             className={`${
               auth
-                ? "text-eiteen text-eco-neutral-prime"
+                ? "text-eiteen text-neutral-500"
                 : labelClass
                 ? labelClass
                 : "text-base"

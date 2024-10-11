@@ -1,3 +1,8 @@
+import Finance from "@/assets/svg/Finance";
+import Overview from "@/assets/svg/Overview";
+import SettingAdmin from "@/assets/svg/SettingAdmin";
+import UserManagement from "@/assets/svg/UserManagement";
+
 const getHeroImage = (type) => {
   return type === "main"
     ? "/hero_bg1.png"
@@ -231,21 +236,25 @@ const hero_descriptions = {
 };
 
 const admin_nav_links = [
-  { title: "Overview", href: "/admin", icon: "/users/overview.svg" },
+  {
+    title: "Overview",
+    href: "/admin",
+    icon: Overview,
+  },
   {
     title: "User Management",
     href: "user-management",
-    icon: "/users/user-management.svg",
+    icon: UserManagement,
   },
   {
     title: "Financial Management",
     href: "financial-management",
-    icon: "/users/finance.svg",
+    icon: Finance,
   },
   {
     title: "Settings",
     href: "settings",
-    icon: "/users/setting.svg",
+    icon: SettingAdmin,
   },
 ];
 
@@ -404,6 +413,24 @@ const map_request = {
   desc: "You just received a new ride request",
 };
 
+const user_management_filter = [
+  {
+    label: "By Status",
+    labelStyle: "text-xs",
+    itemStyle: "text-sm py-[6px] border-b",
+    styling: "px-2",
+    options: ["Active Users", "Inactive Users"],
+  },
+  {
+    label: "By Date",
+    labelStyle: "text-xs",
+    itemStyle: "text-sm py-[6px] w-1/2",
+    styling: "px-2 mt-2",
+    option_container: "flex-center mt-1",
+    options: ["From", "To"],
+  },
+];
+
 export {
   about_titles,
   about_descriptions,
@@ -439,4 +466,5 @@ export {
   testimonies,
   user_dashboard,
   user_management_tablehead,
+  user_management_filter,
 };

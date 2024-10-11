@@ -13,8 +13,8 @@ const PayModalBottom = ({ methodOfPayment }) => {
           choice1txt="Confirm"
           choice2txt="Cancel"
           btnClass="h-14 rounded-full"
-          addedClass1="bg-eco-green"
-          addedClass2="border border-eco-green text-eco-green bg-eco-green/10"
+          addedClass1="bg-basic"
+          addedClass2="border border-basic text-basic bg-basic/10"
           handleChoice1={() => {
             showAlert("save card details");
           }}

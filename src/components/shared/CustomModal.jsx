@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal, ModalSheet, ModalTrigger } from "./_custom-ui/Modal";
 import { LockScroll, UnlockScroll } from "@/utils/ScrollLock";
 
@@ -7,27 +7,22 @@ const CustomModal = ({
   trigger: Trigger,
   triggerProps,
   modalStylling,
-  closeCallBack,
-  openCallBack,
-  definedState,
-  customCloseFunc,
-  otherclickfunc
+  isModalOpen,
+  openModal,
+  closeModal,
 }) => {
-  const [show, setShow] = useState(definedState || false);
 
-  /** sieving the props since the props otherclikfunc is not needed on the button */
-
-  const closeModal = () => {
-    setShow(false);
-    UnlockScroll();
-    closeCallBack && closeCallBack();
-  };
-
-  const openModal = () => {
-    setShow(true);
-    LockScroll();
-    openCallBack && openCallBack();
-  };
+  useEffect(() => {
+    console.log("lakdladkaldkakjdlkadlkjakljl")
+    console.log(isModalOpen)
+    if (isModalOpen) {
+      LockScroll();
+      console.log('locked')
+    } else {
+      UnlockScroll();
+      console.log('unlocked')
+    }
+  }, [isModalOpen]);
 
   return (
     <>
@@ -35,9 +30,9 @@ const CustomModal = ({
         {Trigger && (
           <Trigger
             onClick={() => {
-              if (otherclickfunc) {
-                otherclickfunc();
-              }
+              // if (otherclickfunc) {
+              //   otherclickfunc();
+              // }
               openModal();
             }}
             {...triggerProps}
@@ -45,11 +40,12 @@ const CustomModal = ({
         )}
       </ModalTrigger>
 
-      {show && (
+      {isModalOpen && (
         <Modal
           styling="modal-container"
           onClick={() => {
-            customCloseFunc ? customCloseFunc() : closeModal();
+            closeModal();
+            // customCloseFunc ? customCloseFunc() : closeModal();
           }}
         >
           <ModalSheet styling={`modal ${modalStylling}`}>{children}</ModalSheet>

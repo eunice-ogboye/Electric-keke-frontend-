@@ -6,6 +6,7 @@ import SelectInput from "../shared/SelectInput";
 import { states } from "../../constants";
 import CustomSelectItem from "../shared/CustomSelectItem";
 import Btn from "../shared/btn/Btn";
+import Choose from "../shared/Choose";
 
 const ProfileManagementForm = ({ cancelEdit, saveData }) => {
   const { user } = useOutletContext;
@@ -91,19 +92,18 @@ const ProfileManagementForm = ({ cancelEdit, saveData }) => {
           formRowContainer="font-inter"
           inputclass="profile-management-input"
         />
-      </div>
 
-      <div className="flex items-end gap-4 mt-[51px]">
-        <Btn
-          text="Save"
-          styling="btn btn--primary btn--lg min-w-[181px]"
-          onClick={saveData}
-        />
-        <Btn
-          text="Cancel"
-          styling="btn btn--secondary btn--lg min-w-[181px]"
-          onClick={cancelEdit}
-        />
+        <div className="flex items-end gap-4 mt-[51px] border">
+          <Choose
+            choice1txt="Save"
+            choice2txt="Cancel"
+            btnClass="btn btn--lg w-1/2 max-w-[181px]"
+            addedClass1="btn--primary"
+            addedClass2="btn--secondary"
+            handleChoice1={saveData}
+            handleChoice2={cancelEdit}
+          />
+        </div>
       </div>
     </form>
   );

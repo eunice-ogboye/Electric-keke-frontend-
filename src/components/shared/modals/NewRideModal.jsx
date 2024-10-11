@@ -59,8 +59,8 @@ const NewRideModal = ({ closeModal }) => {
           choice1txt="Accept"
           choice2txt="Reject"
           btnClass="w-full rounded-full h-14"
-          addedClass1="bg-eco-green"
-          addedClass2="bg-eco-neutral-prime"
+          addedClass1="bg-basic"
+          addedClass2="bg-neutral-500"
           handleChoice1={acceptRide}
           handleChoice2={declineRide}
         />

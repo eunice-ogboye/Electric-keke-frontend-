@@ -11,7 +11,7 @@ const FilterTrigger = ({ className, handleTrigger }) => {
       onClick={handleTrigger}
     >
       <FilterIcon color="black" size={20} />
-      <p className="font-inter text-base text-eco-neutral-thick">Filter</p>
+      <p className="font-inter text-base text-neutral-thick">Filter</p>
     </Button>
   );
 };
@@ -48,7 +48,7 @@ const FilterOptions = ({
 const FilterGroup = ({ className, label, children, containerClass }) => {
   return (
     <div className={cn("w-full px", containerClass)}>
-      <p className="text-xs text-eco-neutral-prime">{label}</p>
+      <p className="text-xs text-neutral-500">{label}</p>
       <div className={className}>{children}</div>
     </div>
   );
@@ -62,9 +62,9 @@ export const Filter = ({
   const [show, setShow] = useState(false);
   const toggleShow = () => setShow((prev) => !prev);
 
-  useEffect(() => {
-    console.log(filterBasedOn);
-  }, [changeContentToDisplay]);
+  // useEffect(() => {
+  //   console.log(filterBasedOn);
+  // }, [changeContentToDisplay]);
 
   return (
     <div className="relative">

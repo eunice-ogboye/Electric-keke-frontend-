@@ -30,7 +30,7 @@ const BriefingBox = ({ brief, type }) => {
             <Heading
               className="w-full"
               introTitle={introTitle && introTitle}
-              introClass="text-eco-green"
+              introClass="text-basic"
               title={title}
               tclass="text-eco-neutral font-josefin"
               description={description}

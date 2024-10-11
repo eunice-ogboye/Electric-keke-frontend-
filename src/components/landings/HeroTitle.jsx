@@ -24,9 +24,9 @@ const HeroTitle = ({ type }) => {
               alt="circle"
               className="absolute size-full scale-125 animate-image block"
             />
-            <span className="text-eco-green">Rides</span>
+            <span className="text-basic">Rides</span>
           </div>{" "}
-          & Swift <span className="text-eco-green">Deliveries</span> at Your
+          & Swift <span className="text-basic">Deliveries</span> at Your
           Fingertips
         </motion.h1>
       )}
@@ -39,8 +39,8 @@ const HeroTitle = ({ type }) => {
           id="title"
           className="hero-title max-w-[1076px] mx-auto title-opacity"
         >
-          About Eco-Ride: <span className="text-eco-green">Our</span> Mission &{" "}
-          <span className="text-eco-green">Vision</span>
+          About Eco-Ride: <span className="text-basic">Our</span> Mission &{" "}
+          <span className="text-basic">Vision</span>
         </motion.h1>
       )}
 
@@ -52,9 +52,9 @@ const HeroTitle = ({ type }) => {
           id="title"
           className="hero-title max-w-[1076px] mx-auto title-opacity"
         >
-          Drive Green, <span className="text-eco-green">Earn More</span> Join
-          the <br />
-          Eco-Ride <span className="text-eco-green">Team</span> Today
+          Drive Green, <span className="text-basic">Earn More</span> Join the{" "}
+          <br />
+          Eco-Ride <span className="text-basic">Team</span> Today
         </motion.h1>
       )}
 

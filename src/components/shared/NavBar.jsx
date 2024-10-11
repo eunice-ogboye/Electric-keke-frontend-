@@ -11,7 +11,7 @@ const NavBar = ({ dark }) => {
    * header, is driver present in the url
    */
   const isDriverinTheUrl = regex.test(pathname);
-  
+
   return (
     <nav className="flex items-center gap-2 md:gap-3 lg:gap-8 list-none">
       {nav_links.map((item) => {
@@ -21,8 +21,8 @@ const NavBar = ({ dark }) => {
           <Link to={item.href} key={item.title}>
             <li
               className={`text-eiteen ${
-                dark ? "text-eco-neutral-prime" : "text-eco-white"
-              } ${isActive && "!text-eco-green font-bold"}`}
+                dark ? "text-neutral-500" : "text-neutral"
+              } ${isActive && "!text-basic font-bold"}`}
             >
               {item.title}
             </li>

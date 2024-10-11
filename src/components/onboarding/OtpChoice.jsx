@@ -11,7 +11,7 @@ const OtpChoice = ({ otp_options }) => {
     <div
       key={title}
       className={`otp-opt ${
-        title.toLowerCase() === formData.message_type && "bg-eco-green-faint"
+        title.toLowerCase() === formData.message_type && "bg-basic-200"
       }`}
       onClick={() => chooseOtpMethod(title.toLowerCase())}
     >

@@ -11,9 +11,8 @@ import ChooseModal from "../shared/modals/ChooseModal";
 const HeroCta = ({ type }) => {
   const user = useCurrentUser();
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
   // redux dispatch and globals
-  const {} = dispatchables();
+  const { chooseRole } = dispatchables();
   const { support } = useSelector((state) => state.global);
 
   // what kind of support
@@ -31,9 +30,10 @@ const HeroCta = ({ type }) => {
             <Btn
               text="Register"
               href="/onboarding/registration"
-              styling="btn--hero btn--primary"
+              styling="btn--hero btn--primary w-[232px]"
               onClick={() => {
                 // showuld set the registering as in the ls as rider
+                chooseRole('Rider')
               }}
             />
           )}

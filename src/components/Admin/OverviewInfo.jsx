@@ -1,8 +1,13 @@
-import React from "react";
 import Filter from "../Filter";
-import { overview_titles, overview_descriptions } from "../../constants";
+import {
+  overview_titles,
+  overview_descriptions,
+  user_management_filter,
+} from "../../constants";
+import CustomFilter from "../shared/CustomFilter";
+import Btn from "../shared/btn/Btn";
 
-const OverviewInfo = ({currentPage, changeContentToDisplay}) => {
+const OverviewInfo = ({ currentPage, changeContentToDisplay }) => {
   return (
     <div className="overview-info">
       <div className="border">
@@ -12,18 +17,19 @@ const OverviewInfo = ({currentPage, changeContentToDisplay}) => {
       </div>
 
       <div className="flex items-center gap-x-3">
-        <div className="export-action">
-          <p className="export-text">Export</p>
-          <div>
-            <img src="/admin-down.svg" alt="down" />
-          </div>
-        </div>
-
-        <Filter
-          className="w-[177px] p-3 rounded-[6px]"
-          filterBasedOn={currentPage}
-          changeContentToDisplay={changeContentToDisplay}
+        <Btn
+          text="Export"
+          className="bg-transparent text-black border-[0.5px]"
         />
+
+        {currentPage === "Overview" ? null : (
+          <CustomFilter
+            filterGroups={user_management_filter}
+            handleClick={(option) => {
+              changeContentToDisplay(option);
+            }}
+          />
+        )}
       </div>
     </div>
   );

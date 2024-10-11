@@ -1,20 +1,13 @@
 import Heading from "../../../components/shared/Heading";
-import { useState } from "react";
 import AuthProcess from "./AuthProcess";
 import UploadImageModal from "@/components/shared/modals/UploadImageModal";
-import { useGlobalOnboardContext } from "@/contexts/OnboardingContext";
 
 const RiderShared = ({ children, nextProcess }) => {
-  const { isUploadModalOpen, closeUploadModal } = useGlobalOnboardContext();
+ 
 
   return (
     <>
-      {isUploadModalOpen && (
-        <UploadImageModal
-          nextProcess={nextProcess}
-          closeUploadModal={closeUploadModal}
-        />
-      )}
+      <UploadImageModal nextProcess={nextProcess} />
 
       <section className="home-pad py-10 md:py-6 laptop:py-[60px] w-full">
         <div>

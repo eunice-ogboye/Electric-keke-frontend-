@@ -1,34 +1,23 @@
 import React, { useState } from "react";
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import BoardManagement from "../components/admin/BoardManagement";
 import Analytics from "../components/admin/Analytics";
-import AdminNav from "../components/admin/AdminNav";
-import { Link } from "react-router-dom";
-import { Button } from "../components/ui/button";
 import OverviewInfo from "../components/admin/OverviewInfo";
-import dispatchables from "../utils/dispatchables";
-import { Logout } from "../services/auth";
 import AdminHeader from "../components/admin/AdminHeader";
-// import Experimental from "../components/shared/experimental/Experimental";
+import AdminSideBar from "@/components/admin/AdminSideBar";
 
 const AdminLayout = () => {
-  const navigate = useNavigate();
-  const { showAlert } = dispatchables();
-
   const [currentAdminPage, setCurrentAdminPage] = useState("Overview");
   const [contentsToDisplay, setContentsToDisplay] = useState("All");
 
-  const { pathname } = useLocation();
-  const activeLink = pathname.slice(7);
-
   const changeContentToDisplay = (content) => {
-    setContentsToDisplay((prev) => (prev === content ? "All" : content));
-  };
-
-  const LogoutUser = () => {
-    Logout();
-    showAlert("Logged Out");
-    navigate("/");
+    const display =
+      content === "Active Users"
+        ? "active"
+        : content === "Inactive Users"
+        ? "inactive"
+        : content;
+    setContentsToDisplay((prev) => (prev === display ? "All" : display));
   };
 
   return (
@@ -36,34 +25,7 @@ const AdminLayout = () => {
       <AdminHeader />
 
       <div className="flex items-start gap-x-10">
-        <div className="admin-sidebar">
-          <div className="min-h-full">
-            <AdminNav
-              setCurrentAdminPage={setCurrentAdminPage}
-              activeLink={activeLink}
-            />
-
-            <div className="admin-footer">
-              <Link className="admin-footer-item">
-                <div>
-                  <img src="/users/setting.svg" alt="setting" />
-                </div>
-                <p className="">Help Center</p>
-              </Link>
-
-              <Button
-                className="admin-footer-item"
-                variant="ghost"
-                onClick={LogoutUser}
-              >
-                <div>
-                  <img src="/logout.svg" alt="logout" />
-                </div>
-                <p className="text-error">Logout</p>
-              </Button>
-            </div>
-          </div>
-        </div>
+        <AdminSideBar setCurrentAdminPage={setCurrentAdminPage} />
 
         <div className="overview">
           {currentAdminPage !== "Financial Management" && <BoardManagement />}

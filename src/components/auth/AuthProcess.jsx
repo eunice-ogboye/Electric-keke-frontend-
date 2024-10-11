@@ -19,7 +19,7 @@ const AuthProcess = () => {
       ? 2
       : 3;
 
-      console.log(processesCompleted, process)
+  console.log(processesCompleted, process);
 
   const [percentage, setPercentage] = useState(0);
 
@@ -41,7 +41,7 @@ const AuthProcess = () => {
             <div key={index}>
               <div
                 className={`size-5 md:size-10 rounded-full mx-auto flex-center ${
-                  completed ? "bg-eco-green-prime" : "bg-eco-neutral-faint"
+                  completed ? "bg-basic-prime" : "bg-eco-neutral-faint"
                 }`}
               >
                 {completed && (

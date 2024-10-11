@@ -30,7 +30,7 @@ const Contribution = () => {
             tclass="font-josefin !text-[2rem]"
             description={contribution.desc}
             type="about"
-            dclass="text-eco-neutral-prime text-base tablet:text-xl laptop:text-2xl mt-7"
+            dclass="text-neutral-500 text-base tablet:text-xl laptop:text-2xl mt-7"
           />
         </motion.div>
       </div>

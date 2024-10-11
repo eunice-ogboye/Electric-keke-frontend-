@@ -25,7 +25,7 @@ const InternalServer = () => {
         <Logo className="text-center w-20 mx-auto" />
         <Heading
           title="500"
-          tclass="text-9xl text-center text-eco-green-prime"
+          tclass="text-9xl text-center text-basic-prime"
           description="Internal Server Error, Check Connection and Try again"
           dclass="text-center text-2xl"
         />

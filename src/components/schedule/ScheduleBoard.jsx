@@ -9,7 +9,7 @@ const ScheduleBoard = ({ scheduleFormData }) => {
     <div className="schedule-dashboard">
       <h3 className="schedule-dashboard-title">Details</h3>
 
-      <div className="px-2 py-5 border-eco-green md:flex gap-5">
+      <div className="px-2 py-5 border-basic md:flex gap-5">
         <div className="schedule-location">
           <div className="md:flex items-start justify-between">
             <div className="schedule-detail tablet:w-5/12 tablet:border-8">

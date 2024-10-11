@@ -1,9 +1,6 @@
 import RiderShared from "./RiderShared";
 import Heading from "@/components/shared/Heading";
 import { driver_authProcess } from "@/constants";
-import dispatchables from "@/utils/dispatchables";
-import UploadImageModal from "@/components/shared/modals/UploadImageModal";
-import { useState } from "react";
 import Btn from "@/components/shared/btn/Btn";
 import { useGlobalOnboardContext } from "@/contexts/OnboardingContext";
 
@@ -12,7 +9,6 @@ const RiderStep3 = ({ nextProcess, prevProcess }) => {
 
   return (
     <>
-      {/* {isModalOpen && <UploadImageModal nextProcess={nextProcess} />} */}
       <RiderShared nextProcess={nextProcess}>
         <div className="driverauth">
           <div className="driverauth__img">

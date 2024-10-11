@@ -21,7 +21,7 @@ const Loader = ({ type = "spin", className, size }) => {
             <path
               stroke="yellow"
               strokeWidth={5}
-              fill="#e15b64"
+              fill="#77BB77"
               d="M10 50A40 40 0 0 0 90 50A40 42 0 0 1 10 50"
               strokeLinecap="round"
             >

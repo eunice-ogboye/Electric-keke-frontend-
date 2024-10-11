@@ -44,7 +44,7 @@ export const TableContent = ({
               {index === 1 && (
                 <>
                   <div className="flex items-center gap-x-2">
-                    <div className="size-12 rounded-full bg-eco-neutral-prime flex-center">
+                    <div className="size-12 rounded-full bg-neutral-500 flex-center">
                       {img ? (
                         <img src={img} alt={name} />
                       ) : (
@@ -66,7 +66,7 @@ export const TableContent = ({
                 <>
                   <span
                     className={`size-3 rounded-full block ${
-                      status === "active" ? "bg-eco-green" : "bg-red-500"
+                      status === "active" ? "bg-basic" : "bg-red-500"
                     }`}
                   />
                   <p>{status}</p>
@@ -105,7 +105,7 @@ export const TableContent = ({
               {index === 1 && (
                 <p
                   className={`${
-                    status === "Complete" ? "text-eco-green" : "text-warning"
+                    status === "Complete" ? "text-basic" : "text-warning"
                   }`}
                 >
                   {status}
@@ -114,7 +114,7 @@ export const TableContent = ({
               {index === 2 && (
                 <>
                   <div className="flex items-center gap-x-2">
-                    <div className="size-12 rounded-full bg-eco-neutral-prime flex-center">
+                    <div className="size-12 rounded-full bg-neutral-500 flex-center">
                       {img ? (
                         <img src={img} alt={name} />
                       ) : (

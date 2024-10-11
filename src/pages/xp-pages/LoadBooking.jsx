@@ -18,7 +18,7 @@ const LoadBooking = () => {
           className="text-center w-full max-w-[840px] mx-auto"
           title="Waiting for Rider to Accept Ride"
           description="If your ride request hasn't been accepted promptly, feel free to cancel and try again."
-          dclass="text-base md:text-2xl lg:text-[1.75rem] text-eco-neutral-prime mt-6"
+          dclass="text-base md:text-2xl lg:text-[1.75rem] text-neutral-500 mt-6"
           tclass="text-2xl md:text-[2rem] lg:text-[48px]"
         />
 

@@ -14,19 +14,19 @@ const Togglers = ({
   const toggleColor = {
     color1: {
       one: isConditionTrue
-        ? "border-b-eco-green text-eco-green"
+        ? "border-b-basic text-basic"
         : "text-white border-b-eco-white",
       two: isConditionTrue
         ? "text-white border-b-eco-white"
-        : "border-b-eco-green text-eco-green",
+        : "border-b-basic text-basic",
     },
     color2: {
       one: isConditionTrue
-        ? "border-b-eco-green text-eco-green"
-        : "text-eco-neutral-prime border-b-eco-neutral-prime",
+        ? "border-b-basic text-basic"
+        : "text-neutral-500 border-b-neutral-500",
       two: isConditionTrue
-        ? "text-eco-neutral-prime border-b-eco-neutral-prime"
-        : "border-b-eco-green text-eco-green",
+        ? "text-neutral-500 border-b-neutral-500"
+        : "border-b-basic text-basic",
     },
   };
   const TogglerStraight = () => {

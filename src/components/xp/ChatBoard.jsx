@@ -7,7 +7,7 @@ const Chat = ({ identity }) => {
       text: "text-black",
     },
     receiver: {
-      box: "bg-eco-green rounded-s-20 ",
+      box: "bg-basic rounded-s-20 ",
       text: "text-white",
     },
   };
@@ -22,7 +22,10 @@ const Chat = ({ identity }) => {
         className={`px-2 py-4 rounded-b-20 flex items-end w-[90%] md:w-[50%] ${person[identity].box}`}
       >
         <div>
-          <p className={`font-nunito text-eiteen ${person[identity].text}`} onDrag={(e) => e.preventDefault()}>
+          <p
+            className={`font-nunito text-eiteen ${person[identity].text}`}
+            onDrag={(e) => e.preventDefault()}
+          >
             Lorem ipsum dolor sit amet consectetur. Adipiscing convallis
             ultrices feugiat et. Mattis non non lectus tempus. Ornare sodales in
             ligula aliquam sed donec.
@@ -70,10 +73,10 @@ const ChatBoard = () => {
         setScrollPos((prev) => ({ ...prev, initial: e.touches[0].clientY }));
         // console.log(e.touches[0]);
       }}
-      onTouchEnd={e => {
+      onTouchEnd={(e) => {
         setScroll(false);
       }}
-      onTouchMove={e => {
+      onTouchMove={(e) => {
         if (!scroll) return;
         const difference = -(e.touches[0].clientY - scrollPos.initial);
         setScrollPos((prev) => ({

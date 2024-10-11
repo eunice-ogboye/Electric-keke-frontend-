@@ -38,7 +38,7 @@ const PaymentForm = () => {
           />
         </div>
 
-        <div className="border border-eco-green-prime rounded-[6px] pl-5 pr-16 py-3">
+        <div className="border border-basic-prime rounded-[6px] pl-5 pr-16 py-3">
           <FormRow
             type="checkbox"
             label="Securely save my information for 1 - click checkout "

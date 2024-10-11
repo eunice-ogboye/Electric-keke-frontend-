@@ -36,7 +36,7 @@ const ResendOtpTab = ({ verificationType }) => {
       <p className="text-eiteen">
         Didn't receive an OTP?{" "}
         <span
-          className="text-eco-green cursor-pointer font-nunito"
+          className="text-basic cursor-pointer font-nunito"
           onClick={resend_otp}
         >
           Resend

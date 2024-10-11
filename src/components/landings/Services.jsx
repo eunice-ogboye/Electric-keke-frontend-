@@ -12,7 +12,7 @@ const Services = ({ type = "main" }) => {
         tclass="service__title"
         description={type === "main" && about_descriptions.two}
         dclass="service__desc"
-        introClass="mx-auto text-eco-green"
+        introClass="mx-auto text-basic"
         type="about"
         initial={{ y: type === "main" ? -100 : -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

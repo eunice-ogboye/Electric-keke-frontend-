@@ -29,6 +29,7 @@ const ChooseMain = ({ type, goToInputRideDetails }) => {
           onClick={goToInputRideDetails}
         />
         <Btn
+          href="/schedule-ride"
           text="Schedule Ride"
           styling="btn--hero btn--secondary"
           type="secondary"

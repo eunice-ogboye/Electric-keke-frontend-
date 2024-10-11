@@ -1,12 +1,17 @@
 import { Upload } from "lucide-react";
-import NewModal from "../CustomModal";
+import CustomModal from "../CustomModal";
 import Btn from "../btn/Btn";
 import { getItemFromLs } from "@/utils/ls";
 import dispatchables from "@/utils/dispatchables";
+import { useState } from "react";
+import { useGlobalOnboardContext } from "@/contexts/OnboardingContext";
 
-const UploadImageModal = ({ nextProcess, closeUploadModal }) => {
+const UploadImageModal = ({ nextProcess }) => {
+  const { isUploadModalOpen, closeUploadModal, openUploadModal } =
+    useGlobalOnboardContext();
   const { showAlert } = dispatchables();
-  const handleUpload = () => {
+
+  const handleUpload = ({}) => {
     const process = getItemFromLs("onboarding-process");
 
     if (process === 2) {
@@ -21,10 +26,12 @@ const UploadImageModal = ({ nextProcess, closeUploadModal }) => {
   };
 
   return (
-    <NewModal
-      definedState={true}
+    <CustomModal
       modalStylling="modal__upload"
-      // customCloseFunc={customClose}
+      // customCloseFunc={closeUploadModal}
+      isModalOpen={isUploadModalOpen}
+      openModal={openUploadModal}
+      closeModal={closeUploadModal}
     >
       <div className="modal__upload-container">
         <div className="modal__upload-dropzone">
@@ -52,7 +59,7 @@ const UploadImageModal = ({ nextProcess, closeUploadModal }) => {
           onClick={handleUpload}
         />
       </div>
-    </NewModal>
+    </CustomModal>
   );
 };
 

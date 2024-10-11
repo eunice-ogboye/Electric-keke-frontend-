@@ -39,7 +39,7 @@ const Heading = ({
           initial={initialp}
           whileInView={animatep}
           transition={{ duration: 2 }}
-          className={`font-normal text-eco-neutral-prime font-montserrat ${dclass}`}
+          className={`font-normal text-neutral-500 font-montserrat ${dclass}`}
         >
           {description}
         </motion.p>

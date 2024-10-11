@@ -10,6 +10,7 @@ const RegisterAs = () => {
     addItemToLs("onboarding-process", 0);
     addItemToLs("registeringAs", "Login");
   };
+  
   return (
     <div className="board__register">
       <p className="board__text mr-5 laptop:mr-[120px]">

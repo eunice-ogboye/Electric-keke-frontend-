@@ -81,7 +81,7 @@ const Step1 = ({ nextProcess, prevProcess }) => {
               <Link
                 to="/onboarding/registration"
                 onClick={goToLogin}
-                className="text-eco-green"
+                className="text-basic"
               >
                 Login!
               </Link>
@@ -90,7 +90,7 @@ const Step1 = ({ nextProcess, prevProcess }) => {
             <div className="w-full max-w-[343px] mx-auto">
               <Btn
                 text="Continue"
-                styling="primary-btn h-14 w-full rounded-full"
+                styling="btn btn--primary btn--lg w-full rounded-full"
                 disabled={isDisabled}
               />
 
@@ -98,7 +98,7 @@ const Step1 = ({ nextProcess, prevProcess }) => {
                 <p className="font-bold text-center">or</p>
                 <Btn
                   text="Register with Google"
-                  styling="w-full h-14 rounded-full bg-white shadow-md text-black"
+                  styling="btn btn--lg w-full rounded-full bg-white shadow-md text-black"
                   icon={<Google />}
                 />
               </div>

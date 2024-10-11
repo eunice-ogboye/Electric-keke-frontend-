@@ -8,7 +8,7 @@ const Faq = () => {
     <div className="faq">
       <div className="faq-container">
         <div className="w-full tablet:w-[56%] flex-center relative h-[300px] tablet:h-[504px]">
-          <div className="w-[37%] h-full border-4 rounded-20 border-eco-green" />
+          <div className="w-[37%] h-full border-4 rounded-20 border-basic" />
 
           <FaqImg className="faq-img-first" imgSrc="/hero/support1.png" />
 

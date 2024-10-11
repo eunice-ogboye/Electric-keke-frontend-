@@ -27,8 +27,8 @@ const Board = ({ title, icon }) => {
             <CountUp end={resource.analysisDigit} start={0} duration={5} />
           </h2>
           <p className="text-xs">
-            <span className="text-eco-green">+{resource.percent}%</span> from
-            last month
+            <span className="text-basic">+{resource.percent}%</span> from last
+            month
           </p>
         </div>
       ) : (

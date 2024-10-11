@@ -13,7 +13,7 @@ const EarnRequirements = () => {
         {earn_requirements.map((item, index) => (
           <li
             key={index}
-            className="text-base md:text-xl lg:text-2xl text-eco-neutral-prime font-montserrat"
+            className="text-base md:text-xl lg:text-2xl text-neutral-500 font-montserrat"
           >
             {item}
           </li>

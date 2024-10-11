@@ -7,7 +7,7 @@ const Trip = ({ label, location }) => {
         <p className="text-eiteen">{label}</p>
       </div>
       <div className="ride-location">
-        <p className="text-eiteen text-eco-neutral-prime">{location}</p>
+        <p className="text-eiteen text-neutral-500">{location}</p>
       </div>
     </div>
   );

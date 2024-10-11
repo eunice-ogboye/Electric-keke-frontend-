@@ -113,7 +113,7 @@
 }
 
 .default-msg-btn {
-  @apply border border-basic rounded-full bg-basic-100 text-eco-neutral-prime
+  @apply border border-basic rounded-full bg-basic-100 text-neutral-500
 }
 
 
@@ -194,7 +194,7 @@ h2 {
 }
 
 .driverauth__desc {
-  @apply text-eco-neutral-prime text-base md:text-xl laptop:text-2xl mt-2 md:mt-6
+  @apply text-neutral-500 text-base md:text-xl laptop:text-2xl mt-2 md:mt-6
 }
 
 .btn__driverauth {
@@ -211,11 +211,11 @@ h2 {
 
 
 .process__display {
-  @apply size-[14.33px] md:size-[28.66px] laptop:size-[31.97px] rounded-full bg-eco-neutral-prime flex-center
+  @apply size-[14.33px] md:size-[28.66px] laptop:size-[31.97px] rounded-full bg-neutral-500 flex-center
 }
 
 .process--active {
-  @apply bg-eco-green
+  @apply bg-basic
 }
 
 .process__current {
@@ -238,7 +238,7 @@ h2 {
 }
 
 .custom-bg {
-  @apply h-full w-full overflow-hidden bg-eco-green isolate flex-center px-24 sticky top-0
+  @apply h-full w-full overflow-hidden bg-basic isolate flex-center px-24 sticky top-0
 }
 
 .custom-bg-circle {
@@ -299,14 +299,6 @@ h2 {
 
 .home-pad {
   @apply px-[17px] tablet:px-20 laptop:px-[7.5rem];
-}
-
-.primary-btn {
-  @apply bg-eco-green hover:bg-red-600;
-}
-
-.secondary-btn {
-  @apply bg-eco-green/10 border border-eco-green text-eco-green;
 }
 
 /******** HOME HERO ******/
@@ -404,7 +396,7 @@ h2 {
 }
 
 .service-card {
-  @apply bg-white drop-shadow-service border border-eco-neutral-thick rounded-[21px] h-[219px] tablet:min-h-[235.44px] laptop:h-[327px] flex-center p-2 service-shadow;
+  @apply bg-white drop-shadow-service border border-neutral-thick rounded-[21px] h-[219px] tablet:min-h-[235.44px] laptop:h-[327px] flex-center p-2 service-shadow;
 }
 
 .service-card__content {
@@ -412,15 +404,15 @@ h2 {
 }
 
 .service__icon {
-  @apply size-[43px] tablet:size-[46px] laptop:size-[65px] flex-center bg-eco-green-faint rounded-full
+  @apply size-[43px] tablet:size-[46px] laptop:size-[65px] flex-center bg-basic-100 rounded-full
 }
 
 .service-card__title {
-  @apply text-xl tablet:text-2xl laptop:text-[2rem] text-eco-green-dark leading-[24px] tablet:leading-7 lg:leading-[38px] font-bold font-josefin;
+  @apply text-xl tablet:text-2xl laptop:text-[2rem] text-basic-1000 leading-[24px] tablet:leading-7 lg:leading-[38px] font-bold font-josefin;
 }
 
 .service-card__desc {
-  @apply text-xxs tablet:text-xs laptop:text-base mt-[5px] laptop:mt-2 text-eco-neutral-prime
+  @apply text-xxs tablet:text-xs laptop:text-base mt-[5px] laptop:mt-2 text-neutral-500
 }
 
 /************************ IMAGE ************/
@@ -442,7 +434,7 @@ h2 {
 
 /************** footer ************/
 .footer {
-  @apply home-pad py-10 md:py-[5.9rem] bg-eco-neutral overflow-hidden
+  @apply home-pad py-10 md:py-[5.9rem] bg-neutral-footer overflow-hidden
 }
 
 .footer-main {
@@ -467,7 +459,7 @@ h2 {
 }
 
 .social-link {
-  @apply size-11 laptop:size-[50px] bg-eco-green-social flex-center rounded-full
+  @apply size-11 laptop:size-[50px] bg-basic-social flex-center rounded-full
 }
 
 .footer-link-title {
@@ -520,7 +512,7 @@ h2 {
 }
 
 .subscribe-btn {
-  @apply w-[135px] h-12 md:h-[56px] md:w-[162px] primary-btn
+  @apply w-[135px] h-12 md:h-[56px] md:w-[162px] btn--primary
 }
 
 /******************** Testimony ****************/
@@ -547,16 +539,16 @@ h2 {
 }
 
 .testimony-paragraph {
-  @apply text-eco-neutral-prime text-base md:text-xl lg:text-2xl text-center md:text-left
+  @apply text-neutral-500 text-base md:text-xl lg:text-2xl text-center md:text-left
 }
 
 .testimony-data {
-  @apply text-xs md:text-base text-eco-neutral-prime
+  @apply text-xs md:text-base text-neutral-500
 }
 
 /* **************** mission *************/
 .mission-container {
-  @apply py-14 lg:py-[7.5rem] bg-eco-green-prime
+  @apply py-14 lg:py-[7.5rem] bg-basic-500
 }
 
 .mission-desc {
@@ -577,7 +569,7 @@ h2 {
 }
 
 .contribution-phone {
-  @apply w-full h-[341px] tablet:w-1/2 md:h-[546px] border rounded-normal bg-gradient-to-b from-eco-green to-peach
+  @apply w-full h-[341px] tablet:w-1/2 md:h-[546px] border rounded-normal bg-gradient-to-b from-basic to-peach
 }
 
 .contribution-pg {
@@ -605,11 +597,11 @@ h2 {
 
 /**************** Alert **********/
 .alert-container {
-  @apply flex items-center justify-between fixed top-5 md:top-20 right-3 md:right-20 shadow-2xl border border-eco-neutral-border p-2 z-[200] rounded-m bg-white
+  @apply flex items-center justify-between fixed top-5 md:top-20 right-3 md:right-20 shadow-2xl border border-neutral-200 p-2 z-[200] rounded-m bg-white
 }
 
 .alert-stats {
-  @apply rounded bg-eco-green-dark size-7 flex-center
+  @apply rounded bg-basic-1000 size-7 flex-center
 }
 
 /* DIRECTION */
@@ -619,7 +611,7 @@ h2 {
 }
 
 .direction-btn {
-  @apply bg-transparent flex-center border border-eco-neutral-prime rounded-full size-10 p-0;
+  @apply bg-transparent flex-center border border-neutral-500 rounded-full size-10 p-0;
 }
 
 
@@ -628,7 +620,7 @@ h2 {
   } */
 
 .mobile-header {
-  @apply flex items-center justify-between px-[15px] py-3 md:hidden absolute z-50 w-full bg-eco-white/[6%] backdrop-blur-3xl h-16
+  @apply flex items-center justify-between px-[15px] py-3 md:hidden absolute z-50 w-full bg-neutral/[6%] backdrop-blur-3xl h-16
 }
 
 .mobile-navigation {
@@ -636,7 +628,7 @@ h2 {
 }
 
 .mobile-navigation__text {
-  @apply text-base font-bold text-eco-green
+  @apply text-base font-bold text-basic
 }
 
 .mobile-header__title {
@@ -652,11 +644,11 @@ h2 {
 }
 
 .header__content {
-  @apply hidden md:flex items-center justify-between border-2 border-eco-green/40 h-[4.75rem] rounded-[40px] px-[17px] p-2
+  @apply hidden md:flex items-center justify-between border-2 border-basic/40 h-[4.75rem] rounded-[40px] px-[17px] p-2
 }
 
 .header__content--blur {
-  @apply bg-eco-neutral/20 backdrop-blur-lg;
+  @apply bg-neutral-footer/20 backdrop-blur-lg;
 }
 
 .header__profile-nav-board {
@@ -664,7 +656,7 @@ h2 {
 }
 
 .header__icon {
-  @apply size-6 md:size-10 flex-center text-xl md:text-3xl font-bold rounded-full bg-eco-green-dark text-white font-josefin relative
+  @apply size-6 md:size-10 flex-center text-xl md:text-3xl font-bold rounded-full bg-basic-1000 text-white font-josefin relative
 }
 
 /* h-[4.75rem] container height max */
@@ -694,7 +686,7 @@ h2 {
 }
 
 .rider-btn {
-  @apply bg-eco-green-agile text-eco-green-dark absolute bottom-[6px] right-[6px] md:bottom-[14px] md:right-[14px] lg:bottom-[18px] lg:right-[7px] rounded-full h-[17px] w-[73px] md:h-[22.64px] md:w-[91px] lg:h-[34px] lg:w-[135px] text-[0.625rem] md:text-xs lg:text-eiteen;
+  @apply bg-basic-200 text-basic-1000 absolute bottom-[6px] right-[6px] md:bottom-[14px] md:right-[14px] lg:bottom-[18px] lg:right-[7px] rounded-full h-[17px] w-[73px] md:h-[22.64px] md:w-[91px] lg:h-[34px] lg:w-[135px] text-[0.625rem] md:text-xs lg:text-eiteen;
 }
 
 .r-form-body-margin {
@@ -706,12 +698,12 @@ h2 {
 }
 
 .rider-name {
-  @apply font-bold text-eco-white !text-base md:text-2xl lg:text-[2rem]
+  @apply font-bold text-neutral !text-base md:text-2xl lg:text-[2rem]
 }
 
 
 .rider-plain-text {
-  @apply text-[0.625rem] md:text-xs laptop:text-eiteen text-eco-white
+  @apply text-[0.625rem] md:text-xs laptop:text-eiteen text-neutral
 }
 
 .rider-picture-container {
@@ -737,7 +729,7 @@ h2 {
 }
 
 .driver {
-  @apply border border-eco-neutral-prime min-h-[693px] px-[9px] md:px-0 md:pl-10 lg:pl-10 py-0 rounded-[40px] bg-eco-neutral-driver overflow-hidden mt-8 pb-10;
+  @apply border border-neutral-500 min-h-[693px] px-[9px] md:px-0 md:pl-10 lg:pl-10 py-0 rounded-[40px] bg-neutral-driver overflow-hidden mt-8 pb-10;
 }
 
 .statistics {
@@ -757,7 +749,7 @@ h2 {
 }
 
 .dough-info {
-  @apply flex items-center justify-between text-xs font-montserrat text-eco-neutral-prime;
+  @apply flex items-center justify-between text-xs text-neutral-500;
 }
 
 .dough-info-point {
@@ -777,7 +769,7 @@ h2 {
 }
 
 .driver-online-btn {
-  @apply bg-eco-green text-white
+  @apply bg-basic text-white
 }
 
 .driver-offline-btn {
@@ -827,7 +819,7 @@ h2 {
 }
 
 .modal__map-input-field {
-  @apply h-[59px] border border-eco-neutral-prime py-4 px-5 rounded-md bg-white flex items-center justify-between
+  @apply h-[59px] border border-neutral-500 py-4 px-5 rounded-md bg-white flex items-center justify-between
 }
 
 .rate-modal {
@@ -851,12 +843,12 @@ h2 {
   @apply max-w-[520px] mx-auto mt-6 flex flex-col gap-[13px]
 }
 
-.map-modal-input {
-  @apply h-[59px] border border-eco-neutral-prime py-4 px-5 rounded-md bg-white flex items-center justify-between
-}
+/* .map-modal-input {
+  @apply h-[59px] border border-neutral-500 py-4 px-5 rounded-md bg-white flex items-center justify-between
+} */
 
 .estimate-price {
-  @apply h-10 md:h-[59px] py-4 px-5 rounded-md bg-eco-green-faint flex items-center justify-between
+  @apply h-10 md:h-[59px] py-4 px-5 rounded-md bg-basic-200 flex items-center justify-between
 }
 
 .modal__contact {
@@ -876,7 +868,7 @@ h2 {
 }
 
 .modal__upload-dropzone {
-  @apply border border-eco-neutral-thick2 border-dashed px-[13px] py-6 md:px-24 rounded-[12px]
+  @apply border border-neutral-400 border-dashed px-[13px] py-6 md:px-24 rounded-[12px]
 }
 
 .modal__upload-dropmain {
@@ -931,7 +923,7 @@ h2 {
 
 /* input classes */
 .schedule-input {
-  @apply border border-eco-green px-5 rounded-[6px] h-[64px] w-full max-w-96;
+  @apply border border-basic px-5 rounded-[6px] h-[64px] w-full max-w-96;
 }
 
 .profile-management-input {
@@ -939,11 +931,11 @@ h2 {
 }
 
 .auth-input {
-  @apply border border-eco-neutral-input px-5 rounded-[6px] h-[54px] w-full;
+  @apply border border-neutral-300 px-5 rounded-[6px] h-[54px] w-full;
 }
 
 .profile-modal-inputs {
-  @apply py-5 px-4 border border-eco-neutral-prime h-16 rounded-[14px] w-full
+  @apply py-5 px-4 border border-neutral-500 h-16 rounded-[14px] w-full
 }
 
 /************ schedule form ************/
@@ -1021,7 +1013,7 @@ h2 {
 }
 
 .export-text {
-  @apply font-inter text-base text-eco-neutral-thick
+  @apply font-inter text-base text-neutral-thick
 }
 
 .admin-sidebar {
@@ -1072,7 +1064,7 @@ h2 {
 }
 
 .setting-opts {
-  @apply text-[28px] font-normal flex items-center gap-7 hover:scale-110 transition-all duration-500 hover:text-eco-green cursor-pointer
+  @apply text-[28px] font-normal flex items-center gap-7 hover:scale-110 transition-all duration-500 hover:text-basic cursor-pointer
 }
 
 .safe {
@@ -1088,7 +1080,7 @@ h2 {
 }
 
 .profile-options {
-  @apply py-5 px-4 border border-eco-neutral-prime h-16 rounded-[14px] w-full text-base flex items-center justify-between cursor-pointer font-bold
+  @apply py-5 px-4 border border-neutral-500 h-16 rounded-[14px] w-full text-base flex items-center justify-between cursor-pointer font-bold
 }
 
 .payment-modal {
@@ -1100,7 +1092,7 @@ h2 {
 }
 
 .card-container {
-  @apply rounded-[8px] w-full h-fit bg-gradient-to-br from-eco-green to-peach mt-2 tablet:mt-10 flex-center p-4
+  @apply rounded-[8px] w-full h-fit bg-gradient-to-br from-basic to-peach mt-2 tablet:mt-10 flex-center p-4
 }
 
 .master-card {
@@ -1141,15 +1133,15 @@ h2 {
 }
 
 .passenger-name {
-  @apply text-eiteen text-eco-green font-bold font-montserrat
+  @apply text-eiteen text-basic font-bold font-montserrat
 }
 
 .passenger-email {
-  @apply text-base text-eco-neutral-prime font-montserrat
+  @apply text-base text-neutral-500 font-montserrat
 }
 
 .passenger-review {
-  @apply text-sm text-eco-neutral-prime font-montserrat
+  @apply text-sm text-neutral-500 font-montserrat
 }
 
 .passenger-review-details {
@@ -1157,11 +1149,11 @@ h2 {
 }
 
 .review-btn {
-  @apply text-xs text-eco-neutral-prime border-b border-eco-neutral-prime text-eco-neutral-prime
+  @apply text-xs text-neutral-500 border-b border-neutral-500 text-neutral-500
 }
 
 .review-cat {
-  @apply text-xs text-eco-neutral-prime
+  @apply text-xs text-neutral-500
 }
 
 /********************* tracking *************/
@@ -1183,7 +1175,7 @@ h2 {
 }
 
 .person-details {
-  @apply flex items-center py-2 px-0 sm:px-2 md:px-4 justify-between bg-eco-green-faint
+  @apply flex items-center py-2 px-0 sm:px-2 md:px-4 justify-between bg-basic-200
 }
 
 .person-photo-container {
@@ -1203,7 +1195,7 @@ h2 {
 }
 
 .rider-status {
-  @apply text-sm md:text-eiteen text-eco-neutral-prime
+  @apply text-sm md:text-eiteen text-neutral-500
 }
 
 .ride-cta {
@@ -1219,7 +1211,7 @@ h2 {
 }
 
 .ride-fare {
-  @apply bg-eco-green-faint flex-center h-[56px] w-[179px] text-eiteen font-bold rounded-[10px]
+  @apply bg-basic-200 flex-center h-[56px] w-[179px] text-eiteen font-bold rounded-[10px]
 }
 
 /**************** shadows *************/
@@ -1279,11 +1271,11 @@ h2 {
 }
 
 .profile-glow {
-  @apply size-[300px] lg:size-[609px] bg-eco-green/20 absolute -top-10 md:-top-32 -left-20 md:-left-[8rem] rounded-full -z-20
+  @apply size-[300px] lg:size-[609px] bg-basic/20 absolute -top-10 md:-top-32 -left-20 md:-left-[8rem] rounded-full -z-20
 }
 
 .profile-sub-header {
-  @apply border-b border-b-eco-neutral-prime flex items-center justify-between
+  @apply border-b border-b-neutral-500 flex items-center justify-between
 }
 
 .prof-photo {
