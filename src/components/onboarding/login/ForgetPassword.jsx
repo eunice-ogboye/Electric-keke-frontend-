@@ -1,15 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useAreInputsFilled } from "../../../hooks/useAreInputsFilled";
-import Logo from "../../shared/Logo";
-import Heading from "../../shared/Heading";
 import ReusableFormRows from "../../auth/ReusableFormRows";
 import SharedStepLayout from "../SharedStepLayout";
 import { addItemToLs } from "../../../utils/ls";
 import { RequestOtp } from "../../../services/auth";
 import Btn from "@/components/shared/btn/Btn";
+import { onboarding_descs } from "@/constants";
 
-const ForgetPassword = ({ nextProcess }) => {
+const ForgetPassword = ({ nextProcess, prevProcess }) => {
   const { username } = useSelector((state) => state.formData);
 
   const isDisbaled = useAreInputsFilled(username);
@@ -27,34 +26,26 @@ const ForgetPassword = ({ nextProcess }) => {
   };
 
   return (
-    <SharedStepLayout text="Reset your password to regain access to your Eco-Ride account. We’ll send a code to your registered email oe phone number to help you get back on track.">
-      <div className="onboarding__page--right pt-[92px] md:pt-0">
-        <div className="w-full">
-          <div className="auth-head">
-            <Logo className="flex-center" logoClassName="w-[122px]" />
-            <Heading
-              title="Forgot Password"
-              tclass="auth-title"
-              description="Enter registered phone number or email to receive a reset code"
-              dclass="auth-desc"
-            />
-          </div>
-
-          <form className="auth-form" onSubmit={handleSubmit}>
-            <div className="space-y-7">
-              <ReusableFormRows type="forget" />
-            </div>
-
-            <div className="w-full max-w-[343px] mx-auto border mt-10">
-              <Btn
-                text="Send Code"
-                styling="btn btn--lg btn--primary w-full rounded-full"
-                disabled={isDisbaled}
-              />
-            </div>
-          </form>
+    <SharedStepLayout
+      text={onboarding_descs.forget}
+      headClass="w-full"
+      headTitle="Forgot Password"
+      headDesc="Enter registered phone number or email to receive a reset code"
+      prevProcess={prevProcess}
+    >
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <div className="space-y-7">
+          <ReusableFormRows type="forget" />
         </div>
-      </div>
+
+        <div className="w-full max-w-[343px] mx-auto border mt-10">
+          <Btn
+            text="Send Code"
+            styling="btn btn--lg btn--primary w-full rounded-full"
+            disabled={isDisbaled}
+          />
+        </div>
+      </form>
     </SharedStepLayout>
   );
 };

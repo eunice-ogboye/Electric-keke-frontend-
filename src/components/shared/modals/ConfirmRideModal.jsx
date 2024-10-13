@@ -12,9 +12,9 @@ const ConfirmRideModal = ({ isModalOpen, openModal, closeModal }) => {
   };
 
   const handleClick2 = (e) => {
-    e.preventDefault();
     showAlert("payment confirmed");
   };
+  
   return (
     <CustomModal
       openModal={openModal}

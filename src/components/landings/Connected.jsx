@@ -22,9 +22,9 @@ const Connected = ({ type = "main" }) => {
           <Heading
             className="w-full text-center text-eco-white"
             title={connected.title}
-            tclass="font-josefin"
+            tclass="page-brief__title title--light"
             description={connected.desc}
-            dclass="mt-6 text-base md:text-2xl"
+            dclass="page-brief__desc !text-neutral"
             type="about"
             initial={{ y: -200 }}
             animate={{ y: 0 }}

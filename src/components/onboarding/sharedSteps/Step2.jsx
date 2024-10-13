@@ -1,12 +1,10 @@
 import Assurance from "../../auth/Assurance";
 import SharedStepLayout from "../SharedStepLayout";
 import ReusableFormRows from "../../auth/ReusableFormRows";
-import Logo from "../../shared/Logo";
-import Heading from "../../shared/Heading";
 import { useAreInputsFilled } from "../../../hooks/useAreInputsFilled";
 import { useSelector } from "react-redux";
-import { ArrowLeft } from "lucide-react";
 import Btn from "@/components/shared/btn/Btn";
+import { onboarding_descs } from "@/constants";
 
 const Step2 = ({ nextProcess, prevProcess }) => {
   const { phone, state, address } = useSelector((state) => state.formData);
@@ -14,39 +12,25 @@ const Step2 = ({ nextProcess, prevProcess }) => {
 
   return (
     <SharedStepLayout
-      text="Complete your profile to unlock the full EcoRide experience. Help us personalize your journey and enhance your eco-friendly rides."
+      text={onboarding_descs.complete}
+      headTitle="Complete your profile"
       prevProcess={prevProcess}
     >
-      <div className="onboarding__page--right">
-        {/* <Btn
-          icon={<ArrowLeft />}
-          className="absolute top-5 left-5"
-          onClick={prevProcess}
-        /> */}
-
-        <div className="w-full">
-          <div className="auth-head">
-            <Logo className="flex-center" logoClassName="w-[122px]" />
-            <Heading title="Complete your profile" tclass="auth-title" />
-          </div>
-
-          <form className="auth-form" onSubmit={(e) => e.preventDefault()}>
-            <div className="space-y-7 mb-6 md:mb-14">
-              <ReusableFormRows type="complete" />
-            </div>
-
-            <div className="w-[343px] mx-auto">
-              <Btn
-                text="Continue"
-                styling="btn btn--lg btn--primary w-full rounded-full mb-4"
-                disabled={isDisabled}
-                onClick={() => nextProcess()}
-              />
-              <Assurance />
-            </div>
-          </form>
+      <form className="auth-form" onSubmit={(e) => e.preventDefault()}>
+        <div className="space-y-7 mb-6 md:mb-14">
+          <ReusableFormRows type="complete" />
         </div>
-      </div>
+
+        <div className="w-[343px] mx-auto">
+          <Btn
+            text="Continue"
+            styling="btn btn--lg btn--primary w-full rounded-full mb-4"
+            disabled={isDisabled}
+            onClick={() => nextProcess()}
+          />
+          <Assurance />
+        </div>
+      </form>
     </SharedStepLayout>
   );
 };

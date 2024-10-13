@@ -11,9 +11,9 @@ const Mission = () => {
           introTitle="Our Vision"
           introClass="text-base-white mission"
           title={mission.title}
-          tclass="text-base-white font-josefin"
+          tclass="page-brief__title title--light"
           description={mission.desc}
-          dclass="mission-desc"
+          dclass="page-brief__desc !text-neutral"
           className="max-w-[894px]"
         />
       </div>
@@ -31,7 +31,7 @@ const Mission = () => {
         initial={{ y: 200, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
-        className="mt-14 max-w-[933px] mx-auto"
+        className="mt-14 max-w-[933px] mx-auto px-4"
       >
         <p className="mission-bottom-text">{mission.statement}</p>
       </motion.div>

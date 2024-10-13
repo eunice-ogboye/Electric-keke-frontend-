@@ -5,7 +5,6 @@ import PassengerStep3 from "./passengers/PassengerStep3";
 import Step1 from "./sharedSteps/Step1";
 import Step2 from "./sharedSteps/Step2";
 import PassengerStep4 from "./passengers/PassengerStep4";
-import Congrats from "./Congrats";
 import Login from "./login/Login";
 import ForgetPassword from "./login/ForgetPassword";
 import VerifyOtp from "./login/VerifyOtp";
@@ -24,7 +23,7 @@ const OnboardRegister = () => {
   const runOnFinish = () => {
     addItemToLs("onboarding-process", 0);
     addItemToLs("registeringAs", "Login");
-    location.reload();
+    // location.reload();
   };
 
   const runOnbordingStart = () => {
@@ -47,7 +46,6 @@ const OnboardRegister = () => {
             <Step2 />
             <PassengerStep3 />
             <PassengerStep4 />
-            <Congrats />
           </OnboardingForm>
         )}
 

@@ -154,12 +154,14 @@ h2 {
   @apply border
 }
 
-
 /****** onbaord ********/
 .board__onboarding {
   @apply hidden h-screen md:block md:w-6/12 lg:w-1/2 rounded-e-20 overflow-hidden board-shadow sticky top-0
 }
 
+.board__brief {
+  @apply text-eiteen laptop:text-2xl font-medium text-neutral
+}
 
 .board__register {
   @apply px-5 py-[45px] w-full md:w-7/12 lg:w-1/2 h-screen
@@ -254,24 +256,25 @@ h2 {
 }
 
 .onboarding__page--right {
-  @apply w-full sm:w-[1024px] md:w-6/12 lg:w-1/2 flex-center px-4 pb-10 relative
+  @apply w-full sm:w-[1024px] md:w-6/12 lg:w-1/2 flex-center px-4 pb-10 relative min-h-screen
 }
 
-.auth-title {
-  @apply text-center text-2xl mt-2 lg:mt-10
+.onboarding-head {
+  @apply w-full mx-auto max-w-[515px]
 }
 
-.auth-desc {
-  @apply text-center text-sm lg:text-eiteen mt-3
+.onboarding-head__title {
+  @apply text-center text-2xl mt-2 lg:mt-10 font-bold
+}
+
+.onboarding-desc {
+  @apply text-center text-sm tablet:text-eiteen mt-3 text-[#696F79]
 }
 
 .auth-form {
-  @apply w-full max-w-[468px] mt-5 md:mt-14 mx-auto
+  @apply w-full md:max-w-[468px] laptop:max-w-[600px] mt-5 md:mt-14 mx-auto
 }
 
-.auth-head {
-  @apply w-full mx-auto max-w-[515px]
-}
 
 .otp-opt {
   @apply px-4 py-2 flex items-center border-2 h-[66px] rounded-[6px] cursor-pointer
@@ -293,12 +296,10 @@ h2 {
   @apply size-full object-cover object-center rounded-xl
 }
 
-.briefing {
-  @apply text-white font-bold text-xl lg:text-[2rem] leading-[24px] lg:leading-[2rem] font-montserrat;
-}
+
 
 .home-pad {
-  @apply px-[17px] tablet:px-20 laptop:px-[7.5rem];
+  @apply px-4 tablet:px-20 laptop:px-[7.5rem];
 }
 
 /******** HOME HERO ******/
@@ -311,7 +312,7 @@ h2 {
 }
 
 .hero-title {
-  @apply text-base-white text-[2rem] tablet:text-[2.8rem] laptop:text-[4rem] font-bold text-center tablet:leading-[76.8px] tracking-tighter font-josefin
+  @apply text-base-white text-[2rem] tablet:text-[2.89rem] laptop:text-[4rem] font-bold text-center tablet:leading-[76.8px] tracking-tighter font-josefin
 }
 
 .hero-description {
@@ -324,6 +325,22 @@ h2 {
 
 .page-brief-container {
   @apply laptop:pl-[7.5rem] laptop:pr-[5rem] tablet:px-20 px-4 py-6 tablet:pt-[4.5rem] tablet:pb-[5.6rem] bg-base-white overflow-hidden
+}
+
+.page-brief__title {
+  @apply text-[2rem] tablet:text-[40px] laptop:text-5xl font-josefin font-bold
+}
+
+.title--dark {
+  @apply text-neutral-1000
+}
+
+.title--light {
+  @apply text-neutral
+}
+
+.page-brief__desc {
+  @apply mt-3 text-base tablet:text-xl lg:text-2xl text-neutral-500
 }
 
 .about-brief {
@@ -380,11 +397,11 @@ h2 {
 }
 
 .service__title {
-  @apply max-w-[623px] mx-auto text-center font-josefin
+  @apply max-w-[623px] mx-auto text-center
 }
 
 .service__desc {
-  @apply mt-3 md:mt-7 text-center text-base tablet:text-xl laptop:text-2xl
+  @apply mt-3 md:mt-7 text-center
 }
 
 .services {
@@ -396,7 +413,7 @@ h2 {
 }
 
 .service-card {
-  @apply bg-white drop-shadow-service border border-neutral-thick rounded-[21px] h-[219px] tablet:min-h-[235.44px] laptop:h-[327px] flex-center p-2 service-shadow;
+  @apply bg-white drop-shadow-service border border-neutral-thick rounded-[21px] min-h-[219px] tablet:min-h-[235.44px] laptop:min-h-[327px] flex-center p-2 service-shadow;
 }
 
 .service-card__content {
@@ -539,7 +556,7 @@ h2 {
 }
 
 .testimony-paragraph {
-  @apply text-neutral-500 text-base md:text-xl lg:text-2xl text-center md:text-left
+  @apply text-center md:text-left
 }
 
 .testimony-data {
@@ -551,12 +568,9 @@ h2 {
   @apply py-14 lg:py-[7.5rem] bg-basic-500
 }
 
-.mission-desc {
-  @apply !text-base-white text-base md:text-xl lg:text-2xl mt-4
-}
 
 .mission-bottom-text {
-  @apply text-center text-xs md:text-xl lg:text-2xl text-base-white
+  @apply text-center text-xxs md:text-xl lg:text-2xl text-base-white
 }
 
 /************* contribution *************/

@@ -7,7 +7,7 @@ const Testimony = ({ index, currentTestimony, name, testimony, location, initial
       whileInView={animate}
       className={`testimony ${index !== currentTestimony && "absolute"}`}
     >
-      <p className="testimony-paragraph">{testimony}</p>
+      <p className="page-brief__desc testimony-paragraph">{testimony}</p>
 
       <div className="mt-6 text-center md:text-left">
         <p className="testimony-data">{name}</p>

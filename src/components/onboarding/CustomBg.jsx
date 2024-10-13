@@ -18,7 +18,7 @@ const CustomBg = ({ text }) => {
       </div>
 
       <div className="w-[320px] lg:w-[501px] mx-auto">
-        <h1 className="briefing">{text}</h1>
+        <h1 className="board__brief">{text}</h1>
       </div>
     </div>
   );

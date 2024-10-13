@@ -1,8 +1,9 @@
 import { footer_note, socials } from "../../constants";
-import Logo from "../shared/Logo";
+// import Logo from "../shared/Logo";
 import { motion } from "framer-motion";
 import { HashLink as Link } from "react-router-hash-link";
 import RegularList from "./_design-pattern/RegularList";
+import { LogoPlain } from "@/assets/svg/Logo";
 
 const Footer = () => {
   return (
@@ -15,7 +16,7 @@ const Footer = () => {
           className="footer-main"
         >
           <div className="footer-brief-container">
-            <Logo logoClassName="w-[72px] h-[39px]" />
+            <LogoPlain styling="w-[72px] h-[39px]" />
             <p className="footer-brief">{footer_note}</p>
           </div>
 

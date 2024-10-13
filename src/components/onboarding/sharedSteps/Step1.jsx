@@ -3,11 +3,8 @@ import SharedStepLayout from "../SharedStepLayout";
 import Google from "../../../assets/svg/Google";
 import { Link } from "react-router-dom";
 import ReusableFormRows from "../../auth/ReusableFormRows";
-import Heading from "../../shared/Heading";
-import Logo from "../../shared/Logo";
 import { useAreInputsFilled } from "../../../hooks/useAreInputsFilled";
 import { useSelector } from "react-redux";
-// import { ArrowLeft } from "lucide-react";
 import { addItemToLs } from "../../../utils/ls";
 import { onboarding_descs } from "../../../constants";
 import Btn from "@/components/shared/btn/Btn";
@@ -47,65 +44,51 @@ const Step1 = ({ nextProcess, prevProcess }) => {
   const goToLogin = () => {
     addItemToLs("onboarding-process", 0);
     addItemToLs("registeringAs", "Login");
-    location.reload();
+    // location.reload();
   };
 
   return (
     <SharedStepLayout
       text={onboarding_descs.register}
       prevProcess={prevProcess}
+      headTitle="Register Your Account"
     >
-      <div className="onboarding__page--right relative">
-        {/* <Btn
-          icon={<ArrowLeft />}
-          styling="absolute top-5 left-5"
-          onClick={prevProcess}
-        /> */}
-
-        <div className="w-full">
-          <div className="auth-head">
-            <Logo className="flex-center" logoClassName="w-[122px]" />
-            <Heading title="Register Your Account" tclass="auth-title" />
-          </div>
-
-          <form className="auth-form" onSubmit={handleSubmit}>
-            <div className="space-y-7">
-              <ReusableFormRows
-                type="register"
-                standardPassword={standardPassword}
-              />
-            </div>
-
-            <p className="switch-login my-[50px]">
-              Already have an account?{" "}
-              <Link
-                to="/onboarding/registration"
-                onClick={goToLogin}
-                className="text-basic"
-              >
-                Login!
-              </Link>
-            </p>
-
-            <div className="w-full max-w-[343px] mx-auto">
-              <Btn
-                text="Continue"
-                styling="btn btn--primary btn--lg w-full rounded-full"
-                disabled={isDisabled}
-              />
-
-              <div className="mt-5">
-                <p className="font-bold text-center">or</p>
-                <Btn
-                  text="Register with Google"
-                  styling="btn btn--lg w-full rounded-full bg-white shadow-md text-black"
-                  icon={<Google />}
-                />
-              </div>
-            </div>
-          </form>
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <div className="space-y-7">
+          <ReusableFormRows
+            type="register"
+            standardPassword={standardPassword}
+          />
         </div>
-      </div>
+
+        <p className="switch-login my-[50px]">
+          Already have an account?{" "}
+          <Link
+            to="/onboarding/registration"
+            onClick={goToLogin}
+            className="text-basic"
+          >
+            Login!
+          </Link>
+        </p>
+
+        <div className="w-full max-w-[343px] mx-auto">
+          <Btn
+            text="Continue"
+            styling="btn btn--primary btn--lg w-full rounded-full"
+            disabled={isDisabled}
+          />
+
+          <div className="mt-5">
+            <p className="font-bold text-center">or</p>
+            <Btn
+              text="Register with Google"
+              styling="btn btn--lg w-full rounded-full bg-white shadow-md text-black"
+              icon={<Google />}
+            />
+          </div>
+        </div>
+      </form>
     </SharedStepLayout>
   );
 };

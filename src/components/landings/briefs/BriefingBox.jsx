@@ -32,9 +32,9 @@ const BriefingBox = ({ brief, type }) => {
               introTitle={introTitle && introTitle}
               introClass="text-basic"
               title={title}
-              tclass="text-eco-neutral font-josefin"
+              tclass="page-brief__title title-dark"
               description={description}
-              dclass="mt-3 text-base tablet:text-xl lg:text-2xl"
+              dclass="page-brief__desc"
               type="about"
             />
             {showBtn && (

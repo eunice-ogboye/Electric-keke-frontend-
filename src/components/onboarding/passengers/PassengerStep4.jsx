@@ -11,6 +11,7 @@ import { useAreInputsFilled } from "../../../hooks/useAreInputsFilled";
 import { ActivateUser } from "../../../services/auth";
 import { deletItemFromLs, getItemFromLs } from "../../../utils/ls";
 import Btn from "@/components/shared/btn/Btn";
+import { onboarding_descs } from "@/constants";
 
 const PassengerStep4 = ({ nextProcess, prevProcess }) => {
   const { otpValue } = useSelector((state) => state.formData);
@@ -42,46 +43,34 @@ const PassengerStep4 = ({ nextProcess, prevProcess }) => {
 
   return (
     <SharedStepLayout
-      text="Enter the OTP sent to your phone to verify your account. This ensures your Eco-Ride is secure and personalized. your safety is our priority."
+      text={onboarding_descs.verification}
+      headTitle="Complete your profile"
+      headDesc="Please enter the one time password sent (OTP)"
       prevProcess={prevProcess}
     >
-      <div className="onboarding__page--right pt-[72px] md:pt-0">
-        <div className="w-full">
-          <div className="auth-head">
-            <Logo className="flex-center" logoClassName="w-[122px]" />
-            <Heading
-              title="Complete Your Profile"
-              description="Please enter the one time password sent (OTP)"
-              tclass="auth-title"
-              dclass="text-center text-sm text-eiteen font-josefin"
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <div className="max-w-[438px] mx-auto space-y-4">
+          <div>
+            <OtpInput
+              value={otpValue}
+              handleChange={(value) => {
+                setOtpValue(value);
+              }}
             />
           </div>
 
-          <form className="auth-form" onSubmit={handleSubmit}>
-            <div className="max-w-[438px] mx-auto space-y-4">
-              <div>
-                <OtpInput
-                  value={otpValue}
-                  handleChange={(value) => {
-                    setOtpValue(value);
-                  }}
-                />
-              </div>
-
-              <ResendOtpTab verificationType="activate" />
-            </div>
-
-            <div className="max-w-[343px] mx-auto space-y-4 mt-6 lg:mt-14">
-              <Btn
-                text="Continue"
-                styling="btn--lg btn w-full rounded-full btn--primary"
-                disabled={isDisbaled}
-              />
-              <Assurance />
-            </div>
-          </form>
+          <ResendOtpTab verificationType="activate" />
         </div>
-      </div>
+
+        <div className="max-w-[343px] mx-auto space-y-4 mt-6 lg:mt-14">
+          <Btn
+            text="Continue"
+            styling="btn--lg btn w-full rounded-full btn--primary"
+            disabled={isDisbaled}
+          />
+          <Assurance />
+        </div>
+      </form>
     </SharedStepLayout>
   );
 };

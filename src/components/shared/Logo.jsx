@@ -1,17 +1,8 @@
+import { LogoPlain } from "@/assets/svg/Logo";
 import { Link } from "react-router-dom";
 
 const Logo = ({ logoClassName, className }) => {
-  return (
-    <Link to="/">
-      <div className={className}>
-        <img
-          src="/logo.svg"
-          alt="logo"
-          className={logoClassName || "size-full"}
-        />
-      </div>
-    </Link>
-  );
+  return <LogoPlain />;
 };
 
 export default Logo;

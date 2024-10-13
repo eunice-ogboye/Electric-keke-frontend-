@@ -9,9 +9,9 @@ const Services = ({ type = "main" }) => {
       <Heading
         introTitle={type === "main" && "Service"}
         title={type === "main" ? about_titles.two : "What We Offer"}
-        tclass="service__title"
+        tclass="page-brief__title service__title"
         description={type === "main" && about_descriptions.two}
-        dclass="service__desc"
+        dclass="page-brief__desc service__desc"
         introClass="mx-auto text-basic"
         type="about"
         initial={{ y: type === "main" ? -100 : -50, opacity: 0 }}
