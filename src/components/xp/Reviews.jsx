@@ -4,7 +4,7 @@ import {
 } from "../../constants/variants";
 import reviews from "../../mock-data/reviews";
 import SingleReview from "./SingleReview";
-import Overlay from "../onboarding/Overlay";
+import Overlay from "../Overlay";
 
 const Reviews = () => {
   return (

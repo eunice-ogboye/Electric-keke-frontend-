@@ -1,11 +1,10 @@
-import Filter from "../Filter";
 import {
   overview_titles,
   overview_descriptions,
   user_management_filter,
 } from "../../constants";
-import CustomFilter from "../shared/CustomFilter";
-import Btn from "../shared/btn/Btn";
+import Btn from "../btn/Btn";
+import CustomFilter from "../CustomFilter";
 
 const OverviewInfo = ({ currentPage, changeContentToDisplay }) => {
   return (

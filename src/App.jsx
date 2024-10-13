@@ -1,17 +1,17 @@
 import { Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useSelector } from "react-redux";
-import Alert from "./components/shared/Alert";
 import "leaflet/dist/leaflet.css";
-import About from "./pages/landing-pages/About";
-import Home from "./pages/landing-pages/Home";
-import Earn from "./pages/landing-pages/Earn";
-import Support from "./pages/landing-pages/Support";
-import ProtectedRoute from "./sharedLayouts/Private";
-import InternalServer from "./pages/error-pages/InternalServer";
+import About from "./pages/About";
+import Home from "./pages/Home";
+import Earn from "./pages/Earn";
+import Support from "./pages/Support";
+import ProtectedRoute from "./layouts/Private";
+import InternalServer from "./pages/InternalServer";
 import Loader from "./components/loaders/Loader";
-import NotFound from "./pages/not-found/NotFound";
-import Onboarding from "./pages/onboarding";
+import NotFound from "./pages/NotFound";
+import Onboarding from "./pages/Onboarding";
+import Alert from "./components/Alert";
 
 function App() {
   const {

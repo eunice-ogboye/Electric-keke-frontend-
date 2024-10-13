@@ -1,4 +1,4 @@
-import Btn from "../shared/btn/Btn";
+import Btn from "../btn/Btn";
 
 const Messaging = () => {
   return (

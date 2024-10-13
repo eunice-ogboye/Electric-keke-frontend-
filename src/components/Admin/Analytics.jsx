@@ -1,5 +1,4 @@
-import React from "react";
-import PieChart from "../shared/PieChart";
+// import PieChart from "../shared/PieChart";
 import Experimental from "../shared/experimental/Experimental";
 
 const Analytics = () => {

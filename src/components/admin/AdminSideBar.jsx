@@ -5,7 +5,7 @@ import SettingAdmin from "@/assets/svg/SettingAdmin";
 import { Logout  } from "@/services/auth";
 import dispatchables from "@/utils/dispatchables";
 import LogoutIcon from "@/assets/svg/logout-icon";
-import Btn from "../shared/btn/Btn";
+import Btn from "../btn/Btn";
 
 const AdminSideBar = ({ setCurrentAdminPage }) => {
   const navigate = useNavigate();

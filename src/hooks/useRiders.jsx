@@ -1,10 +1,10 @@
-import { GetAvailableRiders } from "../services/bookings";
+import { GetAvailableRiders } from "../features/booking/services";
 import { getItemFromLs } from "../utils/ls";
 import { useEffect, useState } from "react";
 import useReroute from "./useReroute";
 
 export const useRiders = (key) => {
-  console.log(key)
+  console.log(key);
   const [isLoading, setIsLoading] = useState(true);
   const [riders, setRiders] = useState(getItemFromLs(key) || null);
   const rerouting = useReroute();

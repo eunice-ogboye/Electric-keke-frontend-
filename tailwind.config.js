@@ -71,7 +71,9 @@ module.exports = {
         },
         neutral: {
           DEFAULT: "#FAFAFA",
+          40: "#E9EEF3",
           100: "#E3E3E3",
+          130: "#2A425D",
           200: "#CCCBCB",
           300: "#B5B3B3",
           400: "#9F9C9C",

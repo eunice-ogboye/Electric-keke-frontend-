@@ -51,11 +51,7 @@ export const LogoPlain = ({ styling, logoStyling }) => {
   return (
     <Link to="/">
       <div className={styling}>
-        <img
-          src="/logo.svg"
-          alt="logo"
-          className={`image ${logoStyling}`}
-        />
+        <img src="/logo.svg" alt="logo" className={logoStyling} />
       </div>
     </Link>
   );
