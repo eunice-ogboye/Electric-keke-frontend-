@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Lawal Mohammed",
+    "photo": "/team/lawal.svg",
+    "location": "United Kingdom",
+    "role": "CEO"
+  },
+  {
+    "name": "Airxist",
+    "photo": "/team/airxist.svg",
+    "location": "Nigeria",
+    "role": "Chief Operating Officer"
+  },
+  {
+    "name": "Emem David",
+    "photo": "/team/emem.svg",
+    "location": "Rwanda",
+    "role": "Chief Technology Officer"
+  }
+]

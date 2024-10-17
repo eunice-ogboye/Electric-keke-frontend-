@@ -1,0 +1,22 @@
+const url =
+  "https://forward-reverse-geocoding.p.rapidapi.com/v1/search?q=Berger,Lagos,Nigeria&format=json&addressdetails=1&namedetails=0&accept-language=en&limit=5&bounded=0&polygon_text=0&polygon_svg=0&polygon_kml=0&polygon_geojson=0&polygon_threshold=0.0";
+const options = {
+  method: "GET",
+  headers: {
+    "x-rapidapi-key": "db03bddaeemsh62b143504cfcb50p193442jsnbd5adb335549",
+    "x-rapidapi-host": "forward-reverse-geocoding.p.rapidapi.com",
+  },
+};
+const fetchData = async () => {
+  try {
+    const response = await fetch(url, options);
+    const result = await response.json();
+    console.log(result);
+    // result.forEach(item => {
+    //   console.log(item.display_name, item.lat, item.lon)
+    // })
+  } catch (error) {
+    console.error(error);
+  }
+};
+fetchData();

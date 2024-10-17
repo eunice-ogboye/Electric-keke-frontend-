@@ -1,0 +1,56 @@
+[
+  {
+    "id": "0",
+    "fullname": "Josemaria",
+    "email": "Joseysafekeep@gmail.com",
+    "rating": 2,
+    "plate_number": "IKJ-479XA",
+    "color": "White",
+    "photo": "/persons/rider1.png"
+  },
+  {
+    "id": "1",
+    "fullname": "Olumide Daniel",
+    "email": "rider@mail.com",
+    "rating": 4,
+    "plate_number": "IKJ-479XA",
+    "color": "Red",
+    "photo": "/persons/rider2.png"
+  },
+  {
+    "id": "2",
+    "fullname": "John Okafor",
+    "email": "rider@mail.com",
+    "rating": 3,
+    "plate_number": "IKJ-479XA",
+    "color": "Black",
+    "photo": "/persons/rider3.png"
+  },
+  {
+    "id": "3",
+    "fullname": "Tariq",
+    "email": "rider@mail.com",
+    "rating": 3,
+    "plate_number": "IKJ-479XA",
+    "color": "Black",
+    "photo": "/persons/rider4.jpeg"
+  },
+  {
+    "id": "4",
+    "fullname": "JohnBull MySon",
+    "email": "rider@mail.com",
+    "rating": 2,
+    "plate_number": "VIC-479TK",
+    "color": "Black",
+    "photo": "/persons/rider5.jpeg"
+  },
+  {
+    "id": "5",
+    "fullname": "Clark Kent",
+    "email": "rider@mail.com",
+    "rating": 4,
+    "plate_number": "VIC-479TK",
+    "color": "Black",
+    "photo": "/persons/rider6.png"
+  }
+]
